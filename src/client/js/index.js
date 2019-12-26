@@ -2,7 +2,7 @@ import logMessage from './logger'
 import './../css/style.css'
 
 // Log message to console
-logMessage('Its finished!!')
+logMessage("It's finished!!")
 
 /*eslint-env node*/
 if (module.hot) {

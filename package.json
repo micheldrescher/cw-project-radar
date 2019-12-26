@@ -24,9 +24,9 @@
         "url": "https://github.com/micheldrescher/cw-project-radar.git"
     },
     "dependencies": {
-        "serialize-javascript": ">=2.1.1",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
+        "validator": "^12.1.0",
         "winston": "^3.2.1"
     },
     "engines": {

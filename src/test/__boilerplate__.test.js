@@ -3,7 +3,7 @@
 
 import adder from '../shared/__boilerplate__'
 
-describe('Adder', () => {
+describe('__Boulerplate__', () => {
     test('returns the sum of two numbers', () => {
         expect(adder(5, 3)).toEqual(8)
     })
