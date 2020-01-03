@@ -9,6 +9,7 @@
         "buildDev": "rm -rf dist && webpack --mode development --config webpack.server.config.js && webpack --mode development --config webpack.dev.config.js",
         "buildProd": "rm -rf dist && webpack --mode production --config webpack.server.config.js && webpack --mode production --config webpack.prod.config.js",
         "start": "node ./dist/server/server.js",
+        "clean": "rm -rf dist && rm -rf node_modules/*",
         "debug": "ndb ./dist/server/server.js"
     },
     "keywords": [
@@ -25,8 +26,11 @@
         "url": "https://github.com/micheldrescher/cw-project-radar.git"
     },
     "dependencies": {
+        "@babel/polyfill": "^7.7.0",
+        "core-js": "^2.6.11",
         "dotenv": "^8.2.0",
         "express": "^4.17.1",
+        "mongoose": "^5.8.3",
         "validator": "^12.1.0",
         "winston": "^3.2.1"
     },
@@ -47,6 +51,7 @@
         "babel-eslint": "^9.0.0",
         "babel-jest": "^24.9.0",
         "babel-loader": "^8.0.6",
+        "babel-polyfill": "^6.26.0",
         "css-loader": "^3.4.0",
         "eslint": "^6.0.0",
         "eslint-config-prettier": "^6.8.0",

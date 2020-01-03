@@ -5,4 +5,4 @@ const adder = (a, b) => {
     return a + b
 }
 
-module.exports = adder
+export { adder as default }
