@@ -18,8 +18,8 @@ TBC
 
 The server REST API forms the central integration point for the application.
 
-The client is served from the root of the server, i.e. https://<server>:<port>/
+The client is served from the root of the server, i.e. https://server:port/
 
-All REST functionality is served from the following base endpoint: https://<server>:<port>/api/v1
+All REST functionality is served from the following base endpoint: https://server:port/api/v1
 
-Documentation for the REST API v1 is [here](Rest API v1.md).
+Documentation for the REST API v1 is [here](https://github.com/micheldrescher/cw-project-radar/blob/master/REST%20API%20v1.md).
