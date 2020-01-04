@@ -1,11 +1,17 @@
-import path from 'path'
-import express from 'express'
-import AppError from './util/AppError'
-import globalErrorHandler from './controllers/errorController'
+// import dev mode plugins
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
 import config from '../../webpack.dev.config.js'
+
+// import global modules
+import path from 'path'
+import express from 'express'
+
+// import app modules
+import AppError from './util/AppError'
+import globalErrorHandler from './controllers/errorController'
+import pingRouter from './routes/pingRoutes'
 
 const DIST_DIR = path.join(__dirname, '../client/')
 const HTML_FILE = path.join(DIST_DIR, 'index.html')
@@ -34,22 +40,25 @@ if (process.env.NODE_ENV === 'development') {
             res.end()
         })
     })
-} else if (process.env.NODE_ENV === 'production') {
+}
+// configure express for production mode
+else if (process.env.NODE_ENV === 'production') {
     app.use(express.static(DIST_DIR))
     // serve the client from the root "route"
     app.get('/', (req, res) => {
         res.sendFile(HTML_FILE)
     })
-} else {
+}
+// wrong env var value --> exit server
+else {
     throw new AppError('Wrong NODE_ENV value set: Only "development" or "production" allowed!')
 }
 
 //
 // MOUNT ROUTERS
 //
-
-// FINAL CATCHALL ROUTE to handle undefined routes
-// catch-all to handle undefined routes
+app.use('/ping', pingRouter)
+// LAST ROUTE to catch requests to undefined routes
 app.all('*', (req, res, next) => {
     next(new AppError(`Cannot find ${req.originalUrl} on this server.`, 404)) // --> automatically passes that to the error handler defined below
 })

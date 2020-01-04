@@ -1,3 +1,5 @@
+import logger from './util/logger'
+
 //
 // HANDLING UNCAUGHT EXCEPTIONS
 // This needs to be one of the first things to register
@@ -6,6 +8,7 @@
 process.on('uncaughtException', err => {
     logger.error('Uncaught exception --> Shutting down.')
     logger.error(err)
+    process.exit(1) // rather hardcore but all we can do for now
 })
 
 //
@@ -14,7 +17,6 @@ process.on('uncaughtException', err => {
 import dotenv from 'dotenv'
 dotenv.config({ path: './config.env' })
 import app from './app'
-import logger from './util/logger'
 
 //
 // START SERVER
