@@ -1,4 +1,5 @@
 import logger from './util/logger'
+import mongoose from 'mongoose'
 
 //
 // HANDLING UNCAUGHT EXCEPTIONS
@@ -17,6 +18,20 @@ process.on('uncaughtException', err => {
 import dotenv from 'dotenv'
 dotenv.config({ path: './config.env' })
 import app from './app'
+
+//
+// CONNECT TO DB
+//
+let DB = process.env.DB_URL.replace('<USER>', process.env.DB_USER)
+DB = DB.replace('<PASSWORD>', process.env.DB_PASSWD)
+mongoose
+    .connect(DB, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true
+    })
+    .then(() => logger.info('DB connection successful!'))
 
 //
 // START SERVER
