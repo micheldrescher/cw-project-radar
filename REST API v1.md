@@ -47,7 +47,8 @@ Send a POST request with the body carrying a JSON object containing the username
     1. `password` - String (required)
 
 ** Example:**
-`{ 
+```json
+{ 
     "name": "testadmin", 
     "password": "admin123" 
 }`
@@ -58,18 +59,19 @@ A successful login attempt will be acquitted with a HTTP 200 OK response carryin
 
 1. Status code: 200 OK
 1. Body:
-    1. status (success, fail, or error)
-    1. token (the JWT token)
-    1. data
-        1. user
-            1. _id (the MongoDB system-wide unique id)
-            1. name
-            1. role
+    1. `status` (success, fail, or error)
+    1. `token` (the JWT token)
+    1. `data`
+        1. `user`
+            1. `_id` (the MongoDB system-wide unique id)
+            1. `name`
+            1. `role`
 
 **Example:**
-`{
+```JSON
+{
     "status": "success",
-    "token":            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMTQ3YWFkMWNhZjM0YTZiNzc4ZWRjNiIsImlhdCI6MTU3ODQwMDUxNywiZXhwIjoxNTgwOTkyNTE3fQ.OlQHf0WE9X3zfX0L0dRxVYXDWEr_rimdqMGlWVUDe30",
+    "token":                "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlMTQ3YWFkMWNhZjM0YTZiNzc4ZWRjNiIsImlhdCI6MTU3ODQwMDUxNywiZXhwIjoxNTgwOTkyNTE3fQ.OlQHf0WE9X3zfX0L0dRxVYXDWEr_rimdqMGlWVUDe30",
     "data": {
         "user": {
             "role": "admin",
