@@ -51,7 +51,7 @@ Send a POST request with the body carrying a JSON object containing the username
 { 
     "name": "testadmin", 
     "password": "admin123" 
-}`
+}```
 
 #### Response
 
@@ -79,7 +79,7 @@ A successful login attempt will be acquitted with a HTTP 200 OK response carryin
             "name": "testadmin"
         }
     }
-}`
+}```
 
 ### Logging off
 
