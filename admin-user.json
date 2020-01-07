@@ -1,0 +1,6 @@
+{
+    "name": "testadmin",
+    "role": "admin",
+    "active": true,
+    "password":"$2a$12$2coZ5WAe3rG9K/sQliRQmO/ZjQh4p6RCd0j5Yq1r5faFYDibcBAli"
+}
