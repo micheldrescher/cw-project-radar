@@ -36,7 +36,7 @@ However, the general flow of user management, authentication and authorisation f
 
 For any and all protected API routes, a user must be logged on first.
 
-#### Request
+##### Request
 
 Send a POST request with the body carrying a JSON object containing the username and password.
 
@@ -51,15 +51,16 @@ Send a POST request with the body carrying a JSON object containing the username
 { 
     "name": "testadmin", 
     "password": "admin123" 
-}```
+}
+```
 
-#### Response
+##### Response
 
 A successful login attempt will be acquitted with a HTTP 200 OK response carrying the JWT token (representng the login session) and the user details:
 
 1. Status code: 200 OK
 1. Body:
-    1. `status` (success, fail, or error)
+    1. `status`
     1. `token` (the JWT token)
     1. `data`
         1. `user`
@@ -79,14 +80,140 @@ A successful login attempt will be acquitted with a HTTP 200 OK response carryin
             "name": "testadmin"
         }
     }
-}```
+}
+```
 
 ### Logging off
 
+After protected operatins are completed, you should log off using this message exchange.
+
+##### Request
+
+1. Route: `/api/v1/user/logout`
+1. Method: GET
+1. Parameters: n/a
+
+##### Response
+
+If successful, the current user is logged out.
+
+1. Status code: 200 OK
+1. Body:
+    1. `status`
+
+**Example:**
+```json
+{
+    "status": "success"
+}
+```
+
 ### Get all users (admin user only)
+
+Obtain a list of all current users known to the system.
+
+##### Request
+
+1. Route: `/api/v1/user/`
+1. Method: GET
+1. Parameters: n/a
+
+##### Response
+
+If successful (e.g. being logged on as an admin user) the server responds with a list of all current users in the system.
+
+1. Status code: 200 OK
+1. Body:
+    1. `status`
+    1. `results` (the number of users in the system)
+    1. `data`
+        1. `data` (JSON array of users)
+            1. [user 1]
+                1. `_id` (the MongoDB system-wide unique id)
+                1. `name`
+                1. `role`
+            1. [user 2]
+                1. `_id` (the MongoDB system-wide unique id)
+                1. `name`
+                1. `role`
+            1. ... 
+
+**Example:**
+```JSON
+{
+    "status": "success",
+    "results": 2,
+    "data": {
+        "data": [
+            {
+                "role": "admin",
+                "_id": "5e135bcd961db4743ba21c18",
+                "name": "ADMIN"
+            },
+            {
+                "role": "admin",
+                "_id": "5e147aad1caf34a6b778edc6",
+                "name": "testadmin"
+            }
+        ]
+    }
+}
+```
 
 ### Get specific user (admin user only)
 
+Get the details for a specific user.
+
+##### Request
+
+1. Route: `/api/v1/user/<_id>`
+1. Method: GET
+1. Parameters: n/a
+
+##### Response
+
+A successful request returns with a 200 OK and the details of the user.
+
+1. Status code: 200 OK
+1. Body:
+    1. `status`
+    1. `data`
+        1. `data` object with user details
+            1. `_id` (the MongoDB system-wide unique id)
+            1. `name`
+            1. `role`
+
+**Example:**
+
+```json
+{
+    "status": "success",
+    "data": {
+        "data": {
+            "_id": "5e147aad1caf34a6b778edc6",
+            "name": "testadmin",
+            "role": "admin"
+        }
+    }
+}
+```
+
 ### Create user (admin user only)
 
+##### Request
+
+**Example:**
+
+##### Response
+
+**Example:**
+
 ### Delete user (admin user only)
+
+##### Request
+
+**Example:**
+
+##### Response
+
+**Example:**
