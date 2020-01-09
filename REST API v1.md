@@ -166,7 +166,7 @@ Get the details for a specific user.
 
 ##### Request
 
-1. Route: `/api/v1/user/<_id>`
+1. Route: `/api/v1/user/<_id>` (the MongoDB id of the user)
 1. Method: GET
 1. Parameters: n/a
 
@@ -200,10 +200,25 @@ A successful request returns with a 200 OK and the details of the user.
 
 ### Create user (admin user only)
 
+Create a new user document.
+
 ##### Request
 
-**Example:**
+1. Route: `/api/v1/user/`
+1. Method: POST
+1. Parameters:
+    1. `name` (The username. Must be unique.)
+    1. `password` (the password for the user in clear text. Must be at least 8 characters long.)
+    1. `passwordConfirm` (repeating the password for security purposes)
 
+**Example:**
+```json
+{
+	"name": "testuser",
+	"password": "testpassword",
+	"passwordConfirm": "testpassword"
+}
+```
 ##### Response
 
 **Example:**

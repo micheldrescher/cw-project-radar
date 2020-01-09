@@ -63,7 +63,12 @@ const createUser = catchAsync(async (req, res, next) => {
         passwordConfirm: req.body.passwordConfirm
     })
 
-    createSendToken(newUser, 201, req, res)
+    res.status(201).json({
+        status: 'success',
+        data: {
+            newUser
+        }
+    })
 })
 
 const getUser = getOne(User)
