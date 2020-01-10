@@ -8,7 +8,7 @@ export { User as default }
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
-        unique: true,
+        unique: true, // this is JUST an index shorthand, it does NOT prevent duplicates!
         required: [true, 'Please tell us your name!']
     },
     // email: {

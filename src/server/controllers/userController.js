@@ -1,7 +1,6 @@
 import User from './../model/userModel'
 import catchAsync from './../util/catchAsync'
 import { deleteOne, updateOne, getOne, getAll } from './handlerFactory'
-import { createSendToken } from './authController'
 
 export { createUser, getUser, getAllUsers, updateUser, deleteUser }
 
@@ -57,6 +56,9 @@ export { createUser, getUser, getAllUsers, updateUser, deleteUser }
 // })
 
 const createUser = catchAsync(async (req, res, next) => {
+    // trigger the index on users to prevent duplicates
+    await User.init()
+    // not that's done. create the new users
     const newUser = await User.create({
         name: req.body.name,
         password: req.body.password,
