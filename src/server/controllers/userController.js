@@ -59,11 +59,13 @@ const createUser = catchAsync(async (req, res, next) => {
     // trigger the index on users to prevent duplicates
     await User.init()
     // not that's done. create the new users
-    const newUser = await User.create({
+    let newUser = await User.create({
         name: req.body.name,
         password: req.body.password,
         passwordConfirm: req.body.passwordConfirm
     })
+    // remove password from user before returning - otherwise it's a password leak
+    newUser.password = undefined
 
     res.status(201).json({
         status: 'success',
