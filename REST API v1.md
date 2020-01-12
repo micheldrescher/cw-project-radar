@@ -200,7 +200,7 @@ A successful request returns with a 200 OK and the details of the user.
 
 ### Create user (admin user only)
 
-Create a new user document.
+Create a new user.
 
 ##### Request
 
@@ -221,14 +221,58 @@ Create a new user document.
 ```
 ##### Response
 
+A successful request returns with a 201 Created HTTP status and the details of the user.
+
+1. Status code: 201 Created
+1. Body:
+    1. `status` 
+    1. `data`
+        1. `newUser` object with user details
+            1. `_id` (the MongoDB system-wide unique id)
+            1. `name` the name of the user account
+            1. `role` the role of the user account within the system
 **Example:**
+```json
+{
+    "status": "success",
+    "data": {
+        "newUser": {
+            "_id": "5e183822f0428808d7322ca3",
+            "name": "testuser",
+            "role": "user",
+        }
+    }
+}
+```
 
 ### Delete user (admin user only)
 
+Deletes a user account in the system.
+
 ##### Request
 
+1. Route: `/api/v1/user/<_id>` (_idbeing the MongoDB unique ID as retrieved from e.g. GetUser)
+1. Method: DELETE
+1. Parameters: n/a
+
 **Example:**
+
+```json
+{{URL}}/api/v1/user/5e183776d5f3b3087a78fe5a
+```
 
 ##### Response
 
+If successful, the server responds with a 204 No Content response and an empty body.
+
 **Example:**
+
+ n/a
+
+ ### Delete user (admin user only)
+
+TBD
+
+### Update user's password
+
+TBD

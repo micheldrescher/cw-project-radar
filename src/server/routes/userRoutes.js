@@ -4,6 +4,7 @@ import {
     getUser,
     getAllUsers,
     updateUser,
+    updatePassword,
     deleteUser
 } from './../controllers/userController'
 import { login, logout, restrictTo, protect } from './../controllers/authController'
@@ -47,3 +48,5 @@ router
     .get(getUser)
     .patch(updateUser)
     .delete(deleteUser)
+
+router.route('/:id/password').patch(updatePassword)

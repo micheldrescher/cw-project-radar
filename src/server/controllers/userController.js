@@ -1,8 +1,9 @@
 import User from './../model/userModel'
 import catchAsync from './../util/catchAsync'
+import AppError from './../util/AppError'
 import { deleteOne, updateOne, getOne, getAll } from './handlerFactory'
 
-export { createUser, getUser, getAllUsers, updateUser, deleteUser }
+export { createUser, getUser, getAllUsers, updateUser, updatePassword, deleteUser }
 
 // const filterObj = (obj, ...allowedFields) => {
 //     const newObj = {}
@@ -66,12 +67,46 @@ const createUser = catchAsync(async (req, res, next) => {
     })
     // remove password from user before returning - otherwise it's a password leak
     newUser.password = undefined
+    newUser.active = undefined
+    newUser.__v = undefined
 
     res.status(201).json({
         status: 'success',
         data: {
             newUser
         }
+    })
+})
+
+const updatePassword = catchAsync(async (req, res, next) => {
+    // get the corresponding user
+    if (!req.params.id) {
+        return next(new AppError('Missing user id in request', 400))
+    }
+
+    if (!req.body.password || !req.body.passwordConfirm) {
+        return next(
+            new AppError('Missing password or password confirmation values in request', 400)
+        )
+    }
+
+    // find the user
+    req.body.id = req.params.id
+    const aUser = await User.findById(req.params.id)
+    console.log(aUser)
+    if (!aUser) {
+        return next(new AppError('Invalid user ID in request.', 400))
+    }
+
+    // update the user's password
+    aUser.password = req.body.password
+    aUser.passwordConfirm = req.body.passwordConfirm
+    await aUser.save()
+
+    // send response
+    res.status(204).json({
+        status: 'success',
+        data: null
     })
 })
 
