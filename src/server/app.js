@@ -22,6 +22,7 @@ import bodyParser from 'body-parser'
 import AppError from './util/AppError'
 import globalErrorHandler from './controllers/errorController'
 import userRouter from './routes/userRoutes'
+import radarRouter from './routes/radarRoutes'
 
 export { app as default }
 
@@ -134,6 +135,7 @@ app.use(compression())
 // MOUNT ROUTERS
 //
 app.use('/api/v1/user', userRouter)
+app.use('/api/v1/radar', radarRouter)
 // LAST ROUTE to catch requests to undefined routes
 app.all('*', (req, res, next) => {
     next(new AppError(`Cannot find ${req.originalUrl} on this server.`, 404)) // --> automatically passes that to the error handler defined below
