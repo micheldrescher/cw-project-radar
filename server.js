@@ -1,16 +1,16 @@
 //
 // IMPORTS
 //
+// libraries
 require('dotenv').config()
 const logger = require('./utils/logger')
-// const mongoose = require('mongoose')
+const mongoose = require('mongoose')
 
 //
 // HANDLING UNCAUGHT EXCEPTIONS
 //
 // This needs to be one of the first things to register
 // before any exceptions might occur!
-//
 process.on('uncaughtException', err => {
     logger.error('💥 Uncaught exception --> Shutting down.')
     logger.error(err)
@@ -20,33 +20,32 @@ process.on('uncaughtException', err => {
 //
 // CONNECT TO DB
 //
-// let DB = process.env.DB_URL.replace('<USER>', process.env.DB_USER).replace(
-//     '<PASSWORD>',
-//     process.env.DB_PASSWD
-// )
-// mongoose
-//     .connect(DB, {
-//         useNewUrlParser: true,
-//         useCreateIndex: true,
-//         useFindAndModify: false,
-//         useUnifiedTopology: true
-//     })
-//     .then(
-//         () => logger.info('DB connection successful!'),
-//         err => {
-//             logger.error('💥 DB connection failed, aborting.')
-//             logger.error(err)
-//             server.close(() => {
-//                 logger.error('Process terminated!')
-//             })
-//         }
-//     )
+let DB = process.env.DB_URL.replace('<USER>', process.env.DB_USER).replace(
+    '<PASSWORD>',
+    process.env.DB_PASSWD
+)
+mongoose
+    .connect(DB, {
+        useNewUrlParser: true,
+        useCreateIndex: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true
+    })
+    .then(
+        () => logger.info('DB connection successful!'),
+        err => {
+            logger.error('💥 DB connection failed, aborting.')
+            logger.error(err)
+            server.close(() => {
+                logger.error('Process terminated!')
+            })
+        }
+    )
 
 //
 // IMPORTS
 //
-
-// include the radar app
+// app modules (deferred until after DB connection
 const app = require('./app')
 
 //

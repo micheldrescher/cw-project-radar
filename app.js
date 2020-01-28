@@ -14,6 +14,7 @@ const xss = require('xss-clean')
 
 // import app modules
 const AppError = require('./utils/AppError')
+const globalErrorHandler = require('./controllers/errorController')
 const viewRouter = require('./routers/viewRoutes')
 
 // set up the app as an express object
@@ -102,6 +103,11 @@ app.use('/', viewRouter)
 app.all('*', (req, res, next) => {
     next(new AppError(`Cannot find ${req.originalUrl} on this server.`, 404))
 })
+
+//
+// GLOBAL ERROR HANDLER
+//
+app.use(globalErrorHandler)
 
 //
 // EXPORT
