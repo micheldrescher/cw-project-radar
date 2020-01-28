@@ -1,0 +1,39 @@
+header.header
+    // Cyberwatchng logo
+    nav.nav.nav-logo
+        a(href='https://www.cyberwatching.eu/')
+            img(src="/img/cyberwatching-logo.png", alt="Cyberwatching logo")
+
+    // radar title - immutable
+    div.title
+        span #{title}
+
+    // user account menu - shown only if user is logged in
+    nav.nav.nav--user
+        if user
+
+    // menu bar
+    nav.nav.nav--menu
+        ul
+            li 
+                a(href="#") Editions
+            li
+                a(href="#") Disclaimer
+            li
+                a(href="#") Documentation
+
+
+    //-   a.nav__el.nav__el--logout Log out
+    //-   a.nav__el(href='/me')
+    //-     img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
+    //-     span= user.name.split(' ')[0]
+
+
+    //- // radar instance select menu
+    //- nav.nav.nav--radar
+    //-     div.dropdown
+    //-         button.dropbtn Editions
+    //-         div.dropdown-content
+    //-             a(href="#") Link 1
+    //-             a(href="#") Link 2
+    //-             a(href="#") Link 3

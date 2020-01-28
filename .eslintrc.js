@@ -1,8 +1,7 @@
 module.exports = {
-    // extends: ['prettier', 'plugin:node/recommended', 'eslint:recommended'],
-    extends: ['prettier', 'eslint:recommended'],
+    extends: ['prettier', 'plugin:node/recommended', 'eslint:recommended'],
+    // extends: ['prettier', 'eslint:recommended'],
     plugins: ['prettier'],
-    parser: 'babel-eslint',
     rules: {
         'prettier/prettier': 'error',
         'spaced-comment': 'off',

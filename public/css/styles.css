@@ -1,0 +1,93 @@
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+/*
+ * HEADER SECTION
+ */
+header.header {
+    width: 100%;
+    display: table;
+    background-position: 50% 35%;
+    background-image: url('/img/header_background.jpg') !important;
+}
+
+/*
+ * Header - project logo link
+ */
+nav.nav.nav-logo {
+    width: 20%;
+    margin: 0px;
+    display: inline-block;
+    border: 0px;
+    padding: 0px;
+}
+
+nav.nav.nav-logo a {
+    width: 100%;
+    height: 100%;
+    display: block;
+    text-align: center;
+}
+
+nav.nav.nav-logo a img {
+    width: 50%;
+}
+
+/*
+ * Header - Title section
+ */
+div.title {
+    width: 60%;
+    border: 0px;
+    margin: 0px;
+    height: 100%;
+    display: inline-block;
+    padding: 1.5rem 0;
+    text-align: center;
+}
+
+div.title span {
+    font-family: 'Lato';
+    font-size: 3.5rem;
+    font-weight: bold;
+    color: white;
+}
+
+/*
+ * Header - menu bar
+ */
+.nav.nav--menu {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0.5rem 0rem;
+}
+
+.nav.nav--menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(82, 0, 0, 0.88);
+}
+
+.nav.nav--menu ul li {
+    float: right;
+}
+
+.nav.nav--menu ul li:first-child {
+    float: left;
+}
+
+.nav.nav--menu ul li a {
+    font-family: 'Lato';
+    font-size: 1.3rem;
+    font-weight: 400;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
