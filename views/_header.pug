@@ -15,19 +15,16 @@ header.header
     // menu bar
     nav.nav.nav--menu
         ul
-            li 
-                a(href="#") Editions
+            li.dropdown
+                button.dropbtn Editions
+                div.dropdown-content
+                   a(href="#") Link 1
+                   a(href="#") Link 2
+                   a(href="#") Link 3
             li
                 a(href="#") Disclaimer
             li
                 a(href="#") Documentation
-
-
-    //-   a.nav__el.nav__el--logout Log out
-    //-   a.nav__el(href='/me')
-    //-     img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
-    //-     span= user.name.split(' ')[0]
-
 
     //- // radar instance select menu
     //- nav.nav.nav--radar
@@ -37,3 +34,10 @@ header.header
     //-             a(href="#") Link 1
     //-             a(href="#") Link 2
     //-             a(href="#") Link 3
+
+    //-   a.nav__el.nav__el--logout Log out
+    //-   a.nav__el(href='/me')
+    //-     img.nav__user-img(src=`/img/users/${user.photo}` alt=`Photo of ${user.name}`)
+    //-     span= user.name.split(' ')[0]
+
+

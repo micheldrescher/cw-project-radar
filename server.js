@@ -13,7 +13,8 @@ const mongoose = require('mongoose')
 // before any exceptions might occur!
 process.on('uncaughtException', err => {
     logger.error('💥 Uncaught exception --> Shutting down.')
-    logger.error(err)
+    // eslint-disable-next-line no-console
+    console.log(err)
     process.exit(1) // rather hardcore but all we can do for now
 })
 

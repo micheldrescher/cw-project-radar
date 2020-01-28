@@ -5,7 +5,7 @@
 const express = require('express')
 // app modules
 const viewsController = require('../controllers/viewsController')
-const authController = require('./../controllers/authController')
+const authController = require('../controllers/authController')
 
 //
 // CONFIGURE

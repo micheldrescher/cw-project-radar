@@ -98,8 +98,7 @@ const logger = require('../utils/logger')
 
 // Only for rendered pages, no errors!
 exports.isLoggedIn = async (req, res, next) => {
-    logger.info('step 1')
-    if (req.cookies.jwt) {
+    if (req.cookoes && req.cookies.jwt) {
         try {
             // 1) verify token
             const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)

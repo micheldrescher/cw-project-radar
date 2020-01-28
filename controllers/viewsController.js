@@ -3,12 +3,9 @@
 //
 // libraries
 // app modules
+const APIFeatures = require('./../utils/apiFeatures')
 // const AppError = require('../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
-// const User = require('../models/userModel')
-// const Tour = require('../models/tourModel')
-// const Booking = require('../models/bookingModel')
-
 // exports.alerts = (req, res, next) => {
 //     const { alert } = req.query
 //     if (alert === 'booking')
@@ -18,13 +15,22 @@ const catchAsync = require('../utils/catchAsync')
 // }
 
 exports.getPage = catchAsync(async (req, res, next) => {
-    // // 1) Get tour data from collection
-    // const tours = await Tour.find()
+    // // 1) Get the radar editions and add them to the response
+    let filter = { status: { $in: ['prepared', 'published'] } }
+    // sort by year, then editiion (desc.)
+    // include only the slug and the name
+    let queryStr = { sort: 'year,-edition', fields: 'name,slug,status' }
+    const features = new APIFeatures(Radar.find(filter), queryStr)
+        .filter()
+        .sort()
+        .limitFields()
+        .paginate()
 
-    // 2) Build template
-    // 3) Render that template using tour data from 1)
+    const editions = await features.query
+    console.log(editions)
     res.status(200).render('main', {
-        title: 'Cyberwatching Project Radar'
+        title: 'Cyberwatching Project Radar',
+        editions: editions
     })
 })
 

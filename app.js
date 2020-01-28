@@ -15,7 +15,9 @@ const xss = require('xss-clean')
 // import app modules
 const AppError = require('./utils/AppError')
 const globalErrorHandler = require('./controllers/errorController')
-const viewRouter = require('./routers/viewRoutes')
+const logger = require('./utils/logger')
+const radarRouter = require('./routers/radarRouter')
+const viewRouter = require('./routers/viewRouter')
 
 // set up the app as an express object
 const app = express()
@@ -58,7 +60,7 @@ app.use(helmet())
 
 // Limit requests from same API
 const limiter = rateLimit({
-    max: 100,
+    max: 1000,
     windowMs: 60 * 60 * 1000,
     message: 'Too many requests from this IP, please try again in an hour!'
 })
@@ -82,7 +84,7 @@ app.use(compression())
 // Add'l DEVELOPMENT LOGGING
 //
 // Development logging
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV !== 'production') {
     app.use(morgan('dev'))
 }
 
@@ -98,9 +100,12 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 // client views
 app.use('/', viewRouter)
+// API
+app.use('/api/v1/radar', radarRouter)
 
 // handle undefined routes - LAST ROUTE!
 app.all('*', (req, res, next) => {
+    logger.error(`No such route defined: ${req.originalUrl}`)
     next(new AppError(`Cannot find ${req.originalUrl} on this server.`, 404))
 })
 
