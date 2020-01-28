@@ -62,7 +62,8 @@ const server = app.listen(PORT, () => {
 //
 process.on('unhandledRejection', err => {
     logger.error('💥 Unhandled rejection --> Shutting down.')
-    logger.error(err)
+    // eslint-disable-next-line no-console
+    console.log(err)
     process.exit(1)
 })
 
