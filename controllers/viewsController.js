@@ -6,6 +6,8 @@
 const APIFeatures = require('./../utils/apiFeatures')
 // const AppError = require('../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
+const Radar = require('./../models/radarModel')
+
 // exports.alerts = (req, res, next) => {
 //     const { alert } = req.query
 //     if (alert === 'booking')
@@ -15,11 +17,11 @@ const catchAsync = require('../utils/catchAsync')
 // }
 
 exports.getPage = catchAsync(async (req, res, next) => {
-    // // 1) Get the radar editions and add them to the response
+    // 1) Get the radar editions and add them to the response
     let filter = { status: { $in: ['prepared', 'published'] } }
     // sort by year, then editiion (desc.)
     // include only the slug and the name
-    let queryStr = { sort: 'year,-edition', fields: 'name,slug,status' }
+    let queryStr = { sort: '-year,-edition', fields: 'name,slug,status' }
     const features = new APIFeatures(Radar.find(filter), queryStr)
         .filter()
         .sort()
@@ -27,7 +29,6 @@ exports.getPage = catchAsync(async (req, res, next) => {
         .paginate()
 
     const editions = await features.query
-    console.log(editions)
     res.status(200).render('main', {
         title: 'Cyberwatching Project Radar',
         editions: editions

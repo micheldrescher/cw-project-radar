@@ -13,27 +13,17 @@ header.header
         if user
 
     // menu bar
-    nav.nav.nav--menu
-        ul
-            li.dropdown
-                button.dropbtn Editions
-                div.dropdown-content
-                   a(href="#") Link 1
-                   a(href="#") Link 2
-                   a(href="#") Link 3
-            li
-                a(href="#") Disclaimer
-            li
-                a(href="#") Documentation
-
-    //- // radar instance select menu
-    //- nav.nav.nav--radar
-    //-     div.dropdown
-    //-         button.dropbtn Editions
-    //-         div.dropdown-content
-    //-             a(href="#") Link 1
-    //-             a(href="#") Link 2
-    //-             a(href="#") Link 3
+    div.menu-bar
+        div.menu-item
+            a Editions
+            if (editions)
+                ul
+                    each e in editions
+                        a(href=`/api/v1/radar/${e.slug}`) #{e.name}
+        div.menu-item
+            a Disclaimer
+        div.menu-item
+            a Documentation
 
     //-   a.nav__el.nav__el--logout Log out
     //-   a.nav__el(href='/me')
