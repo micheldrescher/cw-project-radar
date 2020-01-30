@@ -1,29 +1,43 @@
 header.header
-    // Cyberwatchng logo
-    nav.nav.nav-logo
-        a(href='https://www.cyberwatching.eu/')
-            img(src="/img/cyberwatching-logo.png", alt="Cyberwatching logo")
+    .header--top
+        //- Cyberwatchng logo
+        .logo
+            a(href='https://www.cyberwatching.eu/')
+                img(src="/img/cyberwatching-logo.png", alt="Cyberwatching logo")
+        //- radar title - immutable
+        .title
+            span #{title}
+        //- user account menu - shown only if user is logged in
+        //.user--menu
+    .header--menu
+        .menubar
+            .menu-item
+                button Editions
+                if (editions)
+                    .div(style="position: relative; top: 2px;")
+                        .sub-menu
+                            each e in editions
+                                .menu-item: button(radar=`/#${e.slug}`) #{e.name}
+                //- .div(style="position: relative; top: 2px;")
+                //-     .sub-menu
+                //-         .menu-item
+                //-             button radar 1
+                //-         .menu-item
+                //-             button radar 2
+                //-         .menu-item
+                //-             button Autumn 2020
+            .menu-right
+                .menu-item
+                    button Disclaimer
+                .menu-item
+                    button Documentation
+    
 
-    // radar title - immutable
-    div.title
-        span #{title}
 
-    // user account menu - shown only if user is logged in
-    nav.nav.nav--user
-        if user
 
-    // menu bar
-    div.menu-bar
-        div.menu-item
-            a Editions
-            if (editions)
-                ul
-                    each e in editions
-                        a(href=`/api/v1/radar/${e.slug}`) #{e.name}
-        div.menu-item
-            a Disclaimer
-        div.menu-item
-            a Documentation
+    //- // menu bar
+    //-     div.menu-item
+    //-         button Editions
 
     //-   a.nav__el.nav__el--logout Log out
     //-   a.nav__el(href='/me')
