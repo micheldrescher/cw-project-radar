@@ -17,7 +17,7 @@ header.header
                     .div(style="position: relative; top: 2px;")
                         .sub-menu
                             each e in editions
-                                .menu-item: button(radar=`/#${e.slug}`) #{e.name}
+                                .menu-item: button(class="radar" radar=`${e.slug}`) #{e.name}
                 //- .div(style="position: relative; top: 2px;")
                 //-     .sub-menu
                 //-         .menu-item

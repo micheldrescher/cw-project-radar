@@ -126,14 +126,17 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 // import { bookTour } from './stripe'
 // import { showAlert } from './alerts'
 // DOM ELEMENTS
-// const mapBox = document.getElementById('map')
-// const loginForm = document.querySelector('.form--login')
-// const logOutBtn = document.querySelector('.nav__el--logout')
-// const userDataForm = document.querySelector('.form-user-data')
-// const userPasswordForm = document.querySelector('.form-user-password')
-// const bookBtn = document.getElementById('book-tour')
+var radarButtons = document.querySelectorAll('.radar'); // const bookBtn = document.getElementById('book-tour')
 // DELEGATION
-// if (mapBox) {
+
+if (radarButtons) {
+  radarButtons.forEach(function (btn) {
+    btn.addEventListener('click', function (event) {
+      event.preventDefault();
+      console.log(event.target.getAttribute('radar'));
+    });
+  });
+} // if (mapBox) {
 //     const locations = JSON.parse(mapBox.dataset.locations)
 //     displayMap(locations)
 // }
@@ -203,7 +206,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56520" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65467" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

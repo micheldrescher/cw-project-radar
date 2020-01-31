@@ -3,6 +3,8 @@ body {
     margin: 0px;
     padding: 0px;
     height: 100%;
+    font-family: 'Lato';
+    font-size: 1rem;
 }
 
 /*
@@ -132,4 +134,40 @@ header.header {
 
 .menu-item:hover .sub-menu {
     display: block;
+}
+
+/*
+ * FOOTER SECTION
+ */
+.footer {
+    background-color: #666;
+    color: #999;
+    padding: 2rem;
+}
+.footer a {
+    color: #ccc;
+}
+
+.footer a:link,
+.footer a:visited {
+    text-decoration: none;
+}
+
+.footer .copyright {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.footer .funding {
+    display: table;
+}
+
+.footer .funding img,
+.footer .funding p {
+    display: table-cell;
+}
+
+.funding p {
+    vertical-align: top;
+    padding-left: 1rem;
 }

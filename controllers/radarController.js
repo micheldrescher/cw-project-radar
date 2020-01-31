@@ -19,7 +19,7 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     let filter = { status: { $in: ['prepared', 'published'] } }
     // sort by year, then editiion (desc.)
     // include only the slug and the name
-    let queryStr = { sort: 'year,-edition', fields: 'name,slug,status' }
+    let queryStr = { sort: '-year,release', fields: 'name,slug,status,year,release' }
     const features = new APIFeatures(Radar.find(filter), queryStr)
         .filter()
         .sort()

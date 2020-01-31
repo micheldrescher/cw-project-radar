@@ -18,10 +18,11 @@ const Radar = require('./../models/radarModel')
 
 exports.getPage = catchAsync(async (req, res, next) => {
     // 1) Get the radar editions and add them to the response
-    let filter = { status: { $in: ['prepared', 'published'] } }
+    // TODO - no filter when admin is logged in
+    let filter = { status: 'published' }
     // sort by year, then editiion (desc.)
     // include only the slug and the name
-    let queryStr = { sort: '-year,-edition', fields: 'name,slug,status' }
+    let queryStr = { sort: '-year,release', fields: 'name,slug,status' }
     const features = new APIFeatures(Radar.find(filter), queryStr)
         .filter()
         .sort()

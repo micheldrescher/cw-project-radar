@@ -7,14 +7,18 @@
 // import { showAlert } from './alerts'
 
 // DOM ELEMENTS
-// const mapBox = document.getElementById('map')
-// const loginForm = document.querySelector('.form--login')
-// const logOutBtn = document.querySelector('.nav__el--logout')
-// const userDataForm = document.querySelector('.form-user-data')
-// const userPasswordForm = document.querySelector('.form-user-password')
+const radarButtons = document.querySelectorAll('.radar')
 // const bookBtn = document.getElementById('book-tour')
 
 // DELEGATION
+if (radarButtons) {
+    radarButtons.forEach(btn => {
+        btn.addEventListener('click', event => {
+            event.preventDefault()
+            console.log(event.target.getAttribute('radar'))
+        })
+    })
+}
 // if (mapBox) {
 //     const locations = JSON.parse(mapBox.dataset.locations)
 //     displayMap(locations)
