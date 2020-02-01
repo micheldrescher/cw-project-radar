@@ -142,8 +142,14 @@ header.header {
 .footer {
     background-color: #666;
     color: #999;
-    padding: 2rem;
+    padding: 2rem 0rem;
 }
+
+.footer .spacer {
+    width: 80%;
+    margin: auto;
+}
+
 .footer a {
     color: #ccc;
 }
@@ -170,4 +176,32 @@ header.header {
 .funding p {
     vertical-align: top;
     padding-left: 1rem;
+}
+
+/*
+ * ALERTS
+ */
+.alerts {
+    margin: 1rem;
+}
+.alert {
+    text-align: center;
+    padding: 2rem;
+    width: 50%;
+    margin: auto;
+}
+.alert--success {
+    background-color: #b1ffb1;
+}
+.alert--warning {
+    background-color: #fff6a6;
+}
+.alert--error {
+    background-color: #ffb6b1;
+}
+/*
+ * MAIN SECTION
+ */
+#main {
+    min-height: 100%;
 }

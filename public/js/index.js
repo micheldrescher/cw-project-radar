@@ -4,7 +4,7 @@
 // import { login, logout } from './login'
 // import { updateSettings } from './updateSettings'
 // import { bookTour } from './stripe'
-// import { showAlert } from './alerts'
+import showAlert from './alert'
 
 // DOM ELEMENTS
 const radarButtons = document.querySelectorAll('.radar')
@@ -15,6 +15,7 @@ if (radarButtons) {
     radarButtons.forEach(btn => {
         btn.addEventListener('click', event => {
             event.preventDefault()
+            showAlert('success', event.target.getAttribute('radar'), 2)
             console.log(event.target.getAttribute('radar'))
         })
     })

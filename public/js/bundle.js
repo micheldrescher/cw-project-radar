@@ -117,14 +117,38 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
+})({"alert.js":[function(require,module,exports) {
+/* eslint-disable no-undef */
+
+/* eslint-disable no-unused-vars */
+var hideAlert = function hideAlert() {
+  var el = document.querySelector('.alerts');
+  if (el) el.parentElement.removeChild(el);
+}; // type is 'success', 'warning' or 'error'
+
+
+var showAlert = function showAlert(type, msg) {
+  var time = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 7;
+  hideAlert();
+  var markup = "<div class=\"alerts\"><div class=\"alert alert--".concat(type, "\">").concat(msg, "</div></div>");
+  document.querySelector('main').insertAdjacentHTML('afterbegin', markup);
+  window.setTimeout(hideAlert, time * 1000);
+};
+
+module.exports = showAlert;
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _alert = _interopRequireDefault(require("./alert"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /* eslint-disable */
 // import '@babel/polyfill'
 // import { displayMap } from './mapbox'
 // import { login, logout } from './login'
 // import { updateSettings } from './updateSettings'
 // import { bookTour } from './stripe'
-// import { showAlert } from './alerts'
 // DOM ELEMENTS
 var radarButtons = document.querySelectorAll('.radar'); // const bookBtn = document.getElementById('book-tour')
 // DELEGATION
@@ -133,6 +157,7 @@ if (radarButtons) {
   radarButtons.forEach(function (btn) {
     btn.addEventListener('click', function (event) {
       event.preventDefault();
+      (0, _alert.default)('success', event.target.getAttribute('radar'), 2);
       console.log(event.target.getAttribute('radar'));
     });
   });
@@ -178,7 +203,7 @@ if (radarButtons) {
 //     })
 // const alertMessage = document.querySelector('body').dataset.alert
 // if (alertMessage) showAlert('success', alertMessage, 20)
-},{}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./alert":"alert.js"}],"../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -206,7 +231,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65467" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50525" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
