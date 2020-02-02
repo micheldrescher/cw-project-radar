@@ -118,6 +118,7 @@ header.header {
 
 .sub-menu .menu-item {
     display: block;
+    background: white;
 }
 .sub-menu .menu-item button {
     color: black;
