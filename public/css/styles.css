@@ -93,7 +93,9 @@ header.header {
     background-color: rgba(236, 75, 59, 0.73);
 }
 
-.menu-item button {
+.menu-item a {
+    display: block;
+    text-decoration: none;
     padding: 1rem;
     cursor: pointer;
     font-family: 'Lato';
@@ -120,12 +122,14 @@ header.header {
     display: block;
     background: white;
 }
-.sub-menu .menu-item button {
+
+.sub-menu .menu-item a {
     color: black;
     font-size: 1rem;
     font-weight: normal;
     padding: 0.5rem 1rem;
 }
+
 .sub-menu .menu-item:hover {
     background: lightgrey;
 }

@@ -12,17 +12,17 @@ header.header
     .header--menu
         .menubar
             .menu-item
-                button Editions
+                a(href='#') Editions
                 if (editions)
                     .div(style="position: relative; top: 2px;")
                         .sub-menu
                             each e in editions
-                                .menu-item: button(class="radar" radar=`${e.slug}`) #{e.name}
+                                .menu-item: a(href=`/radar/${e.slug}`) #{e.name}
             .menu-right
                 .menu-item
-                    button Disclaimer
+                    a(href='#') Disclaimer
                 .menu-item
-                    button Documentation
+                    a(href='#') Documentation
     
 
 
