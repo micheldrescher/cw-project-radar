@@ -3,6 +3,7 @@
 //
 // app modules
 const APIFeatures = require('./../utils/apiFeatures')
+const AppError = require('./../utils/AppError')
 const catchAsync = require('./../utils/catchAsync')
 const handlerFactory = require('./handlerFactory')
 // const logger = require('./../utils/logger')
@@ -13,6 +14,24 @@ exports.getAllRadars = handlerFactory.getAll(Radar)
 exports.createRadar = handlerFactory.createOne(Radar)
 // const updateRadar = handlerFactory.updateOne(Radar)
 // const deleteRadar = handlerFactory.deleteOne(Radar)
+
+exports.getRadarBySlug = catchAsync(async (req, res, next) => {
+    // 1) Get slug from request
+    const { slug } = req.params
+
+    // 2) Get the radar
+    const radars = await Radar.find({ slug: slug })
+
+    if (!radars || radars.length === 0) {
+        return next(new AppError('No such radar found.', 404))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        results: 1,
+        radar: radars[0]
+    })
+})
 
 exports.getEditions = catchAsync(async (req, res, next) => {
     // we want only published radars

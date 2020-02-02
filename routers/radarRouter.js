@@ -17,6 +17,7 @@ router
     .route('/')
     .get(radarController.getAllRadars)
     .post(radarController.createRadar)
+router.route('/:slug').get(radarController.getRadarBySlug)
 router.get('/editions', authController.isLoggedIn, radarController.getEditions)
 
 // router
