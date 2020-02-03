@@ -20,7 +20,7 @@ const router = express.Router()
 //
 // ROUTES
 //
-router.get('/', authController.isLoggedIn, viewsController.getPage)
+router.get('/', authController.isLoggedIn, viewsController.showMain)
 
 // router.get('/tour/:slug', authController.isLoggedIn, viewsController.getTour)
 // router.get('/login', authController.isLoggedIn, viewsController.getLoginForm)

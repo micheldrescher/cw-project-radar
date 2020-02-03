@@ -4,7 +4,7 @@
 // libraries
 // app modules
 const APIFeatures = require('./../utils/apiFeatures')
-// const AppError = require('../utils/AppError')
+const AppError = require('../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
 const Radar = require('./../models/radarModel')
 
@@ -16,7 +16,7 @@ const Radar = require('./../models/radarModel')
 //     next()
 // }
 
-exports.getPage = catchAsync(async (req, res, next) => {
+exports.showMain = catchAsync(async (req, res, next) => {
     // 1) Get the radar editions and add them to the response
     // TODO - no filter when admin is logged in
     let filter = { status: 'published' }

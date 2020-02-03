@@ -20,16 +20,16 @@ exports.getRadarBySlug = catchAsync(async (req, res, next) => {
     const { slug } = req.params
 
     // 2) Get the radar
-    const radars = await Radar.find({ slug: slug })
+    const radar = await Radar.findOne({ slug: slug })
 
-    if (!radars || radars.length === 0) {
+    if (!radar || radar.length === 0) {
         return next(new AppError('No such radar found.', 404))
     }
 
     res.status(200).json({
         status: 'success',
         results: 1,
-        radar: radars[0]
+        radar: radar
     })
 })
 

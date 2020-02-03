@@ -15,9 +15,9 @@ const router = express.Router()
 //
 router
     .route('/')
-    .get(radarController.getAllRadars)
-    .post(radarController.createRadar)
-router.route('/:slug').get(radarController.getRadarBySlug)
+    .get(authController.isLoggedIn, radarController.getAllRadars)
+    .post(authController.isLoggedIn, radarController.createRadar)
+router.route('/:slug').get(authController.isLoggedIn, radarController.getRadarBySlug)
 router.get('/editions', authController.isLoggedIn, radarController.getEditions)
 
 // router
