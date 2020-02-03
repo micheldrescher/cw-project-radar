@@ -8,21 +8,21 @@ header.header
         .title
             span #{title}
         //- user account menu - shown only if user is logged in
-        //.user--menu
+        //- .user--menu
     .header--menu
         .menubar
             .menu-item
-                a(href='#') Editions
+                button Editions
                 if (editions)
                     .div(style="position: relative; top: 2px;")
                         .sub-menu
                             each e in editions
-                                .menu-item: a(href=`/radar/${e.slug}`) #{e.name}
+                                .menu-item: button.radar(radar=`${e.slug}`) #{e.name}
             .menu-right
                 .menu-item
-                    a(href='#') Disclaimer
+                    button Disclaimer
                 .menu-item
-                    a(href='#') Documentation
+                    button Documentation
     
 
 
