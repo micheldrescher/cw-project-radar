@@ -16,6 +16,7 @@ const xss = require('xss-clean')
 const AppError = require('./utils/AppError')
 const globalErrorHandler = require('./controllers/errorController')
 const logger = require('./utils/logger')
+const modelRouter = require('./routers/modelRouter')
 const radarRouter = require('./routers/radarRouter')
 const viewRouter = require('./routers/viewRouter')
 
@@ -102,6 +103,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.use('/', viewRouter)
 // API
 app.use('/api/v1/radar', radarRouter)
+app.use('/api/v1/model', modelRouter)
 
 // handle undefined routes - LAST ROUTE!
 app.all('*', (req, res, next) => {
