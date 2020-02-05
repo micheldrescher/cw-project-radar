@@ -32,22 +32,6 @@ const modelSchema = new mongoose.Schema({
 })
 
 //
-// DOCUMENT MIDDLEWARE
-//
-
-// pre-save and pre-create operations
-modelSchema.pre('save', function(next) {
-    if (this.isModified('year') || this.isModified('release')) {
-        // update slug
-        this.slug = slugify(`${this.release} ${this.year}`, { lower: true })
-        // update name
-        this.name = this.release + ' ' + this.year
-    }
-    // run next middleware
-    next()
-})
-
-//
 // CUSTOM VALIDATORS
 //
 // Radar segments and rings must have at least one element

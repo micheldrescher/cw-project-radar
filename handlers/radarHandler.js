@@ -18,7 +18,6 @@ exports.deleteRadar = handlerFactory.deleteOne(Radar)
 exports.getRadarBySlug = catchAsync(async (req, res, next) => {
     // 1) Get radar
     const radar = await radarBusiness.getRadarBySlug(req.params.slug)
-    console.log(radar)
 
     // 2) Error handling if no radar found
     if (!radar || radar.length === 0) {
