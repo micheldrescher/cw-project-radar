@@ -10,6 +10,11 @@ const modelSchema = new mongoose.Schema({
         unique: ['A radar model (and its name) must be unique.', true],
         required: ['A radar model requires a name', true]
     },
+    id: {
+        type: String,
+        unique: ['A rdar model must be unique (represented by its identifier).', true],
+        required: ['A rdar mode MUST have an identifier.', true]
+    },
     segments: {
         type: [String],
         required: ['A radar must have at least one segment', true],
@@ -19,7 +24,27 @@ const modelSchema = new mongoose.Schema({
         type: [String],
         required: ['A radar must have at least one ring', true],
         validate: [modelLimits, 'Must have at least one ring']
+    },
+    projectMaxAge: {
+        type: Number,
+        required: ['The model required a cut-off age for projects to be included.', true]
     }
+})
+
+//
+// DOCUMENT MIDDLEWARE
+//
+
+// pre-save and pre-create operations
+modelSchema.pre('save', function(next) {
+    if (this.isModified('year') || this.isModified('release')) {
+        // update slug
+        this.slug = slugify(`${this.release} ${this.year}`, { lower: true })
+        // update name
+        this.name = this.release + ' ' + this.year
+    }
+    // run next middleware
+    next()
 })
 
 //

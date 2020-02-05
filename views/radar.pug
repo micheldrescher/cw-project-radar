@@ -1,0 +1,16 @@
+extends _base
+
+block append head
+    script(src='https://d3js.org/d3.v5.min.js')
+
+//- 
+//- TODO
+//- This is prepared for future server-side rendering and/or static serving
+//- of pre-stored SVG data for even faster user experience.
+//- Currently, this is pretty superfluous as it doesn't do anything except
+//- triggering the client-side rendering of the radar
+//-
+block content
+    section#radar-section
+
+

@@ -2,9 +2,9 @@
 // IMPORTS
 //
 // app modules
-const AppError = require('./../utils/AppError')
+const AppError = require('../utils/AppError')
 const APIFeatures = require('../utils/apiFeatures')
-const catchAsync = require('./../utils/catchAsync')
+const catchAsync = require('../utils/catchAsync')
 
 exports.deleteOne = Model =>
     catchAsync(async (req, res, next) => {

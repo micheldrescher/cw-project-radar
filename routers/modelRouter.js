@@ -4,7 +4,7 @@
 // libraries
 const express = require('express')
 // app modules
-const modelController = require('./../controllers/modelController')
+const modelHandler = require('./../handlers/modelHandler')
 // const authController = require('./../controllers/authController')
 
 const router = express.Router()
@@ -14,13 +14,13 @@ const router = express.Router()
 //
 router
     .route('/')
-    .get(modelController.getAllModels)
-    .post(modelController.createModel)
+    .get(modelHandler.getAllModels)
+    .post(modelHandler.createModel)
 router
     .route('/:id')
-    .get(modelController.getModel)
-    .patch(modelController.updateModel)
-    .delete(modelController.deleteModel)
+    .get(modelHandler.getModel)
+    .patch(modelHandler.updateModel)
+    .delete(modelHandler.deleteModel)
 
 // router
 //     .route('/')

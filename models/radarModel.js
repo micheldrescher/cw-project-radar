@@ -4,7 +4,6 @@
 // libraries
 const mongoose = require('mongoose')
 const slugify = require('slugify')
-const validator = require('validator')
 
 const radarSchema = new mongoose.Schema({
     year: {
@@ -20,10 +19,6 @@ const radarSchema = new mongoose.Schema({
             message: 'edition may be either "Spring" or "Autumn".'
         }
     },
-    summary: {
-        type: String,
-        required: true
-    },
     slug: {
         type: String,
         unique: [
@@ -33,6 +28,15 @@ const radarSchema = new mongoose.Schema({
     },
     name: {
         type: String
+    },
+    model: {
+        type: mongoose.Schema.ObjectId,
+        ref: 'Model',
+        required: ['A radar MUST have an existing data model reference', true]
+    },
+    summary: {
+        type: String,
+        required: true
     },
     status: {
         type: String,

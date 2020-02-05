@@ -14,7 +14,7 @@ const xss = require('xss-clean')
 
 // import app modules
 const AppError = require('./utils/AppError')
-const globalErrorHandler = require('./controllers/errorController')
+const globalErrorHandler = require('./handlers/errorHandler')
 const logger = require('./utils/logger')
 const modelRouter = require('./routers/modelRouter')
 const radarRouter = require('./routers/radarRouter')

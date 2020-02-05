@@ -1,25 +1,51 @@
 /* eslint-disable */
-// import '@babel/polyfill'
+//
+// IMPORTS
+//
+// libraries
+import '@babel/polyfill'
+// app modules
+import showRadar from './radar/showRadar'
+import showAlert from './util/alert'
 // import { displayMap } from './mapbox'
 // import { login, logout } from './login'
 // import { updateSettings } from './updateSettings'
 // import { bookTour } from './stripe'
-import showAlert from './alert'
 
 // DOM ELEMENTS
 const radarButtons = document.querySelectorAll('.radar')
-// const bookBtn = document.getElementById('book-tour')
+const radarSection = document.getElementById('radar-section')
 
-// DELEGATION
+//
+// RADAR MENU BUTTONS EVENT
+//
 if (radarButtons) {
     radarButtons.forEach(btn => {
         btn.addEventListener('click', event => {
             event.preventDefault()
-            showAlert('success', event.target.getAttribute('radar'), 2)
-            console.log(event.target.getAttribute('radar'))
+            const slug = event.target.getAttribute('radar')
+            window.location.assign(`/radar/${slug}`)
         })
     })
 }
+
+//
+// SHOW RADAR - CLIENT SIDE
+//
+if (radarSection) {
+    // 1) get the slug
+    let slug = window.location.href
+    slug = slug.substring(slug.lastIndexOf('/') + 1)
+
+    // 2) if no slug, render an error
+    if (!slug) {
+        showAlert('error', 'Invalid URL, no radar id found.', 5)
+        return
+    }
+
+    showRadar(slug)
+}
+
 // if (mapBox) {
 //     const locations = JSON.parse(mapBox.dataset.locations)
 //     displayMap(locations)
@@ -69,5 +95,7 @@ if (radarButtons) {
 //         bookTour(tourId)
 //     })
 
-// const alertMessage = document.querySelector('body').dataset.alert
-// if (alertMessage) showAlert('success', alertMessage, 20)
+// show alerts sent by the server
+const alertMsg = document.querySelector('body').dataset.alertmsg
+const alertType = document.querySelector('body').dataset.alerttype
+if (alertMsg && alertType) showAlert(alertType, alertMsg, 500)

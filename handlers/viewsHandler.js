@@ -3,36 +3,64 @@
 //
 // libraries
 // app modules
-const APIFeatures = require('./../utils/apiFeatures')
-const AppError = require('../utils/AppError')
+const AppError = require('./../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
-const Radar = require('./../models/radarModel')
+const radarController = require('../controllers/radarController')
 
-// exports.alerts = (req, res, next) => {
-//     const { alert } = req.query
-//     if (alert === 'booking')
-//         res.locals.alert =
-//             "Your booking was successful! Please check your email for a confirmation. If your booking doesn't show up here immediatly, please come back later."
-//     next()
-// }
+//
+// MIDDLEWARE
+//
+// Add the editions to each request for the header menu
+exports.getEditions = catchAsync(async (req, res, next) => {
+    // 1) Get editions
+    const editions = await radarController.getEditions()
 
+    // 2) Error handling
+    if (!editions || editions.lenth === 0) {
+        res.locals.alert = {
+            status: 'fail',
+            message: 'Unable to fetch radar editions.'
+        }
+    } else {
+        // 4) process result
+        res.locals.editions = editions
+    }
+
+    next()
+})
+
+//
+// HANDLER FUNCTIONS
+//
+
+//
+// show main/entry page
+//
 exports.showMain = catchAsync(async (req, res, next) => {
-    // 1) Get the radar editions and add them to the response
-    // TODO - no filter when admin is logged in
-    let filter = { status: 'published' }
-    // sort by year, then editiion (desc.)
-    // include only the slug and the name
-    let queryStr = { sort: '-year,release', fields: 'name,slug,status' }
-    const features = new APIFeatures(Radar.find(filter), queryStr)
-        .filter()
-        .sort()
-        .limitFields()
-        .paginate()
-
-    const editions = await features.query
+    // TODO expand on default content.
     res.status(200).render('main', {
-        title: 'Cyberwatching Project Radar',
-        editions: editions
+        title: 'Welcome'
+    })
+})
+
+//
+// Fetch the requested radar, and render the 'radar template page
+//
+exports.showRadar = catchAsync(async (req, res, next) => {
+    // 1) Get the requested radar slug
+    const { slug } = req.params
+
+    // // 2) Fetch the corresponding radar
+    // const radar = await radarController.getRadarBySlug(slug)
+
+    // // 3) Error handling
+    // if (!radar) {
+    //     return next(new AppError('No radar found with that id.', 404))
+    // }
+
+    // 4) Show success page
+    res.status(200).render('radar', {
+        title: slug
     })
 })
 

@@ -5,8 +5,8 @@
 const express = require('express')
 // app modules
 // const AppError = require('./../utils/AppError')
-const radarController = require('./../controllers/radarController')
-const authController = require('./../controllers/authController')
+const radarHandler = require('./../handlers/radarHandler')
+// const authController = require('./../controllers/authController')
 
 const router = express.Router()
 
@@ -15,10 +15,21 @@ const router = express.Router()
 //
 router
     .route('/')
-    .get(authController.isLoggedIn, radarController.getAllRadars)
-    .post(authController.isLoggedIn, radarController.createRadar)
-router.route('/:slug').get(authController.isLoggedIn, radarController.getRadarBySlug)
-router.get('/editions', authController.isLoggedIn, radarController.getEditions)
+    // .get(authController.isLoggedIn, radarController.getAllRadars)
+    .get(radarHandler.getAllRadars)
+    .post(radarHandler.createRadar)
+router
+    .route('/:slug')
+    .get(radarHandler.getRadarBySlug)
+    .patch(radarHandler.updateRadar)
+    .delete(radarHandler.deleteRadar)
+
+router.get('/editions', radarHandler.getEditions)
+
+// router
+//     .route('/:id')
+//     .get(getRadar)
+//     .patch(protect, restrictTo('admin'), updateRadar)
 
 // router
 //     .route('/')
