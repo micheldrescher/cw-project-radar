@@ -8401,7 +8401,7 @@ function () {
   var _ref = _asyncToGenerator(
   /*#__PURE__*/
   regeneratorRuntime.mark(function _callee(radarDiv, radarData) {
-    var overviewSection, radarGraphSection, svg;
+    var overviewSection, size, radarGraphSection, svg;
     return regeneratorRuntime.wrap(function _callee$(_context) {
       while (1) {
         switch (_context.prev = _context.next) {
@@ -8411,8 +8411,9 @@ function () {
             overviewSection.append('h1').html(radarData.name);
             overviewSection.append('div').html(radarData.summary); // 2) add a radar graph section, and start adding the SVG
 
+            size = 2000;
             radarGraphSection = radarDiv.append('section').attr('id', 'graph');
-            svg = radarGraphSection.append('svg').attr('viewport', '0 0 2000 2000'); // 3) TEST add a circle with full width to it
+            svg = radarGraphSection.append('svg').attr('viewport', "0 0 ".concat(size, " ").concat(size)); // 3) TEST add a circle with full width to it
 
             svg.html('<circle cx="1000" cy="100" r="1000" stroke="black" stroke-width="2" fill="red" />'); // await new Promise(r => setTimeout(r, 1000))
             // return svg
@@ -8432,7 +8433,7 @@ function () {
             //     plotSegment(radarSVG, i, archAngle)
             // }
 
-          case 6:
+          case 7:
           case "end":
             return _context.stop();
         }
