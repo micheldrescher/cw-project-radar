@@ -7,7 +7,7 @@ const catchAsync = require('../utils/catchAsync')
 const handlerFactory = require('./handlerFactory')
 // const logger = require('./../utils/logger')
 const Radar = require('../models/radarModel')
-const radarBusiness = require('./../controllers/radarController')
+const radarController = require('./../controllers/radarController')
 
 exports.getRadar = handlerFactory.getOne(Radar)
 exports.getAllRadars = handlerFactory.getAll(Radar)
@@ -17,7 +17,7 @@ exports.deleteRadar = handlerFactory.deleteOne(Radar)
 
 exports.getRadarBySlug = catchAsync(async (req, res, next) => {
     // 1) Get radar
-    const radar = await radarBusiness.getRadarBySlug(req.params.slug)
+    const radar = await radarController.getRadarBySlug(req.params.slug)
 
     // 2) Error handling if no radar found
     if (!radar || radar.length === 0) {
@@ -34,7 +34,7 @@ exports.getRadarBySlug = catchAsync(async (req, res, next) => {
 
 exports.getEditions = catchAsync(async (req, res, next) => {
     // 1) Get editions
-    const editions = radarBusiness.getEditions()
+    const editions = radarController.getEditions()
 
     // 2) Error handling
     if (!editions || editions.length === 0) {
