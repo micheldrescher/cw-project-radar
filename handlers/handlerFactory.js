@@ -6,9 +6,13 @@ const AppError = require('../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
 const controllerFactory = require('../controllers/controllerFactory')
 
-exports.createOne = Model =>
+exports.createOne = (Model, ...fieldNames) =>
     catchAsync(async (req, res, next) => {
-        const doc = await controllerFactory.createOne(Model, req.body)
+        let doc = req.body
+        if (fieldNames) {
+            doc = filterFields(doc, fieldNames)
+        }
+        doc = await controllerFactory.createOne(Model, doc)
 
         res.status(201).json({
             status: 'success',
@@ -47,9 +51,13 @@ exports.getAll = Model =>
         })
     })
 
-exports.updateOne = Model =>
+exports.updateOne = (Model, ...disallowedFields) =>
     catchAsync(async (req, res, next) => {
-        const doc = await controllerFactory.updateOne(Model, req.params.id, req.body)
+        let doc = req.body
+        if (disallowedFields) {
+            doc = filterFields(doc, disallowedFields)
+        }
+        doc = await controllerFactory.updateOne(Model, req.params.id, doc)
 
         if (!doc) {
             return next(new AppError('No document found with that ID', 404))
@@ -76,3 +84,13 @@ exports.deleteOne = Model =>
             data: null
         })
     })
+
+const filterFields = (obj, disallowedFields) => {
+    const newObj = {}
+    Object.keys(obj).forEach(el => {
+        if (!disallowedFields.includes(el)) {
+            newObj[el] = obj[el]
+        }
+    })
+    return newObj
+}
