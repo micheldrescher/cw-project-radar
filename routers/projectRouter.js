@@ -21,6 +21,8 @@ router
     .get(projectHandler.getProject)
     .patch(projectHandler.updateProject)
     .delete(projectHandler.deleteProject)
+router.route('/:id/categorise').post(projectHandler.addCategory)
+router.route('/:id/score').post(projectHandler.addMTRLScore)
 
 // router
 //     .route('/')

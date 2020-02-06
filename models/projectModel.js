@@ -4,13 +4,25 @@
 // libraries
 const mongoose = require('mongoose')
 const validator = require('validator')
+// app modules
+const { projectClassificationSchema } = require('./projectClassificationModel')
+const { mtrlScoreSchema } = require('./mtrlScoreModel')
 
 const projectSchema = new mongoose.Schema({
     cw_id: {
         type: Number,
-        required: true
+        required: true,
+        unique: true
     },
     name: {
+        type: String,
+        required: true
+    },
+    title: {
+        type: String,
+        required: true
+    },
+    teaser: {
         type: String,
         required: true
     },
@@ -26,9 +38,11 @@ const projectSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
+    classification: [projectClassificationSchema],
+    mtrlScores: [mtrlScoreSchema],
     cwurl: {
         type: String,
-        validate: [validator.isURL, 'nvalid URL.']
+        validate: [validator.isURL, 'Invalid URL.']
     }
 })
 
