@@ -14,6 +14,15 @@ exports.getAllProjects = handlerFactory.getAll(Project)
 exports.updateProject = handlerFactory.updateOne(Project, 'classification', 'mtrlScores')
 exports.deleteProject = handlerFactory.deleteOne(Project)
 
+exports.getByCWId = catchAsync(async (req, res, next) => {
+    const project = await projectController.getByCWId(req.params.id)
+
+    res.status(200).json({
+        status: 'success',
+        data: project
+    })
+})
+
 //
 // Add an classification to a project
 //

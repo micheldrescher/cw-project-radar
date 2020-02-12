@@ -16,7 +16,6 @@ const xss = require('xss-clean')
 const AppError = require('./utils/AppError')
 const globalErrorHandler = require('./handlers/errorHandler')
 const logger = require('./utils/logger')
-const modelRouter = require('./routers/modelRouter')
 const projectRouter = require('./routers/projectRouter')
 const radarRouter = require('./routers/radarRouter')
 const viewRouter = require('./routers/viewRouter')
@@ -103,7 +102,6 @@ app.use(express.static(path.join(__dirname, 'public')))
 // client views
 app.use('/', viewRouter)
 // API
-app.use('/api/v1/model', modelRouter)
 app.use('/api/v1/project', projectRouter)
 app.use('/api/v1/radar', radarRouter)
 

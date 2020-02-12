@@ -1,6 +1,7 @@
 //
 // IMPORTS
 //
+// libraries
 // app modules
 const AppError = require('../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
@@ -9,10 +10,10 @@ const handlerFactory = require('./handlerFactory')
 const Radar = require('../models/radarModel')
 const radarController = require('./../controllers/radarController')
 
+exports.createRadar = handlerFactory.createOne(Radar, 'status', 'data', 'rendering')
 exports.getRadar = handlerFactory.getOne(Radar)
 exports.getAllRadars = handlerFactory.getAll(Radar)
-exports.createRadar = handlerFactory.createOne(Radar)
-exports.updateRadar = handlerFactory.updateOne(Radar)
+exports.updateRadar = handlerFactory.updateOne(Radar, 'status', 'data', 'rendering')
 exports.deleteRadar = handlerFactory.deleteOne(Radar)
 
 exports.getRadarBySlug = catchAsync(async (req, res, next) => {
@@ -48,5 +49,23 @@ exports.getEditions = catchAsync(async (req, res, next) => {
         status: 'success',
         results: editions.length,
         data: editions
+    })
+})
+
+//
+// state change operations
+//
+exports.populateRadar = catchAsync(async (req, res, next) => {
+    const { slug } = req.params
+    const { date } = req.params
+
+    const radar = await radarController.populateRadar(slug, Date.parse(date))
+    if (!radar || radar.length === 0) {
+        return next(new AppError(`Error while populating the radar.`, 500))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        data: radar
     })
 })

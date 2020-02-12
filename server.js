@@ -3,8 +3,9 @@
 //
 // libraries
 require('dotenv').config()
-const logger = require('./utils/logger')
 const mongoose = require('mongoose')
+// app modules
+const logger = require('./utils/logger')
 
 //
 // HANDLING UNCAUGHT EXCEPTIONS
@@ -21,32 +22,33 @@ process.on('uncaughtException', err => {
 //
 // CONNECT TO DB
 //
-let DB = process.env.DB_URL.replace('<USER>', process.env.DB_USER).replace(
+let DB_URL = process.env.DB_URL.replace('<USER>', process.env.DB_USER).replace(
     '<PASSWORD>',
     process.env.DB_PASSWD
 )
 mongoose
-    .connect(DB, {
+    .connect(DB_URL, {
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
         useUnifiedTopology: true
     })
-    .then(
-        () => logger.info('DB connection successful!'),
-        err => {
-            logger.error('💥 DB connection failed, aborting.')
-            logger.error(err)
-            server.close(() => {
-                logger.error('Process terminated!')
-            })
-        }
-    )
-
+    .catch(err => {
+        // initial connect error handling
+        logger.error('💥 DB connection failed, terminating immediately.')
+        logger.error(err)
+        process.exit(1)
+    })
+// log intermittent connection errors
+mongoose.connection.on('error', err => {
+    logger.error('💥 DB connection interrupted, trying to reconnect.')
+    logger.error(err)
+})
+logger.info('Connected to database.')
 //
 // IMPORTS
 //
-// app modules (deferred until after DB connection
+// app modules (deferred until after DB connection)
 const app = require('./app')
 
 //

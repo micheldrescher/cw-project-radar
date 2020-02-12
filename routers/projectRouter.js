@@ -23,18 +23,7 @@ router
     .delete(projectHandler.deleteProject)
 router.route('/:id/categorise').post(projectHandler.addCategory)
 router.route('/:id/score').post(projectHandler.addMTRLScore)
-
-// router
-//     .route('/')
-//     .get(getAllRadars)
-
-// router.route('/list').get(getRadarList)
-
-// router
-//     .route('/:id')
-//     .get(getRadar)
-//     .patch(protect, restrictTo('admin'), updateRadar)
-//     .delete(protect, restrictTo('admin'), deleteRadar)
+router.route('/prj_id/:id').get(projectHandler.getByCWId)
 
 //
 // EXPORTS

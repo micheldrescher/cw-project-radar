@@ -5,8 +5,15 @@
 // modules
 const APIFeatures = require('../utils/apiFeatures')
 const AppError = require('../utils/AppError')
-const Project = require('../models/projectModel')
+const { Project } = require('../models/projectModel')
 const Radar = require('../models/radarModel')
+
+//
+// get by CW ID
+//
+exports.getByCWId = async id => {
+    return await Project.findOne({ cw_id: id })
+}
 
 //
 // Add a MTRL score to a project
