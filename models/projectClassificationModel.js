@@ -4,6 +4,14 @@
 // libraries
 const mongoose = require('mongoose')
 
+//
+// MODULE VARS
+//
+const segments = process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
+
+//
+// SCHEMA
+//
 const projectClassificationSchema = new mongoose.Schema({
     classifiedOn: {
         type: Date,
@@ -12,7 +20,8 @@ const projectClassificationSchema = new mongoose.Schema({
     },
     classification: {
         type: String,
-        required: true
+        required: true,
+        validate: v => segments.includes(v)
     },
     classifiedBy: {
         type: String,

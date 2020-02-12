@@ -1,0 +1,189 @@
+cw_id	name	segment
+1	AARC2	Secure Systems
+2	ABC4Trust	Secure Systems
+3	ADDPRIV	Verification & Assurance
+4	AEGIS	Cybersecurity Governance
+5	ANASTACIA	Verification & Assurance
+6	ARIES	Secure Systems
+7	ARMOUR	Secure Systems
+8	ASAP	Human Aspects
+9	ATENA	Operational Risk
+10	BEACON	Operational Risk
+11	BIOSEC	Verification & Assurance
+12	C3ISP	Operational Risk
+13	CANVAS	Cybersecurity Governance
+14	certMILS	Cybersecurity Governance
+15	CHOReVOLUTION	Secure Systems
+16	CIPSEC	Secure Systems
+17	CITADEL	Secure Systems
+18	CLARUS	Secure Systems
+19	CloudSocket	Secure Systems
+20	CloudTeam	
+21	COCKPITCI	Operational Risk
+22	COEMS	Secure Systems
+23	COLA	
+24	COMPACT	Cybersecurity Governance
+25	CONSENT	Human Aspects
+26	CREDENTIAL	Identity & Privacy
+27	CROSSMINER	
+28	CryptoCloud	Identity & Privacy
+29	CS-AWARE	Cybersecurity Governance
+30	CYBECO	Verification & Assurance
+31	CyberWiz	Secure Systems
+32	CYCLONE	Secure Systems
+33	CYRail	Operational Risk
+34	DAPPER	Identity & Privacy
+35	DECODE	Human Aspects
+36	DEFENDER	Operational Risk
+37	DISCOVERY	Cybersecurity Governance
+38	DiSIEM	Operational Risk
+39	DITAS	
+40	DOGANA	Human Aspects
+41	DSSC	
+42	e-Sides	Identity & Privacy
+43	ECRYPT-CSA	Verification & Assurance
+44	ECRYPT-NET	
+45	ENCASE	Secure Systems
+46	EU-SEC	Cybersecurity Governance
+47	EUNITY	Cybersecurity Governance
+48	FIDELITY	
+49	FORTIKA	
+50	FutureTrust	Secure Systems
+51	GenoPri	Identity & Privacy
+52	GHOST	Human Aspects
+53	HEAT	Secure Systems
+54	HECTOR	Verification & Assurance
+55	HERMENEUT	Operational Risk
+56	HIPS	Secure Systems
+57	IMPACT	Operational Risk
+58	KONFIDO	Secure Systems
+59	LAST	Identity & Privacy
+60	LIGHTest	Secure Systems
+61	LV-Pri20	Identity & Privacy
+62	MAMI	Human Aspects
+63	MAPPING	Human Aspects
+64	MAS2TERING	Secure Systems
+65	MATTHEW	Secure Systems
+66	MELODIC	
+67	mF2C	Secure Systems
+68	MH-MD	Secure Systems
+69	MIKELANGELO	Secure Systems
+70	MITIGATE	Secure Systems
+71	MUSA	Secure Systems
+72	NECOMA	Operational Risk
+73	NeCS	Identity & Privacy
+74	OCGN	Operational Risk
+75	OCTAVE	Secure Systems
+76	OPENREQ	
+77	OPERANDO	Secure Systems
+78	P5	
+79	PaaSword	Secure Systems
+80	PACT	Human Aspects
+81	PANORAMIX	Secure Systems
+82	PARIS	Human Aspects
+83	PASS	Identity & Privacy
+84	PATS	Human Aspects
+85	PICOS	Human Aspects
+86	PQCRYPTO	Human Aspects
+87	PRACTIS	Human Aspects
+88	PRECIOSA	Verification & Assurance
+89	PRESCIENT	Cybersecurity Governance
+90	PreserviX	Secure Systems
+91	PrEstoCloud	Human Aspects
+92	PrimeLife	Identity & Privacy
+93	PRIPARE	
+94	PRISM	Human Aspects
+95	PRISM CODE	Secure Systems
+96	PRISMACLOUD	Operational Risk
+97	PRISMS	Verification & Assurance
+98	PRIVACY FLAG	Secure Systems
+99	Privacy.Us	Human Aspects
+100	PRIVACY4FORENSICS	Identity & Privacy
+101	ProBOS	Secure Systems
+102	PROTECTIVE	Cybersecurity Governance
+103	Ps2Share	Identity & Privacy
+104	RAPID	Operational Risk
+105	REASSURE	Cybersecurity Governance
+106	ReCRED	
+107	REDSENTRY	Operational Risk
+108	RESPECT	Secure Systems
+109	REVEN-X1	Verification & Assurance
+110	SafeCloud	Secure Systems
+111	SAFEcrypto	Verification & Assurance
+112	SAFERtec	Secure Systems
+113	SAINT	Verification & Assurance
+114	SAURON	Secure Systems
+115	SCISSOR	Operational Risk
+116	SCOTT	Secure Systems
+117	SCR	Verification & Assurance
+118	SecIoT	Secure Systems
+119	SERECA	Secure Systems
+120	SHARCS	Verification & Assurance
+121	SHiELD (Health)	Identity & Privacy
+122	SHIELD	Secure Systems
+123	SISSDEN	Secure Systems
+124	SMESEC	Operational Risk
+125	SocialPrivacy	Verification & Assurance
+126	SODA	Secure Systems
+127	SPECIAL	Human Aspects
+128	SpeechXRays	Identity & Privacy
+129	SPOOC	Identity & Privacy
+130	STAMP	
+131	STOP-IT	Operational Risk
+132	STORM	Operational Risk
+133	SUNFISH	Operational Risk
+134	SUPERCLOUD	Verification & Assurance
+135	SurPRISE	Identity & Privacy
+136	SysSec	Identity & Privacy
+137	TOREADOR	Human Aspects
+138	TREDISEC	Cybersecurity Governance
+139	TRUESSEC.EU	
+140	TYPES	Identity & Privacy
+141	U2PIA	Human Aspects
+142	UNICORN	Secure Systems
+143	VESSEDIA	Secure Systems
+144	VIRT-EU	Identity & Privacy
+145	VisiOn	Verification & Assurance
+146	WISER	Human Aspects
+147	WITDOM	Secure Systems
+148	FENTEC	Operational Risk
+149	SAWSOC	Secure Systems
+150	PROMETHEUS	Verification & Assurance
+151	REACT	Secure Systems
+152	SerIoT	Secure Systems
+153	YAKSHA	Secure Systems
+154	DECODE	
+155	CYBER-TRUST	Secure Systems
+156	DOGANA II	
+157	CYBECO II	Operational Risk
+158	PRIVILEDGE	Identity & Privacy
+159	FUTURE TPM	Verification & Assurance
+160	SealedGRID	Secure Systems
+161	SEMIoTICS	Secure Systems
+162	ASTRID	Secure Systems
+163	BPR4GDPR	Identity & Privacy
+164	PAPAYA	Identity & Privacy
+165	POSEIDON	Identity & Privacy
+166	SPEAR	Secure Systems
+167	SMOOTH	Cybersecurity Governance
+168	DEFEND	Cybersecurity Governance
+169	CE-IoT	
+170	OLYMPUS	Identity & Privacy
+171	THREAT-ARREST	Secure Systems
+172	CONCORDIA	Cybersecurity Governance
+173	OCRE	
+174	SPARTA	Cybersecurity Governance
+175	CyberSec4Europe	Cybersecurity Governance
+176	ECHO	Cybersecurity Governance
+177	ENACT	Secure Systems
+178	PDP4E	Identity & Privacy
+179	CYBERWISER.EU	
+180	PROTASIS	Secure Systems
+181	FAR-EDGE	
+182	SOFIE	
+183	SPECS	Secure Systems
+184	SWITCH	
+185	PANACEA	Operational Risk
+186	symbIoTe	Secure Systems
+187	CREATE-IoT	
+188	SecureIoT	Secure Systems

@@ -1,0 +1,135 @@
+id	name	type	ending	budget	quadrant	ring	TRL	MRL	Score	Median	Performance	Min	Max	title	teaser	cwurl
+1	AARC2	RIA			Secure Systems	Trial										
+2	ABC4Trust	CP			Secure Systems	Drop										
+3	ADDPRIV	CP			Verification & Assurance	Drop								Descr 3		
+4	AEGIS	CSA			Cybersecurity Governance	Trial								Descr 4		
+5	ANASTACIA	RIA			Verification & Assurance	Assess								Descr 5		
+6	ARIES	RIA			Secure Systems	Adopt								Descr 6		
+7	ARMOUR	RIA			Secure Systems	Hold								Descr 7		
+8	ASAP	ERC-AG			Human Aspects	Adopt								8		
+9	ATENA	IA			Operational Risk	Trial								The Cyberwatching project		
+10	BEACON	RIA			Operational Risk	Drop										
+11	BIOSEC	MC-IOF			Verification & Assurance	Drop										
+12	C3ISP	IA			Operational Risk	Assess										
+13	CANVAS	CSA			Cybersecurity Governance	Trial										
+14	certMILS	IA			Cybersecurity Governance	Assess										
+15	CHOReVOLUTION	RIA			Secure Systems	Hold										
+16	CIPSEC	IA			Secure Systems	Trial										
+17	CITADEL	IA			Secure Systems	Trial										
+18	CLARUS	RIA			Secure Systems	Hold										
+19	CloudSocket	RIA			Secure Systems	Hold										
+21	COCKPITCI	CP-FP			Operational Risk	Drop										
+22	COEMS	RIA			Secure Systems	Assess										
+24	COMPACT	IA			Cybersecurity Governance	Assess										
+25	CONSENT	CP-FP			Human Aspects	Drop										
+26	CREDENTIAL	IA			Identity & Privacy	Adopt										
+28	CryptoCloud	ERC-AG			Identity & Privacy	Trial										
+29	CS-AWARE	IA			Cybersecurity Governance	Assess										
+30	CYBECO	RIA			Verification & Assurance	Trial										
+31	CyberWiz	SME-2			Secure Systems	Drop										
+32	CYCLONE	IA			Secure Systems	Hold										
+33	CYRail	Shift2Rail-RIA			Operational Risk	Adopt										
+34	DAPPER	MC-CIG			Identity & Privacy	Hold										
+35	DECODE	RIA			Human Aspects	Assess										
+36	DEFENDER	IA			Operational Risk	Assess										
+37	DISCOVERY	CSA			Cybersecurity Governance	Hold										
+38	DiSIEM	IA			Operational Risk	Trial										
+40	DOGANA	IA			Human Aspects	Hold										
+42	e-Sides	CSA			Identity & Privacy	Assess										
+43	ECRYPT-CSA	CSA			Verification & Assurance	Hold										
+45	ENCASE	MSCA-RISE			Secure Systems	Assess										
+46	EU-SEC	IA			Cybersecurity Governance	Assess										
+47	EUNITY	CSA			Cybersecurity Governance	Trial										
+50	FutureTrust	IA			Secure Systems	Trial										
+51	GenoPri	MSCA-IF-EF-ST - Standard EF			Identity & Privacy	Hold										
+52	GHOST	IA			Human Aspects	Assess										
+53	HEAT	RIA			Secure Systems	Hold										
+54	HECTOR	RIA			Verification & Assurance	Hold										
+55	HERMENEUT	RIA			Operational Risk	Trial										
+56	HIPS	ERC-CG			Secure Systems	Assess										
+57	IMPACT	ERC-SyG			Operational Risk	Assess										
+58	KONFIDO	RIA			Secure Systems	Assess										
+59	LAST	ERC-SG - ERC Starting Grant			Identity & Privacy	Drop										
+60	LIGHTest	IA			Secure Systems	Trial										
+61	LV-Pri20	MSCA-IF-EF-CAR			Identity & Privacy	Drop										
+62	MAMI	RIA			Human Aspects	Hold										
+63	MAPPING	CSA-SA			Human Aspects	Hold										
+64	MAS2TERING	CP			Secure Systems	Drop										
+65	MATTHEW	CP			Secure Systems	Drop										
+67	mF2C	RIA			Secure Systems	Assess										
+68	MH-MD	RIA			Secure Systems	Assess										
+69	MIKELANGELO	RIA			Secure Systems	Hold										
+70	MITIGATE	IA			Secure Systems	Hold										
+71	MUSA	RIA			Secure Systems	Hold										
+72	NECOMA	CP			Operational Risk	Drop										
+73	NeCS	MSCA-ITN-ETN			Identity & Privacy	Trial										
+74	OCGN	MSCA-IF-EF-ST			Operational Risk	Adopt										
+75	OCTAVE	IA			Secure Systems	Drop										
+77	OPERANDO	IA			Secure Systems	Hold										
+79	PaaSword	RIA			Secure Systems	Hold										
+80	PACT	CP-FP			Human Aspects	Drop										
+81	PANORAMIX	IA			Secure Systems	Hold										
+82	PARIS	CP-FP			Human Aspects	Drop										
+83	PASS	MC-IRG			Identity & Privacy	Drop										
+84	PATS	CSA-SA			Human Aspects	Drop										
+85	PICOS	CP			Human Aspects	Drop										
+86	PQCRYPTO	RIA			Human Aspects	Hold										
+87	PRACTIS	CP-FP			Human Aspects	Drop										
+88	PRECIOSA	CP			Verification & Assurance	Drop										
+89	PRESCIENT	CP-FP			Cybersecurity Governance	Drop										
+90	PreserviX	SME-1			Secure Systems	Drop										
+91	PrEstoCloud	RIA			Human Aspects	Assess										
+92	PrimeLife	CP			Identity & Privacy	Drop										
+94	PRISM	CP			Human Aspects	Drop										
+95	PRISM CODE	MC-CIG			Secure Systems	Drop										
+96	PRISMACLOUD	RIA			Operational Risk	Hold										
+97	PRISMS	CP-FP			Verification & Assurance	Drop										
+98	PRIVACY FLAG	IA			Secure Systems	Hold										
+99	Privacy.Us	MSCA-ITN-ETN			Human Aspects	Assess										
+100	PRIVACY4FORENSICS	MC-IIF - International Incoming Fellowships (IIF)			Identity & Privacy	Hold										
+101	ProBOS	SME-2			Secure Systems	Adopt										
+102	PROTECTIVE	IA			Cybersecurity Governance	Trial										
+103	Ps2Share	RIA			Identity & Privacy	Hold										
+104	RAPID	RIA			Operational Risk	Hold										
+105	REASSURE	RIA			Cybersecurity Governance	Assess										
+107	REDSENTRY	SME-1			Operational Risk	Hold										
+108	RESPECT	CP-FP			Secure Systems	Drop										
+109	REVEN-X1	SME-1			Verification & Assurance	Drop										
+110	SafeCloud	IA			Secure Systems	Hold										
+111	SAFEcrypto	RIA			Verification & Assurance	Adopt										
+112	SAFERtec	RIA			Secure Systems	Assess										
+113	SAINT	RIA			Verification & Assurance	Assess										
+114	SAURON	IA			Secure Systems	Trial										
+115	SCISSOR	RIA			Operational Risk	Hold										
+116	SCOTT	IA			Secure Systems	Assess										
+117	SCR	SME-1			Verification & Assurance	Drop										
+118	SecIoT	CSA			Secure Systems	Hold										
+119	SERECA	RIA			Secure Systems	Hold										
+120	SHARCS	RIA			Verification & Assurance	Hold										
+121	SHiELD	RIA			Identity & Privacy	Assess										
+122	SHIELD	IA			Secure Systems	Adopt										
+123	SISSDEN	IA			Secure Systems	Trial										
+124	SMESEC	IA			Operational Risk	Assess										
+125	SocialPrivacy	MC-IOF			Verification & Assurance	Drop										
+126	SODA	RIA			Secure Systems	Assess								A description for the SODA project		
+127	SPECIAL	RIA			Human Aspects	Assess										
+128	SpeechXRays	IA			Identity & Privacy	Hold										
+129	SPOOC	ERC-COG			Identity & Privacy	Assess										
+131	STOP-IT	IA			Operational Risk	Assess										
+132	STORM	RIA			Operational Risk	Hold										
+133	SUNFISH	RIA			Operational Risk	Hold										
+134	SUPERCLOUD	RIA			Verification & Assurance	Hold										
+135	SurPRISE	CP-FP			Identity & Privacy	Drop										
+136	SysSec	NoE			Identity & Privacy	Drop										
+137	TOREADOR	RIA			Human Aspects	Adopt										
+138	TREDISEC	RIA			Cybersecurity Governance	Hold										
+140	TYPES	IA			Identity & Privacy	Hold										
+141	U2PIA	SME-1			Human Aspects	Drop										
+142	UNICORN	IA			Secure Systems	Assess										
+143	VESSEDIA	RIA			Secure Systems	Assess										
+144	VIRT-EU	RIA			Identity & Privacy	Assess										
+145	VisiOn				Verification & Assurance	Drop										
+146	WISER	IA			Human Aspects	Hold										
+147	WITDOM	RIA			Secure Systems	Hold										
+148	FENTEC	RIA			Operational Risk	Assess										
+149	SAWSOC				Secure Systems	Assess										

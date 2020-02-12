@@ -1,0 +1,141 @@
+/* eslint-disable no-console */
+//
+// IMPORTS
+//
+// libraries
+require('dotenv').config()
+const csv = require('@fast-csv/parse')
+const fs = require('fs')
+const mongoose = require('mongoose')
+// app modules
+const projectController = require('../controllers/projectController')
+const { ProjectClassification } = require('./../models/projectClassificationModel')
+
+process.on('unhandledRejection', error => {
+    // Will print "unhandledRejection err is not defined"
+    console.log('unhandledRejection', error.message)
+    throw error
+})
+
+//
+// parsing formats
+//
+const csvParseOptions = {
+    delimiter: '	',
+    quote: null,
+    headers: true
+}
+
+// DB URL
+const DB_URL =
+    'mongodb+srv://radarAdmin:FiftyHorses@cw-project-radar-whzkf.mongodb.net/cw-project-radar?authSource=admin&replicaSet=cw-project-radar-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true'
+// connect to DB
+mongoose.connect(DB_URL, {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    useUnifiedTopology: true
+})
+// test connect so that we know all is in order
+var db = mongoose.connection
+db.on('error', function() {
+    console.log('Failed to connect to database')
+    process.exit(1)
+})
+db.once('open', async function() {
+    console.log('Connected to database')
+    await runScript()
+})
+
+//
+// the actual script
+//
+const runScript = async () => {
+    const data = await importClassifications()
+
+    await addClassifications(data)
+
+    console.log('--> Done importing, disconnecting DB.')
+    await mongoose.disconnect()
+
+    console.log('--> Shutting down.')
+    process.exit(0)
+}
+
+// import projects from CSV into an object array
+const importClassifications = () => {
+    return new Promise((resolve, reject) => {
+        console.log('\n==> IMPORTING classifications')
+        const data = []
+        fs.createReadStream('__data__/segments.tsv')
+            .pipe(csv.parse(csvParseOptions))
+
+            .on('error', error => {
+                console.error(error)
+                reject()
+            })
+
+            .on('data', row => {
+                const obj = cleanseData(row)
+                // add to data stack
+                data.push({
+                    cw_id: obj.cw_id,
+                    name: obj.name,
+                    segment: obj.segment
+                })
+            })
+
+            .on('end', rowCount => {
+                console.log(`Parsed ${rowCount} rows`)
+                resolve(data)
+            })
+    })
+}
+
+const cleanseData = obj => {
+    let result = {}
+
+    // cleanse data: empty values to undefined
+    Object.keys(obj).forEach(function(key) {
+        if (obj[key] !== '') {
+            result[key] = obj[key] // remove empty entries
+        }
+    })
+
+    return result
+}
+
+const addClassifications = async data => {
+    console.log('\n==> ADDING CLASSIFICATIONS')
+    let added = 0
+    let failed = 0
+    let skipped = 0
+    await Promise.all(
+        data.map(async obj => {
+            // skip if no classification available
+            if (!obj.segment) {
+                console.log(`(${obj.cw_id} | ${obj.name}) --> no classification, skipping`)
+                skipped++
+                return
+            }
+            const prj = await projectController.getByCWId(obj.cw_id)
+            if (!prj) {
+                console.log(`No project for cw_id ${obj.cw_id}`)
+                failed++
+                return
+            }
+            // add classification
+            const classification = new ProjectClassification({
+                classification: obj.segment,
+                changeSummary: 'Import from Google Sheets based system.'
+            })
+            await projectController.addCategory(prj._id, classification)
+            added++
+        })
+    )
+    console.log(
+        `${added +
+            failed +
+            skipped} classifications (${added} added, ${failed} failed, ${skipped} skipped.)\n`
+    )
+}

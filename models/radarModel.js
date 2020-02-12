@@ -4,16 +4,18 @@
 // libraries
 const mongoose = require('mongoose')
 const slugify = require('slugify')
+// app modules
+const { radarDataSchema } = require('./radarDataModel')
 
 const radarSchema = new mongoose.Schema({
     year: {
         type: Number,
-        required: [true, 'A year is required'],
+        required: [true, "A radar's year is required."],
         min: 2018
     },
     release: {
         type: String,
-        required: [true, 'You must specify an edition value'],
+        required: [true, "A radar's edition is required."],
         enum: {
             values: ['Spring', 'Autumn'],
             message: 'edition may be either "Spring" or "Autumn".'
@@ -29,26 +31,27 @@ const radarSchema = new mongoose.Schema({
     name: {
         type: String
     },
-    model: {
-        type: mongoose.Schema.ObjectId,
-        ref: 'Model',
-        required: ['A radar MUST have an existing data model reference', true]
-    },
     summary: {
-        type: String,
-        required: true
+        type: String
     },
     status: {
         type: String,
         required: true,
         enum: {
-            values: ['prepared', 'published', 'archived'],
-            message: 'Status must be either prepared, published, or archived.'
+            values: ['created', 'populated', 'published', 'archived'],
+            message: 'Status must be either created, populated, published, or archived.'
         },
-        default: 'prepared',
-        select: false
-    }
+        default: 'created'
+    },
+    data: [radarDataSchema],
+    rendering: String
 })
+
+//
+// INDEXES
+//
+radarSchema.index({ slug: 1 })
+radarSchema.index({ slug: 1, status: 1 })
 
 //
 // DOCUMENT MIDDLEWARE

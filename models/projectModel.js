@@ -26,6 +26,10 @@ const projectSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    call: {
+        type: String,
+        required: true
+    },
     type: {
         type: String,
         required: true
@@ -38,17 +42,36 @@ const projectSchema = new mongoose.Schema({
         type: Date,
         required: true
     },
-    classification: [projectClassificationSchema],
-    mtrlScores: [mtrlScoreSchema],
+    budget: {
+        type: Number,
+        required: true
+    },
+    projectURL: {
+        type: String,
+        validate: validator.isURL
+    },
+    fundingBodyLink: {
+        type: String,
+        validate: validator.isURL
+    },
     cwurl: {
         type: String,
         validate: [validator.isURL, 'Invalid URL.']
-    }
+    },
+    // TODO add JRC taxonomy
+    classification: [projectClassificationSchema],
+    mtrlScores: [mtrlScoreSchema]
 })
+
+//
+// Indexes
+//
+projectSchema.index({ cw_id: 1 }) // index on the project's CW id
+// to be defined
 
 const Project = mongoose.model('Project', projectSchema)
 
 //
 // EXPORTS
 //
-module.exports = Project
+module.exports = { Project, projectSchema }
