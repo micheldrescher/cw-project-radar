@@ -3,10 +3,8 @@
 //
 // libraries
 // modules
-const APIFeatures = require('../utils/apiFeatures')
 const AppError = require('../utils/AppError')
 const { Project } = require('../models/projectModel')
-const Radar = require('../models/radarModel')
 
 //
 // get by CW ID
@@ -51,30 +49,4 @@ exports.addMTRLScore = async (id, score) => {
 
     // 3) return the project as a sign of success
     return project
-}
-
-//
-// Get all radar editions
-//
-exports.getEditions = async () => {
-    // we want only published radars
-    // TODO vary the filter based on logged in user
-    let filter = {
-        status: {
-            $in: ['published']
-        }
-    }
-    // sort by year, then editiion (desc.)
-    // include only the slug and the name
-    let queryStr = {
-        sort: '-year,release',
-        fields: 'name,slug,status,year,release'
-    }
-    const features = new APIFeatures(Radar.find(filter), queryStr)
-        .filter()
-        .sort()
-        .limitFields()
-        .paginate()
-
-    return await features.query
 }

@@ -8,10 +8,10 @@ const handlerFactory = require('./handlerFactory')
 const { Project } = require('../models/projectModel')
 const projectController = require('../controllers/projectController')
 
-exports.createProject = handlerFactory.createOne(Project, 'classification', 'mtrlScores')
+exports.createProject = handlerFactory.createOne(Project)
 exports.getProject = handlerFactory.getOne(Project)
 exports.getAllProjects = handlerFactory.getAll(Project)
-exports.updateProject = handlerFactory.updateOne(Project, 'classification', 'mtrlScores')
+exports.updateProject = handlerFactory.updateOne(Project)
 exports.deleteProject = handlerFactory.deleteOne(Project)
 
 exports.getByCWId = catchAsync(async (req, res, next) => {
