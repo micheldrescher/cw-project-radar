@@ -8,8 +8,8 @@ const csv = require('@fast-csv/parse')
 const fs = require('fs')
 const mongoose = require('mongoose')
 // app modules
-const projectController = require('../controllers/projectController')
 const { MTRLScore } = require('./../models/mtrlScoreModel')
+const projectController = require('../controllers/projectController')
 
 process.on('unhandledRejection', error => {
     // Will print "unhandledRejection err is not defined"
@@ -52,6 +52,10 @@ db.once('open', async function() {
 // the actual script
 //
 const runScript = async () => {
+    console.log('\n==> DELETING MTRL scores')
+    const deleteResult = await MTRLScore.deleteMany({})
+    console.log(`Deleted ${deleteResult.deletedCount} MTRL scores.`)
+
     const autumn2018Data = await importScores('__data__/radar_autumn_2018.tsv', '2018-08-31')
     const spring2019Data = await importScores('__data__/radar_spring_2019.tsv', '2019-03-31')
     const autumn2019Data = await importScores('__data__/radar_autumn_2019.tsv', '2019-08-31')
@@ -149,12 +153,12 @@ const addScores = async data => {
                 return
             }
             // add classification
-            const score = new MTRLScore({
+            await MTRLScore.create({
+                project: prj._id,
                 scoringDate: obj.date,
                 trl: obj.trl,
                 mrl: obj.mrl
             })
-            await projectController.addMTRLScore(prj._id, score)
             added++
         })
     )

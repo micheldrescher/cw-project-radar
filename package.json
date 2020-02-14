@@ -11,7 +11,8 @@
         "watch:js": "parcel watch ./public/js/index.js --public-url /js --out-dir ./public/js --out-file bundle.js",
         "build:js": "parcel build ./public/js/index.js --public-url /js --out-dir ./public/js --out-file bundle.js",
         "init:projects": "node __data__/import_projects.js",
-        "init:classifications": "node __data__/import_classifications.js"
+        "init:classifications": "node __data__/import_classifications.js",
+        "init:mtrl": "node __data__/import_mtrls.js"
     },
     "keywords": [
         "cyberwatching.eu",
