@@ -5,6 +5,7 @@
 // app modules
 const AppError = require('./../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
+const logger = require('./../utils/logger')
 const radarController = require('../controllers/radarController')
 
 //
@@ -12,16 +13,19 @@ const radarController = require('../controllers/radarController')
 //
 // Add the editions to each request for the header menu
 exports.getEditions = catchAsync(async (req, res, next) => {
+    logger.info('fetching editions')
     // 1) Get editions
     const editions = await radarController.getEditions()
-
+    logger.info(editions)
     // 2) Error handling
-    if (!editions || editions.lenth === 0) {
+    if (!editions || editions.length === 0) {
+        logger.warn('No editions found!')
         res.locals.alert = {
             status: 'fail',
             message: 'Unable to fetch radar editions.'
         }
     } else {
+        logger.info('sending back editions as locals')
         // 4) process result
         res.locals.editions = editions
     }

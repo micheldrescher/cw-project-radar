@@ -15,8 +15,9 @@ process.on('unhandledRejection', error => {
 })
 
 // DB URL
-const DB_URL =
-    'mongodb+srv://radarAdmin:FiftyHorses@cw-project-radar-whzkf.mongodb.net/cw-project-radar?authSource=admin&replicaSet=cw-project-radar-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true'
+// const DB_URL =
+//     'mongodb+srv://radarAdmin:FiftyHorses@cw-project-radar-whzkf.mongodb.net/cw-project-radar?authSource=admin&replicaSet=cw-project-radar-shard-0&w=majority&readPreference=primary&appname=MongoDB%20Compass&retryWrites=true&ssl=true'
+const DB_URL = 'mongodb://localhost:27017/cw-project-radar?ssl=false'
 // connect to DB
 mongoose.connect(DB_URL, {
     useNewUrlParser: true,

@@ -8,3 +8,4 @@ public/js/bundle.js
 public/js/bundle.js.map
 
 .env.remote
+public/js/bundle.js

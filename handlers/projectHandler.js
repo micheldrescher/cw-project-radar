@@ -5,7 +5,7 @@
 const catchAsync = require('../utils/catchAsync')
 const handlerFactory = require('./handlerFactory')
 // const logger = require('./../utils/logger')
-const Project = require('../models/projectModel')
+const { Project } = require('../models/projectModel')
 const projectController = require('../controllers/projectController')
 
 exports.createProject = handlerFactory.createOne(Project, 'classification', 'mtrlScores')

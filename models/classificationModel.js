@@ -12,7 +12,7 @@ const segments = process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
 //
 // SCHEMA
 //
-const projectClassificationSchema = new mongoose.Schema({
+const classificationSchema = new mongoose.Schema({
     classifiedOn: {
         type: Date,
         required: true,
@@ -37,9 +37,9 @@ const projectClassificationSchema = new mongoose.Schema({
     }
 })
 
-const ProjectClassification = mongoose.model('ProjectClassification', projectClassificationSchema)
+const ProjectClassification = mongoose.model('ProjectClassification', classificationSchema)
 
 //
 // EXPORTS
 //
-module.exports = { ProjectClassification, projectClassificationSchema }
+module.exports = { ProjectClassification, classificationSchema }

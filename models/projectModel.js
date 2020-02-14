@@ -5,7 +5,7 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 // app modules
-const { projectClassificationSchema } = require('./projectClassificationModel')
+const { classificationSchema } = require('./classificationModel')
 const { mtrlScoreSchema } = require('./mtrlScoreModel')
 
 const projectSchema = new mongoose.Schema({
@@ -59,7 +59,7 @@ const projectSchema = new mongoose.Schema({
         validate: [validator.isURL, 'Invalid URL.']
     },
     // TODO add JRC taxonomy
-    classification: [projectClassificationSchema],
+    classification: [classificationSchema],
     mtrlScores: [mtrlScoreSchema]
 })
 

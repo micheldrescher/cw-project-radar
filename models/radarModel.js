@@ -5,7 +5,7 @@
 const mongoose = require('mongoose')
 const slugify = require('slugify')
 // app modules
-const { radarDataSchema } = require('./radarDataModel')
+const { segmentSchema } = require('./radarDataModel')
 
 const radarSchema = new mongoose.Schema({
     year: {
@@ -43,7 +43,7 @@ const radarSchema = new mongoose.Schema({
         },
         default: 'created'
     },
-    data: [radarDataSchema],
+    data: [segmentSchema],
     rendering: String
 })
 
