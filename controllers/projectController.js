@@ -35,6 +35,14 @@ exports.addCategory = async (cwid, data) => {
     })
     classification.project = project
 
+    // 3) Set the project's current category
+    //      Re-categorisation hasn't happened at all yet, so this is safe.
+    //      The current category helps tremendously with filtering projects
+    //      for a radar, saving a lot of database queries.
+    //      Currently, we MUST NOT OFFER RE-CATEGORISATION!!!
+    project.classification = data.classification
+    await project.save()
+
     return classification
 }
 
