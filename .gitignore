@@ -7,3 +7,4 @@ __OLD__/**
 public/js/bundle.js
 public/js/bundle.js.map
 
+.env.remote

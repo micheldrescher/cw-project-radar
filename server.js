@@ -22,10 +22,11 @@ process.on('uncaughtException', err => {
 //
 // CONNECT TO DB
 //
-let DB_URL = process.env.DB_URL.replace('<USER>', process.env.DB_USER).replace(
-    '<PASSWORD>',
-    process.env.DB_PASSWD
-)
+// let DB_URL = process.env.DB_URL.replace('<USER>', process.env.DB_USER).replace(
+//     '<PASSWORD>',
+//     process.env.DB_PASSWD
+// )
+let { DB_URL } = process.env
 mongoose
     .connect(DB_URL, {
         useNewUrlParser: true,
