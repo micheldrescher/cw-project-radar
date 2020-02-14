@@ -6,10 +6,11 @@
 require('dotenv').config()
 const csv = require('@fast-csv/parse')
 const fs = require('fs')
+const moment = require('moment')
 const mongoose = require('mongoose')
 // app modules
 const projectController = require('../controllers/projectController')
-const { ProjectClassification } = require('./../models/projectClassificationModel')
+const { Classification } = require('./../models/classificationModel')
 
 process.on('unhandledRejection', error => {
     // Will print "unhandledRejection err is not defined"
@@ -52,6 +53,10 @@ db.once('open', async function() {
 // the actual script
 //
 const runScript = async () => {
+    console.log('\n==> DELETING classifications')
+    const deleteResult = await Classification.deleteMany({})
+    console.log(`Deleted ${deleteResult.deletedCount} classifications.`)
+
     const data = await importClassifications()
 
     await addClassifications(data)
@@ -126,11 +131,12 @@ const addClassifications = async data => {
                 return
             }
             // add classification
-            const classification = new ProjectClassification({
+            await Classification.create({
                 classification: obj.segment,
+                project: prj._id,
+                classifiedOn: moment('2018-08-01', 'YYYY-MM-D'),
                 changeSummary: 'Import from Google Sheets based system.'
             })
-            await projectController.addCategory(prj._id, classification)
             added++
         })
     )

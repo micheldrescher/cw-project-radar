@@ -10,7 +10,8 @@
         "debug": "ndb server.js",
         "watch:js": "parcel watch ./public/js/index.js --public-url /js --out-dir ./public/js --out-file bundle.js",
         "build:js": "parcel build ./public/js/index.js --public-url /js --out-dir ./public/js --out-file bundle.js",
-        "init:projects": "node __data__/import_projects.js"
+        "init:projects": "node __data__/import_projects.js",
+        "init:classifications": "node __data__/import_classifications.js"
     },
     "keywords": [
         "cyberwatching.eu",
