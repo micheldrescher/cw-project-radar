@@ -4,49 +4,58 @@
 // libraries
 // modules
 const AppError = require('../utils/AppError')
+const { Classification } = require('../models/classificationModel')
+const { MTRLScore } = require('../models/mtrlScoreModel')
 const { Project } = require('../models/projectModel')
 
 //
 // get by CW ID
 //
-exports.getByCWId = async id => {
-    return await Project.findOne({ cw_id: id })
+exports.getByCWId = async cwid => {
+    return await Project.findOne({ cw_id: cwid })
 }
 
 //
 // Add a MTRL score to a project
 //
-exports.addCategory = async (id, category) => {
+exports.addCategory = async (cwid, data) => {
     // 1) Get the corresponding project
-    const project = await Project.findById(id)
+    const project = await this.getByCWId(cwid)
     if (!project) {
-        throw new AppError(`No project found with id ${id}`, 404)
+        throw new AppError(`No project found with id ${cwid}`, 404)
     }
 
-    // 2) no check of classification - if it is a wrong classification, then the
-    // project will not be included in any radar.
+    // 2) Create new classification object
+    const classification = await Classification.create({
+        classification: data.classification,
+        project: project._id,
+        classifiedOn: data.classifiedOn,
+        classifiedBy: data.classifiedBy,
+        changeSummary: data.changeSummary
+    })
+    classification.project = project
 
-    // 3) add the classification to the project's classifications
-    project.classification.push(category)
-    await project.save()
-
-    // 4) return the project as a sign of success
-    return project
+    return classification
 }
 
 //
 // Add a MTRL score to a project
 //
-exports.addMTRLScore = async (id, score) => {
+exports.addMTRLScore = async (cwid, data) => {
     // 1) Get the corresponding project
-    const project = await Project.findById(id)
+    const project = await this.getByCWId(cwid)
     if (!project) {
-        throw new AppError(`No project found with id ${id}`, 404)
+        throw new AppError(`No project found with id ${cwid}`, 404)
     }
-    // 2) add the score to the project's score array
-    project.mtrlScores.push(score)
-    await project.save()
+    // 2) Create new score object
+    const score = await MTRLScore.create({
+        project: project._id,
+        scoringDate: data.scoringDate,
+        mrl: data.mrl,
+        trl: data.trl
+    })
+    score.project = project
 
     // 3) return the project as a sign of success
-    return project
+    return score
 }

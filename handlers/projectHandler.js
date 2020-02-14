@@ -5,6 +5,7 @@
 const catchAsync = require('../utils/catchAsync')
 const handlerFactory = require('./handlerFactory')
 // const logger = require('./../utils/logger')
+const AppError = require('../utils/AppError')
 const { Project } = require('../models/projectModel')
 const projectController = require('../controllers/projectController')
 
@@ -15,7 +16,10 @@ exports.updateProject = handlerFactory.updateOne(Project)
 exports.deleteProject = handlerFactory.deleteOne(Project)
 
 exports.getByCWId = catchAsync(async (req, res, next) => {
-    const project = await projectController.getByCWId(req.params.id)
+    const project = await projectController.getByCWId(req.params.cwid)
+    if (!project) {
+        throw new AppError(`No project found with id ${req.params.cwid}`, 404)
+    }
 
     res.status(200).json({
         status: 'success',
@@ -24,20 +28,20 @@ exports.getByCWId = catchAsync(async (req, res, next) => {
 })
 
 //
-// Add an classification to a project
+// Add a classification to a project
 //
 exports.addCategory = catchAsync(async (req, res, next) => {
     // 1) fetch data
-    const { id } = req.params
-    const category = req.body
+    const { cwid } = req.params
+    const categoryData = req.body
 
     // 2) add score and save the proejct
-    const project = await projectController.addCategory(id, category)
+    const classification = await projectController.addCategory(cwid, categoryData)
 
     // 3) Assemble successful response
     res.status(201).json({
         status: 'success',
-        data: project
+        data: classification
     })
 })
 
@@ -46,15 +50,15 @@ exports.addCategory = catchAsync(async (req, res, next) => {
 //
 exports.addMTRLScore = catchAsync(async (req, res, next) => {
     // 1) fetch data
-    const { id } = req.params
-    const score = req.body
+    const { cwid } = req.params
+    const scoreData = req.body
 
     // 2) add score and save the proejct
-    const project = await projectController.addMTRLScore(id, score)
+    const score = await projectController.addMTRLScore(cwid, scoreData)
 
     // 3) Assemble successful response
     res.status(201).json({
         status: 'success',
-        data: project
+        data: score
     })
 })

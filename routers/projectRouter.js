@@ -21,9 +21,9 @@ router
     .get(projectHandler.getProject)
     .patch(projectHandler.updateProject)
     .delete(projectHandler.deleteProject)
-router.route('/:id/categorise').post(projectHandler.addCategory)
-router.route('/:id/score').post(projectHandler.addMTRLScore)
-router.route('/prj_id/:id').get(projectHandler.getByCWId)
+router.route('/:cwid/categorise').post(projectHandler.addCategory) // This is BY CW ID!!
+router.route('/:cwid/score').post(projectHandler.addMTRLScore) // This is BY CW ID!!
+router.route('/prj_id/:cwid').get(projectHandler.getByCWId) // This is BY CW ID!!
 
 //
 // EXPORTS
