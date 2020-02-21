@@ -23,7 +23,6 @@ const segments = process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
 // Fetch a radar by its slug
 //
 exports.getRadarBySlug = async slug => {
-    // 1) Get the radar
     return await Radar.findOne({ slug: slug })
 }
 
@@ -64,7 +63,7 @@ exports.populateRadar = async (slug, date) => {
     if (!radar) {
         throw new AppError(`No radar found for id ${slug}.`, 404)
     }
-    if (!['created', 'populated'].includes(radar.status)) {
+    if (!['created', 'populated', 'rendered'].includes(radar.status)) {
         throw new AppError(`Radar ${radar.name} is not in state created.`, 500)
     }
 
@@ -149,17 +148,30 @@ exports.populateRadar = async (slug, date) => {
 }
 
 //
-// publish the radar
+// Render the radar into a scalable SVG image
 //
-// TODO implement rendering the radar serverside here
-exports.publishRadar = async slug => {
+exports.renderRdar = async slug => {
     // 1) Obtain the radar
     const radar = await this.getRadarBySlug(slug)
-
     if (!radar) {
         throw new AppError(`No radar found for id ${slug}.`, 404)
     }
     if (!['populated'].includes(radar.status)) {
+        throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
+    }
+}
+//
+// publish the radar
+//
+// Once checked for any mistakes after rendering, an admin (or other
+// authorised user) can publish the radar for the public to analyse
+exports.publishRadar = async slug => {
+    // 1) Obtain the radar
+    const radar = await this.getRadarBySlug(slug)
+    if (!radar) {
+        throw new AppError(`No radar found for id ${slug}.`, 404)
+    }
+    if (!['rendered'].includes(radar.status)) {
         throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
     }
 
