@@ -25,7 +25,11 @@ router
     .delete(radarHandler.deleteRadar)
 
 router.get('/:slug/populate/:date?', radarHandler.populateRadar)
+router.get('/:slug/render', radarHandler.renderRadar)
 router.get('/:slug/publish', radarHandler.publishRadar)
+router.get('/:slug/reset', radarHandler.resetRadar)
+router.get('/:slug/archive', radarHandler.archiveRadar)
+router.get('/:slug/republish', radarHandler.republishRadar)
 
 router.get('/editions', radarHandler.getEditions)
 

@@ -38,12 +38,13 @@ const radarSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: {
-            values: ['created', 'populated', 'published', 'archived'],
+            values: ['created', 'populated', 'rendered', 'published', 'archived'],
             message: 'Status must be either created, populated, published, or archived.'
         },
         default: 'created'
     },
-    populationDate: Date,
+    populationDate: Date, // the radar's reference/cutoff date
+    publicationDate: Date, // the date this radar was published
     data: {
         type: Map, // segment --> Map
         of: {
