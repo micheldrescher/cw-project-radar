@@ -13,19 +13,15 @@ const radarController = require('../controllers/radarController')
 //
 // Add the editions to each request for the header menu
 exports.getEditions = catchAsync(async (req, res, next) => {
-    logger.info('fetching editions')
     // 1) Get editions
     const editions = await radarController.getEditions()
-    logger.info(editions)
     // 2) Error handling
     if (!editions || editions.length === 0) {
-        logger.warn('No editions found!')
         res.locals.alert = {
             status: 'fail',
             message: 'Unable to fetch radar editions.'
         }
     } else {
-        logger.info('sending back editions as locals')
         // 4) process result
         res.locals.editions = editions
     }
@@ -54,17 +50,16 @@ exports.showRadar = catchAsync(async (req, res, next) => {
     // 1) Get the requested radar slug
     const { slug } = req.params
 
-    // // 2) Fetch the corresponding radar
-    // const radar = await radarController.getRadarBySlug(slug)
-
-    // // 3) Error handling
-    // if (!radar) {
-    //     return next(new AppError('No radar found with that id.', 404))
-    // }
+    // 2) Fetch the corresponding radar
+    const radar = await radarController.getRadarBySlug(slug)
+    if (!radar) {
+        return next(new AppError(`No radar found for id ${slug}.`, 404))
+    }
 
     // 4) Show success page
-    res.status(200).render('radar', {
-        title: slug
+    res.status(200).render(`${__dirname}/../views/radar/radar`, {
+        title: slug,
+        radar
     })
 })
 

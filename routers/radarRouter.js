@@ -24,7 +24,8 @@ router
     .patch(radarHandler.updateRadar)
     .delete(radarHandler.deleteRadar)
 
-router.get('/:slug/populate/:date', radarHandler.populateRadar)
+router.get('/:slug/populate/:date?', radarHandler.populateRadar)
+router.get('/:slug/publish', radarHandler.publishRadar)
 
 router.get('/editions', radarHandler.getEditions)
 

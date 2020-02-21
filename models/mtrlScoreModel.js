@@ -47,7 +47,7 @@ const mtrlScoreSchema = new mongoose.Schema(
 //
 // VIRTUALS
 //
-mtrlScoreSchema.virtual('score').get(() => {
+mtrlScoreSchema.virtual('score').get(function() {
     return this.trl * 2 + this.mrl * 7
 })
 

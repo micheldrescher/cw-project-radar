@@ -5,7 +5,7 @@
 const mongoose = require('mongoose')
 const slugify = require('slugify')
 // app modules
-const { segmentSchema } = require('./radarDataModel')
+const { blipSchema } = require('./radarDataModel')
 
 const radarSchema = new mongoose.Schema({
     year: {
@@ -43,7 +43,14 @@ const radarSchema = new mongoose.Schema({
         },
         default: 'created'
     },
-    data: [segmentSchema],
+    populationDate: Date,
+    data: {
+        type: Map, // segment --> Map
+        of: {
+            type: Map, // ring --> Array[blips]
+            of: [blipSchema]
+        }
+    },
     rendering: String
 })
 

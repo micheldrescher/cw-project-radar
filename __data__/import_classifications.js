@@ -124,16 +124,9 @@ const addClassifications = async data => {
                 skipped++
                 return
             }
-            const prj = await projectController.getByCWId(obj.cw_id)
-            if (!prj) {
-                console.log(`No project for cw_id ${obj.cw_id}`)
-                failed++
-                return
-            }
             // add classification
-            await Classification.create({
+            await projectController.addCategory(obj.cw_id, {
                 classification: obj.segment,
-                project: prj._id,
                 classifiedOn: moment('2018-08-01', 'YYYY-MM-D'),
                 changeSummary: 'Import from Google Sheets based system.'
             })

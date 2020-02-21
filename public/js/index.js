@@ -32,19 +32,19 @@ if (radarButtons) {
 //
 // SHOW RADAR - CLIENT SIDE
 //
-if (radarSection) {
-    // 1) get the slug
-    let slug = window.location.href
-    slug = slug.substring(slug.lastIndexOf('/') + 1)
+// if (radarSection) {
+//     // 1) get the slug
+//     let slug = window.location.href
+//     slug = slug.substring(slug.lastIndexOf('/') + 1)
 
-    // 2) if no slug, render an error
-    if (!slug) {
-        showAlert('error', 'Invalid URL, no radar id found.', 5)
-        return
-    }
+//     // 2) if no slug, render an error
+//     if (!slug) {
+//         showAlert('error', 'Invalid URL, no radar id found.', 5)
+//         return
+//     }
 
-    showRadar(slug)
-}
+//     showRadar(slug)
+// }
 
 // if (mapBox) {
 //     const locations = JSON.parse(mapBox.dataset.locations)

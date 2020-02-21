@@ -21,29 +21,22 @@ exports.getByCWId = async cwid => {
 exports.addCategory = async (cwid, data) => {
     // 1) Get the corresponding project
     const project = await this.getByCWId(cwid)
-    if (!project) {
-        throw new AppError(`No project found with id ${cwid}`, 404)
-    }
+    if (!project) throw new AppError(`No project found with id ${cwid}`, 404)
 
     // 2) Create new classification object
-    const classification = await Classification.create({
+    await Classification.create({
         classification: data.classification,
         project: project._id,
         classifiedOn: data.classifiedOn,
         classifiedBy: data.classifiedBy,
         changeSummary: data.changeSummary
     })
-    classification.project = project
 
-    // 3) Set the project's current category
-    //      Re-categorisation hasn't happened at all yet, so this is safe.
-    //      The current category helps tremendously with filtering projects
-    //      for a radar, saving a lot of database queries.
-    //      Currently, we MUST NOT OFFER RE-CATEGORISATION!!!
-    project.classification = data.classification
+    // 3) Flag that this project is classified
+    project.hasClassifications = true
     await project.save()
 
-    return classification
+    return project
 }
 
 //
@@ -52,18 +45,19 @@ exports.addCategory = async (cwid, data) => {
 exports.addMTRLScore = async (cwid, data) => {
     // 1) Get the corresponding project
     const project = await this.getByCWId(cwid)
-    if (!project) {
-        throw new AppError(`No project found with id ${cwid}`, 404)
-    }
+    if (!project) throw new AppError(`No project found with id ${cwid}`, 404)
+
     // 2) Create new score object
-    const score = await MTRLScore.create({
+    await MTRLScore.create({
         project: project._id,
         scoringDate: data.scoringDate,
         mrl: data.mrl,
         trl: data.trl
     })
-    score.project = project
 
-    // 3) return the project as a sign of success
-    return score
+    // 3) Flag that this project has at least one score
+    project.hasScores = true
+    await project.save()
+
+    return project
 }

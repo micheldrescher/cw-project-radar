@@ -6,11 +6,6 @@ const mongoose = require('mongoose')
 // app modules
 
 //
-// MODULE VARS
-//
-const rings = process.env.MODEL_RINGS.split(',').map(e => e.trim())
-
-//
 // SCHEMA
 //
 const blipSchema = new mongoose.Schema({
@@ -21,12 +16,8 @@ const blipSchema = new mongoose.Schema({
     },
     cw_id: Number, // temporary
     prj_name: String, // temporary
-    segment: String, // temporary(?)
-    ring: {
-        type: String,
-        required: true,
-        validate: v => rings.includes(v)
-    },
+    segment: String, // temporary
+    ring: String, // temporary
     trl: Number,
     mrl: Number,
     score: Number,
@@ -36,23 +27,11 @@ const blipSchema = new mongoose.Schema({
     max: Number
 })
 
-const ringSchema = new mongoose.Schema({
-    name: String,
-    blips: [blipSchema]
-})
-
-const segmentSchema = new mongoose.Schema({
-    name: String,
-    rings: [ringSchema]
-})
-
 //
 // MODELS
 //
-const Segment = mongoose.model('Segment', segmentSchema)
-const Ring = mongoose.model('Ring', ringSchema)
 const Blip = mongoose.model('Blip', blipSchema)
 //
 // EXPORTS
 //
-module.exports = { Segment, segmentSchema, Ring, ringSchema, Blip, blipSchema }
+module.exports = { Blip, blipSchema }

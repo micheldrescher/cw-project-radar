@@ -5,13 +5,6 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-//
-// MODULE VARS
-//
-// use env config for validation
-// TODO find a better way for domain-specific verification etc.
-const segments = process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
-
 const projectSchema = new mongoose.Schema(
     {
         // cloudwatch gives it a unique id
@@ -45,9 +38,15 @@ const projectSchema = new mongoose.Schema(
             type: Date,
             required: true
         },
-        classification: {
-            type: String,
-            validate: v => segments.includes(v)
+        // # classifications for this project
+        hasClassifications: {
+            type: Boolean,
+            default: false
+        },
+        // # scores for this project
+        hasScores: {
+            type: Boolean,
+            default: false
         },
         // the EC funding call
         call: String,

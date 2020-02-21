@@ -12,7 +12,8 @@
         "build:js": "parcel build ./public/js/index.js --public-url /js --out-dir ./public/js --out-file bundle.js",
         "init:projects": "node __data__/import_projects.js",
         "init:classifications": "node __data__/import_classifications.js",
-        "init:mtrl": "node __data__/import_mtrls.js"
+        "init:mtrl": "node __data__/import_mtrls.js",
+        "init:radars": "node __data__/import_radars.js"
     },
     "keywords": [
         "cyberwatching.eu",
@@ -49,6 +50,7 @@
         "morgan": "^1.9.1",
         "parsecurrency": "^1.0.0",
         "pug": "^2.0.4",
+        "simple-statistics": "^7.0.8",
         "slugify": "^1.3.6",
         "validator": "^12.2.0",
         "winston": "^3.2.1",

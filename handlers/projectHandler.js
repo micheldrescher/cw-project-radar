@@ -9,10 +9,10 @@ const AppError = require('../utils/AppError')
 const { Project } = require('../models/projectModel')
 const projectController = require('../controllers/projectController')
 
-exports.createProject = handlerFactory.createOne(Project)
+exports.createProject = handlerFactory.createOne(Project, 'hasClassifications', 'hasScores')
 exports.getProject = handlerFactory.getOne(Project)
 exports.getAllProjects = handlerFactory.getAll(Project)
-exports.updateProject = handlerFactory.updateOne(Project)
+exports.updateProject = handlerFactory.updateOne(Project, 'hasClassifications', 'hasScores')
 exports.deleteProject = handlerFactory.deleteOne(Project)
 
 exports.getByCWId = catchAsync(async (req, res, next) => {

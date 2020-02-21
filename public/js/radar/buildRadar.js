@@ -2,6 +2,7 @@
 // IMPORTS
 //
 // libraries
+import d3 from 'd3'
 // app modules
 import showAlert from '../util/alert'
 
@@ -22,7 +23,7 @@ const buildRadar = async (radarDiv, radarData) => {
     const svg = radarGraphSection.append('svg').attr('viewport', `0 0 ${size} ${size}`)
 
     // 3) TEST add a circle with full width to it
-    svg.html('<circle cx="1000" cy="100" r="1000" stroke="black" stroke-width="2" fill="red" />')
+    svg.html('<circle cx="1000" cy="1000" r="1000" stroke="black" stroke-width="2" fill="red" />')
 
     // await new Promise(r => setTimeout(r, 1000))
     // return svg

@@ -146,15 +146,9 @@ const addScores = async data => {
     let skipped = 0
     await Promise.all(
         data.map(async obj => {
-            const prj = await projectController.getByCWId(obj.id)
-            if (!prj) {
-                console.log(`No project found for cw_id ${obj.id}`)
-                failed++
-                return
-            }
+            console.log(`${obj.id} - ${obj.name} --> (${obj.trl}, ${obj.mrl})`)
             // add classification
-            await MTRLScore.create({
-                project: prj._id,
+            await projectController.addMTRLScore(obj.id, {
                 scoringDate: obj.date,
                 trl: obj.trl,
                 mrl: obj.mrl

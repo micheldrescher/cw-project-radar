@@ -10,10 +10,22 @@ const handlerFactory = require('./handlerFactory')
 const Radar = require('../models/radarModel')
 const radarController = require('./../controllers/radarController')
 
-exports.createRadar = handlerFactory.createOne(Radar, 'status', 'data', 'rendering')
+exports.createRadar = handlerFactory.createOne(
+    Radar,
+    'status',
+    'data',
+    'populationDate',
+    'rendering'
+)
 exports.getRadar = handlerFactory.getOne(Radar)
 exports.getAllRadars = handlerFactory.getAll(Radar)
-exports.updateRadar = handlerFactory.updateOne(Radar, 'status', 'data', 'rendering')
+exports.updateRadar = handlerFactory.updateOne(
+    Radar,
+    'status',
+    'data',
+    'populationDate',
+    'rendering'
+)
 exports.deleteRadar = handlerFactory.deleteOne(Radar)
 
 exports.getRadarBySlug = catchAsync(async (req, res, next) => {
@@ -55,11 +67,27 @@ exports.getEditions = catchAsync(async (req, res, next) => {
 //
 // state change operations
 //
+// populate the radar with all necessary data to render the visualisation
 exports.populateRadar = catchAsync(async (req, res, next) => {
-    const { slug } = req.params
-    const { date } = req.params
+    const { slug, date } = req.params
 
-    const radar = await radarController.populateRadar(slug, Date.parse(date))
+    const radar = await radarController.populateRadar(slug, date)
+    if (!radar || radar.length === 0) {
+        return next(new AppError(`Error while populating the radar.`, 500))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        radar
+    })
+})
+
+// publish the radar
+// TODO
+exports.publishRadar = catchAsync(async (req, res, next) => {
+    const { slug } = req.params
+
+    const radar = await radarController.publishRadar(slug)
     if (!radar || radar.length === 0) {
         return next(new AppError(`Error while populating the radar.`, 500))
     }

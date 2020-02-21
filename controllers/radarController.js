@@ -3,11 +3,14 @@
 //
 // libraries
 const moment = require('moment')
+const simpleStats = require('simple-statistics')
 // modules
 const APIFeatures = require('../utils/apiFeatures')
 const AppError = require('../utils/AppError')
+const classificationController = require('./classificationController')
+const mtrlScoresController = require('./mtrlScoresController')
 const Radar = require('../models/radarModel')
-const { Segment, Ring, Blip } = require('../models/radarDataModel')
+const { Blip } = require('../models/radarDataModel')
 const { Project } = require('../models/projectModel')
 
 //
@@ -21,7 +24,7 @@ const segments = process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
 //
 exports.getRadarBySlug = async slug => {
     // 1) Get the radar
-    return await Radar.findOne({ slug: slug }).populate({ path: 'data' })
+    return await Radar.findOne({ slug: slug })
 }
 
 //
@@ -31,9 +34,7 @@ exports.getEditions = async () => {
     // we want only published radars
     // TODO vary the filter based on logged in user
     let filter = {
-        status: {
-            $in: ['published']
-        }
+        status: 'published'
     }
     // sort by year, then editiion (desc.)
     // include only the slug and the name
@@ -53,108 +54,145 @@ exports.getEditions = async () => {
 //
 // populate the radar with project and scoring data statistics
 //
-exports.populateRadar = async (slug, radarDate) => {
-    // 1) Obtain the radar, and with that the max age of projects
+exports.populateRadar = async (slug, date) => {
+    const ageInMonths = process.env.MODEL_MAX_AGE || 36 // default of 3 year cutoff time
+    const radarDate = moment(date) // creates a Date.now() if date param is missing
+    const prjMaxAge = radarDate.clone().subtract(ageInMonths, 'months')
+    // 1) Obtain the radar
     const radar = await this.getRadarBySlug(slug)
+
     if (!radar) {
-        throw new AppError(`No radar found for id ${slug}.`, 404)()
+        throw new AppError(`No radar found for id ${slug}.`, 404)
     }
-    if (radar.status !== 'created') {
+    if (!['created', 'populated'].includes(radar.status)) {
         throw new AppError(`Radar ${radar.name} is not in state created.`, 500)
     }
-    const prjMaxAge = moment(radarDate).subtract(process.env.MODEL_MAX_AGE, 'months')
 
     // 2) Fetch all projects that:
     //      - are younger than the project max age (from the model), and
     //      - have at least one classification
     const projects = await Project.find({
-        endDate: { $gte: prjMaxAge },
-        'classification.0': { $exists: true }
+        endDate: { $gte: prjMaxAge.toDate() },
+        hasClassifications: true
     })
 
-    // 3) Create the radarData map of maps
-    const radarData = new Map()
+    // 3) Create a temporary map of maps
+    const data = new Map()
     segments.forEach(segment => {
         const segMap = new Map()
+        data.set(segment, segMap)
         rings.forEach(ring => {
-            segMap.set(ring, new Map())
+            segMap.set(ring, new Array())
         })
-        radarData.set(segment, segMap)
     })
 
-    // 4) Map all projects into the map of maps
-    projects.map(prj => {
-        const seg = prj.classification.slice(-1).pop().classification
-        const ring = calculateRing(prj, radarDate)
-        radarData
-            .get(seg)
-            .get(ring)
-            .set(
-                prj.cw_id,
-                new RadarData({
-                    project: prj,
-                    cw_id: prj.cw_id,
-                    prj_name: prj.name,
-                    segment: seg,
-                    ring: ring
-                })
+    // 4) Map all projects into data.
+    await Promise.all(
+        projects.map(async prj => {
+            let segment = await classificationController.getClassification(
+                prj._id,
+                radarDate.toDate()
             )
-    })
-
-    // 5) For each ring in each segment, calculate the statistical values
-    //      and store in the respective projects
-    radarData.forEach(segMap => {
-        segMap.forEach(ringMap => {
-            // work only with the projects that have MTRL scores
-            const eligibleProjects = ringMap.values().filter(el => el.project.mtrlScores.length > 0)
-            // temporarily calculate the scores
-            const scores = eligibleProjects
-                .filter(el => el.project.mtrlScores.length > 0)
-                .map(el => {
-                    // get last MTRL score of the project
-                    const { trl, mrl } = el.project.mtrlScores.slice(-1).pop()
-                    return 2 * trl + 7 * mrl
+            segment = segment.classification
+            const ring = calculateRing(prj, radarDate)
+            // If the project has a score, fetch and add the score too as we need that later anyway.
+            let score = undefined
+            if (prj.hasScores) {
+                score = await mtrlScoresController.getScore(prj._id, radarDate.toDate())
+            }
+            data.get(segment)
+                .get(ring)
+                .push({
+                    prj,
+                    score
                 })
-            const mean = median(scores)
-            const perfs = scores.map(s => s - median) // temporary
-            const min = perfs.reduce((m, c) => (m < c ? m : c))
-            const max = perfs.reduce((m, c) => (m > c ? m : c))
-            // now add statistical values, recalculating for each project the score and performance
-            ringMap.values().forEach(el => {})
         })
-    })
+    )
 
-    // segments.forEach(segment => {
-    //     const radarSegment = new Segment({ name: segment })
-    //     rings.forEach(ring => {
-    //         const radarRing = new Ring({ name: ring })
-    //         radarSegment.rings.push(radarRing)
-    //     })
-    //     radar.data.push(radarSegment)
-    //     console.log(radarSegment)
-    // })
+    // 5) Map all projects into blips stored in the radar including statistics
+    radar.data = new Map()
+    for (const [segKey, segMap] of data.entries()) {
+        const segDataMap = new Map()
+        for (const [ringKey, entries] of segMap.entries()) {
+            const stats = calculateStatistics(entries)
+            const ringData = []
+            entries.forEach(e => {
+                const blip = new Blip({
+                    project: e.prj._id,
+                    cw_id: e.prj.cw_id, // temporary
+                    prj_name: e.prj.name, // temporary
+                    segment: segKey, // temporary
+                    ring: ringKey // temporary
+                })
+                if (e.score) {
+                    blip.trl = e.score.trl
+                    blip.mrl = e.score.mrl
+                    blip.score = e.score.score
+                    blip.median = stats.median
+                    blip.performance = blip.score - blip.median
+                    blip.min = stats.min
+                    blip.max = stats.max
+                }
+                ringData.push(blip)
+            })
+            segDataMap.set(ringKey, ringData)
+        }
+        radar.data.set(segKey, segDataMap)
+    }
 
-    // {
-    //     segMap.forEach(ringMap => {
-    //         ringMap.map(e => console.log(e))
-    //     })
-    // })
+    // 6) Set radar status to 'populated' and population date
+    radar.status = 'populated'
+    radar.populationDate = radarDate
+    await radar.save()
 
-    // console.log(radarData)
-
-    if (1 === 1) return radar
-
-    // 3) Calculate statistical values and add them to the radar
-    segments.forEach(segment => {
-        rings.forEach(ring => {
-            // (TRL, MRL) --> Score
-            // [ Scores ] --> Median
-            // Score - Median --> Performance
-            // MIN [ Performances ] --> min
-            // MAX [ Performances ] --> max
-        })
-    })
     return radar
+}
+
+//
+// publish the radar
+//
+// TODO implement rendering the radar serverside here
+exports.publishRadar = async slug => {
+    // 1) Obtain the radar
+    const radar = await this.getRadarBySlug(slug)
+
+    if (!radar) {
+        throw new AppError(`No radar found for id ${slug}.`, 404)
+    }
+    if (!['populated'].includes(radar.status)) {
+        throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
+    }
+
+    // 2) Set state to published
+    radar.status = 'published'
+    await radar.save()
+
+    return radar
+}
+
+//
+// Calculate statistics for each ring
+//
+const calculateStatistics = entries => {
+    const scores = entries
+        .filter(entry => entry.score)
+        .map(entry => {
+            return entry.score.score
+        })
+    if (!scores || scores.length === 0) {
+        return undefined
+    }
+
+    const median = simpleStats.median(scores)
+    const perfs = scores.map(score => score - median)
+    const min = perfs.reduce((aMin, perf) => (perf < aMin ? perf : aMin))
+    const max = perfs.reduce((aMin, perf) => (perf > aMin ? perf : aMin))
+
+    return {
+        median,
+        min,
+        max
+    }
 }
 
 //
@@ -162,25 +200,19 @@ exports.populateRadar = async (slug, radarDate) => {
 // TODO - find a way to get this configurable
 //
 const calculateRing = (project, radarDate) => {
-    const dropDate = moment(radarDate).subtract(2, 'years')
-    const holdDate = moment(radarDate).subtract(1, 'years')
-    const adoptDate = moment(radarDate)
-    const trialDate = moment(radarDate).add(6, 'months')
+    let testDate = radarDate.clone()
 
-    if (project.endDate < dropDate) return rings[4] // Drop
-    if (project.endDate < holdDate) return rings[3] // Hold
-    if (project.endDate < adoptDate) return rings[0] // Adopt
-    if (project.endDate < trialDate) return rings[1] // Trial
+    testDate.subtract(2, 'years')
+    if (project.endDate < testDate.toDate()) return rings[4] // Drop
+
+    testDate.add(1, 'years')
+    if (project.endDate < testDate.toDate()) return rings[3] // Hold
+
+    testDate.add(1, 'years')
+    if (project.endDate < testDate.toDate()) return rings[0] // Adopt
+
+    testDate.add(6, 'months').toDate()
+    if (project.endDate < testDate.toDate()) return rings[1] // Trial
+
     return rings[2] // Assess
-}
-
-function median(numbers) {
-    const sorted = numbers.slice().sort((a, b) => a - b)
-    const middle = Math.floor(sorted.length / 2)
-
-    if (sorted.length % 2 === 0) {
-        return (sorted[middle - 1] + sorted[middle]) / 2
-    }
-
-    return sorted[middle]
 }
