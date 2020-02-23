@@ -227,3 +227,43 @@ header.header {
     display: block;
     width: 2rem;
 }
+
+/*****************
+ *               *
+ *   R A D A R   *
+ *               *
+ *****************/
+svg g.segment path.ring {
+    stroke-width: 1;
+    stroke: #666666;
+}
+
+svg g.segment path.ring.divider {
+    stroke-width: 3;
+    stroke: red;
+}
+
+svg g.segment > path.ring-0 {
+    fill: #aaaaaa;
+}
+
+svg g.segment > path.ring-1 {
+    fill: #bababa;
+}
+
+svg g.segment > path.ring-2 {
+    fill: #cacaca;
+}
+
+svg g.segment > path.ring-3 {
+    fill: #dadada;
+}
+
+svg g.segment > path.ring-4 {
+    fill: #eee;
+}
+
+svg g line {
+    stroke: black;
+    stroke-width: 5;
+}

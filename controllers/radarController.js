@@ -2,6 +2,8 @@
 // IMPORTS
 //
 // libraries
+const d3 = require('d3')
+const { JSDOM } = require('jsdom')
 const moment = require('moment')
 const simpleStats = require('simple-statistics')
 // modules
@@ -10,6 +12,7 @@ const AppError = require('../utils/AppError')
 const classificationController = require('./classificationController')
 const mtrlScoresController = require('./mtrlScoresController')
 const Radar = require('../models/radarModel')
+const renderer = require('./radar-render/renderer')
 const { Blip } = require('../models/radarDataModel')
 const { Project } = require('../models/projectModel')
 
@@ -141,7 +144,7 @@ exports.populateRadar = async (slug, date) => {
 
     // 6) Set radar status to 'populated' and population date
     radar.status = 'populated'
-    radar.populationDate = radarDate
+    radar.referenceDate = radarDate
     await radar.save()
 
     return radar
@@ -150,16 +153,37 @@ exports.populateRadar = async (slug, date) => {
 //
 // Render the radar into a scalable SVG image
 //
-exports.renderRdar = async slug => {
+exports.renderRadar = async slug => {
     // 1) Obtain the radar
     const radar = await this.getRadarBySlug(slug)
     if (!radar) {
         throw new AppError(`No radar found for id ${slug}.`, 404)
     }
-    if (!['populated'].includes(radar.status)) {
-        throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
-    }
+    // if (!['populated', 'rendered'].includes(radar.status)) {
+    //     throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
+    // }
+
+    // create the DOM hook for d3 to work properly
+    const fakeDom = new JSDOM('<!DOCTYPE html><html><body></body></html>')
+    let body = d3.select(fakeDom.window.document).select('body')
+
+    // build the SVG container
+    const size = 2000
+    const viewBox = `-${size / 2} -${size / 2} ${size} ${size}`
+    const svgContainer = body.append('div')
+    const svg = svgContainer.append('svg').attr('viewBox', viewBox)
+
+    // plot the radar
+    renderer.plotRadar(svg, radar.data, size - 2)
+
+    // add to the radar, update state, and save
+    radar.rendering = svgContainer.html()
+    // radar.status = 'rendered'
+    await radar.save()
+
+    return radar
 }
+
 //
 // publish the radar
 //
@@ -177,6 +201,7 @@ exports.publishRadar = async slug => {
 
     // 2) Set state to published
     radar.status = 'published'
+    radar.publicationDate = Date.now()
     await radar.save()
 
     return radar

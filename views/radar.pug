@@ -11,6 +11,13 @@ block append head
 //- triggering the client-side rendering of the radar
 //-
 block content
-    section#radar-section
+    section#radar
+        section#overview
+            h1 #{radar.name}
+            div #{radar.summary}
+        section#radardata
+            #rendering(width='auto', height="100%") 
+                != radar.rendering
+            #tables(width='33%', height:='100%')
 
 

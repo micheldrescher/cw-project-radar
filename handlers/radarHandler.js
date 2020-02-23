@@ -88,27 +88,30 @@ exports.populateRadar = catchAsync(async (req, res, next) => {
 exports.renderRadar = catchAsync(async (req, res, next) => {
     const { slug } = req.params
 
-    // const radar = await radarController.renderRadar(slug)
-    // if (!radar) {
-    //     return next(new AppError(`Error while rendering radar ${slug}.`, 500))
-    // }
-    httpResponses.notImplemented(res)
+    const radar = await radarController.renderRadar(slug)
+    if (!radar) {
+        return next(new AppError(`Error while rendering radar ${slug}.`, 500))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        radar
+    })
 })
 
 // publish the radar
 exports.publishRadar = catchAsync(async (req, res, next) => {
-    httpResponses.notImplemented(res)
-    // const { slug } = req.params
+    const { slug } = req.params
 
-    // const radar = await radarController.publishRadar(slug)
-    // if (!radar || radar.length === 0) {
-    //     return next(new AppError(`Error while populating the radar.`, 500))
-    // }
+    const radar = await radarController.publishRadar(slug)
+    if (!radar || radar.length === 0) {
+        return next(new AppError(`Error while populating the radar.`, 500))
+    }
 
-    // res.status(200).json({
-    //     status: 'success',
-    //     radar
-    // })
+    res.status(200).json({
+        status: 'success',
+        radar
+    })
 })
 
 // reset the radar

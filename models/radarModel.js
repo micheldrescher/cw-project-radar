@@ -43,7 +43,7 @@ const radarSchema = new mongoose.Schema({
         },
         default: 'created'
     },
-    populationDate: Date, // the radar's reference/cutoff date
+    referenceDate: Date, // the radar's reference/cutoff date
     publicationDate: Date, // the date this radar was published
     data: {
         type: Map, // segment --> Map
