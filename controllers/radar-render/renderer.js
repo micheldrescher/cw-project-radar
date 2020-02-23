@@ -4,53 +4,59 @@
 // libraries
 const d3 = require('d3')
 // app modules
+const { placeBlips } = require('./blipPlacer')
 const { toRadian } = require('../../utils/myMaths')
 
 // plots the entire radar
 exports.plotRadar = (svg, data, size) => {
     // 1) calculate some base values
 
+    // 56 = width of segment name, 2 = thickness of ring stroke
     const radius = size / 2 - 56
     const theta = toRadian(360 / data.size)
     const numRings = data.values().next().value.size
     const segArea = 0.5 * theta * Math.pow(radius, 2)
     const ringArea = segArea / numRings
 
-    const opts = {
-        radius,
-        theta,
-        ringArea
-    }
-    plotSegments(data, svg, opts)
+    const radii = calcRadii(numRings, radius, theta, ringArea)
+    const angles = calcAngles(data.size, theta)
+
+    plotSegments(data, svg, angles, radii)
 }
 
-const plotSegments = (data, svg, opts) => {
-    let startA = 0
+const calcRadii = (numRings, radius, theta, area) => {
+    const radii = [0]
+    for (let i = 0; i < numRings; i++) {
+        radii.push(Math.round(Math.sqrt((2 / theta) * area + Math.pow(radii[radii.length - 1], 2))))
+    }
+    return radii
+}
+
+const calcAngles = (numSegs, theta) => {
+    const angles = [0]
+    for (let i = 0; i < numSegs; i++) {
+        angles.push(angles[angles.length - 1] + theta)
+    }
+    return angles
+}
+
+const plotSegments = (data, svg, angles, radii) => {
     let segIdx = 0
     for (const [seg, rings] of data.entries()) {
         // add the segment group
-        const segGroup = svg.append('g').attr('class', `segment segment-${segIdx++}`)
-        // calc angles and radii
-        let endA = startA + opts.theta
-        let innerR = 0
+        const segGroup = svg.append('g').attr('class', `segment segment-${segIdx + 1}`)
         let ringIdx = 0
         let lastPath
         // plot all the rings
         for (const [ring, blips] of rings.entries()) {
-            const outerR = Math.round(
-                Math.sqrt((2 / opts.theta) * opts.ringArea + Math.pow(innerR, 2))
-            )
-            lastPath = plotRing(segGroup, ringIdx++, innerR, outerR, startA, endA)
-            innerR = outerR
+            lastPath = plotRing(segGroup, blips, segIdx, ringIdx++, angles, radii)
         }
         // plot the segment name
         plotSegmentName(segGroup, seg, lastPath, segIdx)
         // plot the lines
-        plotLines(segGroup, startA, endA, opts.radius)
-        // shift angles
-        startA = endA
+        plotLines(segGroup, angles[segIdx], angles[segIdx + 1], radii[radii.length - 1])
+        segIdx++
     }
-    //
 }
 
 const plotSegmentName = (group, name, lastPath, idx) => {
@@ -69,28 +75,41 @@ const plotSegmentName = (group, name, lastPath, idx) => {
         .style('font-weight', 'bold')
 }
 
-const plotRing = (group, idx, innerR, outerR, startA, endA) => {
+const plotRing = (segGroup, blips, segIdx, ringIdx, angles, radii) => {
+    // 1) Draw the arc
     const arc = d3
         .arc()
-        .innerRadius(innerR)
-        .outerRadius(outerR)
-        .startAngle(startA)
-        .endAngle(endA)
-    const lastPath = group.append('path')
-    lastPath.attr('d', arc).attr('class', 'ring ring-' + idx)
+        .innerRadius(radii[ringIdx])
+        .outerRadius(radii[ringIdx + 1])
+        .startAngle(angles[segIdx])
+        .endAngle(angles[segIdx + 1])
+
+    // 2) Append the arc to the segment group
+    const lastPath = segGroup.append('path')
+    lastPath.attr('d', arc).attr('class', 'ring ring-' + ringIdx)
+
+    // // 3) Add the blips
+    // placeBlips(blips, segGroup, {
+    //     startA,
+    //     endA,
+    //     innerR,
+    //     outerR
+    // })
+
+    // 4) Add a separator line to the third ring
     // HACK
     // TODO find a way to parametrise this
-    if (idx === 2) {
-        group
+    if (ringIdx === 2) {
+        segGroup
             .append('path')
             .attr(
                 'd',
                 d3
                     .arc()
-                    .innerRadius(outerR)
-                    .outerRadius(outerR)
-                    .startAngle(startA)
-                    .endAngle(endA)
+                    .innerRadius(radii[ringIdx + 1])
+                    .outerRadius(radii[ringIdx + 1])
+                    .startAngle(angles[segIdx])
+                    .endAngle(angles[segIdx + 1])
             )
             .attr('class', 'ring divider')
     }
@@ -126,15 +145,3 @@ const plotLines = (group, startA, endA, radius) => {
         .attr('x2', endX2)
         .attr('y2', endY2)
 }
-
-//     // for the last ring, add a text that follows the path
-//     // if (i === 4) {
-//     //   quadrantGroup.append('text')
-//     //     .attr('dy', -10)      // a y offset to not set directly on the arc
-//     //     .append('textPath') //append a textPath to the text element
-//     //     .attr('xlink:href', '#text-path-'+quadrant.order) //place the ID of the path here
-//     //     .style("text-anchor","middle") //place the text halfway on the arc
-//     //     .attr("startOffset", "25%")   // centered along the path
-//     //     .text(quadrant.label);
-//     // }
-// })
