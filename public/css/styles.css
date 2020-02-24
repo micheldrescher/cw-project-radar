@@ -233,6 +233,10 @@ header.header {
  *   R A D A R   *
  *               *
  *****************/
+#tables {
+    width: max-content;
+}
+
 svg g.segment path.ring {
     stroke-width: 1;
     stroke: #666666;

@@ -168,17 +168,15 @@ exports.renderRadar = async slug => {
     let body = d3.select(fakeDom.window.document).select('body')
 
     // build the SVG container
-    const size = 2000
-    const viewBox = `-${size / 2} -${size / 2} ${size} ${size}`
-    const svgContainer = body.append('div')
-    const svg = svgContainer.append('svg').attr('viewBox', viewBox)
-
+    const svgContainer = body.append('div').attr('class', 'svg')
+    const tablesContainer = body.append('div').attr('class', 'tables')
     // plot the radar
-    renderer.plotRadar(svg, radar.data, size - 2)
+    renderer.plotRadar(body, radar.data)
 
     // add to the radar, update state, and save
     radar.rendering = new Map()
     radar.rendering.set('svg', svgContainer.html())
+    radar.rendering.set('tables', tablesContainer.html())
     // radar.status = 'rendered'
     await radar.save()
 
