@@ -57,6 +57,29 @@ For security purposes, the actual `.env` file must be generated from a template,
 2. Edit .env and add appropriate values
 3. **Secure `.env` against unauthorised access.** (It contains cleartext passwords)
 
+## Populating the database
+
+The project includes import scripts and data bringing your local dev env to the state of February 2020.
+
+1. Open a terminal and cd into the project directory (e.g. `cd cw-project-radar`)
+2. Execute the following commands:
+    * `npm run init:projects`
+    * `npm run init:classifications`
+    * `npm run init:mtrl`
+    * `npm run npm run init:radars`
+
+This imports all the data. To display radars in the system, you need to "populate", "render" and publish them as follows. The {{{URL}}} is the server address (typically localhost:3000): 
+
+`curl localhost:3000/api/v1/radar/autumn-2018/populate/2018-11-01`
+`curl localhost:3000/api/v1/radar/spring-2019/populate/2018-05-01`
+`curl localhost:3000/api/v1/radar/autumn-2019/populate/2019-11-01`
+`curl localhost:3000/api/v1/radar/autumn-2018/render`
+`curl localhost:3000/api/v1/radar/spring-2019/render`
+`curl localhost:3000/api/v1/radar/autumn-2019/render`
+`curl localhost:3000/api/v1/radar/autumn-2018/publish`
+`curl localhost:3000/api/v1/radar/spring-2019/publish`
+`curl localhost:3000/api/v1/radar/autumn-2019/publish`
+
 ## Starting the server in development mode
 
 1. Open a terminal and cd into the project directory (e.g. `cd cw-project-radar`)
