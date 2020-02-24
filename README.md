@@ -2,6 +2,21 @@
 
 This Cyberwatching Project Radar is a rewrite of of the first attempt that was based on the original ThoughtWorks radar.
 
+This version is written from scratch using the following components:
+1. Data storage:
+  * MongoDB 
+2. Application layer:
+  * Node.js v13
+  * Express (REST API processing)
+  * Mongoose (for enhanced data access)
+  * D3s (rendering the radar in SVG)
+3. Presentation layer
+  * Plain Javascript
+  * D3s to make the radar interactive
+  * Axios to make REST calls to the app layer
+
+# Setting up a Dev Env
+
 This version is based on a forked version of the expack repository initiated and maintained by Ben Grunfeld. The forked version of the original expak repository is available here: https://github.com/micheldrescher/expack-boilerplate All documentation for expack also applies here. Please visit https://github.com/bengrunfeld/expack for the original repository.
 
 # Installation
