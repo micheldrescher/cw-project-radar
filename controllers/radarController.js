@@ -177,7 +177,8 @@ exports.renderRadar = async slug => {
     renderer.plotRadar(svg, radar.data, size - 2)
 
     // add to the radar, update state, and save
-    radar.rendering = svgContainer.html()
+    radar.rendering = new Map()
+    radar.rendering.set('svg', svgContainer.html())
     // radar.status = 'rendered'
     await radar.save()
 

@@ -5,8 +5,9 @@
 // libraries
 import '@babel/polyfill'
 // app modules
-import showRadar from './radar/showRadar'
+import linkupRadar from './radar/linkupRadar'
 import showAlert from './util/alert'
+
 // import { displayMap } from './mapbox'
 // import { login, logout } from './login'
 // import { updateSettings } from './updateSettings'
@@ -14,7 +15,7 @@ import showAlert from './util/alert'
 
 // DOM ELEMENTS
 const radarButtons = document.querySelectorAll('.radar')
-const radarSection = document.getElementById('radar-section')
+const radarSection = document.getElementById('radar')
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -32,19 +33,13 @@ if (radarButtons) {
 //
 // SHOW RADAR - CLIENT SIDE
 //
-// if (radarSection) {
-//     // 1) get the slug
-//     let slug = window.location.href
-//     slug = slug.substring(slug.lastIndexOf('/') + 1)
+if (radarSection) {
+    // 1) Select the root element of the radar section
+    const radarRootDOM = d3.select('section#radar')
 
-//     // 2) if no slug, render an error
-//     if (!slug) {
-//         showAlert('error', 'Invalid URL, no radar id found.', 5)
-//         return
-//     }
-
-//     showRadar(slug)
-// }
+    // 2) Link up DOM elements with interactive JavaScript
+    linkupRadar(radarRootDOM)
+}
 
 // if (mapBox) {
 //     const locations = JSON.parse(mapBox.dataset.locations)

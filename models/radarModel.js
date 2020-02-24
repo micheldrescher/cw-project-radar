@@ -52,7 +52,10 @@ const radarSchema = new mongoose.Schema({
             of: [blipSchema]
         }
     },
-    rendering: String
+    rendering: {
+        type: Map, // map of SVG and tabular segment tables
+        of: String
+    }
 })
 
 //

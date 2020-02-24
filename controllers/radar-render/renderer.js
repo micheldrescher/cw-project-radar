@@ -4,8 +4,8 @@
 // libraries
 const d3 = require('d3')
 // app modules
+const { calcAngles, calcRadii } = require('../../utils/myMaths')
 const { placeBlips } = require('./blipPlacer')
-const { toRadian } = require('../../utils/myMaths')
 
 // plots the entire radar
 exports.plotRadar = (svg, data, size) => {
@@ -13,43 +13,31 @@ exports.plotRadar = (svg, data, size) => {
 
     // 56 = width of segment name, 2 = thickness of ring stroke
     const radius = size / 2 - 56
-    const theta = toRadian(360 / data.size)
+    const numSegs = data.size
     const numRings = data.values().next().value.size
-    const segArea = 0.5 * theta * Math.pow(radius, 2)
-    const ringArea = segArea / numRings
 
-    const radii = calcRadii(numRings, radius, theta, ringArea)
-    const angles = calcAngles(data.size, theta)
+    const angles = calcAngles(numSegs)
+    const radii = calcRadii(numSegs, numRings, radius)
 
     plotSegments(data, svg, angles, radii)
 }
 
-const calcRadii = (numRings, radius, theta, area) => {
-    const radii = [0]
-    for (let i = 0; i < numRings; i++) {
-        radii.push(Math.round(Math.sqrt((2 / theta) * area + Math.pow(radii[radii.length - 1], 2))))
-    }
-    return radii
-}
-
-const calcAngles = (numSegs, theta) => {
-    const angles = [0]
-    for (let i = 0; i < numSegs; i++) {
-        angles.push(angles[angles.length - 1] + theta)
-    }
-    return angles
-}
-
 const plotSegments = (data, svg, angles, radii) => {
+    // calc the blip diameter as half the difference between inner and outer
+    // radii of the last ring (minus 2 for a blip stroke of 1)
+    const blipDia = Math.abs(radii.slice(-2).reduce((p, c) => p - c)) - 2
     let segIdx = 0
     for (const [seg, rings] of data.entries()) {
         // add the segment group
-        const segGroup = svg.append('g').attr('class', `segment segment-${segIdx + 1}`)
+        const segGroup = svg
+            .append('g')
+            .attr('label', seg)
+            .attr('class', `segment segment-${segIdx}`)
         let ringIdx = 0
         let lastPath
         // plot all the rings
         for (const [ring, blips] of rings.entries()) {
-            lastPath = plotRing(segGroup, blips, segIdx, ringIdx++, angles, radii)
+            lastPath = plotRing(segGroup, blips, segIdx, ringIdx++, angles, radii, blipDia)
         }
         // plot the segment name
         plotSegmentName(segGroup, seg, lastPath, segIdx)
@@ -75,7 +63,7 @@ const plotSegmentName = (group, name, lastPath, idx) => {
         .style('font-weight', 'bold')
 }
 
-const plotRing = (segGroup, blips, segIdx, ringIdx, angles, radii) => {
+const plotRing = (segGroup, blips, segIdx, ringIdx, angles, radii, blipDia) => {
     // 1) Draw the arc
     const arc = d3
         .arc()
@@ -90,10 +78,11 @@ const plotRing = (segGroup, blips, segIdx, ringIdx, angles, radii) => {
 
     // // 3) Add the blips
     // placeBlips(blips, segGroup, {
-    //     startA,
-    //     endA,
-    //     innerR,
-    //     outerR
+    //     startA: angles[segIdx],
+    //     endA: angles[segIdx + 1],
+    //     innerR: radii[ringIdx],
+    //     outerR: radii[ringIdx],
+    //     blipDia
     // })
 
     // 4) Add a separator line to the third ring
