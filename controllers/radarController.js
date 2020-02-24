@@ -177,7 +177,7 @@ exports.renderRadar = async slug => {
     radar.rendering = new Map()
     radar.rendering.set('svg', svgContainer.html())
     radar.rendering.set('tables', tablesContainer.html())
-    // radar.status = 'rendered'
+    radar.status = 'rendered'
     await radar.save()
 
     return radar
