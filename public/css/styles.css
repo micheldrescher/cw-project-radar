@@ -205,34 +205,23 @@ header.header {
 .alert--error {
     background-color: #ffb6b1;
 }
-/*
- * MAIN SECTION
- */
-#main {
-    min-height: 100%;
-}
-
-#waiting {
-    width: 80%;
-    margin: auto;
-}
-
-#waiting p {
-    text-align: center;
-    padding: 2rem 0 0 1rem;
-}
-
-#waiting img {
-    margin: auto;
-    display: block;
-    width: 2rem;
-}
 
 /*****************
  *               *
  *   R A D A R   *
  *               *
  *****************/
+
+#radar > #overview > h1 {
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+#radar > #overview > div {
+    text-align: center;
+    font-size: 1.2em;
+}
 
 #rendering {
     padding: 5em;
