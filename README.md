@@ -70,16 +70,17 @@ The project includes import scripts and data bringing your local dev env to the 
 
 This imports all the data. To display radars in the system, you need to "populate", "render" and publish them as follows. The {{{URL}}} is the server address (typically localhost:3000): 
 
-`curl localhost:3000/api/v1/radar/autumn-2018/populate/2018-11-01`
-`curl localhost:3000/api/v1/radar/spring-2019/populate/2018-05-01`
-`curl localhost:3000/api/v1/radar/autumn-2019/populate/2019-11-01`
-`curl localhost:3000/api/v1/radar/autumn-2018/render`
-`curl localhost:3000/api/v1/radar/spring-2019/render`
-`curl localhost:3000/api/v1/radar/autumn-2019/render`
-`curl localhost:3000/api/v1/radar/autumn-2018/publish`
-`curl localhost:3000/api/v1/radar/spring-2019/publish`
-`curl localhost:3000/api/v1/radar/autumn-2019/publish`
-
+```bash
+curl localhost:3000/api/v1/radar/autumn-2018/populate/2018-11-01
+curl localhost:3000/api/v1/radar/spring-2019/populate/2018-05-01
+curl localhost:3000/api/v1/radar/autumn-2019/populate/2019-11-01
+curl localhost:3000/api/v1/radar/autumn-2018/render
+curl localhost:3000/api/v1/radar/spring-2019/render
+curl localhost:3000/api/v1/radar/autumn-2019/render
+curl localhost:3000/api/v1/radar/autumn-2018/publish
+curl localhost:3000/api/v1/radar/spring-2019/publish
+curl localhost:3000/api/v1/radar/autumn-2019/publish
+```
 ## Starting the server in development mode
 
 1. Open a terminal and cd into the project directory (e.g. `cd cw-project-radar`)
