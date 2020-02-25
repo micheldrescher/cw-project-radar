@@ -35,8 +35,7 @@ const plotSegments = (root, data, angles, radii) => {
 
     // calc the blip diameter as half the difference between inner and outer
     // radii of the last ring (minus 2 for a blip stroke of 1)
-    const blipDia = Math.abs(radii.slice(-2).reduce((p, c) => p - c)) - 2
-
+    const blipDia = (radii.slice(-2).reduce((p, c) => c - p) - 2) / 2
     // loop through the segments
     let segIdx = 0
     for (const [seg, rings] of data.entries()) {
@@ -111,7 +110,7 @@ const plotRing = (root, ringName, blips, segIdx, ringIdx, angles, radii, blipDia
         startA: angles[segIdx],
         endA: angles[segIdx + 1],
         innerR: radii[ringIdx],
-        outerR: radii[ringIdx],
+        outerR: radii[ringIdx + 1],
         blipDia
     })
 

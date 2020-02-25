@@ -34,11 +34,14 @@ const calcRadii = (numSegs, numRings, radius) => {
 //
 // convert an angle ind egrees into radians
 //
-const toRadian = angleInDegrees => {
-    return (Math.PI * angleInDegrees) / 180
-}
+const toRadian = angleInDegrees => (Math.PI * angleInDegrees) / 180
+
+//
+// convert an angle in rad to degree
+//
+const toDegree = angleInRadian => (angleInRadian * 180) / Math.PI
 
 //
 // EXPORTS
 //
-module.exports = { calcAngles, calcRadii, toRadian }
+module.exports = { calcAngles, calcRadii, toRadian, toDegree }

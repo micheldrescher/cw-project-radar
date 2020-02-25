@@ -15,8 +15,10 @@ export { linkupRadar as default }
 // FUNCTIONS
 //
 const linkupRadar = async radarRootDOM => {
-    // 1) Mouse over quadrants hghlight
+    // 1) Animate interactive quadrants
     interactiveQuadtants()
+    // 2) Popover texts for blips
+    // interactiveBlips()
 }
 
 const interactiveQuadtants = () => {
@@ -57,6 +59,8 @@ const clickQuadrant = (d, i, a) => {
             .style('transform', undefined)
             .classed('zoomed', false)
         d3.selectAll(`.segment:not(.segment-${i})`).style('transform', undefined)
+        // "un"rotate blips
+        d3.selectAll(`g.segment.segment-${i} .blip text`).style('transform', undefined)
         // hide the segment table
         d3.selectAll(`.segment-table.segment-${i}`).style('display', 'none')
         return
@@ -72,6 +76,8 @@ const clickQuadrant = (d, i, a) => {
     d3.select(`g.segment.segment-${i}`)
         .style('transform', `scale(2) translateY(25%) rotate(${angle}deg)`)
         .classed('zoomed', true)
+    // rotate the blips by inverse angle
+    d3.selectAll(`g.segment.segment-${i} .blip text`).style('transform', `rotate(${-angle}deg)`)
     // hide the other segments
     d3.selectAll(`.segment:not(.segment-${i})`).style('transform', 'scale(0)')
 

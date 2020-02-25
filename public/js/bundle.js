@@ -6905,8 +6905,9 @@ function () {
       while (1) {
         switch (_context.prev = _context.next) {
           case 0:
-            // 1) Mouse over quadrants hghlight
-            interactiveQuadtants();
+            // 1) Animate interactive quadrants
+            interactiveQuadtants(); // 2) Popover texts for blips
+            // interactiveBlips()
 
           case 1:
           case "end":
@@ -6953,7 +6954,9 @@ var clickQuadrant = function clickQuadrant(d, i, a) {
   if (zoomed) {
     // unzoom segments
     d3.select("g.segment.segment-".concat(i)).style('transform', undefined).classed('zoomed', false);
-    d3.selectAll(".segment:not(.segment-".concat(i, ")")).style('transform', undefined); // hide the segment table
+    d3.selectAll(".segment:not(.segment-".concat(i, ")")).style('transform', undefined); // "un"rotate blips
+
+    d3.selectAll("g.segment.segment-".concat(i, " .blip text")).style('transform', undefined); // hide the segment table
 
     d3.selectAll(".segment-table.segment-".concat(i)).style('display', 'none');
     return;
@@ -6965,7 +6968,9 @@ var clickQuadrant = function clickQuadrant(d, i, a) {
   var angle = -i * theta - offset;
   if (rotateLeft) angle = 360 + angle; // clicked segment gets rotated, shifted down and scaleed by two
 
-  d3.select("g.segment.segment-".concat(i)).style('transform', "scale(2) translateY(25%) rotate(".concat(angle, "deg)")).classed('zoomed', true); // hide the other segments
+  d3.select("g.segment.segment-".concat(i)).style('transform', "scale(2) translateY(25%) rotate(".concat(angle, "deg)")).classed('zoomed', true); // rotate the blips by inverse angle
+
+  d3.selectAll("g.segment.segment-".concat(i, " .blip text")).style('transform', "rotate(".concat(-angle, "deg)")); // hide the other segments
 
   d3.selectAll(".segment:not(.segment-".concat(i, ")")).style('transform', 'scale(0)'); // select the corresponding table
 
