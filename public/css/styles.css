@@ -233,13 +233,13 @@ header.header {
  *   R A D A R   *
  *               *
  *****************/
-#tables {
-    width: max-content;
+
+#rendering {
+    padding: 5em;
 }
 
-svg g.segment path.ring {
-    stroke-width: 1;
-    stroke: #666666;
+svg > g.segment {
+    transition-duration: 0.5s;
 }
 
 svg g.segment path.ring.divider {
@@ -270,4 +270,12 @@ svg g.segment > path.ring-4 {
 svg g line {
     stroke: black;
     stroke-width: 5;
+}
+
+#tables {
+    width: max-content;
+}
+
+.segment-table {
+    display: none;
 }
