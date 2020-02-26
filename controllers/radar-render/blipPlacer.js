@@ -72,61 +72,34 @@ const addTableEntry = (blip, root, segIdx, ringIdx) => {
     //         .append('p')
     //         .html('<a href="' + blip.cwurl() + '" target="_blank">More</a>')
     // }
-
-    // var mouseOver = function() {
-    //     d3.selectAll('g.blip-link').attr('opacity', 0.3)
-    //     group.attr('opacity', 1.0)
-    //     blipListItem.selectAll('.blip-list-item').classed('highlight', true)
-    //     tip.show(blip.name(), group.node())
-    // }
-
-    // var mouseOut = function() {
-    //     d3.selectAll('g.blip-link').attr('opacity', 1.0)
-    //     blipListItem.selectAll('.blip-list-item').classed('highlight', false)
-    //     tip.hide()
-    //         .style('left', 0)
-    //         .style('top', 0)
-    // }
-
-    // blipListItem.on('mouseover', mouseOver).on('mouseout', mouseOut)
-    // group.on('mouseover', mouseOver).on('mouseout', mouseOut)
-
-    // var clickBlip = function() {
-    //     d3.select('.blip-item-description.expanded').node() !== blipItemDescription.node() &&
-    //         d3.select('.blip-item-description.expanded').classed('expanded', false)
-    //     blipItemDescription.classed('expanded', !blipItemDescription.classed('expanded'))
-
-    //     blipItemDescription.on('click', function() {
-    //         d3.event.stopPropagation()
-    //     })
-    // }
-
-    // blipListItem.on('click', clickBlip)
 }
 
 const findBlipCoords = (blip, geom, allCoords, chance) => {
-    return pickCoords(blip, chance, geom)
-    // const maxIterations = 200
-    // var coordinates = pickCoords(blip, chance, geom)
-    // var iterationCounter = 0
-    // var foundAPlace = false
+    // return pickCoords(blip, chance, geom)
 
-    // while (iterationCounter < maxIterations) {
-    //     if (thereIsCollision(blip, coordinates, allCoords)) {
-    //         coordinates = pickCoords(blip, chance, minRadius, maxRadius, startAngle)
-    //     } else {
-    //         foundAPlace = true
-    //         break
-    //     }
-    //     iterationCounter++
-    // }
+    const maxIterations = 200
+    let coordinates = pickCoords(blip, chance, geom)
+    let iterationCounter = 0
+    let foundAPlace = false
+
+    while (iterationCounter < maxIterations) {
+        if (thereIsCollision(geom.blipDia, coordinates, allCoords)) {
+            coordinates = pickCoords(blip, chance, geom)
+        } else {
+            foundAPlace = true
+            break
+        }
+        iterationCounter++
+    }
 
     // if (!foundAPlace && blip.width > MIN_BLIP_WIDTH) {
-    //     blip.width = blip.width - 1
-    //     return findBlipCoordinates(blip, minRadius, maxRadius, startAngle, allBlipCoordinatesInRing)
-    // } else {
-    //     return coordinates
-    // }
+    if (!foundAPlace) {
+        // recurse with a smaller blip width
+        geom.blipDia = geom.blipDia - 1
+        return findBlipCoords(blip, geom, allCoords, chance)
+    } else {
+        return coordinates
+    }
 }
 
 const pickCoords = (blip, chance, geom) => {
@@ -163,7 +136,15 @@ const pickCoords = (blip, chance, geom) => {
     return [x, y]
 }
 
-function drawBlip(blip, root, segIdx, coords, geom) {
+const thereIsCollision = (blipWidth, coords, allCoords) => {
+    return allCoords.some(
+        currCoords =>
+            Math.abs(currCoords[0] - coords[0]) < blipWidth &&
+            Math.abs(currCoords[1] - coords[1]) < blipWidth
+    )
+}
+
+const drawBlip = (blip, root, segIdx, coords, geom) => {
     var x = coords[0]
     var y = coords[1]
 
@@ -191,6 +172,7 @@ function drawBlip(blip, root, segIdx, coords, geom) {
         .attr('alignment-baseline', 'central')
         .attr('dominant-baseline', 'central')
         .style('font-weight', '700')
+        .style('pointer-events', 'none')
         .text(blip.cw_id)
 }
 
