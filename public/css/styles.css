@@ -212,6 +212,35 @@ header.header {
  *               *
  *****************/
 
+/* Rdar tooltip */
+#bliptip {
+    line-height: 1;
+    padding: 6px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+}
+/* Creates a small triangle extender for the tooltip */
+#bliptip:after {
+    box-sizing: border-box;
+    display: inline;
+    font-size: 10px;
+    width: 100%;
+    line-height: 1;
+    color: rgba(0, 0, 0, 0.8);
+    content: '\25BC';
+    position: absolute;
+    text-align: center;
+}
+/* Style northward tooltips specifically */
+#bliptip.n:after {
+    margin: -2px 0 0 0;
+    top: 100%;
+    left: 0;
+}
+
+/* Radar overview */
 #radar > #overview > h1 {
     font-size: 2.5em;
     text-align: center;
@@ -223,6 +252,7 @@ header.header {
     font-size: 1.2em;
 }
 
+/* SVG rendering of the radar */
 #rendering {
     padding: 5em;
 }
