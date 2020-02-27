@@ -6966,7 +6966,7 @@ var clickQuadrant = function clickQuadrant(d, i, a) {
   if (zoomed) {
     // unzoom segments
     d3.select("g.segment.segment-".concat(i)).style('transform', undefined).classed('zoomed', false);
-    d3.selectAll(".segment:not(.segment-".concat(i, ")")).style('transform', undefined); // "un"rotate blips
+    d3.selectAll(".segment:not(.segment-".concat(i, ")")).style('transform', undefined); // "un"rotate blips & performance ring
 
     d3.selectAll("g.segment.segment-".concat(i, " .blip text")).style('transform', undefined); // hide the segment table
 
@@ -6980,7 +6980,7 @@ var clickQuadrant = function clickQuadrant(d, i, a) {
   var angle = -i * theta - offset;
   if (rotateLeft) angle = 360 + angle; // clicked segment gets rotated, shifted down and scaleed by two
 
-  d3.select("g.segment.segment-".concat(i)).style('transform', "scale(2) translateY(25%) rotate(".concat(angle, "deg)")).classed('zoomed', true); // rotate the blips by inverse angle
+  d3.select("g.segment.segment-".concat(i)).style('transform', "scale(2) translateY(25%) rotate(".concat(angle, "deg)")).classed('zoomed', true); // rotate the blip text by inverse angle
 
   d3.selectAll("g.segment.segment-".concat(i, " .blip text")).style('transform', "rotate(".concat(-angle, "deg)")); // hide the other segments
 
@@ -7386,7 +7386,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53189" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57007" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

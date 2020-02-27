@@ -4,7 +4,20 @@
 // libraries
 const Chance = require('chance')
 // modules
+const AppError = require('../../utils/AppError')
 const { toDegree, toRadian } = require('../../utils/myMaths')
+
+//
+// GLOBALS
+//
+const gradients = process.env.GRADIENTS.split(',') || [
+    '#FF0000',
+    '#FF8F00',
+    '#FFFF00',
+    '#BFFF00',
+    '#00FF00'
+]
+
 //
 // Place the blips in the given radar and tables
 //
@@ -158,14 +171,15 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .attr('label', `${blip.cw_id}. ${blip.prj_name}`)
 
     // 2) Add the circle to the blup group
+    const colour = arcColour(blip)
     blipGroup
         .append('circle')
         .attr('r', geom.blipDia * 0.4)
         .attr('fill', 'white')
-        .attr('stroke-width', '2')
-        .attr('stroke', 'black')
+        .attr('stroke-width', colour === '#000000' ? 2 : 4)
+        .attr('stroke', colour)
 
-    // 3) Add the text - the blip's cw-id - to the group
+    // 4) Add the text - the blip's cw-id - to the group
     blipGroup
         .append('text')
         .attr('text-anchor', 'middle')
@@ -174,6 +188,29 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .style('font-weight', '700')
         .style('pointer-events', 'none')
         .text(blip.cw_id)
+}
+
+const arcColour = blip => {
+    // 0) If there is no score, return black
+    if (!blip.score) return '#000000'
+
+    // 1) Gradients array must have odd number of elements
+    if (gradients.length % 2 != 1) {
+        throw new AppError('gradients configuration must have an odd number of gradients!', 500)
+    }
+
+    // 2) Return the performance gradient colour relative to min, max, and number of gradients defined
+    // chunk size is the number range for each gradient entry
+    var chunkSize = (blip.max - blip.min) / gradients.length
+    // now calculate the index
+    var idx =
+        chunkSize === 0 // no discernible differentiation possible!!!
+            ? Math.floor(gradients.length / 2) // --> Use middle gradient
+            : Math.floor((blip.performance - blip.min) / chunkSize) // otherwise calculate the gradient
+    // need to ensure we are not above gradient length
+    idx = idx === gradients.length ? gradients.length - 1 : idx
+
+    return gradients[idx]
 }
 
 //
