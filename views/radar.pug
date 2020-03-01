@@ -12,6 +12,17 @@ block append head
 //- triggering the client-side rendering of the radar
 //-
 block content
+
+    //- The modal dialogue for project info    
+    #projectInfo: .modal-box
+        #modalClose &times;
+        .layout
+            header Title
+            section.content
+                #scoreScale
+            footer footer
+
+    //- The radar section
     section#radar
         section#overview
             h1 #{radar.name}

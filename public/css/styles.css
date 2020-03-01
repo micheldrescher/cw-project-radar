@@ -298,3 +298,80 @@ svg g line {
 .segment-table {
     display: none;
 }
+
+/*********************************
+ *  Project info modal dialogue  *
+ *********************************/
+/* The modal "dialogue" is simply a div of max width and height with massive margins
+    to make it look like a dialogue */
+#projectInfo {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0); /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Bounding box to position the modal's content */
+#projectInfo > div {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    border: 1px solid #888;
+    width: max-content;
+    border-radius: 10px;
+    max-width: 65%;
+    height: max-content;
+    max-height: 65%;
+}
+
+/* The Close Button */
+#modalClose {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+}
+#modalClose:hover,
+#modalClose:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Modal Content */
+.layout {
+    margin: auto;
+}
+
+.layout > * {
+    padding: 15px;
+    margin: auto;
+}
+
+#projectInfo .layout > header {
+    text-align: center;
+    font-size: 1.5em;
+    padding: 15px;
+    border-bottom: 1px solid lightgrey;
+}
+
+/* score scale title */
+#scoreScale div {
+    text-align: center;
+    font-size: 0.9em;
+}
+/* score scale labels */
+#scoreScale text {
+    text-anchor: middle;
+    font-size: 0.8em;
+}

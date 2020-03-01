@@ -169,6 +169,7 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .attr('id', `blip-${blip.cw_id}`)
         .attr('transform', `translate(${x}, ${y})`)
         .attr('label', `${blip.cw_id}. ${blip.prj_name}`)
+        .attr('data', JSON.stringify(blip))
 
     // 2) Add the circle to the blup group
     const colour = arcColour(blip)

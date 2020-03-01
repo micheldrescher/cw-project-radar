@@ -5,6 +5,7 @@
 import '@babel/polyfill'
 // app modules
 import showAlert from '../util/alert'
+import showProjectData from './projectInfo'
 
 //
 // EXPORTS
@@ -113,16 +114,16 @@ const configureBliptip = () => {
 }
 
 const mouseOverBlip = (tip, i, a) => {
-    tip.show()
+    d3.event.stopPropagation() // stop the event bubbling up the hierarchy
     tip.show(d3.select(`#${a[i].id}`).attr('label'))
 }
 
 const mouseOutBlip = (tip, i, a) => {
+    d3.event.stopPropagation() // stop the event bubbling up the hierarchy
     tip.hide()
 }
 
 const clickBlip = (d, i, a) => {
     d3.event.stopPropagation() // stop the event bubbling up the hierarchy
-    console.log('Blip click event handling!')
-    // TODO do something useful, i.e. showing the blip's description as a model
+    showProjectData(JSON.parse(a[i].getAttribute('data')))
 }

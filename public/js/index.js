@@ -4,6 +4,7 @@
 //
 // libraries
 import '@babel/polyfill'
+
 // app modules
 import linkupRadar from './radar/linkupRadar'
 import showAlert from './util/alert'
@@ -16,6 +17,7 @@ import showAlert from './util/alert'
 // DOM ELEMENTS
 const radarButtons = document.querySelectorAll('.radar')
 const radarSection = document.getElementById('radar')
+const modalDialogue = document.getElementById('projectInfo')
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -39,6 +41,14 @@ if (radarSection) {
 
     // 2) Link up DOM elements with interactive JavaScript
     linkupRadar(radarRootDOM)
+}
+
+//
+// PREPARE PROJECT INFO MODAL
+//
+if (modalDialogue) {
+    let closeBtn = document.getElementById('modalClose')
+    closeBtn.onclick = () => (modalDialogue.style.display = 'none')
 }
 
 // if (mapBox) {
