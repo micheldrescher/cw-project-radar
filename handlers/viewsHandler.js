@@ -58,7 +58,7 @@ exports.showRadar = catchAsync(async (req, res, next) => {
 
     // 4) Show success page
     res.status(200).render(`${__dirname}/../views/radar`, {
-        title: slug,
+        title: radar.name,
         radar
     })
 })

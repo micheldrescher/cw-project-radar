@@ -254,7 +254,7 @@ header.header {
 
 /* SVG rendering of the radar */
 #rendering {
-    padding: 5em;
+    padding: 2em 5em;
 }
 
 svg > g.segment {

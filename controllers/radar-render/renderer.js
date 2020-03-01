@@ -78,7 +78,7 @@ const plotSegmentName = (group, name, lastPath, idx) => {
         .style('text-anchor', 'middle') //place the text halfway on the arc
         .attr('startOffset', '25%') // centered along the path
         .text(name)
-        .style('font-size', '36px')
+        .style('font-size', '24px')
         .style('font-weight', 'bold')
 }
 
