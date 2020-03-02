@@ -20825,14 +20825,10 @@ var configureBliptip = function configureBliptip() {
 };
 
 var mouseOverBlip = function mouseOverBlip(tip, i, a) {
-  d3.event.stopPropagation(); // stop the event bubbling up the hierarchy
-
   tip.show(d3.select("#".concat(a[i].id)).attr('label'));
 };
 
 var mouseOutBlip = function mouseOutBlip(tip, i, a) {
-  d3.event.stopPropagation(); // stop the event bubbling up the hierarchy
-
   tip.hide();
 };
 

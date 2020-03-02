@@ -114,12 +114,10 @@ const configureBliptip = () => {
 }
 
 const mouseOverBlip = (tip, i, a) => {
-    d3.event.stopPropagation() // stop the event bubbling up the hierarchy
     tip.show(d3.select(`#${a[i].id}`).attr('label'))
 }
 
 const mouseOutBlip = (tip, i, a) => {
-    d3.event.stopPropagation() // stop the event bubbling up the hierarchy
     tip.hide()
 }
 
