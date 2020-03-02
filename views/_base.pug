@@ -10,9 +10,12 @@ html
       title CW Project Radar | #{title}
 
   body(data-alertmsg=`${alert ? alert.message : ''}`, data-alerttype=`${alert ? alert.status : ''}`)
-    //-- HEADER
+    //- HEADER
     include _header
 
+    //- MODALS
+    section#modals
+    
     //- CONTENT
     main#main
       #alerts

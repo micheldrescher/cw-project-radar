@@ -9,6 +9,7 @@
         "start:prod": "NODE_ENV=production nodemon server.js",
         "debug": "ndb server.js",
         "watch:js": "parcel watch ./public/js/index.js --public-url /js --out-dir ./public/js --out-file bundle.js",
+        "watch:pug": "pug -c -w --name-after-file -o public/js/views views/client/",
         "build:js": "parcel build ./public/js/index.js --public-url /js --out-dir ./public/js --out-file bundle.js",
         "init:projects": "node __data__/import_projects.js",
         "init:classifications": "node __data__/import_classifications.js",
@@ -30,6 +31,7 @@
     },
     "dependencies": {
         "@fast-csv/parse": "^4.0.2",
+        "@svgdotjs/svg.js": "^3.0.16",
         "axios": "^0.19.2",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
@@ -67,7 +69,8 @@
         "ndb": "^1.1.5",
         "nodemon": "^2.0.2",
         "parcel-bundler": "^1.12.4",
-        "prettier": "^1.17.0"
+        "prettier": "^1.17.0",
+        "pug-cli": "^1.0.0-alpha6"
     },
     "engines": {
         "node": "^13"

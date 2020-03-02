@@ -299,13 +299,15 @@ svg g line {
     display: none;
 }
 
-/*********************************
- *  Project info modal dialogue  *
- *********************************/
-/* The modal "dialogue" is simply a div of max width and height with massive margins
-    to make it look like a dialogue */
-#projectInfo {
-    display: none; /* Hidden by default */
+/****************************/
+/*  MODAL dialogue generic  *
+/****************************/
+/* 
+ * Base layout for any modal dialogue.
+ * The modal "dialogue" is simply a div of max width and height 
+ * to prevent any user interaction while displayed
+ */
+div.modal {
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -318,60 +320,135 @@ svg g line {
     background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
 }
 
-/* Bounding box to position the modal's content */
-#projectInfo > div {
+/*
+ * THe modal's "window". 
+ * Provides the basc structure with header, footer, content area and the close button.
+ */
+div.modal > div.window {
     position: relative;
-    background-color: #fefefe;
     margin: auto;
-    border: 1px solid #888;
-    width: max-content;
+    background-color: #fefefe;
+    border: 1px solid #666;
     border-radius: 10px;
-    max-width: 65%;
+    width: max-content;
+    max-width: 55%;
+    min-width: 15%;
     height: max-content;
-    max-height: 65%;
+    max-height: 55%;
+    min-height: 15%;
+    overflow: scroll;
+}
+div.modal > div.window > * {
+    padding: 15px;
 }
 
-/* The Close Button */
-#modalClose {
+/* 
+ * The modal's close button.
+ * Always situated in the top right corner and always accessible over the header
+ */
+div.modal > div.window > div.closeBtn {
+    padding: 0px;
     color: #aaaaaa;
-    float: right;
+    position: absolute;
+    top: 0;
+    right: 0;
     font-size: 28px;
     font-weight: bold;
     width: 35px;
     height: 35px;
     text-align: center;
 }
-#modalClose:hover,
-#modalClose:focus {
+div.modal > div.window > div.closeBtn:hover,
+div.modal > div.window > div.closeBtn:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
 }
-
-/* Modal Content */
-.layout {
-    margin: auto;
-}
-
-.layout > * {
-    padding: 15px;
-    margin: auto;
-}
-
-#projectInfo .layout > header {
+div.modal > div.window > header {
     text-align: center;
     font-size: 1.5em;
-    padding: 15px;
-    border-bottom: 1px solid lightgrey;
+    border-bottom: 1px solid #666;
+    background-color: #ddd;
 }
 
-/* score scale title */
-#scoreScale div {
+div.modal > div.window > footer {
+    font-size: 0.8em;
+    border-top: 1px solid #666;
+    background-color: #ddd;
+}
+
+/********************************
+ *  Project info modal content  *
+ ********************************/
+#projectInfo .prjTitle {
+    font-size: 1.1em;
     text-align: center;
+    font-weight: 700;
+}
+
+#projectInfo .prjTeaser {
+    margin-bottom: 0.5em;
+}
+
+/* key project data (start, end, budget, call */
+#projectInfo .prjKeys {
+    display: flex;
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid lightgray;
+}
+
+.key {
+    padding: 5px 0;
+    flex: 1 1 0px;
+    text-align: center;
+    border-right: 1px solid lightgrey;
+    font-size: 0.8em;
+    color: darkgray;
+}
+.key:last-child {
+    border-right: none;
+}
+.key span {
+    font-weight: bold;
+    display: block;
+    font-size: 1.2em;
+    color: black;
+}
+
+#projectInfo .score {
+    display: flex;
+}
+#projectInfo .score .scale {
+    flex: 0.65 0.65 0px;
+}
+
+#projectInfo .score .scale .label {
+    text-align: center;
+    font-weight: 700;
+}
+
+/* performance scale SVG */
+#projectInfo .score .scale svg line {
+    stroke-width: 2;
+}
+#projectInfo .score .scale svg line#perf {
+    stroke: red;
+    stroke-width: 3;
+}
+#projectInfo .score .scale svg text {
+    text-anchor: middle;
     font-size: 0.9em;
 }
-/* score scale labels */
-#scoreScale text {
-    text-anchor: middle;
-    font-size: 0.8em;
+
+/* MTRL score layput */
+#projectInfo .score .mtrl {
+    flex: 0.35 0.35 0px;
+    display: flex;
+}
+#projectInfo .score .mtrl #mrl {
+    flex: 1 1 0px;
+}
+#projectInfo .score .mtrl #trl {
+    flex: 1 1 0px;
 }
