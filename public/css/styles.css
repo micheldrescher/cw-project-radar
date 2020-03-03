@@ -252,9 +252,14 @@ header.header {
     font-size: 1.2em;
 }
 
+#radardata {
+    display: flex;
+}
+
 /* SVG rendering of the radar */
 #rendering {
-    padding: 2em 5em;
+    padding: 3em 3em;
+    flex: 1 1 0px;
 }
 
 svg > g.segment {
@@ -295,8 +300,35 @@ svg g line {
     width: max-content;
 }
 
+/*
+ * Radar tables
+ */
+#tables {
+    padding: 3em;
+    width: max-content;
+}
+
 .segment-table {
     display: none;
+    padding-right: 3em;
+}
+
+.segment-table h2 {
+    display: none;
+}
+
+.segment-table .ring-table h3 {
+    border-bottom: 1px solid darkgray;
+    margin-bottom: 0.4em;
+}
+
+.segment-table .ring-table ul {
+    margin: 0;
+    padding-inline-start: 0;
+}
+
+.segment-table .ring-table ul li {
+    list-style: none;
 }
 
 /****************************/

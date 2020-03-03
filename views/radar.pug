@@ -13,9 +13,9 @@ block content
             h1 #{radar.name}
             div #{radar.summary}
         section#radardata
-            #rendering(width='auto', height="100%") 
+            #rendering
                 != radar.rendering.get('svg')
-            #tables(width='33%', height:='100%')
+            #tables
                 != radar.rendering.get('tables')
 
 
