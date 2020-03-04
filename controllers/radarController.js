@@ -75,6 +75,7 @@ exports.populateRadar = async (slug, date) => {
     //      - have at least one classification
     const projects = await Project.find({
         endDate: { $gte: prjMaxAge.toDate() },
+        startDate: { $lt: radarDate.toDate() },
         hasClassifications: true
     })
 
