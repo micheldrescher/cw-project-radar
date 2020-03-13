@@ -2,12 +2,9 @@ node_modules
 .DS_Store
 .env
 .cache
-
-__OLD__/**
 public/js/bundle.js
 public/js/bundle.js.map
 
 .env.remote
-public/js/bundle.js
-public/js/bundle.js
-public/js/bundle.js.map
+
+__OLD__/**
