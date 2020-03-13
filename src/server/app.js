@@ -93,7 +93,7 @@ if (process.env.NODE_ENV !== 'production') {
 // SERVE STATIC FILES FOR CLIENT
 //
 // Serving static files
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, '../client')))
 
 //
 // ROUTES

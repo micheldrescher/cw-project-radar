@@ -7,6 +7,7 @@ html
       link(rel='stylesheet' href='/css/styles.css')
       link(rel='shortcut icon' type='image/png' href='/img/favicon.ico')
       link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700')
+      script(defer src='/bundle.js')
       title CW Project Radar | #{title}
 
   body(data-alertmsg=`${alert ? alert.message : ''}`, data-alerttype=`${alert ? alert.status : ''}`)
@@ -25,8 +26,6 @@ html
 
     //- FOOTER
     include _footer
-
-  script(src='/js/bundle.js')
 
 //-     // CONTENT
 //-     block content

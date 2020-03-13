@@ -4,7 +4,7 @@
 // libraries
 const express = require('express')
 // app modules
-const projectHandler = require('./../handlers/projectHandler')
+const projectHandler = require('../handlers/projectHandler')
 // const authController = require('./../controllers/authController')
 
 const router = express.Router()

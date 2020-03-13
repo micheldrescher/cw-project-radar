@@ -6,8 +6,8 @@
 import '@babel/polyfill'
 
 // app modules
-import linkupRadar from './radar/linkupRadar'
-import showAlert from './util/alert'
+import linkupRadar from './js/radar/linkupRadar'
+import showAlert from './js/util/alert'
 
 // import { displayMap } from './mapbox'
 // import { login, logout } from './login'

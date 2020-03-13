@@ -1,10 +1,12 @@
 node_modules
 .DS_Store
-.env
+.env*
 .cache
-public/js/bundle.js
-public/js/bundle.js.map
+src/client/bundle.js
+src/client/bundle.js.map
+src/client/views/*.js
+dist
 
 .env.remote
 
-__OLD__/**
+__OLD__
