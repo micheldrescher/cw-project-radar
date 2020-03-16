@@ -51,7 +51,7 @@ exports.showRadar = catchAsync(async (req, res, next) => {
     const { slug } = req.params
 
     // 2) Fetch the corresponding radar
-    const radar = await radarController.getRadarBySlug(slug)
+    const radar = await radarController.getRadarBySlug(slug, 'rendering')
     if (!radar) {
         return next(new AppError(`No radar found for id ${slug}.`, 404))
     }

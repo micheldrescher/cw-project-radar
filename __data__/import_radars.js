@@ -6,7 +6,7 @@
 require('dotenv').config()
 const mongoose = require('mongoose')
 // app modules
-const Radar = require('./../models/radarModel')
+const Radar = require('./../src/server/models/radarModel')
 
 process.on('unhandledRejection', error => {
     // Will print "unhandledRejection err is not defined"

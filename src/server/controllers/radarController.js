@@ -13,7 +13,7 @@ const classificationController = require('./classificationController')
 const mtrlScoresController = require('./mtrlScoresController')
 const Radar = require('../models/radarModel')
 const renderer = require('./radar-render/renderer')
-const { Blip } = require('../models/radarDataModel')
+const { Blip, RadarData, RadarRendering } = require('../models/radarDataModel')
 const { Project } = require('../models/projectModel')
 
 //
@@ -25,7 +25,9 @@ const segments = process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
 //
 // Fetch a radar by its slug
 //
-exports.getRadarBySlug = async slug => {
+exports.getRadarBySlug = async (slug, field) => {
+    if (field) return await Radar.findOne({ slug: slug }).populate(field)
+
     return await Radar.findOne({ slug: slug })
 }
 
@@ -66,7 +68,8 @@ exports.populateRadar = async (slug, date) => {
     if (!radar) {
         throw new AppError(`No radar found for id ${slug}.`, 404)
     }
-    if (!['created', 'populated', 'rendered'].includes(radar.status)) {
+    // radar state change check
+    if (!['created'].includes(radar.status)) {
         throw new AppError(`Radar ${radar.name} is not in state created.`, 500)
     }
 
@@ -113,7 +116,10 @@ exports.populateRadar = async (slug, date) => {
     )
 
     // 5) Map all projects into blips stored in the radar including statistics
-    radar.data = new Map()
+    const radarData = new RadarData({
+        radar: radar._id
+    })
+    radarData.data = new Map()
     for (const [segKey, segMap] of data.entries()) {
         const segDataMap = new Map()
         for (const [ringKey, entries] of segMap.entries()) {
@@ -140,11 +146,13 @@ exports.populateRadar = async (slug, date) => {
             })
             segDataMap.set(ringKey, ringData)
         }
-        radar.data.set(segKey, segDataMap)
+        radarData.data.set(segKey, segDataMap)
     }
+    await radarData.save()
 
     // 6) Set radar status to 'populated' and population date
     radar.status = 'populated'
+    radar.data = radarData._id
     radar.referenceDate = radarDate
     await radar.save()
 
@@ -156,13 +164,15 @@ exports.populateRadar = async (slug, date) => {
 //
 exports.renderRadar = async slug => {
     // 1) Obtain the radar
-    const radar = await this.getRadarBySlug(slug)
+    const radar = await this.getRadarBySlug(slug, 'data')
+
     if (!radar) {
         throw new AppError(`No radar found for id ${slug}.`, 404)
     }
-    // if (!['populated', 'rendered'].includes(radar.status)) {
-    //     throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
-    // }
+    // radar state change check
+    if (!['populated'].includes(radar.status)) {
+        throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
+    }
 
     // create the DOM hook for d3 to work properly
     const fakeDom = new JSDOM('<!DOCTYPE html><html><body></body></html>')
@@ -175,10 +185,15 @@ exports.renderRadar = async slug => {
     renderer.plotRadar(body, radar.data)
 
     // add to the radar, update state, and save
-    radar.rendering = new Map()
-    radar.rendering.set('svg', svgContainer.html())
-    radar.rendering.set('tables', tablesContainer.html())
+    const rendering = new RadarRendering({
+        radar: radar._id
+    })
+    rendering.rendering = new Map()
+    rendering.rendering.set('svg', svgContainer.html())
+    rendering.rendering.set('tables', tablesContainer.html())
+    await rendering.save()
     radar.status = 'rendered'
+    radar.rendering = rendering._id
     await radar.save()
 
     return radar
@@ -195,6 +210,7 @@ exports.publishRadar = async slug => {
     if (!radar) {
         throw new AppError(`No radar found for id ${slug}.`, 404)
     }
+    // radar state change check
     if (!['rendered'].includes(radar.status)) {
         throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
     }

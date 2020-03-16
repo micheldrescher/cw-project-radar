@@ -14,8 +14,8 @@ block content
             div #{radar.summary}
         section#radardata
             #rendering
-                != radar.rendering.get('svg')
+                != radar.rendering.rendering.get('svg')
             #tables
-                != radar.rendering.get('tables')
+                != radar.rendering.rendering.get('tables')
 
 

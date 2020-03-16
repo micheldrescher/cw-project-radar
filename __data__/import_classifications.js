@@ -9,8 +9,8 @@ const fs = require('fs')
 const moment = require('moment')
 const mongoose = require('mongoose')
 // app modules
-const projectController = require('../controllers/projectController')
-const { Classification } = require('./../models/classificationModel')
+const projectController = require('./../src/server/controllers/projectController')
+const { Classification } = require('./../src/server/models/classificationModel')
 
 process.on('unhandledRejection', error => {
     // Will print "unhandledRejection err is not defined"

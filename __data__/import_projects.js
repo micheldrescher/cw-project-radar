@@ -10,7 +10,7 @@ const moment = require('moment')
 const mongoose = require('mongoose')
 const parseCurrency = require('parsecurrency')
 // app modules
-const { Project } = require('./../models/projectModel')
+const { Project } = require('./../src/server/models/projectModel')
 
 process.on('unhandledRejection', error => {
     // Will print "unhandledRejection err is not defined"

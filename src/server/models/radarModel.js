@@ -5,7 +5,6 @@
 const mongoose = require('mongoose')
 const slugify = require('slugify')
 // app modules
-const { blipSchema } = require('./radarDataModel')
 
 const radarSchema = new mongoose.Schema({
     year: {
@@ -39,22 +38,19 @@ const radarSchema = new mongoose.Schema({
         required: true,
         enum: {
             values: ['created', 'populated', 'rendered', 'published', 'archived'],
-            message: 'Status must be either created, populated, published, or archived.'
+            message: 'Status must be either created, populated, rendered, published, or archived.'
         },
         default: 'created'
     },
     referenceDate: Date, // the radar's reference/cutoff date
     publicationDate: Date, // the date this radar was published
     data: {
-        type: Map, // segment --> Map
-        of: {
-            type: Map, // ring --> Array[blips]
-            of: [blipSchema]
-        }
+        type: mongoose.Schema.ObjectId,
+        ref: 'RadarData'
     },
     rendering: {
-        type: Map, // map of SVG and tabular segment tables
-        of: String
+        type: mongoose.Schema.ObjectId,
+        ref: 'RadarRendering'
     }
 })
 

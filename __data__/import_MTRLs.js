@@ -8,8 +8,8 @@ const csv = require('@fast-csv/parse')
 const fs = require('fs')
 const mongoose = require('mongoose')
 // app modules
-const { MTRLScore } = require('./../models/mtrlScoreModel')
-const projectController = require('../controllers/projectController')
+const { MTRLScore } = require('./../src/server/models/mtrlScoreModel')
+const projectController = require('./../src/server/controllers/projectController')
 
 process.on('unhandledRejection', error => {
     // Will print "unhandledRejection err is not defined"
