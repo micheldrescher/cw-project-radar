@@ -1,10 +1,14 @@
 extends _modal
 
 block header
-    div #{header}
+    if (project.cwurl)
+        div 
+            a(href=project.cwurl target='_blank') #{header}
+    else 
+        div #{header}
 
 block content
-    .prjTitle #{project.title}
+    .prjTitle  #{project.title}
     .prjTeaser #{project.teaser}
     .prjKeys
         .key.start Start date <span>#{new Date(project.startDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })}</span>

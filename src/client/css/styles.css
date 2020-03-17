@@ -403,6 +403,22 @@ div.modal > div.window > header {
     background-color: #ddd;
 }
 
+div.modal > div.window > header a {
+    text-decoration: none;
+}
+
+div.modal > div.window > header a:visited,
+div.modal > div.window > header a:link {
+    color: black;
+}
+
+div.modal > div.window > header a:after {
+    content: '\29C9';
+    font-size: 60%;
+    color: #47468e;
+    vertical-align: super;
+}
+
 div.modal > div.window > footer {
     font-size: 0.8em;
     border-top: 1px solid #666;

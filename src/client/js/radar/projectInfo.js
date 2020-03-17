@@ -2,7 +2,6 @@
 // IMPORTS
 //
 // libraries
-import '@babel/polyfill'
 import axios from 'axios'
 import { SVG } from '@svgdotjs/svg.js'
 // app modules
@@ -46,6 +45,8 @@ const createScoreScale = blip => {
     // no score scale if no score in project
     if (!blip.score) return undefined
 
+    console.log(blip.min, blip.median, blip.max, blip.score)
+
     // prepare and adjust scale values
     const shift = blip.min < 0 ? Math.abs(blip.min) : 0
     const values = [blip.min + shift, 0 + shift, blip.max + shift]
@@ -78,19 +79,4 @@ const createScoreScale = blip => {
         })
     })
     return svg.svg()
-    // // add scale labels
-    // svg.selectAll('text')
-    //     .data(labels)
-    //     .enter()
-    //     .append('text')
-    //     .attr('x', d => scale(values[labels.indexOf(d)]))
-    //     .attr('y', 25)
-    //     .text(d => d)
-    // // add the project performance value in red
-    // svg.append('path')
-    //     .attr('d', d => {
-    //         return `M${scale(blip.performance + shift)},0L${scale(blip.performance + shift)},-15`
-    //     })
-    //     .attr('stroke-width', 3)
-    //     .attr('stroke', 'red')
 }
