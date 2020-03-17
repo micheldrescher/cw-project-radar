@@ -1,0 +1,44 @@
+#############
+#  BUILDER  #
+#############
+# Start with Node 13
+FROM node:13.10 AS builder
+
+# set the workdir
+WORKDIR /home/node/cw
+
+# Install Node dependencies
+COPY package*.json ./
+RUN npm install
+
+# copy the source code
+COPY . .
+## build the distro
+RUN npm run build
+
+
+#############
+#  RELEASE  #
+#############
+FROM node:13.10
+
+ENV TZ=Europe/Brussels
+
+# set the user
+USER node
+
+# set the workdir
+WORKDIR /home/node/cw-project-radar
+
+# copy the distrobution files
+COPY --chown=node:node --from=builder /home/node/cw/dist/client ./client
+COPY --chown=node:node --from=builder /home/node/cw/dist/server ./server
+COPY --chown=node:node --from=builder /home/node/cw/dist/.env .
+COPY --chown=node:node --from=builder /home/node/cw/node_modules ./node_modules
+COPY --chown=node:node --from=builder /home/node/cw/scripts ./scripts
+
+
+EXPOSE 8080
+
+CMD ["node", "server/server.js"]
+

@@ -3,7 +3,6 @@
 // IMPORTS
 //
 // libraries
-import '@babel/polyfill'
 
 // app modules
 import linkupRadar from './js/radar/linkupRadar'

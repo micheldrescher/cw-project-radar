@@ -1,0 +1,4409 @@
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4a6"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "AARC2",
+	"cw_id": 1,
+	"call": "EINFRA-22-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 2999893,
+	"title": "Authentication and Authorisation For Research and Collaboration",
+	"teaser": "The goal of AARC2 is to design an AAI framework to develop interoperable  AAI, to enable researchers to access the whole research and infrastructure  service portfolio with one login. AARC2's objectives are:1. enable  federated access in research communities participating in...",
+	"projectURL": "https://aarc-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206338_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/929/aarc-2",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4a7"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "ABC4Trust",
+	"cw_id": 2,
+	"call": "ICT-2009.1.4",
+	"type": "CP",
+	"startDate": {
+		"$date": "2010-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-02-28T23:59:59.999Z"
+	},
+	"budget": 13063511,
+	"title": "Attribute-based Credentials for Trust",
+	"teaser": "The number of transactions performed electronically is rising fast. Every  day people use the Internet for purposes ranging from accessing information  to electronic commerce and e-banking, to interactions with government  bodies. As securing these transactions requires strong a...",
+	"projectURL": "https://abc4trust.eu/",
+	"fundingBodyLink": "cordis.europa.eu/project/rcn/97048_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/930/abc4trust",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4a8"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "ADDPRIV",
+	"cw_id": 3,
+	"call": "SEC-2010.6.5-2",
+	"type": "CP",
+	"startDate": {
+		"$date": "2011-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2014-03-31T22:59:59.999Z"
+	},
+	"budget": 4087801,
+	"title": "Automatic Data relevancy Discrimination for a PRIVacy-sensitive video  surveillance",
+	"teaser": "ADDPRIV proposes novel knowledge and developments to limit the storage of  unnecessary data, to be implemented on existing multicamera networks in  order to make them better comply with citizen´s privacy rights. ADDPRIV  tackles the challenge of determining in a precise and reli...",
+	"projectURL": "http://www.addpriv.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/98125_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/931/addpriv",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4a9"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "AEGIS",
+	"cw_id": 4,
+	"call": "DS-05-2016",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 744263,
+	"title": "Accelerating EU-US DialoGue for Research and Innovation in CyberSecurity  and Privacy",
+	"teaser": "AEGIS aims to strengthen dialogues between Europe and the US, in order to  facilitate exchange of views, policies and best practices to stimulate  cooperation around cybersecurity and privacy R&I, and contribute in shaping  the future global cybersecurity and privacy...",
+	"projectURL": "http://aegis-project.org/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210218_it.html",
+	"cwurl": "https://cyberwatching.eu/projects/932/aegis",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4aa"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "ANASTACIA",
+	"cw_id": 5,
+	"call": "DS-01-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 5420209,
+	"title": "Advanced Networked Agents for Security and Trust Assessment in CPS/IOT  Architectures",
+	"teaser": "The main objective of the ANASTACIA is to address the constant discovery of  vulnerabilities in ICT components providing assurance that ICT systems are  secure and trustworthy by design. To this end, ANASTACIA will research and  develop a holistic security framework, which will...",
+	"projectURL": "http://www.anastacia-h2020.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207199_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/934/anastacia",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ab"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "ARIES",
+	"cw_id": 6,
+	"call": "FCT-09-2015",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-02-28T23:59:59.999Z"
+	},
+	"budget": 2247003,
+	"title": "reliAble euRopean Identity EcoSystem",
+	"teaser": "ARIES main goal is to deliver a comprehensive framework for reliable  e-identity ecosystem comprising new technologies, processes and security  features that ensure highest levels of quality in eID based on trustworthy  security documents and biometrics for highly secure and...",
+	"projectURL": "http://aries-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202675_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/935/aries",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ac"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "ARMOUR",
+	"cw_id": 7,
+	"call": "ICT-12-2015",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-01-31T23:59:59.999Z"
+	},
+	"budget": 1999559,
+	"title": "Large-Scale Experiments of IoT Security Trust",
+	"teaser": "The Internet-of-Things (IoT) is rapidly heading for large scale meaning  that all mechanisms and features for the future IoT need to be especially  designed and duly tested/certified for large-scale conditions. Also,  Security, Privacy and Trust are critical elements of the IoT...",
+	"projectURL": "http://www.armour-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/199076_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/937/armour",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ad"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "ASAP",
+	"cw_id": 8,
+	"call": "ERC-AG-PE6",
+	"type": "ERC-AG",
+	"startDate": {
+		"$date": "2012-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-09-30T22:59:59.999Z"
+	},
+	"budget": 2499041,
+	"title": "Adaptive Security and Privacy",
+	"teaser": "With the prevalence of mobile computing devices and the increasing  availability of pervasive services, ubiquitous computing (Ubicomp) is a  reality for many people. This reality is generating opportunities for  people to interact socially in new and richer ways, and to work mor...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/105356_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ae"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "ATENA",
+	"cw_id": 9,
+	"call": "DS-03-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 8111938,
+	"title": "Advanced Tools to assEss and mitigate the criticality of ICT compoNents and  their dependencies over Critical InfrAstructures",
+	"teaser": "Over recent years, Industrial and Automation Control Systems (IACS) adopted  in Critical Infrastructures (CIs) have become more complex due to the  increasing number of interconnected devices, and to the large amount of  information exchanged among system components. With the...",
+	"projectURL": "https://www.atena-h2020.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202699_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/939/atena",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4af"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "BEACON",
+	"cw_id": 10,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-07-31T22:59:59.999Z"
+	},
+	"budget": 3570250,
+	"title": "Enabling Federated Cloud Networking",
+	"teaser": "Cloud federation enables cloud providers to collaborate and share their  resources to create a large virtual pool of resources at multiple network  locations. Different types of federation architectures for clouds and  datacenters have been proposed and implemented (e.g. cloud...",
+	"projectURL": "http://www.beacon-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194143_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/940/beacon",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b0"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "BIOSEC",
+	"cw_id": 11,
+	"call": "FP7-PEOPLE-IOF-2008",
+	"type": "MC-IOF",
+	"startDate": {
+		"$date": "2009-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2012-02-29T23:59:59.999Z"
+	},
+	"budget": 214655,
+	"title": "BIOSEC: Security and Privacy in Life Sciences Data",
+	"teaser": "Nowadays, there are over a thousand different life science databases with  hundreds of gigabytes of content ranging from gene-property data for  different organisms to brain image data. Such databases are distributed  over the web and have high degrees of heterogeneity and diffe...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/90991_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b1"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "C3ISP",
+	"cw_id": 12,
+	"call": "DS-04-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-09-30T22:59:59.999Z"
+	},
+	"budget": 5000045,
+	"title": "Collaborative and Confidential Information Sharing and Analysis for Cyber  Protection",
+	"teaser": "C3ISP mission is to define a collaborative and confidential information  sharing, analysis and protection framework as a service for cyber security  management. C3ISP innovation is the possibility to share information in a  flexible and controllable manner inside a collaborative...",
+	"projectURL": "http://www.c3isp.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202687_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/942/c3isp",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b2"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "CANVAS",
+	"cw_id": 13,
+	"call": "DS-07-2015",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2016-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-08-31T22:59:59.999Z"
+	},
+	"budget": 1569125,
+	"title": "Constructing an Alliance for Value-driven Cybersecurity",
+	"teaser": "The growing complexity of the digital ecosystem in combination with  increasing global risks entail the danger that enforcing cybersecurity may  bypass other fundamental values like equality, fairness or privacy, whereas  downplaying cybersecurity would undermine citizens’...",
+	"projectURL": "https://canvas-project.eu/canvas/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202697_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1267/canvas",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b3"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "certMILS",
+	"cw_id": 14,
+	"call": "DS-01-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 5616544,
+	"title": "Compositional security certification for medium- to high-assurance  COTS-based systems in environments with emerging threats",
+	"teaser": "certMILS develops a security certification methodology for Cyber-physical  systems (CPS). CPS are characterised by safety-critical nature, complexity,  connectivity, and open technology. A common downside to CPS complexity and  openness is a large attack surface and a high degree...",
+	"projectURL": "https://certmils.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207195_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/945/certmils",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b4"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CHOReVOLUTION",
+	"cw_id": 15,
+	"call": "ICT-09-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 3057549,
+	"title": "Automated Synthesis of Dynamic and Secured Choreographies for the Future  internet",
+	"teaser": "The Future Internet (FI) represents an age of unprecedented opportunities  for social, economic, and business growth thanks to the global scale  connectivity of the virtual as well as of the physical world. This indeed  opens up a wealth of innovative and revolutionary real-life...",
+	"projectURL": "http://www.chorevolution.eu/bin/view/Main/#",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194161_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/946/chorevolution",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b5"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CIPSEC",
+	"cw_id": 16,
+	"call": "DS-03-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 7017235,
+	"title": "Enhancing Critical Infrastructure Protection with innovative SECurity  framework",
+	"teaser": "In recent years, the majority of the world's Critical Infrastructures CIs  evolved to become more flexible, cost efficient and able to offer better  services and conditions for business opportunities. Towards this evolution,  CIs and companies offering CI services had to adopt...",
+	"projectURL": "http://www.cipsec.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202692_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/947/cipsec",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b6"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CITADEL",
+	"cw_id": 17,
+	"call": "DS-03-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-05-31T22:59:59.999Z"
+	},
+	"budget": 6065267,
+	"title": "Critical Infrastructure Protection using Adaptive MILS",
+	"teaser": "Critical infrastructures (CI) rely on complex safety- and security-critical  ICT systems placed into unpredictable environments and forced to cope with  unexpected events and threats while exhibiting safe adaptive behavior.  Recent security trends stress continuous adaptation to...",
+	"projectURL": "http://www.citadel-project.org",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202704_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/948/citadel",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b7"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CLARUS",
+	"cw_id": 18,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 4193548,
+	"title": "A FRAMEWORK FOR USER CENTRED PRIVACY AND SECURITY IN THE CLOUD",
+	"teaser": "Although cloud computing offers many benefits, security issues such as  confidentiality and privacy are still major concerns to those intending to  migrate to the cloud. Traditional cloud security has been based on  assurance to customers that cloud providers follow sound...",
+	"projectURL": "http://clarussecure.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194136_it.html",
+	"cwurl": "https://cyberwatching.eu/projects/949/clarus",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b8"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CloudSocket",
+	"cw_id": 19,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 4084850,
+	"title": "Business and IT-Cloud Alignment using a Smart Socket",
+	"teaser": "Business and IT Alignment is important challenge, as we are facing a  dramatic change in the way we rely, depend and interact with ICT that  influences our everyday life. Although “digital natives” will soon enter  the workforce, there is still a huge gap between the business...",
+	"projectURL": "https://site.cloudsocket.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194235_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/950/cloudsocket",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4b9"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "CloudTeam",
+	"cw_id": 20,
+	"call": "ICT-07-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-02-28T23:59:59.999Z"
+	},
+	"budget": 2088852,
+	"title": "Collaborative Software Development Framework based on Trusted, Secure  Cloud-based Pool of Users",
+	"teaser": "CloudTeams will be a cloud-based platform transforming software development  for cloud services into a much easier, faster and targeted process, by  engaging communities of users who will participate in the product life  cycle to help software teams develop better solutions for...",
+	"projectURL": "https://www.cloudteams.eu/projects/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194223_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/951/cloudteams",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ba"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "COCKPITCI",
+	"cw_id": 21,
+	"call": "SEC-2011.2.5-1",
+	"type": "CP-FP",
+	"startDate": {
+		"$date": "2012-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2014-12-31T23:59:59.999Z"
+	},
+	"budget": 4338494,
+	"title": "Cybersecurity on SCADA: risk prediction, analysis and reaction tools for  Critical Infrastructures",
+	"teaser": "The protection of the national infrastructures is one of the main issues  for national and international security. While FP7 MICIE project has proved  that increasing cooperation among infrastructures increases their level of  service and predictive capability, it is not enough ...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/102078_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4bb"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "COEMS",
+	"cw_id": 22,
+	"call": "ICT-10-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-10-31T23:59:59.999Z"
+	},
+	"budget": 3961083,
+	"title": "Continuous Observation of Embedded Multicore Systems",
+	"teaser": "The ability to observe the internals of an execution of a computer-based  system is a fundamental requirement for ultimately ensuring correctness and  safe behaviour. Within COEMS (Continuous Observation of Embedded Multicore  Systems) a novel observer platform with supporting...",
+	"projectURL": "https://www.coems.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/205937_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/952/coems",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4bc"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "COLA",
+	"cw_id": 23,
+	"call": "ICT-06-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-06-30T22:59:59.999Z"
+	},
+	"budget": 4238580,
+	"title": "Cloud Orchestration at the Level of Application",
+	"teaser": "SMEs and public sector organizations increasingly investigate the  possibilities to use cloud computing services in their everyday business  conduct. Accessing services and resources in the cloud on-demand and in a  flexible and elastic way could result in significant cost...",
+	"projectURL": "https://project-cola.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206078_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/953/cola",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4bd"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "COMPACT",
+	"cw_id": 24,
+	"call": "DS-02-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-10-31T23:59:59.999Z"
+	},
+	"budget": 4283480,
+	"title": "COmpetitive Methods to protect local Public Administration from Cyber  security Threats",
+	"teaser": "Cyber threats are the most significant and growing risk for public  administrations (PA). However, technological, organisational and structural  issues hamper the ability, especially for local PAs (LPAs) to improve their  cyber security level. Budget constraints and evolving...",
+	"projectURL": "https://www.compact-project.eu/en",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210223_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/954/compact",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4be"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CONSENT",
+	"cw_id": 25,
+	"call": "SSH-2009-3.2.1.",
+	"type": "CP-FP",
+	"startDate": {
+		"$date": "2010-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2013-04-30T22:59:59.999Z"
+	},
+	"budget": 3105260,
+	"title": "Consumer sentiment regarding privacy on user generated content services in  the digital economy",
+	"teaser": "One of the key changes in societal trends and lifestyles witnessed over the  past few years has been the move on-line of many consumers and the way they  have become increasingly sophisticated in their media consumption habits.  Have these recent changes to consumer and commerci...",
+	"projectURL": "http://consent.law.muni.cz/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/94079_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4bf"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CREDENTIAL",
+	"cw_id": 26,
+	"call": "DS-02-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-09-30T22:59:59.999Z"
+	},
+	"budget": 6686660,
+	"title": "Secure Cloud Identity Wallet",
+	"teaser": "With increasing mobility and Internet usage, the demand for digital  services increases and has reached critical and high assurance domains like  e-Government, e-Health and e-Business. Those domains have high security and  privacy requirements and hence will be harnessed with...",
+	"projectURL": "https://credential.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194869_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/956/credential",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c0"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "CROSSMINER",
+	"cw_id": 27,
+	"call": "ICT-10-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 4519008,
+	"title": "Developer-Centric Knowledge Mining from Large Open-Source Software  Repositories",
+	"teaser": "Recent reports state that the adoption of open-source software (OSS) helps,  resulting in savings of about $60 billion per year to consumers. However,  the use of OSS also comes at enormous cost: choosing among OSS projects and  maintaining dependence on continuously changing...",
+	"projectURL": "https://www.crossminer.org/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206182_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/957/crossminer",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c1"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CryptoCloud",
+	"cw_id": 28,
+	"call": "ERC-AG-PE6",
+	"type": "ERC-AG",
+	"startDate": {
+		"$date": "2014-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-05-31T22:59:59.999Z"
+	},
+	"budget": 2168261,
+	"title": "Cryptography for the Cloud",
+	"teaser": "Many companies have already started the migration to the Cloud and many  individuals share their personal informations on social networks.  Unfortunately, in the current access mode, the provider first authenticates  the client, and grants him access, or not, according to his ri...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/185411_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c2"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CS-AWARE",
+	"cw_id": 29,
+	"call": "DS-02-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-08-31T22:59:59.999Z"
+	},
+	"budget": 4648363,
+	"title": "A cybersecurity situational awareness and information sharing solution for  local public administrations based on advanced big data analysis",
+	"teaser": "Cybersecurity is one of today's most challenging security problems for  commercial companies, NGOs, governmental institutions as well as  individuals. Reaching beyond the technology focused boundaries of classical  information technology (IT) security, cybersecurity includes...",
+	"projectURL": "https://cs-aware.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210224_it.html",
+	"cwurl": "https://cyberwatching.eu/projects/959/cs-aware",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c3"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CYBECO",
+	"cw_id": 30,
+	"call": "DS-04-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 1983510,
+	"title": "Supporting Cyberinsurance from a Behavioural Choice Perspective",
+	"teaser": "CYBECO will research, develop, demonstrate, evaluate and exploit a new  framework for managing cybersecurity risks, one that is focusing on  cyberinsurance, as key risk management treatment. CYBECO integrates  multidisciplinary research methods from Behavioural Economics...",
+	"projectURL": "https://www.cybeco.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210232_it.html",
+	"cwurl": "https://cyberwatching.eu/projects/960/cybeco",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c4"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CyberWiz",
+	"cw_id": 31,
+	"call": "DRS-17-2014",
+	"type": "SME-2",
+	"startDate": {
+		"$date": "2015-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-08-31T22:59:59.999Z"
+	},
+	"budget": 2279375,
+	"title": "Cyber-Security Visualization and CAD-Tool for the Vulnerability Assessment  of Critical Infrastructures",
+	"teaser": "The ICT environments of critical infrastructures (such as energy  distribution systems) are composed of a large number of systems connected  to form a complex system of systems. Recent initiatives to upgrade power  systems into smart grids target an even tighter integration with...",
+	"projectURL": "https://www.cyberwiz.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/200381_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/964/cyberwiz",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c5"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CYCLONE",
+	"cw_id": 32,
+	"call": "ICT-07-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 3843602,
+	"title": "Complete Dynamic Multi-cloud Application Management",
+	"teaser": "Application service providers (ASPs) now develop, deploy, and maintain  complex computing platforms within multiple cloud infrastructures to  improve resilience, responsiveness and elasticity of their applications.  The CYCLONE project targets the ASPs, providing them with...",
+	"projectURL": "http://www.cyclone-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194262_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/977/cyclone",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c6"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CYRail",
+	"cw_id": 33,
+	"call": "S2R-OC-IP2-01-2015",
+	"type": "Shift2Rail-RIA",
+	"startDate": {
+		"$date": "2016-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-09-30T22:59:59.999Z"
+	},
+	"budget": 1498150,
+	"title": "Cybersecurity in the RAILway sector",
+	"teaser": "Railway infrastructures are moving towards more intelligent, connected,  user-centric and collaborative systems. While it brings many advantages for  the industry and users, it also poses new opportunities for cyber-criminals  and terrorists. CYRail aims to deliver tailored...",
+	"projectURL": "http://cyrail.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206014_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1025/cyrail",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c7"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "DAPPER",
+	"cw_id": 34,
+	"call": "FP7-PEOPLE-2013-CIG",
+	"type": "MC-CIG",
+	"startDate": {
+		"$date": "2014-03-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-03-31T22:59:59.999Z"
+	},
+	"budget": 100000,
+	"title": "\"Doing Anonymization Practically, Privately, Effectively and Reusably\"",
+	"teaser": "\"There is currently a tug-of-war going on surrounding data releases. On one  side, there are many strong reasons pulling to release data to other  parties: business factors, freedom of information rules, and scientific  sharing agreements. On the other side, concerns about indiv...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/185683_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c8"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "DECODE",
+	"cw_id": 35,
+	"call": "ICT-12-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-11-30T23:59:59.999Z"
+	},
+	"budget": 4987674,
+	"title": "Decentralised Citizens Owned Data Ecosystem",
+	"teaser": "Today’s Internet is becoming increasingly centralised, slowing innovation  and challenging its potential to revolutionise society and the economy in a  pluralistic manner. DECODE will develop practical alternatives through the  creation, evaluation and demonstration of a...",
+	"projectURL": "https://www.decodeproject.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206387_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1037/decode",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4c9"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "DEFENDER",
+	"cw_id": 36,
+	"call": "CIP-01-2016-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-04-30T22:59:59.999Z"
+	},
+	"budget": 8859938,
+	"title": "Defending the European Energy Infrastructures",
+	"teaser": "Critical Energy infrastructures (CEI) protection and security are becoming  of utmost importance in our everyday life. However, cyber and  system-theoretic approaches fail to provide appropriate security levels to  CEIs, since they are often used in isolation and build on...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210231_it.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ca"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "DISCOVERY",
+	"cw_id": 37,
+	"call": "ICT-38-2015",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2016-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 2223525,
+	"title": "Dialogues on ICT to Support COoperation Ventures and Europe-North AmeRica  (Canada and USA) sYnergies",
+	"teaser": "\"DISCOVERY aims at supporting dialogues between Europe and North America  (US and Canada); and fostering cooperation in collaborative ICT R&I, both  under Horizon 2020 and under US and Canada funding programmes. With this  purpose, DISCOVERY proposes a radically new approach to...",
+	"projectURL": "http://www.discoveryproject.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/199580_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4cb"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "DiSIEM",
+	"cw_id": 38,
+	"call": "DS-04-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-08-31T22:59:59.999Z"
+	},
+	"budget": 4020019,
+	"title": "Diversity Enhancements for SIEMs",
+	"teaser": "Security Information and Event Management (SIEM) systems are a fundamental  component of the ubiquitous ICT infrastructures that form the backbone of  our digital society. These systems are mostly used to monitor  infrastructures using many types of sensors and tools and...",
+	"projectURL": "http://disiem-project.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202707_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1040/disiem",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4cc"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "DITAS",
+	"cw_id": 39,
+	"call": "ICT-06-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 4890066,
+	"title": "DITAS: Data-intensive applications Improvement by moving daTA and  computation in mixed cloud/fog environmentS",
+	"teaser": "There is an increasing need to develop data intensive applications able to  manage more and more amounts of data coming from distributed and  heterogeneous sources effectively, quickly, correctly, and securely.  However, the current adoption of Cloud Computing paradigm is not...",
+	"projectURL": "http://www.ditas-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/205979_it.html",
+	"cwurl": "https://cyberwatching.eu/projects/1041/ditas",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4cd"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "DOGANA",
+	"cw_id": 40,
+	"call": "DS-06-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-08-31T22:59:59.999Z"
+	},
+	"budget": 5822250,
+	"title": "aDvanced sOcial enGineering And vulNerability Assesment Framework",
+	"teaser": "\"The advent of Social Networks has made both companies and public bodies  tremendously exposed to the so-called Social Engineering 2.0, and thus  prone to targeted cyber-attacks. Unfortunately, there is currently no  solution available on the market that allows neither the...",
+	"projectURL": "http://www.dogana-project.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194877_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1042/dogana",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ce"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "DSSC",
+	"cw_id": 41,
+	"call": "MSCA-COFUND-2016",
+	"type": "MSCA-COFUND-DP",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-04-30T22:59:59.999Z"
+	},
+	"budget": 71429,
+	"title": "Data Science and Systems Complexity Research Training Programme",
+	"teaser": "Today’s world is a highly complex system that is producing massive amounts  of data daily. We can only progress towards urgent global priorities such  as sustainable energy, personalized healthcare or the development of the  data-driven economy if we can predict the dynamic...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210344_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1045/ecrypt",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4cf"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "e-Sides",
+	"cw_id": 42,
+	"call": "ICT-18-2016",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 999940,
+	"title": "Ethical and Societal Implications of Data Sciences",
+	"teaser": "Data-driven innovation is deeply transforming society and the economy.  Although there are potentially enormous economic and social benefits this  innovation also brings new challenges for individual and collective  privacy, security, as well as democracy and participation. The...",
+	"projectURL": "http://www.e-sides.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206175_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1044/e-sides",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d0"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "ECRYPT-CSA",
+	"cw_id": 43,
+	"call": "ICT-32-2014",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2015-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-02-28T23:59:59.999Z"
+	},
+	"budget": 1000000,
+	"title": "European Coordination and Support Action in Cryptology",
+	"teaser": "This CSA intends to strengthen European excellence in the area of  cryptology and to achieve a durable integration and structuring of the  European cryptography community, involving academia, industry, government  stakeholders and defence agencies. The project will coordinate...",
+	"projectURL": "http://www.ecrypt.eu.org/csa/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194321_it.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1045/ecrypt",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d1"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "ECRYPT-NET",
+	"cw_id": 44,
+	"call": "MSCA-ITN-2014-ETN",
+	"type": "MSCA-ITN-ETN",
+	"startDate": {
+		"$date": "2015-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-02-28T23:59:59.999Z"
+	},
+	"budget": 3893200,
+	"title": "European Integrated Research Training Network on Advanced Cryptographic  Technologies for the Internet of Things and the Cloud",
+	"teaser": "The goal of this ETN is to develop advanced cryptographic techniques for  the Internet of Things and the Cloud and to create implementations that  offer a high level of security and increased usability, for a wide range of  physical computation platforms. The ITN will equip a...",
+	"projectURL": "http://www.ecrypt.eu.org/net/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/193996_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d2"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "ENCASE",
+	"cw_id": 45,
+	"call": "MSCA-RISE-2015",
+	"type": "MSCA-RISE",
+	"startDate": {
+		"$date": "2016-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 2160000,
+	"title": "EnhaNcing seCurity And privacy in the Social wEb: a user centered approach  for the protection of minors",
+	"teaser": "ENCASE will leverage the latest advances in usable security and privacy to  design and implement a browser-based architecture for the protection of  minors from malicious actors in online social networks. The ENCASE  user-centric architecture will consist of three distinct...",
+	"projectURL": "http://encase.socialcomputing.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/198839_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1157/encase",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d3"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "EU-SEC",
+	"cw_id": 46,
+	"call": "DS-01-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 4162511,
+	"title": "The European Security Certification Framework",
+	"teaser": "In recent years the ICT market has evolved toward a cloud-based approach.  This shift together with the rapidly changing legal and regulatory  landscape has heavily impacted security assurance, governance and  compliance. The information security market players have tried to...",
+	"projectURL": "http://www.sec-cert.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207439_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1046/eu-sec",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d4"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "EUNITY",
+	"cw_id": 47,
+	"call": "DS-05-2016",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2017-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-05-31T22:59:59.999Z"
+	},
+	"budget": 499813,
+	"title": "Cybersecurity and privacy dialogue between Europe and Japan",
+	"teaser": "The EUNITY project addresses scope 2 (international dialogue with Japan) of  objective DS-05-2016 of the H2020 work programme. This two years project  aims at developing and encouraging the dialogue between Europe and Japan on  cybersecurity and privacy topics. The partners...",
+	"projectURL": "https://www.eunity-project.eu/en/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210046_it.html",
+	"cwurl": "https://cyberwatching.eu/projects/1047/eunity",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d5"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "FIDELITY",
+	"cw_id": 48,
+	"call": "SEC-2011.3.4-1",
+	"type": "CP-IP",
+	"startDate": {
+		"$date": "2012-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-01-31T23:59:59.999Z"
+	},
+	"budget": 18995170,
+	"title": "Fast and trustworthy Identity Delivery and check with ePassports leveraging  Traveler privacy",
+	"teaser": "Significant efforts have been invested to strengthen border ID checks with  biometrics Travel Documents embedding electronic chips (ePassport).  However, problems appeared regarding fraud in the ePassport issuing  process, citizen losing control on their personal data, difficult...",
+	"projectURL": "http://www.fidelity-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/102324_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d6"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "FORTIKA",
+	"cw_id": 49,
+	"call": "DS-02-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-05-31T22:59:59.999Z"
+	},
+	"budget": 4918813,
+	"title": "FORTIKA - Cyber Security Accelerator for trusted SMEs IT Ecosystems",
+	"teaser": "FORTIKA aims to (1) minimise the exposure of small and medium sized  businesses to cyber security risks and threats, and (2) help them  successfully respond to cyber security incidents, while relieving them from  all unnecessary and costly efforts of identifying, acquiring and...",
+	"projectURL": "https://fortika-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210222_it.html",
+	"cwurl": "https://cyberwatching.eu/projects/1052/fortika",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d7"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "FutureTrust",
+	"cw_id": 50,
+	"call": "DS-05-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-05-31T22:59:59.999Z"
+	},
+	"budget": 7474031,
+	"title": "Future Trust Services for Trustworthy Global Transactions",
+	"teaser": "Against the background of the regulation 2014/910/EU on electronic  identification (eID) and trusted services for electronic transactions in  the internal market (eIDAS), the FutureTrust project aims at supporting the  practical implementation of the regulation in Europe and...",
+	"projectURL": "https://www.futuretrust.eu/home/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202698_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1055/futuretrust",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d8"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "GenoPri",
+	"cw_id": 51,
+	"call": "MSCA-IF-2015-EF",
+	"type": "MSCA-IF-EF-ST - Standard EF",
+	"startDate": {
+		"$date": "2016-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-04-30T22:59:59.999Z"
+	},
+	"budget": 157846,
+	"title": "Quantifying and Protecting the Privacy of Genomic Data",
+	"teaser": "Genomic data carries a lot of sensitive information about its owner such as  his predispositions to sensitive diseases, ancestors, physical attributes,  and genomic data of his relatives (leading to interdependent privacy  risks). Individuals share vast amount of information on...",
+	"projectURL": "http://www.cs.bilkent.edu.tr/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/203068_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4d9"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "GHOST",
+	"cw_id": 52,
+	"call": "DS-02-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-04-30T22:59:59.999Z"
+	},
+	"budget": 4995519,
+	"title": "Safe-Guarding Home IoT Environments with Personalised Real-time Risk Control",
+	"teaser": "To effectively respond to the multitude & complexity of cybersecurity  challenges in smart-homes GHOST deploys a pioneering software-enabled  ‘usable security’ solution. The project brings professional level security  to the European citizens and to this end it: (a) increases...",
+	"projectURL": "https://www.ghost-iot.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210233_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1056/ghost",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4da"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "HEAT",
+	"cw_id": 53,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 4165726,
+	"title": "Homomorphic Encryption Applications and Technology",
+	"teaser": "Homomorphic cryptography offers the tantalizing goal of being able to  process sensitive information in encrypted form, without needing to  compromise on the privacy and security of the citizens and organizations  that provide the input data.The HEAT proposal brings together...",
+	"projectURL": "https://heat-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194171_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1061/heat",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4db"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "HECTOR",
+	"cw_id": 54,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-02-28T23:59:59.999Z"
+	},
+	"budget": 4494088,
+	"title": "HARDWARE ENABLED CRYPTO AND RANDOMNESS",
+	"teaser": "A single flipped bit or a weak random number generator can cause secure  systems to fail. The main objective of this proposal is to close the gap  between the mathematical heaven of cryptographic algorithms and their  efficient, secure and robust hardware implementations. It...",
+	"projectURL": "https://hector-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194145_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1064/hector",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4dc"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "HERMENEUT",
+	"cw_id": 55,
+	"call": "DS-04-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 2007693,
+	"title": "Enterprises intangible Risks Management via Economic models based on  simulatioN of modErn cyber-aTtacks",
+	"teaser": "IT security and risk management often ignore or underestimate the human  factor (psychological, behavioural, societal, organisational and economic  aspects) in the identification of cyber-risks, their quantitative economic  impact and the costs of countermeasures. Cyber-attacks...",
+	"projectURL": "https://cyberconnector.eu/web/hermeneut",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210209_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1068/hermeneut",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4dd"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "HIPS",
+	"cw_id": 56,
+	"call": "ERC-CG-2013-PE6",
+	"type": "ERC-CG",
+	"startDate": {
+		"$date": "2014-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-09-30T22:59:59.999Z"
+	},
+	"budget": 1999175,
+	"title": "High-Performance Secure Computation with Applications to Privacy and Cloud  Security",
+	"teaser": "\"Secure two-party and multiparty computation has long stood at the center  of the foundations of theoretical cryptography. However, in the last five  years there has been blistering progress on the question of efficient  secure computation. We are close to the stage that secure ...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/188662_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4de"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "IMPACT",
+	"cw_id": 57,
+	"call": "ERC-2013-SyG",
+	"type": "ERC-SyG",
+	"startDate": {
+		"$date": "2015-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-01-31T23:59:59.999Z"
+	},
+	"budget": 9257000,
+	"title": "imPACT – Privacy, Accountability, Compliance, and Trust in Tomorrow’s  Internet",
+	"teaser": "The Internet has evolved from a mere communication network used by tens of  millions of users two decades ago, to a global multimedia platform for  communication, social networking, entertainment, education, trade and  political activism used by more than two billion users. This...",
+	"projectURL": "http://www.impact-erc.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/192598_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1069/impact",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4df"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "KONFIDO",
+	"cw_id": 58,
+	"call": "DS-03-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-10-31T23:59:59.999Z"
+	},
+	"budget": 4992078,
+	"title": "KONFIDO - Secure and Trusted Paradigm for Interoperable eHealth Services",
+	"teaser": "KONFIDO advances the state of the art of eHealth technology with respect to  four key dimensions of digital security, namely: data preservation, data  access and modification, data exchange, and interoperability and  compliance. To address the challenges of secure storage and...",
+	"projectURL": "http://www.konfido-project.eu/konfido/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207188_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1070/konfido",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e0"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "LAST",
+	"cw_id": 59,
+	"call": "ERC-SG-PE6",
+	"type": "ERC-SG - ERC Starting Grant",
+	"startDate": {
+		"$date": "2009-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2014-09-30T22:59:59.999Z"
+	},
+	"budget": 1921316,
+	"title": "Large Scale Privacy-Preserving Technology in the Digital World -  Infrastructure and Applications",
+	"teaser": "Data mining provides large benefits to the commercial, government and  homeland security sectors, but the aggregation and storage of huge amounts  of data about citizens inevitably leads to erosion of privacy. To achieve  the benefits that data mining has to offer, while at the ...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/91973_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e1"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "LIGHTest",
+	"cw_id": 60,
+	"call": "DS-05-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-08-31T22:59:59.999Z"
+	},
+	"budget": 8696946,
+	"title": "Lightweight Infrastructure for Global Heterogeneous Trust management in  support of an open Ecosystem of Stakeholders and Trust schemes.",
+	"teaser": "The objective of LIGHTest is to create a global cross-domain trust  infrastructure that renders it transparent and easy for verifiers to  evaluate electronic transactions. By querying different trust authorities  world-wide and combining trust aspects related to identity...",
+	"projectURL": "http://lightest.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/203437_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1072/lightest",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e2"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "LV-Pri20",
+	"cw_id": 61,
+	"call": "MSCA-IF-2014-EF",
+	"type": "MSCA-IF-EF-CAR",
+	"startDate": {
+		"$date": "2015-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-06-30T22:59:59.999Z"
+	},
+	"budget": 195455,
+	"title": "Logic-based Verification of Privacy-Preservation in Europe's 2020 ICT",
+	"teaser": "In line with the EU 2020 Flagship Initiative on a Digital Agenda for Europe  and the upcoming EU Cybersecurity Strategy, the goal of the LV-Pri20  project is to aid our ICT-driven lives, by “safeguarding the human right of  privacy in the digital society”. Concretely, the...",
+	"projectURL": "http://people.itcarlson.com/ioana/mc.html",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/196089_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e3"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "MAMI",
+	"cw_id": 62,
+	"call": "ICT-12-2015",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-06-30T22:59:59.999Z"
+	},
+	"budget": 2901500,
+	"title": "Measurement and Architecture for a Middleboxed Internet",
+	"teaser": "Recent revelations about large-scale pervasive surveillance of Internet  traffic have led to a rapidly expanding deployment of encryption in order  to protect end-user privacy. At the same time, network operators and access  providers rely on increasing use of in-network...",
+	"projectURL": "https://mami-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/199159_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1074/mami",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e4"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "MAPPING",
+	"cw_id": 63,
+	"call": "SiS.2013.1.2-1",
+	"type": "CSA-SA",
+	"startDate": {
+		"$date": "2014-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-02-28T23:59:59.999Z"
+	},
+	"budget": 4642522,
+	"title": "Managing Alternatives for Privacy, Property and INternet Governance",
+	"teaser": "Building on the results of several EU FP7 projects including CONSENT  (covering on-line consent and privacy in social networks), SMART and  RESPECT (which cover smart and on-line surveillance, etc.) MAPPING’s goal  is to create an all-round and “joined-up” understanding of the m...",
+	"projectURL": "https://mappingtheinternet.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/111214_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1075/mapping",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e5"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "MAS2TERING",
+	"cw_id": 64,
+	"call": "ICT-2013.6.1",
+	"type": "CP",
+	"startDate": {
+		"$date": "2014-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-08-31T22:59:59.999Z"
+	},
+	"budget": 4539730,
+	"title": "Multi-Agent Systems and Secured coupling of Telecom and EnErgy gRIds for  Next Generation smartgrid services",
+	"teaser": "The success of the European vision of a low carbon electricity grid that  minimises greenhouse gas emissions; and enhances security, quality and  reliability of supply depends on how smart infrastructures, combining  energy and telecom, are developed and implemented for the wide...",
+	"projectURL": "http://www.mas2tering.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/192066_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e6"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "MATTHEW",
+	"cw_id": 65,
+	"call": "ICT-2013.1.5",
+	"type": "CP",
+	"startDate": {
+		"$date": "2013-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-10-31T23:59:59.999Z"
+	},
+	"budget": 5972553,
+	"title": "Multi-entity-security using active Transmission Technology for improved  Handling of Exportable security credentials Without privacy restrictions",
+	"teaser": "With the increasing pervasion of our society by mobile devices like smart  phones and tablets and many users running several security relevant  applications on multiple mobile devices at the same time, security and  privacy challenges outranging those on personal computers arise...",
+	"projectURL": "https://matthew-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/110220_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1076/matthew",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e7"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "MELODIC",
+	"cw_id": 66,
+	"call": "ICT-06-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-11-30T23:59:59.999Z"
+	},
+	"budget": 4890224,
+	"title": "Multi-cloud Execution-ware for Large-scale Optimized Data-Intensive  Computing",
+	"teaser": "MELODIC will enable data-intensive applications to run within defined  security, cost, and performance boundaries seamlessly on geographically  distributed and federated cloud infrastructures. Serving the user’s needs  and constraints, MELODIC will realise the potential of...",
+	"projectURL": "http://melodic.cloud/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206028_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1077/melodic",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e8"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "mF2C",
+	"cw_id": 67,
+	"call": "ICT-06-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 5440288,
+	"title": "Towards an Open, Secure, Decentralized and Coordinated Fog-to-Cloud  Management Ecosystem",
+	"teaser": "Fog computing brings cloud computing capabilities closer to the end-device  and users, while enabling location-dependent resource allocation, low  latency services, and extending significantly the IoT services portfolio as  well as market and business opportunities in the cloud...",
+	"projectURL": "http://www.mf2c-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206164_it.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1078/mf2c",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4e9"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "MH-MD",
+	"cw_id": 68,
+	"call": "ICT-18-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-10-31T23:59:59.999Z"
+	},
+	"budget": 3944940,
+	"title": "My Health - My Data",
+	"teaser": "Issues of data subjects’ privacy and data security represent a crucial  challenge in the biomedical sector more than in other industries. The  current IT landscape in this field shows a myriad of isolated, locally  hosted patient data repositories, managed by clinical centres...",
+	"projectURL": "http://www.myhealthmydata.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206202_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1079/mh-md",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ea"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "MIKELANGELO",
+	"cw_id": 69,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 5993419,
+	"title": "MIcro KErneL virtualizAtioN for hiGh pErfOrmance cLOud and hpc systems",
+	"teaser": "MIKELANGELO is a project, targeted to disrupt the core underlying  technologies of Cloud computing, enabling even bigger uptake of Cloud  computing, HPC in the Cloud and Big Data technologies under one umbrella.  The vision of MIKELANGELO is to improve responsiveness, agility and...",
+	"projectURL": "https://www.mikelangelo-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194319_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1080/mikelangelo",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4eb"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "MITIGATE",
+	"cw_id": 70,
+	"call": "DS-06-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-02-28T23:59:59.999Z"
+	},
+	"budget": 3549869,
+	"title": "Multidimensional, IntegraTed, rIsk assessment framework and dynamic,  collaborative Risk ManaGement tools for critical information infrAstrucTurEs",
+	"teaser": "Despite the importance of Critical Information Infrastructures (CIIs) and  dynamic ICT-based maritime supply chains (SCs) for port operations,  state-of-the-art Risk Management (RM) methodologies for maritime  environments pay limited attention to cyber-security and do not...",
+	"projectURL": "http://www.mitigateproject.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/198194_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1081/mitigate",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ec"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "MUSA",
+	"cw_id": 71,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 3574190,
+	"title": "MUlti-cloud Secure Applications",
+	"teaser": "The most challenging applications in heterogeneous cloud ecosystems are  those that are able to maximise the benefits of the combination of the  cloud resources in use: multi-cloud applications. They have to deal with  the security of the individual components as well as with the...",
+	"projectURL": "http://www.musa-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194208_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1082/musa",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ed"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "NECOMA",
+	"cw_id": 72,
+	"call": "ICT-2013.10.1",
+	"type": "CP",
+	"startDate": {
+		"$date": "2013-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-03-31T22:59:59.999Z"
+	},
+	"budget": 2171167,
+	"title": "Nippon-European Cyberdefense-Oriented Multilayer threat Analysis",
+	"teaser": "The NECOMA project addresses objective (c), Cybersecurity for improved  resilience against cyber threats, of the ICT-EU Japan Coordinated call  FP7-ICT-2013-EU-Japan. It aims at providing new means to understand  cyberthreats and to mitigate their effect on infrastructure and en...",
+	"projectURL": "http://www.necoma-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/110155_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/965/necoma",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ee"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "NeCS",
+	"cw_id": 73,
+	"call": "MSCA-ITN-2015-ETN",
+	"type": "MSCA-ITN-ETN",
+	"startDate": {
+		"$date": "2015-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-08-31T22:59:59.999Z"
+	},
+	"budget": 3882228,
+	"title": "European Network for Cyber-security",
+	"teaser": "The European Network for Cybersecurity (NECS) was formed in response to the  increased need of highly qualified experts able to cope with all the  aspects of the European cybersecurity strategy that is currently under  implementation.There is indeed an evident need and...",
+	"projectURL": "http://www.necs-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/198283_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/966/necs",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ef"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "OCGN",
+	"cw_id": 74,
+	"call": "MSCA-IF-2015-EF",
+	"type": "MSCA-IF-EF-ST",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-11-30T23:59:59.999Z"
+	},
+	"budget": 146591,
+	"title": "Traditional Organised Crime and the Internet: The changing organization of  illegal gambling networks",
+	"teaser": "Transnational criminal networks utilise Information Communication  Technology (ICT) to commit ‘old’ and ‘new’ types of crime. ICT assists in  transnational crime (i.e., hacking) and also as a way to exchange  information or plan new crimes. Empirical research has...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202926_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f0"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "OCTAVE",
+	"cw_id": 75,
+	"call": "DS-02-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-07-31T22:59:59.999Z"
+	},
+	"budget": 5208985,
+	"title": "Objective Control for TAlker VErification",
+	"teaser": "Industry needs alternatives to textual passwords for access control. While  tokens can still be stolen or transferred to other persons, biometrics  technology can provide reliable, cost-effective and user-friendly  solutions.The proliferation of smart services calls for...",
+	"projectURL": "https://www.octave-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194511_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/968/octave",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f1"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "OPENREQ",
+	"cw_id": 76,
+	"call": "ICT-10-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 4511775,
+	"title": "Intelligent Recommendation Decision Technologies for Community-Driven  Requirements Engineering",
+	"teaser": "Requirements engineering is a key activity in ICT projects: What are  current user needs and what requirements satisfy them? How much effort  would a requirement cost and in which release should it be delivered? Which  requirements can be reused from similar projects? Are there...",
+	"projectURL": "http://openreq.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206364_it.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f2"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "OPERANDO",
+	"cw_id": 77,
+	"call": "DS-01-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-04-30T22:59:59.999Z"
+	},
+	"budget": 4455811,
+	"title": "Online Privacy Enforcement, Rights Assurance and Optimization",
+	"teaser": "The goal of the OPERANDO project is to specify, implement, field-test,  validate and exploit an innovative privacy enforcement platform that will  enable the Privacy as a Service (PaS) business paradigm and the market for  online privacy services.The OPERANDO project will...",
+	"projectURL": "http://www.operando.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194891_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/970/operando",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f3"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "P5",
+	"cw_id": 78,
+	"call": "SEC-2012.2.3-1",
+	"type": "CP-FP",
+	"startDate": {
+		"$date": "2013-07-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-10-31T23:59:59.999Z"
+	},
+	"budget": 4817519,
+	"title": "Privacy Preserving Perimeter Protection Project",
+	"teaser": "The goal of the P5 project is an intelligent perimeter proactive  surveillance system that works robustly under a wide range of weather and  lighting conditions and that has strong privacy preserving features. The  system will monitor the region outside the security area of crit...",
+	"projectURL": "http://www.p5-fp7.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/109306_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/971/p5",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f4"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PaaSword",
+	"cw_id": 79,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 4461513,
+	"title": "A Holistic Data Privacy and Security by Design Platform-as-a-Service  Framework Introducing Distributed Encrypted Persistence in Cloud-based  Applications",
+	"teaser": "The vision of PaaSword is to maximize and fortify the trust of individual,  professional and corporate customers to Cloud -enabled services and  applications, to safeguard both corporate and personal sensitive data  stored on Cloud infrastructures and Cloud-based storage...",
+	"projectURL": "https://www.paasword.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194247_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/973/paasword",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f5"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PACT",
+	"cw_id": 80,
+	"call": "SEC-2011.6.5-2",
+	"type": "CP-FP - Small or medium-scale focused research project",
+	"startDate": {
+		"$date": "2012-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-01-31T23:59:59.999Z"
+	},
+	"budget": 3533999,
+	"title": "PUBLIC PERCEPTION OF SECURITY AND PRIVACY: ASSESSING KNOWLEDGE, COLLECTING  EVIDENCE, TRANSLATING RESEARCH INTO ACTION",
+	"teaser": "PACT (PUBLIC PERCEPTION OF SECURITY AND PRIVACY: ASSESSING KNOWLEDGE,  COLLECTING EVIDENCE, TRANSLATING RESEARCH INTO ACTION) is a 36 month  collaborative project, which aims 1) to assess existing knowledge about  public perception of the tension between security and privacy and...",
+	"projectURL": "http://www.projectpact.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/102327_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f6"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PANORAMIX",
+	"cw_id": 81,
+	"call": "DS-01-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-08-31T22:59:59.999Z"
+	},
+	"budget": 4459711,
+	"title": "Privacy and Accountability in Networks via Optimized Randomized Mix-nets",
+	"teaser": "\"The objective of the PANORAMIX project is the development of a  multipurpose infrastructure for privacy-preserving communications based on  \"\"mix-networks\"\" (mix-nets) and its integration into high-value  applications that can be exploited by European businesses. Mix-nets...",
+	"projectURL": "https://panoramix-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194872_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/972/panoramix",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f7"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PARIS",
+	"cw_id": 82,
+	"call": "SEC-2012.6.1-2",
+	"type": "CP-FP",
+	"startDate": {
+		"$date": "2013-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-02-29T23:59:59.999Z"
+	},
+	"budget": 4771052,
+	"title": "PrivAcy pReserving Infrastructure for Surveillance",
+	"teaser": "PARIS will define and demonstrate a methodological approach for the  development of surveillance infrastructure which enforces the right of  citizens for privacy, justice and freedom and takes into account the  evolving nature of such rights, e.g. aspects that are acceptable tod...",
+	"projectURL": "http://www.paris-project.org/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/106634_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/975/paris",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f8"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PASS",
+	"cw_id": 83,
+	"call": "PEOPLE-2007-4-3.IRG",
+	"type": "MC-IRG - International Re-integration Grants (IRG)",
+	"startDate": {
+		"$date": "2008-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2012-11-30T23:59:59.999Z"
+	},
+	"budget": 100000,
+	"title": "Privacy Architectures for System Services",
+	"teaser": "The proliferation of Internet services and, perhaps unavoidably, Internet  crime, has left users more vulnerable than ever before. Taken in  conjunction with the expanded deployment of wireless networks and the  popularity of mobile devices, this trend is exerting tremendous pre...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/90937_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4f9"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PATS",
+	"cw_id": 84,
+	"call": "SiS-2008-1.2.2.1",
+	"type": "CSA-SA - Support actions",
+	"startDate": {
+		"$date": "2009-07-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2012-03-31T22:59:59.999Z"
+	},
+	"budget": 1080608,
+	"title": "Privacy Awareness Through Security Branding",
+	"teaser": "While it can be assumed that the security industry and organisations will  increase their efforts to keep and to strengthen trust relations with  citizens, the question however remains: how can one raise more awareness of  social conflicts and privacy concerns among those public...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/91291_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4fa"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PICOS",
+	"cw_id": 85,
+	"call": "ICT-2007.1.4",
+	"type": "CP",
+	"startDate": {
+		"$date": "2008-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2011-06-30T22:59:59.999Z"
+	},
+	"budget": 5957801,
+	"title": "Privacy and Identity Management for Community Services",
+	"teaser": "With the emergence of services for professional and private on-line  collaboration via the Internet, many European citizens spend work and  leisure time in on-line communities. Users consciously leave private  information; they may also leave personalized traces they are unaware...",
+	"projectURL": "http://www.picos-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/85533_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4fb"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PQCRYPTO",
+	"cw_id": 86,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-02-28T23:59:59.999Z"
+	},
+	"budget": 3964791,
+	"title": "Post-quantum cryptography for long-term security",
+	"teaser": "Online banking, e-commerce, telemedicine, mobile communication, and cloud  computing depend fundamentally on the security of the underlying  cryptographic algorithms. Public-key algorithms are particularly crucial  since they provide digital signatures and establish secure...",
+	"projectURL": "https://pqcrypto.eu.org/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194347_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1022/pqcrypto",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4fc"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PRACTIS",
+	"cw_id": 87,
+	"call": "SiS-2009-1.1.2.1",
+	"type": "CP-FP - Small or medium-scale focused research project",
+	"startDate": {
+		"$date": "2010-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2013-03-31T22:59:59.999Z"
+	},
+	"budget": 1267956,
+	"title": "Privacy - Appraising Challenges to Technologies and Ethics",
+	"teaser": "The vision that motivates PRACTIS is of a society that is aware of the  evolving challenges to privacy posed by emerging technologies and is  equipped to respond to them. PRACTIS will assess the potential impacts on  privacy from emerging technologies and new scientific knowledg...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/93106_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4fd"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PRECIOSA",
+	"cw_id": 88,
+	"call": "ICT-2007.6.2",
+	"type": "CP - Collaborative project (generic)",
+	"startDate": {
+		"$date": "2008-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2010-08-31T22:59:59.999Z"
+	},
+	"budget": 2465870,
+	"title": "Privacy Enabled Capability In co-Operative systems and Safety Applications",
+	"teaser": "The goal of PRECIOSA is to demonstrate that co-operative systems can comply  with future privacy regulations by demonstrating that an example  application can be endowed with technologies for suitable privacy  protection of location related data.  The objectives are the foll...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/86606_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4fe"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PRESCIENT",
+	"cw_id": 89,
+	"call": "SiS-2009-1.1.2.1",
+	"type": "CP-FP - Small or medium-scale focused research project",
+	"startDate": {
+		"$date": "2010-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2013-03-31T22:59:59.999Z"
+	},
+	"budget": 1261270,
+	"title": "Privacy and emerging fields of science and technology: Towards a common  framework for privacy and ethical assessment",
+	"teaser": "Privacy is a multifaceted concept, a moving target and a salient topic in  technology policy-making. PRESCIENT will provide an early identification of  privacy and ethical issues arising from emerging technologies and their  relevance for EC policy. It will contribute to the qua...",
+	"projectURL": "http://www.prescient-project.eu/prescient/index.php",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/93108_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1023/prescient",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b4ff"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PreserviX",
+	"cw_id": 90,
+	"call": "ICT-37-2014-1",
+	"type": "SME-1",
+	"startDate": {
+		"$date": "2015-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-10-31T23:59:59.999Z"
+	},
+	"budget": 71429,
+	"title": "Reshaping Digital Preservation",
+	"teaser": "Our vision is to reshape digital preservation!Our objectives are:â€¢ To change the way the world is preserving valuable data for future use; â€¢ To enable data owners to secure their data and protect them from manipulation, - protecting confidentiality and privacy;â€¢ To...",
+	"projectURL": "http://www.piql.com/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/197022_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1024/preservix",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b500"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PrEstoCloud",
+	"cw_id": 91,
+	"call": "ICT-06-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 4256503,
+	"title": "PrEstoCloud - Proactive Cloud Resources Management at the Edge for  Efficient Real-Time Big Data Processing",
+	"teaser": "PrEstoCloud project will make substantial research contributions in the  cloud computing and real-time data intensive applications domains, in order  to provide a dynamic, distributed, self-adaptive and proactively  configurable architecture for processing Big Data streams. In...",
+	"projectURL": "http://www.prestocloud-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206360_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b501"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PrimeLife",
+	"cw_id": 92,
+	"call": "ICT-2007.1.4",
+	"type": "CP",
+	"startDate": {
+		"$date": "2008-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2011-06-30T22:59:59.999Z"
+	},
+	"budget": 14929957,
+	"title": "Privacy and Identity Management in Europe for Life",
+	"teaser": "Individuals in the Information Society want to protect their autonomy and  retain control over personal information, irrespective of their activities.  Information technologies hardly consider those requirements, thereby  putting the privacy of the citizen at risk. Today, the in...",
+	"projectURL": "http://primelife.ercim.eu/",
+	"fundingBodyLink": "cordis.europa.eu/project/rcn/85453_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1026/primelife",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b502"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "PRIPARE",
+	"cw_id": 93,
+	"call": "ICT-2013.1.5",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2013-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-09-30T22:59:59.999Z"
+	},
+	"budget": 1313167,
+	"title": "PReparing Industry to Privacy-by-design by supporting its Application in  REsearch",
+	"teaser": "The mission of PRIPARE is twofold: facilitate the application of a privacy  and security -by-design methodology that will contribute to the advent of  unhindered usage of Internet against disruptions, censorship and  surveillance, support its practice by the ICT research communi...",
+	"projectURL": "pripareproject.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/110590_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1027/pripare",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b503"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PRISM",
+	"cw_id": 94,
+	"call": "ICT-2007.1.4",
+	"type": "CP",
+	"startDate": {
+		"$date": "2008-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2010-05-31T22:59:59.999Z"
+	},
+	"budget": 3152987,
+	"title": "Privacy-aware Secure Monitoring",
+	"teaser": "Passive network monitoring is required for the operation and maintenance of  communication networks as well as to detect frauds and attacks. Typically,  raw packet-level traffic traces are collected using suitable traffic probe  devices and fed to monitoring applications (IDSs, ...",
+	"projectURL": "http://www.fp7-prism.eu/",
+	"fundingBodyLink": "cordis.europa.eu/project/rcn/86232_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1028/prism",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b504"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PRISM CODE",
+	"cw_id": 95,
+	"call": "FP7-PEOPLE-2012-CIG",
+	"type": "MC-CIG",
+	"startDate": {
+		"$date": "2012-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-10-31T23:59:59.999Z"
+	},
+	"budget": 100000,
+	"title": "Privacy and Security for Mobile Cooperative Devices",
+	"teaser": "We propose PRISM CODE project (PRIvacy and Security for Mobile COoperative  DEvices). The aim of this project is to design some of the fundamental  tools for privacy and security of the upcoming distributed services, which  are built upon the cooperation of mobile personal devic...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/105448_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b505"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PRISMACLOUD",
+	"cw_id": 96,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-07-31T22:59:59.999Z"
+	},
+	"budget": 8381953,
+	"title": "PRIvacy and Security MAintaining services in the CLOUD",
+	"teaser": "With a current volume of over USD 100 billion and annual growth rates of  over 10%, the world-wide market for cloud computing can be considered as  the major growth area in ICT. However, big companies and public authorities  are reluctant to entrust their most sensitive data to...",
+	"projectURL": "https://prismacloud.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194266_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1029/prismacloud",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b506"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PRISMS",
+	"cw_id": 97,
+	"call": "SEC-2011.6.5-2",
+	"type": "CP-FP",
+	"startDate": {
+		"$date": "2012-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-07-31T22:59:59.999Z"
+	},
+	"budget": 3561936,
+	"title": "The PRIvacy and Security MirrorS: “Towards a European framework for  integrated decision making”",
+	"teaser": "The PRISMS project will analyse the traditional trade-off model between  privacy and security and devise a more evidence-based perspective for  reconciling privacy and security, trust and concern. It will examine how  technologies aimed at enhancing security are subjecting citiz...",
+	"projectURL": "http://prismsproject.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/102282_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b507"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PRIVACY FLAG",
+	"cw_id": 98,
+	"call": "DS-01-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-04-30T22:59:59.999Z"
+	},
+	"budget": 4538438,
+	"title": "Enabling Crowd-sourcing based privacy protection for smartphone  applications, websites and Internet of Things deployments",
+	"teaser": "Privacy Flag combines crowd sourcing, ICT technology and legal expertise to  protect citizen privacy when visiting websites, using smart-phone  applications, or living in a smart city. It will enable citizens to monitor  and control their privacy with a user friendly solution...",
+	"projectURL": "http://privacyflag.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194864_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1031/privacy-flag",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b508"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "Privacy.Us",
+	"cw_id": 99,
+	"call": "MSCA-ITN-2015-ETN",
+	"type": "MSCA-ITN-ETN",
+	"startDate": {
+		"$date": "2015-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-11-30T23:59:59.999Z"
+	},
+	"budget": 3376517,
+	"title": "Privacy and Usabiliy",
+	"teaser": "With the rapid accumulation and processing of personal data by numerous  organizations, it is of paramount importance to protect people from adverse  uses of their data, while allowing them to enjoy the benefits the use of  these data can possibly provide. This is the question of...",
+	"projectURL": "https://privacyus.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/198304_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1032/privacyus",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b509"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PRIVACY4FORENSICS",
+	"cw_id": 100,
+	"call": "FP7-PEOPLE-2013-IIF",
+	"type": "MC-IIF - International Incoming Fellowships (IIF)",
+	"startDate": {
+		"$date": "2015-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-03-31T22:59:59.999Z"
+	},
+	"budget": 231283,
+	"title": "A Formal Rule-Processing Engine for Privacy-Respecting Forensic  Investigation",
+	"teaser": "The forensics investigation requirements are in direct conflict with the  privacy rights of those whose actions are being investigated. At the same  time, once the private data is exposed it is impossible to ‘undo’ its  exposure effects should the suspect is found innocent! Ther...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/186180_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b50a"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "ProBOS",
+	"cw_id": 101,
+	"call": "SMEInst-13-2016-2017",
+	"type": "SME-2",
+	"startDate": {
+		"$date": "2016-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-09-30T22:59:59.999Z"
+	},
+	"budget": 2814766,
+	"title": "Protection Beyond Operating System - Development of the next generation  cyber security solution",
+	"teaser": "Cybercrime is on the rise in terms of scope and impact, which is  facilitated by current environment: increasing use of mobile devices,  social networking, mobile communications and cloud computing. Cyber attacks  are made mostly against governments and corporates to gather...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/205768_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b50b"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PROTECTIVE",
+	"cw_id": 102,
+	"call": "DS-04-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-08-31T22:59:59.999Z"
+	},
+	"budget": 4693613,
+	"title": "Proactive Risk Management through Improved Cyber Situational Awareness",
+	"teaser": "PROTECTIVE is designed to improve an organisations ongoing awareness of the  risk posed to its business by cyber security attacks. PROTECTIVE makes two  key contributions to achieve this enhanced situational awareness. Firstly  it increases the computer security incident response...",
+	"projectURL": "https://protective-h2020.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202674_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1036/protective",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b50c"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "Ps2Share",
+	"cw_id": 103,
+	"call": "ICT-35-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 532875,
+	"title": "Participation, Privacy and Power in the Sharing Economy",
+	"teaser": "In this project, we propose an in-depth empirical investigation of privacy  in the sharing economy. We will investigate three challenges in particular:  privacy, participation/exclusion and power. First, sharing services come  with compounded privacy risks extending beyond the...",
+	"projectURL": "http://p2share.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206080_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1038/ps2share",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b50d"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "RAPID",
+	"cw_id": 104,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 2023800,
+	"title": "Heterogeneous Secure Multi-level Remote Acceleration Service for Low-Power  Integrated Systems and Devices",
+	"teaser": "Many low-power devices such as smartphones, tablets, notebooks as well as  several other embedded systems can't always cope with the increased demand  for processing power, memory and storage required by modern applications in  gaming, vision, security, robotics, aerospace, etc...",
+	"projectURL": "http://www.rapid-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194186_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b50e"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "REASSURE",
+	"cw_id": 105,
+	"call": "DS-01-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 3528635,
+	"title": "Robust and Efficient Approaches to Evaluating Side Channel and Fault Attack  Resilience",
+	"teaser": "Implementing cryptography on embedded devices is an ongoing challenge:  every year new implementation flaws are discovered and new attack paths are  being used by real life adversaries. Whilst cryptography can guarantee many  security properties, it crucially depends on the...",
+	"projectURL": "http://reassure.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207201_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1057/reassure",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b50f"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "ReCRED",
+	"cw_id": 106,
+	"call": "DS-02-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-04-30T22:59:59.999Z"
+	},
+	"budget": 6325156,
+	"title": "From Real-world Identities to Privacy-preserving and Attribute-based  CREDentials for Device-centric Access Control",
+	"teaser": "ReCRED’s ultimate goal is to promote the user’s personal mobile device to  the role of a unified authentication and authorization proxy towards the  digital world. ReCRED adopts an incrementally deployable strategy in two  complementary directions: extensibility in the type...",
+	"projectURL": "http://www.recred.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194863_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1058/recred",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b510"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "REDSENTRY",
+	"cw_id": 107,
+	"call": "H2020-SMEINST-1-2016-2017",
+	"type": "SME-1",
+	"startDate": {
+		"$date": "2017-06-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 71429,
+	"title": "Proactive Operational Intelligence Cybersecurity Platform for the Financial  Services Industry",
+	"teaser": "REDSENTRY aims to provide a flexible, scalable and open solution to the  ever-changing threat landscape faced by the financial services sector. The  threats faced by the financial services industry are varied and constantly  evolving and cybercrime is the 2nd most reported type...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/211179_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b511"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "RESPECT",
+	"cw_id": 108,
+	"call": "SEC-2011.6.1-5",
+	"type": "CP-FP",
+	"startDate": {
+		"$date": "2012-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-05-31T22:59:59.999Z"
+	},
+	"budget": 4239900,
+	"title": "RESPECT – Rules, Expectations & Security through Privacy-Enhanced  Convenient Technologies",
+	"teaser": "Convenience and cost-effectiveness are the two key considerations for both  citizens and security forces when deciding which technologies to embrace or  avoid in the Information Society. State actors and private corporations  adopt information communication technologies (ICTs) b...",
+	"projectURL": "http://respectproject.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/104278_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1059/respect",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b512"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "REVEN-X1",
+	"cw_id": 109,
+	"call": "ICT-37-2015-1",
+	"type": "SME-1",
+	"startDate": {
+		"$date": "2015-06-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-12-31T23:59:59.999Z"
+	},
+	"budget": 71429,
+	"title": "REVEN-X1: Automatic Vulnerability Detection in Binary",
+	"teaser": "TETRANE wants to further develop REVEN®, a product that automatically  discovers, characterizes and helps solving nearly any software flaw that  could be exploited by malicious hackers. REVEN represents the only answer  to a growing social issue: cybersecurity for critical...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/197407_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b513"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SafeCloud",
+	"cw_id": 110,
+	"call": "DS-01-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-08-31T22:59:59.999Z"
+	},
+	"budget": 3298988,
+	"title": "Secure and Resilient Cloud Architecture",
+	"teaser": "Cloud infrastructures, despite all their advantages and importance to the  competitiveness of modern economies, raise fundamental questions related to  the privacy, integrity, and security of offsite data storage and processing  tasks. These questions are currently not answered...",
+	"projectURL": "http://www.safecloud-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194907_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1060/safecloud",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b514"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SAFEcrypto",
+	"cw_id": 111,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-12-31T23:59:59.999Z"
+	},
+	"budget": 4081827,
+	"title": "Secure Architectures of Future Emerging Cryptography",
+	"teaser": "SAFEcrypto will provide a new generation of practical, robust and  physically secure post quantum cryptographic solutions that ensure  long-term security for future ICT systems, services and applications. Novel  public-key cryptographic schemes (digital signatures...",
+	"projectURL": "https://www.safecrypto.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194240_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1062/safecrypto",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b515"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SAFERtec",
+	"cw_id": 112,
+	"call": "DS-01-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 3819380,
+	"title": "Security Assurance FramEwoRk for neTworked vEhicular teChnology",
+	"teaser": "The assurance of security, privacy, reliability and safety features is  key-point to unlock the enormous potential that the connected vehicles  systems paradigm i.e., the dynamic Cyberphysical system of highly-equipped  infrastructure-connected vehicles with numerous third-party...",
+	"projectURL": "http://www.safertec-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207209_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1063/safertec",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b516"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SAINT",
+	"cw_id": 113,
+	"call": "DS-04-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-02-28T23:59:59.999Z"
+	},
+	"budget": 3996875,
+	"title": "SYSTEMIC ANALYZER IN NETWORK THREATS",
+	"teaser": "SAINT proposes to analyse and identify incentives to improve levels of  collaboration between cooperative and regulatory approaches to information  sharing. Analysis of the ecosystems of cybercriminal activity, associated  markets and revenues will drive the development of a...",
+	"projectURL": "https://project-saint.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210229_it.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1065/saint",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b517"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SAURON",
+	"cw_id": 114,
+	"call": "CIP-01-2016-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 1998700,
+	"title": "Scalable multidimensionAl sitUation awaReness sOlution for protectiNg  european ports",
+	"teaser": "Nowadays coordinated and every time more complex terrorist attacks are  shocking the world. Due to the progressive rely of industrial sector and  many critical infrastructures (CI) (e.g. EU ports) in ICT systems, the  impact of a coordinated physical attack, a deliberate...",
+	"projectURL": "https://sauronproject.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210044_it.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1066/sauron",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b518"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SCISSOR",
+	"cw_id": 115,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 3989850,
+	"title": "Security In trusted SCADA and smart-grids",
+	"teaser": "In traditional industrial control systems and critical infrastructures,  security was implicitly assumed by the reliance on proprietary technologies  (security by obscurity), physical access protection and disconnection from  the Internet. The massive move, in the last decade...",
+	"projectURL": "https://scissor-project.com/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194207_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1067/scissor",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b519"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SCOTT",
+	"cw_id": 116,
+	"call": "ECSEL-2016-2-IA-two-stage",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-06-30T22:59:59.999Z"
+	},
+	"budget": 39090241,
+	"title": "Secure COnnected Trustable Things",
+	"teaser": "Creating trust in wireless solutions and increasing social acceptance are  major challenges to achieve the full potential of the Internet of Things.  SCOTT, with 57 key partners from 12 countries (EU + Brazil), will provide  efficient solutions of wireless, end-to-end secure...",
+	"projectURL": "https://scottproject.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210798_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/978/scott",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b51a"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SCR",
+	"cw_id": 117,
+	"call": "SMEInst-13-2016-2017",
+	"type": "SME-1",
+	"startDate": {
+		"$date": "2016-06-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-12-31T23:59:59.999Z"
+	},
+	"budget": 71429,
+	"title": "Disruptive Cybersecurity SaaS for SMEs and freelance developers",
+	"teaser": "After obtaining the Seal of Excellence from the EU (Attached), this is an  improved version of the proposal.Given the accelerating growth and  importance of cybersecurity across many sectors of the economy and society,  we have detected and aim to solve the lack of effective...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/205788_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b51b"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SecIoT",
+	"cw_id": 118,
+	"call": "INNOSUP-02-2016 - European SME innovation Associate - pilot",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2017-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-08-31T22:59:59.999Z"
+	},
+	"budget": 117844,
+	"title": "Cybersecurity Threat Detection for Internet of Things Connected Devices",
+	"teaser": "Secure Secure Ltd was founded in 2015 and headquartered in the UK. The  founding team brings extensive experience inthe fields of cybersecurity,  scalable software architecture, software company leadership and SME growth.  Given theaccelerating growth and importance of...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/208832_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b51c"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SERECA",
+	"cw_id": 119,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-02-28T23:59:59.999Z"
+	},
+	"budget": 3834340,
+	"title": "Secure Enclaves for REactive Cloud Applications",
+	"teaser": "Cloud security is of immediate concern to organisations that must comply  with strict confidentiality and integrity policies. More broadly, security  has emerged as a commercial imperative for cloud computing across a wide  range of markets. The lack of adequate security...",
+	"projectURL": "https://www.serecaproject.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194271_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/980/sereca",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b51d"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SHARCS",
+	"cw_id": 120,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 3105763,
+	"title": "Secure Hardware-Software Architectures for Robust Computing Systems",
+	"teaser": "Developing new security paradigms, architectures, and software, for more  secure and trustworthy ICT systems and services has clear social,  scientific, and market motivation. This motivation is becoming stronger due  to the changing threat landscape; over the past decade we are...",
+	"projectURL": "http://sharcs-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194217_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/982/sharcs",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b51e"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SHiELD (Health)",
+	"cw_id": 121,
+	"call": "DS-03-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 3897268,
+	"title": "European Security in Health Data Exchange",
+	"teaser": "SHiELD will unlock the value of health data to European citizens and  businesses by overcoming security and regulatory challenges that today  prevent this data being exchanged with those who need it. This will make it  possible to provide better health care to mobile citizens...",
+	"projectURL": "https://www.project-shield.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207185_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/983/shield",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b51f"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SHIELD",
+	"cw_id": 122,
+	"call": "DS-04-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-02-28T23:59:59.999Z"
+	},
+	"budget": 4562775,
+	"title": "Securing against intruders and other threats through a NFV-enabled  environment",
+	"teaser": "Nowadays, cybercrime is one of the most relevant and critical threats to  both the economy and society in Europe. Establishing efficient and  effective ways to protect services and infrastructures from ever-evolving  cyber threats is crucial for sustaining business integrity and...",
+	"projectURL": "https://www.shield-h2020.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202684_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/983/shield",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b520"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SISSDEN",
+	"cw_id": 123,
+	"call": "DS-04-2015",
+	"type": "IA",
+	"startDate": {
+		"$date": "2016-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 6341775,
+	"title": "Secure Information Sharing Sensor Delivery event Network",
+	"teaser": "SISSDEN is a project aimed at improving the cybersecurity posture of EU  entities and end users through development of situational awareness and  sharing of actionable information. It builds on the experience of  Shadowserver, a non-profit organization well known in the security...",
+	"projectURL": "https://sissden.eu",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/202679_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/984/sissden",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b521"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SMESEC",
+	"cw_id": 124,
+	"call": "DS-02-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-05-31T22:59:59.999Z"
+	},
+	"budget": 5683820,
+	"title": "Protecting Small and Medium-sized Enterprises digital technology through an  innovative cyber-SECurity framework",
+	"teaser": "Small and Medium size Enterprises (SMEs) are an important driver for  innovation and growth in the EU. SMEs also stand to gain the most from  innovative technology, because it is complicated and costly for them to  set-up and run ICT in the traditional way. Taking into account...",
+	"projectURL": "https://www.smesec.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210805_it.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/986/smooth",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b522"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SocialPrivacy",
+	"cw_id": 125,
+	"call": "FP7-PEOPLE-2011-IOF",
+	"type": "MC-IOF - International Outgoing Fellowships (IOF)",
+	"startDate": {
+		"$date": "2012-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-08-31T22:59:59.999Z"
+	},
+	"budget": 268555,
+	"title": "Addressing Privacy Challenges in Social Media",
+	"teaser": "Social media offers many benefits, helping people stay in touch,  reconnecting long-lost friends and creating new friendships. However, it  also raises serious challenges with respect to privacy. The value of  Facebook lies not in the site itself but rather in the information he...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/102946_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b523"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SODA",
+	"cw_id": 126,
+	"call": "ICT-18-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 2980610,
+	"title": "Scalable Oblivious Data Analytics",
+	"teaser": "More and more data is being generated, and analyzing this data drives  knowledge and value creation across society. Unlocking this potential  requires sharing of (often personal) data between organizations, but this  meets unwillingness from data subjects and data controllers...",
+	"projectURL": "https://www.soda-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/205932_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/987/soda",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b524"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SPECIAL",
+	"cw_id": 127,
+	"call": "ICT-18-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 3991389,
+	"title": "Scalable Policy-awarE linked data arChitecture for prIvacy, trAnsparency  and compLiance",
+	"teaser": "The SPECIAL project will address the contradiction between Big Data  innovation and privacy-aware data protection by proposing a technical  solution that makes both of these goals realistic. We will develop  technology that: (i) supports the acquisition of user consent at...",
+	"projectURL": "https://www.specialprivacy.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206343_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/989/special",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b525"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SpeechXRays",
+	"cw_id": 128,
+	"call": "DS-02-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-04-30T22:59:59.999Z"
+	},
+	"budget": 5343606,
+	"title": "Multi-channel biometrics combining acoustic and machine vision analysis of  speech, lip movement and face",
+	"teaser": "The SpeechXRays project will develop and test in real-life environments a  user recognition platform based on voice acoustics analysis and  audio-visual identity verification. SpeechXRays will outperform  state-of-the-art solutions in the following areas:· Security: high...",
+	"projectURL": "http://www.speechxrays.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194884_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/990/speechxrays",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b526"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SPOOC",
+	"cw_id": 129,
+	"call": "ERC-CoG-2014",
+	"type": "ERC-COG",
+	"startDate": {
+		"$date": "2015-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-08-31T22:59:59.999Z"
+	},
+	"budget": 1903500,
+	"title": "Automated Security Proofs of Cryptographic Protocols: Privacy, Untrusted  Platforms and Applications to E-voting Protocols",
+	"teaser": "The rise of the Internet and the ubiquity of electronic devices has deeply  changed our way of life. Many face to face and paper transactions have  nowadays digital counterparts: home banking, e- commerce, e-voting, etc.  The security of such transactions is ensured by the means...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194400_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b527"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "STAMP",
+	"cw_id": 130,
+	"call": "ICT-10-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-11-30T23:59:59.999Z"
+	},
+	"budget": 4307070,
+	"title": "Software Testing AMPlification",
+	"teaser": "Release early, release often. Such is the mantra of IT giants like Twitter  or Netflix. Pioneers in the engineering of applications that run in the  cloud now routinely perform hundreds of code updates per day in what has  become a thrust of continuous delivery around the clock...",
+	"projectURL": "https://www.stamp-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206167_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b528"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "STOP-IT",
+	"cw_id": 131,
+	"call": "CIP-01-2016-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-05-31T22:59:59.999Z"
+	},
+	"budget": 9616525,
+	"title": "Strategic, Tactical, Operational Protection of water Infrastructure against cyber-physical Threats",
+	"teaser": "Water critical infrastructures (CIs) are essential for human society, life  and health and they can be endangered by physical/cyber threats with severe  societal consequences. To address this, STOP-IT assembles a team of major  Water Utilities, industrial technology developers...",
+	"projectURL": "https://stop-it-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/210216_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/991/stop-it",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b529"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "STORM",
+	"cw_id": 132,
+	"call": "EE-13-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-08-31T22:59:59.999Z"
+	},
+	"budget": 71429,
+	"title": "The first cybersecurity management system providing evidence based metrics for cyber risk at the business asset level in real-time",
+	"teaser": "InnoSec’s main product, STORM, is the only Cyber Risk Management  application that provides evidence based metrics defining cyber risk at the  business asset level in real-time, using a flexible risk modeling method,  while improving the overall user experience. STORM allows...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/211168_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b52a"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SUNFISH",
+	"cw_id": 133,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 4520048,
+	"title": "SecUre iNFormation SHaring in federated heterogeneous private clouds",
+	"teaser": "Today the European Public Sector Players lack the necessary infrastructure  and technology to allow them to integrate their computing clouds.  Furthermore, legislative barriers often make it difficult to use available  commercial technological solutions. The SUNFISH project aims...",
+	"projectURL": "http://www.sunfishproject.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194230_it.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/992/sunfish",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b52b"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SUPERCLOUD",
+	"cw_id": 134,
+	"call": "ICT-07-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-01-31T23:59:59.999Z"
+	},
+	"budget": 6863279,
+	"title": "USER-CENTRIC MANAGEMENT OF SECURITY AND DEPENDABILITY IN CLOUDS OF CLOUDS",
+	"teaser": "Today, despite its unravelling business benefits, distributed cloud  computing raises many security and dependability concerns. Root causes  include increase in complexity and lack of interoperability between  heterogeneous, often proprietary infrastructure technologies...",
+	"projectURL": "https://supercloud-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194123_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/993/supercloud",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b52c"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SurPRISE",
+	"cw_id": 135,
+	"call": "SEC-2011.6.5-2",
+	"type": "CP-FP - Small or medium-scale focused research project",
+	"startDate": {
+		"$date": "2012-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2015-01-31T23:59:59.999Z"
+	},
+	"budget": 4401821,
+	"title": "Surveillance, Privacy and Security: A large scale participatory assessment of criteria and factors determining acceptability and acceptance of security technologies in Europe",
+	"teaser": "SURPRISE re-examines the relationship between security and privacy, which  is commonly positioned as a ‘trade-off’. Where security solutions involve  the collection of information about citizens, questions arise as to whether  their privacy has been infringed. This infringement ...",
+	"projectURL": "http://surprise-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/102076_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/994/surprise",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b52d"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SysSec",
+	"cw_id": 136,
+	"call": "ICT-2009.1.4",
+	"type": "NoE",
+	"startDate": {
+		"$date": "2010-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2014-11-30T23:59:59.999Z"
+	},
+	"budget": 2946029,
+	"title": "A European Network of Excellence in Managing Threats and Vulnerabilities in  the Future Internet: Europe for the World",
+	"teaser": "Over the past decade we are witnessing an ever-increasing amount of  cyberattacks on the Internet.Prolific, ingenious, and ranging in style from  large-scale worms to \"below the radar\" phishing attempts, cyberattacks have  evolved to unprecedented levels of sophistication. To co...",
+	"projectURL": "http://www.syssec-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/95211_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/995/syssec",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b52e"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "TOREADOR",
+	"cw_id": 137,
+	"call": "ICT-16-2015",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-12-31T23:59:59.999Z"
+	},
+	"budget": 6311219,
+	"title": "TrustwOrthy model-awaRE Analytics Data platfORm",
+	"teaser": "The TOREADOR project is aimed at overcoming some major hurdles that until  now have prevented many European companies from reaping the full benefits  of Big Data analytics (BDA). Companies and organisations in Europe have  become aware of the potential competitive advantage they...",
+	"projectURL": "http://www.toreador-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/200253_it.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/997/toreador",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b52f"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "TREDISEC",
+	"cw_id": 138,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-03-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-03-31T22:59:59.999Z"
+	},
+	"budget": 6470619,
+	"title": "Trust-aware, REliable and Distributed Information SEcurity in the Cloud.",
+	"teaser": "\"The current trend for data placement shows a steady shift towards \"\"the  cloud\"\". The advent of cloud storage and computation services however comes  at the expense of data security and user privacy. To remedy this, customers  nowadays call for end-to-end security whereby only...",
+	"projectURL": "http://www.tredisec.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194205_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/998/tredisec",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b530"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "TRUESSEC.EU",
+	"cw_id": 139,
+	"call": "DS-01-2016",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-12-31T23:59:59.999Z"
+	},
+	"budget": 999993,
+	"title": "TRUst-Enhancing certified Solutions for SEcurity and protection of  Citizens’ rights in digital Europe",
+	"teaser": "TRUESSEC.EU is a CSA on certification and labelling of trustworthiness  properties from a multidisciplinary SSH-ICT perspective and with emphasis  on human rights.The current complexity of ICT products and services makes  it difficult to appraise their trustworthiness. Thus...",
+	"projectURL": "https://truessec.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207202_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/999/truesseceu",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b531"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "TYPES",
+	"cw_id": 140,
+	"call": "DS-01-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-10-31T23:59:59.999Z"
+	},
+	"budget": 4661143,
+	"title": "Towards transparencY and Privacy in the onlinE advertising businesS",
+	"teaser": "Online advertising generated in 2013 $42B worth of revenue and more than  3.4 million direct and indirect jobs in Europe in 2012 alone. It supports  some of the most important Internet services such as search, social media  and user generated content sites. However, the lack of...",
+	"projectURL": "http://www.types-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194867_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1001/types",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b532"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "U2PIA",
+	"cw_id": 141,
+	"call": "SMEInst-13-2016-2017",
+	"type": "SME-1",
+	"startDate": {
+		"$date": "2016-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-03-31T22:59:59.999Z"
+	},
+	"budget": 71429,
+	"title": "Universal application 2 conduct Privacy Impact Assessment analysis and  reports",
+	"teaser": "We are Nier Soluzioni Informatiche (NSI), an innovative software company  that operates since 2002 in the fields of security compliance, privacy  compliance, and counselling on the protection of personal information in  collaboration with law firms. We have a strong history and...",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207691_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b533"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "UNICORN",
+	"cw_id": 142,
+	"call": "ICT-06-2016",
+	"type": "IA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 4173850,
+	"title": "A NOVEL FRAMEWORK FOR MULTI-CLOUD SERVICES DEVELOPMENT, ORCHESTRATION,  DEPLOYMENT AND CONTINUOUS MANAGEMENT FOSTERING CLOUD TECHNOLOGIES UPTAKE  FROM DIGITAL SMES AND STARTUPS",
+	"teaser": "Unicorn aims to simplify the design, deployment and management of secure  and elastic –by design- multi-cloud services. This will be achieved by a)  development and design libraries that will provide security enforcement  mechanisms, data privacy restrictions, monitoring metric...",
+	"projectURL": "http://unicorn-project.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/206347_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1002/unicorn",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b534"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "VESSEDIA",
+	"cw_id": 143,
+	"call": "DS-01-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 4192059,
+	"title": "VERIFICATION ENGINEERING OF SAFETY AND SECURITY CRITICAL DYNAMIC INDUSTRIAL  APPLICATIONS",
+	"teaser": "The VESSEDIA project will bring safety and security to many new software  applications and devices. In the fast evolving world we live in, the  Internet has brought many benefits to individuals, organisations and  industries. With the capabilities offered now (such as IPv6) to...",
+	"projectURL": "https://vessedia.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/207194_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1003/vessedia",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b535"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "VIRT-EU",
+	"cw_id": 144,
+	"call": "ICT-35-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 1999951,
+	"title": "Values and ethics in Innovation for Responsible Technology in EUrope",
+	"teaser": "The networked future promises new relationships between people and  artifacts, the private and the public, the individual and the collective.  The increased networking capabilities of pervasive technologies mean that  of personal data are being produced, analyzed, monetized and...",
+	"projectURL": "https://virteuproject.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/205981_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1004/virt-eu",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b536"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "VisiOn",
+	"cw_id": 145,
+	"call": "DS-01-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-06-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-06-30T22:59:59.999Z"
+	},
+	"budget": 3161000,
+	"title": "Visual Privacy Management in User Centric Open Environments",
+	"teaser": "Public Administration (PA) authorities are working towards upgrading the  level of theironline services through new governance models such as the  Open Government. This pushesfor greater transparency, accountability and  innovation aiming at increasing citizen levels ofconfidence...",
+	"projectURL": "http://www.visioneuproject.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194888_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1005/vision",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b537"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "WISER",
+	"cw_id": 146,
+	"call": "DS-06-2014",
+	"type": "IA",
+	"startDate": {
+		"$date": "2015-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-11-30T23:59:59.999Z"
+	},
+	"budget": 3396455,
+	"title": "Wide-Impact cyber SEcurity Risk framework",
+	"teaser": "WISER delivers a cyber-risk management framework able to assess, monitor  and mitigate the risks in real time, in multiple industries. WISER  incorporates socio-economic impact aspects, building on current state of  the art methodologies and tools, and leveraging best practices...",
+	"projectURL": "http://cyberwiser.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194847_en.html",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b538"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "WITDOM",
+	"cw_id": 147,
+	"call": "ICT-32-2014",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2017-12-31T23:59:59.999Z"
+	},
+	"budget": 4020281,
+	"title": "empoWering prIvacy and securiTy in non-trusteD envirOnMents",
+	"teaser": "The advent of the Future Internet prompts fundamental transformations in  whole ICT ecosystems, while bringing new opportunities to stakeholders in  the availability and rational use of physical resources with large-scale  savings in IT investments. It will also pose new security...",
+	"projectURL": "http://www.witdom.eu/",
+	"fundingBodyLink": "http://cordis.europa.eu/project/rcn/194197_en.html",
+	"cwurl": "https://www.cyberwatching.eu/projects/1006/witdom",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b539"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "FENTEC",
+	"cw_id": 148,
+	"call": "H2020-DS-LEIT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 4223141,
+	"title": "Functional Encryption Technologies",
+	"teaser": "Functional encryption (FE), has been recently been introduced as a new  paradigm of encryption systems to overcome all-or-nothing limitations of  classical encryption. In an FE system the decryptor deciphers a function  over the message plaintext: such functional decryptability...",
+	"projectURL": "http://fentec.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213111_en.html",
+	"cwurl": "https://cyberwatching.eu/projects/1268/fentec",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b53a"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SAWSOC",
+	"cw_id": 149,
+	"call": "FP7-SEC-2012-1",
+	"type": "CP-FP",
+	"startDate": {
+		"$date": "2013-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-04-30T22:59:59.999Z"
+	},
+	"budget": 5405439,
+	"title": "Situation AWare Security Operations Center",
+	"teaser": "SAWSOC aims at bringing a significant advancement in the convergence of  physical and logical security, meaning effective cooperation (i.e. a  coordinated and results-oriented effort to work together) among previously  disjointed functions. Recently some achievements have been m...",
+	"projectURL": "http://www.sawsoc.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/110931/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b53b"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PROMETHEUS",
+	"cw_id": 150,
+	"call": "H2020-DS-LEIT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 5496969,
+	"title": "PRivacy preserving pOst-quantuM systEms from advanced crypTograpHic mEchanisms Using latticeS",
+	"teaser": "Privacy-preserving cryptographic protocols allow users to take common daily  life actions online (e.g, purchases, reservations or voting) without  leaking sensitive personal information. They typically combine various  tools such as digital signatures, homomorphic encryption or...",
+	"projectURL": "http://prometheuscrypt.gforge.inria.fr/index.html",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213162/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/1034/prometheus",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b53c"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "REACT",
+	"cw_id": 151,
+	"call": "H2020-DS-SC7-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-05-31T22:59:59.999Z"
+	},
+	"budget": 2726461,
+	"title": "REactively Defending against Advanced Cybersecurity Threats",
+	"teaser": "Security is a vital property for every operational system and network. As  systems become more powerful and, in many aspects, more complex, advanced  cyber-attacks impose new threats for important operations of our society.  Computer systems assist core functions of hospitals...",
+	"projectURL": "http://react-h2020.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214838/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/1053/react",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b53d"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SerIoT",
+	"cw_id": 152,
+	"call": "H2020-IOT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 4999084,
+	"title": "Secure and Safe Internet of Things",
+	"teaser": "The IoT is coming upon us faster than we think, catapulting EU industry,  homes and society into the huge arena of security risks that accompany an  untested yet already universal technology that directly manages our  cyber-physical reality on a daily, and indeed second by...",
+	"projectURL": "https://seriot-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213102/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/981/seriot",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b53e"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "YAKSHA",
+	"cw_id": 153,
+	"call": "H2020-ICT-2017-1",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-06-30T22:59:59.999Z"
+	},
+	"budget": 2506226,
+	"title": "Cybersecurity Awareness and Knowledge Systemic High-level Application",
+	"teaser": "YAKSHA aims at reinforcing EU-ASEAN cooperation & building partnerships in  the cybersecurity domain by developing a solution tailored to specific user  and national needs, leveraging EU Know-How and local expertise. YAKSHA will  develop and introduce the innovative concept of...",
+	"projectURL": "https://project-yaksha.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213552/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/1007/yaksha",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b53f"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "DECODE",
+	"cw_id": 154,
+	"call": "H2020-ICT-2016-1",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-12-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 4987674,
+	"title": "Decentralised Citizens Owned Data Ecosystem",
+	"teaser": "Today’s Internet is becoming increasingly centralised, slowing innovation  and challenging its potential to revolutionise society and the economy in a  pluralistic manner. DECODE will develop practical alternatives through the  creation, evaluation and demonstration of a...",
+	"projectURL": "https://decodeproject.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/206387/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/1037/decode",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b540"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "CYBER-TRUST",
+	"cw_id": 155,
+	"call": "H2020-DS-SC7-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-04-30T22:59:59.999Z"
+	},
+	"budget": 2996183,
+	"title": "Advanced Cyber-Threat Intelligence, Detection, and Mitigation Platform for a Trusted Internet of Things",
+	"teaser": "The CYBER-TRUST project aims to develop an innovative cyber-threat  intelligence gathering, detection, and mitigation platform to tackle the  grand challenges towards securing the ecosystem of IoT devices. The  security problems arising from the flawed design of legacy hardware...",
+	"projectURL": "https://cyber-trust.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214839/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/961/cyber-trust",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b541"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CYBECO II",
+	"cw_id": 157,
+	"call": "H2020-DS-SC7-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2017-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-04-30T22:59:59.999Z"
+	},
+	"budget": 1983510,
+	"title": "Supporting Cyberinsurance from a Behavioural Choice Perspective",
+	"teaser": "CYBECO will research, develop, demonstrate, evaluate and exploit a new  framework for managing cybersecurity risks, one that is focusing on  cyberinsurance, as key risk management treatment. CYBECO integrates  multidisciplinary research methods from Behavioural Economics...",
+	"projectURL": "https://www.cybeco.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/210232/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/960/cybeco",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b542"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PRIVILEDGE",
+	"cw_id": 158,
+	"call": "H2020-DS-LEIT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 4527918,
+	"title": "Privacy-Enhancing Cryptography in Distributed Ledgers",
+	"teaser": "Blockchain and distributed ledger technologies (DLTs) have emerged as one  of the most revolutionary developments in recent years, with the goal of  eliminating centralised intermediaries and installing distributed trusted  services. They facilitate trustworthy trades and...",
+	"projectURL": "https://priviledge-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213144/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/1033/priviledge",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b543"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "FUTURE TPM",
+	"cw_id": 159,
+	"call": "H2020-DS-LEIT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 4868890,
+	"title": "Future Proofing the Connected World: A Quantum-Resistant Trusted Platform Module",
+	"teaser": "The goal of FutureTPM is to design a Quantum-Resistant (QR) Trusted  Platform Module (TPM) by designing and developing QR algorithms suitable  for inclusion in a TPM. The algorithm design will be accompanied with  implementation and performance evaluation, as well as formal...",
+	"projectURL": "https://futuretpm.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213057/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b544"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SealedGRID",
+	"cw_id": 160,
+	"call": "H2020-MSCA-RISE-2017",
+	"type": "MSCA-RISE",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T23:59:59.999Z"
+	},
+	"budget": 1080000,
+	"title": "Scalable, trustEd, and interoperAble pLatform for sEcureD smart GRID",
+	"teaser": "The rapid evolution of ICT has revealed the potential for centrally  monitoring, controlling, and optimising the power grid. In this context, a  more intelligent, responsive, and efficient, system has been devised, known  as the Smart Grid (SG). As explained in the EU Third...",
+	"projectURL": "https://www.sgrid.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/212986/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/1156/sealedgrid",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b545"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SEMIoTICS",
+	"cw_id": 161,
+	"call": "H2020-IOT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 4995915,
+	"title": "Smart End-to-end Massive IoT Interoperability, Connectivity and Security",
+	"teaser": "SEMIoTICS aims to develop a pattern-driven framework, built upon existing  IoT platforms, to enable and guarantee secure and dependable actuation and  semi-autonomic behaviour in IoT/IIoT applications. Patterns will encode  proven dependencies between security, privacy...",
+	"projectURL": "https://www.semiotics-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213548/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b546"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "ASTRID",
+	"cw_id": 162,
+	"call": "H2020-DS-SC7-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-04-30T22:59:59.999Z"
+	},
+	"budget": 2932298,
+	"title": "AddreSsing ThReats for virtualIseD services",
+	"teaser": "The growing adoption of cloud technologies and the trend to virtualise  applications are inexorably re-shaping the traditional security paradigms,  due to the increasing usage of infrastructures outside of the enterprise  perimeter and shared with other users. The need for more...",
+	"projectURL": "https://www.astrid-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214855/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/938/astrid",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b547"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "BPR4GDPR",
+	"cw_id": 163,
+	"call": "H2020-DS-SC7-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-04-30T22:59:59.999Z"
+	},
+	"budget": 3792150,
+	"title": "Business Process Re-engineering and functional toolkit for GDPR compliance",
+	"teaser": "The goal of BPR4GDPR is to provide a holistic framework able to support  end-to-end GDPR-compliant intra- and inter-organisational ICT-enabled  processes at various scales, while also being generic enough, fulfilling  operational requirements covering diverse application domains...",
+	"projectURL": "http://www.bpr4gdpr.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214871/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/941/bpr4gdpr",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b548"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "PAPAYA",
+	"cw_id": 164,
+	"call": "H2020-DS-SC7-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-04-30T22:59:59.999Z"
+	},
+	"budget": 3763130,
+	"title": "PlAtform for PrivAcY preserving data Analytics",
+	"teaser": "The valuable insights that can be inferred from analytics of data generated  and collected from a variety of devices and applications are transforming  businesses and are therefore one of the key motivations for organisations  to adopt such technologies. Nevertheless, the data...",
+	"projectURL": "https://www.papaya-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214848/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/974/papaya",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b549"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "POSEIDON",
+	"cw_id": 165,
+	"call": "H2020-DS-SC7-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-10-31T23:59:59.999Z"
+	},
+	"budget": 3050605,
+	"title": "Protection and control of Secured Information by means of a privacy enhanced Dashboard",
+	"teaser": "PoSeID-on is aimed at developing a novel Privacy Enhancing Dashboard for  personal data protection supporting the pillars of the new EU’s General  Data Protection Regulation (GDPR) with regards to digital security, that  will be implemented within a single, integrated tool...",
+	"projectURL": "https://www.poseidon-h2020.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214840/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/976/poseidon",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b54a"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SPEAR",
+	"cw_id": 166,
+	"call": "H2020-DS-SC7-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-04-30T22:59:59.999Z"
+	},
+	"budget": 2965569,
+	"title": "SPEAR: Secure and PrivatE smArt gRid",
+	"teaser": "Over the last decade, cyber-attacks have become increasingly sophisticated,  stealthy, targeted and multi-faceted which may leverage zero-day exploits  and highly creative interdisciplinary attack methods. As our society is  becoming increasingly dependent on Critical...",
+	"projectURL": "https://www.spear2020.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214857/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/988/spear",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b54b"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SMOOTH",
+	"cw_id": 167,
+	"call": "H2020-DS-SC7-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-10-31T23:59:59.999Z"
+	},
+	"budget": 3367838,
+	"title": "GDPR Compliance Cloud Platform for Micro Enterprises",
+	"teaser": "According to the last official available 2015 data, almost 93% of all  enterprises in Europe in the non-financial business sector have less than  10 employees. These micro enterprises (MEnts) are responsible for 30% and  21% of the overall employment and value added in the EU...",
+	"projectURL": "https://smoothplatform.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214847/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/986/smooth",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b54c"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "DEFEND",
+	"cw_id": 168,
+	"call": "H2020-DS-SC7-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-05-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-05-31T22:59:59.999Z"
+	},
+	"budget": 3326988,
+	"title": "Data Governance for Supporting GDPR",
+	"teaser": "The rapid advances in ICT have raised the need to adapt to this progress  for organisations (pushing them towards e-services and increase their  efficiency), public authorities (stimulating new services to citizens and  reducing complexity) and individuals (enabling them to...",
+	"projectURL": "https://www.defendproject.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214863/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/1039/defend",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b54d"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "CE-IoT",
+	"cw_id": 169,
+	"call": "H2020-MSCA-RISE-2017",
+	"type": "MSCA-RISE",
+	"startDate": {
+		"$date": "2018-06-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-06-30T22:59:59.999Z"
+	},
+	"budget": 1692000,
+	"title": "A Framework for Pairing Circular Economy and IoT: IoT as an enabler of the Circular Economy circularity-by-design as an enabler for IoT (CE-IoT)",
+	"teaser": "The overall aim of CE-IoT is to develop an innovative framework of  interplay between Circular Economy and IoT, to explore novel ways in which  this interaction can drastically change the nature of products, services,  business models and ecosystems. The CE-IoT framework will be...",
+	"projectURL": "https://www.ce-iot.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/212980/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b54e"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "OLYMPUS",
+	"cw_id": 170,
+	"call": "H2020-DS-SC7-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-08-31T22:59:59.999Z"
+	},
+	"budget": 3147838,
+	"title": "Oblivious identitY Management for Private and User-friendly Services",
+	"teaser": "At first sight, privacy and strong identity seem inherently at odds.  Indeed, if users are strongly identified during a transaction, then privacy  is non-existent. Nevertheless, there exist mechanisms that can reconcile  privacy and strong identity, either by trusting an online...",
+	"projectURL": "https://www.olympus-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214842/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/969/olympus",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b54f"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "THREAT-ARREST",
+	"cw_id": 171,
+	"call": "H2020-DS-SC7-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-08-31T22:59:59.999Z"
+	},
+	"budget": 6431125,
+	"title": "THREAT-ARRESTCyber Security Threats and Threat Actors Training - Assurance Driven Multi-Layer, end-to-end Simulation and Training",
+	"teaser": "The challenge of mitigating advanced cyber attacks through advanced  security training has been evident during the last decade in numerous  fields and industries in EU. Despite the wide spectrum of such tools  appears to provide a comprehensive machinery for detecting and...",
+	"projectURL": "http://itml.gr/threat-arrest",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/216964/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/996/threat-arrest",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b550"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "CONCORDIA",
+	"cw_id": 172,
+	"call": "H2020-SU-ICT-2018-2",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-12-31T23:59:59.999Z"
+	},
+	"budget": 15998738,
+	"title": "Cyber security cOmpeteNce fOr Research anD Innovation",
+	"teaser": "Europe needs to step up its efforts and strengthen its very own security  capacities to secure its digital society, economy, and democracy. It is  time to reconquer Europe’s digital sovereignty. The vision for Europe can  only be to join forces across Europe’s research...",
+	"projectURL": "https://www.concordia-h2020.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/221269/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/1138/concordia",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b551"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "OCRE",
+	"cw_id": 173,
+	"call": "H2020-INFRAEOSC-2018-1",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T23:59:59.999Z"
+	},
+	"budget": 14362500,
+	"title": "Access to Commercial Services Through the EOSC-hub",
+	"teaser": "The Open Cloud for Research Environments consortium combines the expertise  of four partners to enable access and drive the adoption and use of  commercial digital services by the European research community. Essential  for interdisciplinary research, these services include:•...",
+	"projectURL": "https://www.ocre-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/219198/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/967/ocre",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b552"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SPARTA",
+	"cw_id": 174,
+	"call": "H2020-SU-ICT-2018-2",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2019-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-01-31T23:59:59.999Z"
+	},
+	"budget": 15999913,
+	"title": "Strategic programs for advanced research and technology in Europe",
+	"teaser": "In the domain of Cybersecurity Research and innovation, European scientists  hold pioneering positions in fields such as cryptography, formal methods,  or secure components. Yet this excellence on focused domains does not  translate into larger-scale, system-level advantages...",
+	"projectURL": "https://www.sparta.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/221271/factsheet/en",
+	"cwurl": "https://www.cyberwatching.eu/projects/1136/sparta",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b553"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "CyberSec4Europe",
+	"cw_id": 175,
+	"call": "H2020-SU-ICT-2018-2",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2019-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2022-07-31T22:59:59.999Z"
+	},
+	"budget": 15999981,
+	"title": "Cyber Security Network of Competence Centres for Europe",
+	"teaser": "CyberSec4Europe is a research-based consortium with 44 participants  covering 21 EU Member States and Associated Countries. It has received more  than 40 support letters and promises of cooperation from public  administrations, international organisations, and key associations...",
+	"projectURL": "https://www.cybersec4europe.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/221272/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/962/cybersec4europe",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b554"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "ECHO",
+	"cw_id": 176,
+	"call": "H2020-SU-ICT-2018-2",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2019-03-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2023-02-28T23:59:59.999Z"
+	},
+	"budget": 15987285,
+	"title": "European network of Cybersecurity centres and competence Hub for innovation  and Operations",
+	"teaser": "ECHO delivers an organized and coordinated approach to improve proactive  cyber defence of the European Union, through effective and efficient  multi-sector collaboration. The Partners will execute on a 48-month work  plan to develop, model and demonstrate a network of cyber...",
+	"projectURL": "http://www.echonetwork.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/221273/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/1043/echo",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b555"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "ENACT",
+	"cw_id": 177,
+	"call": "H2020-IOT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 4928543,
+	"title": "Trustworthy and Smart Actuation in IoT systems",
+	"teaser": "To unleash the full potential of IoT, realizing the digital society and  flourishing innovations in application domains such as eHealth, smart city,  intelligent transport systems, and smart manufacturing, it is critical to  facilitate the creation and operation of trustworthy...",
+	"projectURL": "http://www.enact-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213127/factsheet/en",
+	"cwurl": "https://cyberwatching.eu/projects/1048/enact",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b556"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PDP4E",
+	"cw_id": 178,
+	"call": "H2020-DS-SC7-2017",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-01-31T23:59:59.999Z"
+	},
+	"budget": 3374086,
+	"title": "Methods and tools for GDPR compliance through Privacy and Data Protection  Engineering",
+	"teaser": "PDP4E is an innovation action that will provide software and system  engineers with methods and software tools to systematically apply data  protection principles in the projects they carry out, so that the products  they create comply with the General Data Protection Regulation...",
+	"projectURL": "https://www.pdp4e-project.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214860/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b557"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "CYBERWISER.EU",
+	"cw_id": 179,
+	"call": "H2020-EU.3.7.4",
+	"type": "IA",
+	"startDate": {
+		"$date": "2018-08-31T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-02-28T23:59:59.999Z"
+	},
+	"budget": 5323408,
+	"title": "Civil Cyber Range Platform for a novel approach to cybersecurity threats  simulation and professional training",
+	"teaser": "CYBERWISER.EU pragmatically addresses, in the DS-07-2017 call, the urgent  need to count on highly-skilled, multi-disciplined cybersecurity  professionals, given the increasingly aggressive cyber-landscape that  Europe and the world is facing. CYBERWISER.EU will be an...",
+	"projectURL": "https://www.cyberwiser.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/214835/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b558"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PROTASIS",
+	"cw_id": 180,
+	"call": "H2020-MSCA-RISE-2015",
+	"type": "MSCA-RISE",
+	"startDate": {
+		"$date": "2016-04-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-04-30T22:59:59.999Z"
+	},
+	"budget": 702000,
+	"title": "Restoring Trust in the cyber space: a Systems Security Proposal",
+	"teaser": "Fueled by a string of high profile attacks and recent revelationsabout  unprecedented cyber surveillance, interest in systems securityis rising-not  just among industry and governments, but even amongindividual citizens  across Europe. Corporate organizations worry aboutthe...",
+	"projectURL": "http://www.protasis.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/200426/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b559"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "FAR-EDGE",
+	"cw_id": 181,
+	"call": "H2020-FOF-2016",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-09-30T23:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-10-31T23:59:59.999Z"
+	},
+	"budget": 4490194,
+	"title": "Factory Automation Edge Computing Operating System Reference Implementation",
+	"teaser": "Despite the proclaimed benefits (i.e. scalability, reliability,  cost-effectiveness) of Future Internet (FI) technologies (i.e. edge & cloud  computing, IoT/CPS) for factory automation, their adoption from  manufacturers remains low for various reasons, including technology...",
+	"projectURL": "http://www.faredge.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/205577/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b55a"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "SOFIE",
+	"cw_id": 182,
+	"call": "H2020-IOT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 4491049,
+	"title": "SOFIE - Secure Open Federation for Internet Everywhere",
+	"teaser": "SOFIE addresses the challenges of the call by creating a secure and open  IoT federation architecture and framework. We use Distributed Ledger  Technology (DLT), including blockchains and inter-ledger technologies, to  enable actuation, auditability, smart contracts and...",
+	"projectURL": "https://www.sofie-iot.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213097/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b55b"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "SPECS",
+	"cw_id": 183,
+	"call": "FP7-ICT-2013-10",
+	"type": "CP",
+	"startDate": {
+		"$date": "2013-11-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2016-04-30T22:59:59.999Z"
+	},
+	"budget": 3320286,
+	"title": "Secure Provisioning of Cloud Services based on SLA management",
+	"teaser": "The Cloud offers attractive options to migrate corporate applications  without the corporate security manager needing to manage or secure any  physical resources. While this \"ease\" is appealing, several security issue  arise:* Can the validity of corporate legal compliance regul...",
+	"projectURL": "http://www.specs-project.eu/specs-aina-2016-23-25th-march-crans-montana-switzerland/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/110457/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b55c"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "SWITCH",
+	"cw_id": 184,
+	"call": "H2020-ICT-2014-1",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2015-02-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-01-31T23:59:59.999Z"
+	},
+	"budget": 2922500,
+	"title": "Software Workbench for Interactive, Time Critical and Highly self-adaptive  cloud applications",
+	"teaser": "The SWITCH project (Software Workbench for Interactive, Time Critical and  Highly self-adaptive Cloud applications) addresses the urgent industrial  need for developing and executing time critical applications in Clouds.  Time critical applications such as disaster early warning...",
+	"projectURL": "http://www.switch-project.eu",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/194122/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b55d"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "PANACEA",
+	"cw_id": 185,
+	"call": "H2020-SC1-FA-DTS-2018-1",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2019-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2021-12-31T23:59:59.999Z"
+	},
+	"budget": 4961144,
+	"title": "Protection and privAcy of hospital and health iNfrastructures with smArt  Cyber sEcurity and cyber threat toolkit for dAta and people",
+	"teaser": "PANACEA will deliver people-centric cybersecurity solutions in healthcare.  The Partners will execute on a leanly-orchestrated research workplan, which  envisages continuous involvement of the end-user Partners at three European  health care centres, including also devices...",
+	"projectURL": "https://www.panacearesearch.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/219939/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b55e"
+	},
+	"hasClassifications": true,
+	"hasScores": false,
+	"name": "symbIoTe",
+	"cw_id": 186,
+	"call": "H2020-ICT-2015",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2016-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2018-12-31T23:59:59.999Z"
+	},
+	"budget": 7104828,
+	"title": "Symbiosis of smart objects across IoT environments",
+	"teaser": "Connected smart objects have invaded our everyday life across multiple  domains, e.g. home withautomation solutions, assisted living with sensors  and wearables to monitor personal activities, smart transportation and  environmental monitoring. IoT is evolving around a plethora...",
+	"projectURL": "https://www.symbiote-h2020.eu",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/199859/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b55f"
+	},
+	"hasClassifications": false,
+	"hasScores": false,
+	"name": "CREATE-IoT",
+	"cw_id": 187,
+	"call": "H2020-IOT-2016",
+	"type": "CSA",
+	"startDate": {
+		"$date": "2017-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2019-12-31T23:59:59.999Z"
+	},
+	"budget": 3718973,
+	"title": "CROSS FERTILISATION THROUGH ALIGNMENT, SYNCHRONISATION AND EXCHANGES FOR IoT",
+	"teaser": "CREATE-IoT’s aim is to stimulate collaboration between IoT initiatives,  foster the take up of IoT in Europe and support the development and growth  of IoT ecosystems based on open technologies and platforms. This requires  synchronisation and alignment on strategic and...",
+	"projectURL": "http://european-iot-pilots.eu",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/206371/factsheet/en",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb087d91b74395379b560"
+	},
+	"hasClassifications": true,
+	"hasScores": true,
+	"name": "SecureIoT",
+	"cw_id": 188,
+	"call": "H2020-IOT-2017",
+	"type": "RIA",
+	"startDate": {
+		"$date": "2018-01-01T00:00:00Z"
+	},
+	"endDate": {
+		"$date": "2020-12-31T23:59:59.999Z"
+	},
+	"budget": 4860335,
+	"title": "Predictive Security for IoT Platforms and Networks of Smart Objects",
+	"teaser": "The IoT market is currently undergoing transformation from applications  involving semi-passive devices operating within a single platform, to  applications involving smart objects with embedded intelligence while  spanning multiple platforms. State-of-the-art security mechanisms...",
+	"projectURL": "https://secureiot.eu/",
+	"fundingBodyLink": "https://cordis.europa.eu/project/rcn/213095/factsheet/en",
+	"__v": 0
+}

@@ -1,0 +1,3 @@
+FROM mongo:4.2.3
+
+COPY ./scripts/mongo/* /docker-entrypoint-initdb.d/

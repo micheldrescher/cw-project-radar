@@ -1,22 +1,42 @@
-version: '3'
-services:
-  app:
-    build: .
-    volumes:
-      - .:/usr/src/app
-      - /usr/src/app/node_modules
-    ports:
-      - 8080:8080
-    links:
-      - mongo
+version: '3.7'
 
-  mongo:
-    image: mongo
-    ports:
-      - 27017:27017
-    networks:
-      - app-network
+services:
+    cw-project-radar:
+        build:
+            context: .
+            dockerfile: Dockerfile_node
+        image: cw-radar-node:latest
+        container_name: cw-radar-node
+        restart: always
+        init: true
+        ports:
+            - 8080:8080
+        networks:
+            cw-radar-nw:
+        depends_on:
+            - mongo
+        command: node server/server.js
+
+    mongo:
+        build:
+            context: .
+            dockerfile: Dockerfile_mongo
+        image: cw-radar-mongo:latest
+        container_name: cw-radar-mongo
+        restart: always
+        environment:
+            - MONGO_INITDB_DATABASE=cw-project-radar
+        volumes:
+            - dbdata:/data/db
+        ports:
+            - 27017:27017
+        networks:
+            cw-radar-nw:
+
+volumes:
+    dbdata:
+        name: cw-radar-data
 
 networks:
-  app-network:
-    driver: bridge
+    cw-radar-nw:
+        name: cw-radar

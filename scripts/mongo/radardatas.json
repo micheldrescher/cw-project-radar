@@ -1,0 +1,5837 @@
+{
+	"_id": {
+		"$oid": "5e6fb0a5a14539368d07ed12"
+	},
+	"radar": {
+		"$oid": "5e6fb0920651af3964f64375"
+	},
+	"data": {
+		"Secure Systems": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed13"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ac"
+					},
+					"cw_id": 7,
+					"prj_name": "ARMOUR",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed14"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b4"
+					},
+					"cw_id": 15,
+					"prj_name": "CHOReVOLUTION",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed15"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b7"
+					},
+					"cw_id": 18,
+					"prj_name": "CLARUS",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed16"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b8"
+					},
+					"cw_id": 19,
+					"prj_name": "CloudSocket",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed17"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c5"
+					},
+					"cw_id": 32,
+					"prj_name": "CYCLONE",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed18"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4da"
+					},
+					"cw_id": 53,
+					"prj_name": "HEAT",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed19"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f2"
+					},
+					"cw_id": 77,
+					"prj_name": "OPERANDO",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed1a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f6"
+					},
+					"cw_id": 81,
+					"prj_name": "PANORAMIX",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed1b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b507"
+					},
+					"cw_id": 98,
+					"prj_name": "PRIVACY FLAG",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed1c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51b"
+					},
+					"cw_id": 118,
+					"prj_name": "SecIoT",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed1d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51c"
+					},
+					"cw_id": 119,
+					"prj_name": "SERECA",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed1e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b538"
+					},
+					"cw_id": 147,
+					"prj_name": "WITDOM",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed1f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ea"
+					},
+					"cw_id": 69,
+					"prj_name": "MIKELANGELO",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed20"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4eb"
+					},
+					"cw_id": 70,
+					"prj_name": "MITIGATE",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed21"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ec"
+					},
+					"cw_id": 71,
+					"prj_name": "MUSA",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed22"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f4"
+					},
+					"cw_id": 79,
+					"prj_name": "PaaSword",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed23"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50a"
+					},
+					"cw_id": 101,
+					"prj_name": "ProBOS",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed24"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b513"
+					},
+					"cw_id": 110,
+					"prj_name": "SafeCloud",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed25"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ab"
+					},
+					"cw_id": 6,
+					"prj_name": "ARIES",
+					"segment": "Secure Systems",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed26"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b55e"
+					},
+					"cw_id": 186,
+					"prj_name": "symbIoTe",
+					"segment": "Secure Systems",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed27"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51f"
+					},
+					"cw_id": 122,
+					"prj_name": "SHIELD",
+					"segment": "Secure Systems",
+					"ring": "Trial"
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed28"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4a6"
+					},
+					"cw_id": 1,
+					"prj_name": "AARC2",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed29"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b5"
+					},
+					"cw_id": 16,
+					"prj_name": "CIPSEC",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed2a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bb"
+					},
+					"cw_id": 22,
+					"prj_name": "COEMS",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed2b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b6"
+					},
+					"cw_id": 17,
+					"prj_name": "CITADEL",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed2c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4dd"
+					},
+					"cw_id": 56,
+					"prj_name": "HIPS",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed2d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b520"
+					},
+					"cw_id": 123,
+					"prj_name": "SISSDEN",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed2e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b534"
+					},
+					"cw_id": 143,
+					"prj_name": "VESSEDIA",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed2f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b545"
+					},
+					"cw_id": 161,
+					"prj_name": "SEMIoTICS",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed30"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54a"
+					},
+					"cw_id": 166,
+					"prj_name": "SPEAR",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed31"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d7"
+					},
+					"cw_id": 50,
+					"prj_name": "FutureTrust",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed32"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d2"
+					},
+					"cw_id": 45,
+					"prj_name": "ENCASE",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed33"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e1"
+					},
+					"cw_id": 60,
+					"prj_name": "LIGHTest",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed34"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4df"
+					},
+					"cw_id": 58,
+					"prj_name": "KONFIDO",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed35"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e8"
+					},
+					"cw_id": 67,
+					"prj_name": "mF2C",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed36"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e9"
+					},
+					"cw_id": 68,
+					"prj_name": "MH-MD",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed37"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b515"
+					},
+					"cw_id": 112,
+					"prj_name": "SAFERtec",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed38"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b517"
+					},
+					"cw_id": 114,
+					"prj_name": "SAURON",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed39"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b519"
+					},
+					"cw_id": 116,
+					"prj_name": "SCOTT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed3a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b523"
+					},
+					"cw_id": 126,
+					"prj_name": "SODA",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed3b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b533"
+					},
+					"cw_id": 142,
+					"prj_name": "UNICORN",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed3c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53c"
+					},
+					"cw_id": 151,
+					"prj_name": "REACT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed3d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53d"
+					},
+					"cw_id": 152,
+					"prj_name": "SerIoT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed3e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53e"
+					},
+					"cw_id": 153,
+					"prj_name": "YAKSHA",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed3f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b544"
+					},
+					"cw_id": 160,
+					"prj_name": "SealedGRID",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed40"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b540"
+					},
+					"cw_id": 155,
+					"prj_name": "CYBER-TRUST",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed41"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b546"
+					},
+					"cw_id": 162,
+					"prj_name": "ASTRID",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed42"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b555"
+					},
+					"cw_id": 177,
+					"prj_name": "ENACT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed43"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b558"
+					},
+					"cw_id": 180,
+					"prj_name": "PROTASIS",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed44"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54f"
+					},
+					"cw_id": 171,
+					"prj_name": "THREAT-ARREST",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed45"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b560"
+					},
+					"cw_id": 188,
+					"prj_name": "SecureIoT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed46"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c4"
+					},
+					"cw_id": 31,
+					"prj_name": "CyberWiz",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed47"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e6"
+					},
+					"cw_id": 65,
+					"prj_name": "MATTHEW",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed48"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f0"
+					},
+					"cw_id": 75,
+					"prj_name": "OCTAVE",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed49"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b504"
+					},
+					"cw_id": 95,
+					"prj_name": "PRISM CODE",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed4a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e5"
+					},
+					"cw_id": 64,
+					"prj_name": "MAS2TERING",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed4b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ff"
+					},
+					"cw_id": 90,
+					"prj_name": "PreserviX",
+					"segment": "Secure Systems",
+					"ring": "Drop"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed4c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53a"
+					},
+					"cw_id": 149,
+					"prj_name": "SAWSOC",
+					"segment": "Secure Systems",
+					"ring": "Drop"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed4d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b55b"
+					},
+					"cw_id": 183,
+					"prj_name": "SPECS",
+					"segment": "Secure Systems",
+					"ring": "Drop"
+				}
+			]
+		},
+		"Verification & Assurance": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed4e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51d"
+					},
+					"cw_id": 120,
+					"prj_name": "SHARCS",
+					"segment": "Verification & Assurance",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed4f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52b"
+					},
+					"cw_id": 134,
+					"prj_name": "SUPERCLOUD",
+					"segment": "Verification & Assurance",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed50"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d0"
+					},
+					"cw_id": 43,
+					"prj_name": "ECRYPT-CSA",
+					"segment": "Verification & Assurance",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed51"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4db"
+					},
+					"cw_id": 54,
+					"prj_name": "HECTOR",
+					"segment": "Verification & Assurance",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed52"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b514"
+					},
+					"cw_id": 111,
+					"prj_name": "SAFEcrypto",
+					"segment": "Verification & Assurance",
+					"ring": "Trial"
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed53"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c3"
+					},
+					"cw_id": 30,
+					"prj_name": "CYBECO",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed54"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b543"
+					},
+					"cw_id": 159,
+					"prj_name": "FUTURE TPM",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed55"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4aa"
+					},
+					"cw_id": 5,
+					"prj_name": "ANASTACIA",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed56"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b516"
+					},
+					"cw_id": 113,
+					"prj_name": "SAINT",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed57"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53b"
+					},
+					"cw_id": 150,
+					"prj_name": "PROMETHEUS",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed58"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51a"
+					},
+					"cw_id": 117,
+					"prj_name": "SCR",
+					"segment": "Verification & Assurance",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed59"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b536"
+					},
+					"cw_id": 145,
+					"prj_name": "VisiOn",
+					"segment": "Verification & Assurance",
+					"ring": "Hold"
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed5a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b512"
+					},
+					"cw_id": 109,
+					"prj_name": "REVEN-X1",
+					"segment": "Verification & Assurance",
+					"ring": "Drop"
+				}
+			]
+		},
+		"Operational Risk": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed5b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c6"
+					},
+					"cw_id": 33,
+					"prj_name": "CYRail",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed5c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50d"
+					},
+					"cw_id": 104,
+					"prj_name": "RAPID",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed5d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b518"
+					},
+					"cw_id": 115,
+					"prj_name": "SCISSOR",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed5e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b529"
+					},
+					"cw_id": 132,
+					"prj_name": "STORM",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed5f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52a"
+					},
+					"cw_id": 133,
+					"prj_name": "SUNFISH",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed60"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b505"
+					},
+					"cw_id": 96,
+					"prj_name": "PRISMACLOUD",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed61"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b510"
+					},
+					"cw_id": 107,
+					"prj_name": "REDSENTRY",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed62"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ef"
+					},
+					"cw_id": 74,
+					"prj_name": "OCGN",
+					"segment": "Operational Risk",
+					"ring": "Trial"
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed63"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ae"
+					},
+					"cw_id": 9,
+					"prj_name": "ATENA",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed64"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b1"
+					},
+					"cw_id": 12,
+					"prj_name": "C3ISP",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed65"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c9"
+					},
+					"cw_id": 36,
+					"prj_name": "DEFENDER",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed66"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4de"
+					},
+					"cw_id": 57,
+					"prj_name": "IMPACT",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed67"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b541"
+					},
+					"cw_id": 157,
+					"prj_name": "CYBECO II",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed68"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cb"
+					},
+					"cw_id": 38,
+					"prj_name": "DiSIEM",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed69"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4dc"
+					},
+					"cw_id": 55,
+					"prj_name": "HERMENEUT",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed6a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b521"
+					},
+					"cw_id": 124,
+					"prj_name": "SMESEC",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed6b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b528"
+					},
+					"cw_id": 131,
+					"prj_name": "STOP-IT",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed6c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b539"
+					},
+					"cw_id": 148,
+					"prj_name": "FENTEC",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed6d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4af"
+					},
+					"cw_id": 10,
+					"prj_name": "BEACON",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed6e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ed"
+					},
+					"cw_id": 72,
+					"prj_name": "NECOMA",
+					"segment": "Operational Risk",
+					"ring": "Drop"
+				}
+			]
+		},
+		"Identity & Privacy": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed6f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bf"
+					},
+					"cw_id": 26,
+					"prj_name": "CREDENTIAL",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed70"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c7"
+					},
+					"cw_id": 34,
+					"prj_name": "DAPPER",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed71"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d8"
+					},
+					"cw_id": 51,
+					"prj_name": "GenoPri",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed72"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50c"
+					},
+					"cw_id": 103,
+					"prj_name": "Ps2Share",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed73"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b525"
+					},
+					"cw_id": 128,
+					"prj_name": "SpeechXRays",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed74"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b531"
+					},
+					"cw_id": 140,
+					"prj_name": "TYPES",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed75"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b509"
+					},
+					"cw_id": 100,
+					"prj_name": "PRIVACY4FORENSICS",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed76"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c1"
+					},
+					"cw_id": 28,
+					"prj_name": "CryptoCloud",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed77"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cf"
+					},
+					"cw_id": 42,
+					"prj_name": "e-Sides",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed78"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51e"
+					},
+					"cw_id": 121,
+					"prj_name": "SHiELD (Health)",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed79"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b526"
+					},
+					"cw_id": 129,
+					"prj_name": "SPOOC",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed7a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b535"
+					},
+					"cw_id": 144,
+					"prj_name": "VIRT-EU",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed7b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b542"
+					},
+					"cw_id": 158,
+					"prj_name": "PRIVILEDGE",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed7c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b547"
+					},
+					"cw_id": 163,
+					"prj_name": "BPR4GDPR",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed7d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b548"
+					},
+					"cw_id": 164,
+					"prj_name": "PAPAYA",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed7e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ee"
+					},
+					"cw_id": 73,
+					"prj_name": "NeCS",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed7f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b549"
+					},
+					"cw_id": 165,
+					"prj_name": "POSEIDON",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed80"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54e"
+					},
+					"cw_id": 170,
+					"prj_name": "OLYMPUS",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed81"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b556"
+					},
+					"cw_id": 178,
+					"prj_name": "PDP4E",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed82"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e2"
+					},
+					"cw_id": 61,
+					"prj_name": "LV-Pri20",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				}
+			],
+			"Drop": []
+		},
+		"Cybersecurity Governance": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed83"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ca"
+					},
+					"cw_id": 37,
+					"prj_name": "DISCOVERY",
+					"segment": "Cybersecurity Governance",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed84"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52f"
+					},
+					"cw_id": 138,
+					"prj_name": "TREDISEC",
+					"segment": "Cybersecurity Governance",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed85"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4a9"
+					},
+					"cw_id": 4,
+					"prj_name": "AEGIS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed86"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c2"
+					},
+					"cw_id": 29,
+					"prj_name": "CS-AWARE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed87"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d4"
+					},
+					"cw_id": 47,
+					"prj_name": "EUNITY",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed88"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54b"
+					},
+					"cw_id": 167,
+					"prj_name": "SMOOTH",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed89"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b3"
+					},
+					"cw_id": 14,
+					"prj_name": "certMILS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed8a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b2"
+					},
+					"cw_id": 13,
+					"prj_name": "CANVAS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed8b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bd"
+					},
+					"cw_id": 24,
+					"prj_name": "COMPACT",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed8c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d3"
+					},
+					"cw_id": 46,
+					"prj_name": "EU-SEC",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed8d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50b"
+					},
+					"cw_id": 102,
+					"prj_name": "PROTECTIVE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed8e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50e"
+					},
+					"cw_id": 105,
+					"prj_name": "REASSURE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed8f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54c"
+					},
+					"cw_id": 168,
+					"prj_name": "DEFEND",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [],
+			"Drop": []
+		},
+		"Human Aspects": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed90"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ad"
+					},
+					"cw_id": 8,
+					"prj_name": "ASAP",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed91"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e3"
+					},
+					"cw_id": 62,
+					"prj_name": "MAMI",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed92"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e4"
+					},
+					"cw_id": 63,
+					"prj_name": "MAPPING",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed93"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4fb"
+					},
+					"cw_id": 86,
+					"prj_name": "PQCRYPTO",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed94"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b537"
+					},
+					"cw_id": 146,
+					"prj_name": "WISER",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed95"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cd"
+					},
+					"cw_id": 40,
+					"prj_name": "DOGANA",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed96"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52e"
+					},
+					"cw_id": 137,
+					"prj_name": "TOREADOR",
+					"segment": "Human Aspects",
+					"ring": "Trial"
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed97"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b508"
+					},
+					"cw_id": 99,
+					"prj_name": "Privacy.Us",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed98"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c8"
+					},
+					"cw_id": 35,
+					"prj_name": "DECODE",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed99"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d9"
+					},
+					"cw_id": 52,
+					"prj_name": "GHOST",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed9a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b500"
+					},
+					"cw_id": 91,
+					"prj_name": "PrEstoCloud",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed9b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b524"
+					},
+					"cw_id": 127,
+					"prj_name": "SPECIAL",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed9c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b532"
+					},
+					"cw_id": 141,
+					"prj_name": "U2PIA",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb0a5a14539368d07ed9d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f7"
+					},
+					"cw_id": 82,
+					"prj_name": "PARIS",
+					"segment": "Human Aspects",
+					"ring": "Drop"
+				}
+			]
+		}
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb0e0a14539368d07ed9f"
+	},
+	"radar": {
+		"$oid": "5e6fb0920651af3964f64376"
+	},
+	"data": {
+		"Secure Systems": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda0"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4a6"
+					},
+					"cw_id": 1,
+					"prj_name": "AARC2",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda1"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ab"
+					},
+					"cw_id": 6,
+					"prj_name": "ARIES",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda2"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b5"
+					},
+					"cw_id": 16,
+					"prj_name": "CIPSEC",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda3"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f6"
+					},
+					"cw_id": 81,
+					"prj_name": "PANORAMIX",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda4"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51b"
+					},
+					"cw_id": 118,
+					"prj_name": "SecIoT",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda5"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b520"
+					},
+					"cw_id": 123,
+					"prj_name": "SISSDEN",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda6"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b55e"
+					},
+					"cw_id": 186,
+					"prj_name": "symbIoTe",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda7"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50a"
+					},
+					"cw_id": 101,
+					"prj_name": "ProBOS",
+					"segment": "Secure Systems",
+					"ring": "Adopt",
+					"trl": 2,
+					"mrl": 2,
+					"score": 18,
+					"median": 22.5,
+					"performance": -4.5,
+					"min": -4.5,
+					"max": 4.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda8"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b513"
+					},
+					"cw_id": 110,
+					"prj_name": "SafeCloud",
+					"segment": "Secure Systems",
+					"ring": "Adopt",
+					"trl": 3,
+					"mrl": 3,
+					"score": 27,
+					"median": 22.5,
+					"performance": 4.5,
+					"min": -4.5,
+					"max": 4.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eda9"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b517"
+					},
+					"cw_id": 114,
+					"prj_name": "SAURON",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edaa"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51f"
+					},
+					"cw_id": 122,
+					"prj_name": "SHIELD",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edab"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b6"
+					},
+					"cw_id": 17,
+					"prj_name": "CITADEL",
+					"segment": "Secure Systems",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edac"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bb"
+					},
+					"cw_id": 22,
+					"prj_name": "COEMS",
+					"segment": "Secure Systems",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edad"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4dd"
+					},
+					"cw_id": 56,
+					"prj_name": "HIPS",
+					"segment": "Secure Systems",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edae"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d7"
+					},
+					"cw_id": 50,
+					"prj_name": "FutureTrust",
+					"segment": "Secure Systems",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edaf"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4df"
+					},
+					"cw_id": 58,
+					"prj_name": "KONFIDO",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 8,
+					"mrl": 6,
+					"score": 58,
+					"median": 42,
+					"performance": 16,
+					"min": -15,
+					"max": 16
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb0"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e1"
+					},
+					"cw_id": 60,
+					"prj_name": "LIGHTest",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 7,
+					"mrl": 4,
+					"score": 42,
+					"median": 42,
+					"performance": 0,
+					"min": -15,
+					"max": 16
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb1"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e9"
+					},
+					"cw_id": 68,
+					"prj_name": "MH-MD",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 3,
+					"mrl": 3,
+					"score": 27,
+					"median": 42,
+					"performance": -15,
+					"min": -15,
+					"max": 16
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb2"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b534"
+					},
+					"cw_id": 143,
+					"prj_name": "VESSEDIA",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb3"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b545"
+					},
+					"cw_id": 161,
+					"prj_name": "SEMIoTICS",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb4"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54a"
+					},
+					"cw_id": 166,
+					"prj_name": "SPEAR",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb5"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d2"
+					},
+					"cw_id": 45,
+					"prj_name": "ENCASE",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 49,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb6"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e8"
+					},
+					"cw_id": 67,
+					"prj_name": "mF2C",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb7"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b515"
+					},
+					"cw_id": 112,
+					"prj_name": "SAFERtec",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb8"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b519"
+					},
+					"cw_id": 116,
+					"prj_name": "SCOTT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edb9"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b523"
+					},
+					"cw_id": 126,
+					"prj_name": "SODA",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edba"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b533"
+					},
+					"cw_id": 142,
+					"prj_name": "UNICORN",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edbb"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53d"
+					},
+					"cw_id": 152,
+					"prj_name": "SerIoT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edbc"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53e"
+					},
+					"cw_id": 153,
+					"prj_name": "YAKSHA",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edbd"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b540"
+					},
+					"cw_id": 155,
+					"prj_name": "CYBER-TRUST",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edbe"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53c"
+					},
+					"cw_id": 151,
+					"prj_name": "REACT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edbf"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b546"
+					},
+					"cw_id": 162,
+					"prj_name": "ASTRID",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc0"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b544"
+					},
+					"cw_id": 160,
+					"prj_name": "SealedGRID",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc1"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54f"
+					},
+					"cw_id": 171,
+					"prj_name": "THREAT-ARREST",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc2"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b558"
+					},
+					"cw_id": 180,
+					"prj_name": "PROTASIS",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 49,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc3"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b555"
+					},
+					"cw_id": 177,
+					"prj_name": "ENACT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc4"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b560"
+					},
+					"cw_id": 188,
+					"prj_name": "SecureIoT",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc5"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ac"
+					},
+					"cw_id": 7,
+					"prj_name": "ARMOUR",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc6"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b4"
+					},
+					"cw_id": 15,
+					"prj_name": "CHOReVOLUTION",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc7"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b7"
+					},
+					"cw_id": 18,
+					"prj_name": "CLARUS",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc8"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b8"
+					},
+					"cw_id": 19,
+					"prj_name": "CloudSocket",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edc9"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c4"
+					},
+					"cw_id": 31,
+					"prj_name": "CyberWiz",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edca"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c5"
+					},
+					"cw_id": 32,
+					"prj_name": "CYCLONE",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edcb"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4da"
+					},
+					"cw_id": 53,
+					"prj_name": "HEAT",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edcc"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f0"
+					},
+					"cw_id": 75,
+					"prj_name": "OCTAVE",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edcd"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f2"
+					},
+					"cw_id": 77,
+					"prj_name": "OPERANDO",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edce"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b507"
+					},
+					"cw_id": 98,
+					"prj_name": "PRIVACY FLAG",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edcf"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51c"
+					},
+					"cw_id": 119,
+					"prj_name": "SERECA",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd0"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b538"
+					},
+					"cw_id": 147,
+					"prj_name": "WITDOM",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd1"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e5"
+					},
+					"cw_id": 64,
+					"prj_name": "MAS2TERING",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 4,
+					"mrl": 5,
+					"score": 43,
+					"median": 11,
+					"performance": 32,
+					"min": -2,
+					"max": 32
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd2"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ea"
+					},
+					"cw_id": 69,
+					"prj_name": "MIKELANGELO",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 1,
+					"mrl": 1,
+					"score": 9,
+					"median": 11,
+					"performance": -2,
+					"min": -2,
+					"max": 32
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd3"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4eb"
+					},
+					"cw_id": 70,
+					"prj_name": "MITIGATE",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 1,
+					"mrl": 1,
+					"score": 9,
+					"median": 11,
+					"performance": -2,
+					"min": -2,
+					"max": 32
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd4"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ec"
+					},
+					"cw_id": 71,
+					"prj_name": "MUSA",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 2,
+					"mrl": 1,
+					"score": 11,
+					"median": 11,
+					"performance": 0,
+					"min": -2,
+					"max": 32
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd5"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f4"
+					},
+					"cw_id": 79,
+					"prj_name": "PaaSword",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 1,
+					"mrl": 2,
+					"score": 16,
+					"median": 11,
+					"performance": 5,
+					"min": -2,
+					"max": 32
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd6"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e6"
+					},
+					"cw_id": 65,
+					"prj_name": "MATTHEW",
+					"segment": "Secure Systems",
+					"ring": "Drop"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd7"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b504"
+					},
+					"cw_id": 95,
+					"prj_name": "PRISM CODE",
+					"segment": "Secure Systems",
+					"ring": "Drop"
+				}
+			]
+		},
+		"Verification & Assurance": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd8"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c3"
+					},
+					"cw_id": 30,
+					"prj_name": "CYBECO",
+					"segment": "Verification & Assurance",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edd9"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b514"
+					},
+					"cw_id": 111,
+					"prj_name": "SAFEcrypto",
+					"segment": "Verification & Assurance",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edda"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b543"
+					},
+					"cw_id": 159,
+					"prj_name": "FUTURE TPM",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eddb"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4aa"
+					},
+					"cw_id": 5,
+					"prj_name": "ANASTACIA",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eddc"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b516"
+					},
+					"cw_id": 113,
+					"prj_name": "SAINT",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eddd"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53b"
+					},
+					"cw_id": 150,
+					"prj_name": "PROMETHEUS",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edde"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51d"
+					},
+					"cw_id": 120,
+					"prj_name": "SHARCS",
+					"segment": "Verification & Assurance",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eddf"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52b"
+					},
+					"cw_id": 134,
+					"prj_name": "SUPERCLOUD",
+					"segment": "Verification & Assurance",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede0"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b536"
+					},
+					"cw_id": 145,
+					"prj_name": "VisiOn",
+					"segment": "Verification & Assurance",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede1"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d0"
+					},
+					"cw_id": 43,
+					"prj_name": "ECRYPT-CSA",
+					"segment": "Verification & Assurance",
+					"ring": "Hold",
+					"trl": 4,
+					"mrl": 2,
+					"score": 22,
+					"median": 23.5,
+					"performance": -1.5,
+					"min": -1.5,
+					"max": 1.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede2"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4db"
+					},
+					"cw_id": 54,
+					"prj_name": "HECTOR",
+					"segment": "Verification & Assurance",
+					"ring": "Hold",
+					"trl": 2,
+					"mrl": 3,
+					"score": 25,
+					"median": 23.5,
+					"performance": 1.5,
+					"min": -1.5,
+					"max": 1.5
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede3"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51a"
+					},
+					"cw_id": 117,
+					"prj_name": "SCR",
+					"segment": "Verification & Assurance",
+					"ring": "Drop"
+				}
+			]
+		},
+		"Operational Risk": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede4"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ae"
+					},
+					"cw_id": 9,
+					"prj_name": "ATENA",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede5"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c6"
+					},
+					"cw_id": 33,
+					"prj_name": "CYRail",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede6"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b529"
+					},
+					"cw_id": 132,
+					"prj_name": "STORM",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede7"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b541"
+					},
+					"cw_id": 157,
+					"prj_name": "CYBECO II",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede8"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4dc"
+					},
+					"cw_id": 55,
+					"prj_name": "HERMENEUT",
+					"segment": "Operational Risk",
+					"ring": "Adopt",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 34,
+					"performance": 15,
+					"min": -23,
+					"max": 15
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ede9"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ef"
+					},
+					"cw_id": 74,
+					"prj_name": "OCGN",
+					"segment": "Operational Risk",
+					"ring": "Adopt",
+					"trl": 2,
+					"mrl": 1,
+					"score": 11,
+					"median": 34,
+					"performance": -23,
+					"min": -23,
+					"max": 15
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edea"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b505"
+					},
+					"cw_id": 96,
+					"prj_name": "PRISMACLOUD",
+					"segment": "Operational Risk",
+					"ring": "Adopt",
+					"trl": 3,
+					"mrl": 4,
+					"score": 34,
+					"median": 34,
+					"performance": 0,
+					"min": -23,
+					"max": 15
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edeb"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b1"
+					},
+					"cw_id": 12,
+					"prj_name": "C3ISP",
+					"segment": "Operational Risk",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edec"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cb"
+					},
+					"cw_id": 38,
+					"prj_name": "DiSIEM",
+					"segment": "Operational Risk",
+					"ring": "Trial",
+					"trl": 6,
+					"mrl": 4,
+					"score": 40,
+					"median": 40,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07eded"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c9"
+					},
+					"cw_id": 36,
+					"prj_name": "DEFENDER",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edee"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4de"
+					},
+					"cw_id": 57,
+					"prj_name": "IMPACT",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edef"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b521"
+					},
+					"cw_id": 124,
+					"prj_name": "SMESEC",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf0"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b539"
+					},
+					"cw_id": 148,
+					"prj_name": "FENTEC",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf1"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b528"
+					},
+					"cw_id": 131,
+					"prj_name": "STOP-IT",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf2"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b55d"
+					},
+					"cw_id": 185,
+					"prj_name": "PANACEA",
+					"segment": "Operational Risk",
+					"ring": "Assess",
+					"trl": 6,
+					"mrl": 5,
+					"score": 47,
+					"median": 47,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf3"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4af"
+					},
+					"cw_id": 10,
+					"prj_name": "BEACON",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf4"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50d"
+					},
+					"cw_id": 104,
+					"prj_name": "RAPID",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf5"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b518"
+					},
+					"cw_id": 115,
+					"prj_name": "SCISSOR",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf6"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52a"
+					},
+					"cw_id": 133,
+					"prj_name": "SUNFISH",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf7"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b510"
+					},
+					"cw_id": 107,
+					"prj_name": "REDSENTRY",
+					"segment": "Operational Risk",
+					"ring": "Hold",
+					"trl": 1,
+					"mrl": 3,
+					"score": 23,
+					"median": 23,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Drop": []
+		},
+		"Identity & Privacy": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf8"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bf"
+					},
+					"cw_id": 26,
+					"prj_name": "CREDENTIAL",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edf9"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c1"
+					},
+					"cw_id": 28,
+					"prj_name": "CryptoCloud",
+					"segment": "Identity & Privacy",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edfa"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ee"
+					},
+					"cw_id": 73,
+					"prj_name": "NeCS",
+					"segment": "Identity & Privacy",
+					"ring": "Trial",
+					"trl": 3,
+					"mrl": 2,
+					"score": 20,
+					"median": 20,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edfb"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cf"
+					},
+					"cw_id": 42,
+					"prj_name": "e-Sides",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edfc"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51e"
+					},
+					"cw_id": 121,
+					"prj_name": "SHiELD (Health)",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edfd"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b526"
+					},
+					"cw_id": 129,
+					"prj_name": "SPOOC",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edfe"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b535"
+					},
+					"cw_id": 144,
+					"prj_name": "VIRT-EU",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07edff"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b542"
+					},
+					"cw_id": 158,
+					"prj_name": "PRIVILEDGE",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee00"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b547"
+					},
+					"cw_id": 163,
+					"prj_name": "BPR4GDPR",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee01"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b548"
+					},
+					"cw_id": 164,
+					"prj_name": "PAPAYA",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee02"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b549"
+					},
+					"cw_id": 165,
+					"prj_name": "POSEIDON",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee03"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54e"
+					},
+					"cw_id": 170,
+					"prj_name": "OLYMPUS",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee04"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b556"
+					},
+					"cw_id": 178,
+					"prj_name": "PDP4E",
+					"segment": "Identity & Privacy",
+					"ring": "Assess",
+					"trl": 4,
+					"mrl": 2,
+					"score": 22,
+					"median": 22,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee05"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c7"
+					},
+					"cw_id": 34,
+					"prj_name": "DAPPER",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee06"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d8"
+					},
+					"cw_id": 51,
+					"prj_name": "GenoPri",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee07"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50c"
+					},
+					"cw_id": 103,
+					"prj_name": "Ps2Share",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee08"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b525"
+					},
+					"cw_id": 128,
+					"prj_name": "SpeechXRays",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee09"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b531"
+					},
+					"cw_id": 140,
+					"prj_name": "TYPES",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee0a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e2"
+					},
+					"cw_id": 61,
+					"prj_name": "LV-Pri20",
+					"segment": "Identity & Privacy",
+					"ring": "Hold",
+					"trl": 3,
+					"mrl": 1,
+					"score": 13,
+					"median": 19,
+					"performance": -6,
+					"min": -6,
+					"max": 6
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee0b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b509"
+					},
+					"cw_id": 100,
+					"prj_name": "PRIVACY4FORENSICS",
+					"segment": "Identity & Privacy",
+					"ring": "Hold",
+					"trl": 2,
+					"mrl": 3,
+					"score": 25,
+					"median": 19,
+					"performance": 6,
+					"min": -6,
+					"max": 6
+				}
+			],
+			"Drop": []
+		},
+		"Cybersecurity Governance": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee0c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4a9"
+					},
+					"cw_id": 4,
+					"prj_name": "AEGIS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee0d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d4"
+					},
+					"cw_id": 47,
+					"prj_name": "EUNITY",
+					"segment": "Cybersecurity Governance",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee0e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b2"
+					},
+					"cw_id": 13,
+					"prj_name": "CANVAS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Trial",
+					"trl": 7,
+					"mrl": 6,
+					"score": 56,
+					"median": 56,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee0f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bd"
+					},
+					"cw_id": 24,
+					"prj_name": "COMPACT",
+					"segment": "Cybersecurity Governance",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee10"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50b"
+					},
+					"cw_id": 102,
+					"prj_name": "PROTECTIVE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Trial"
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee11"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c2"
+					},
+					"cw_id": 29,
+					"prj_name": "CS-AWARE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee12"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54b"
+					},
+					"cw_id": 167,
+					"prj_name": "SMOOTH",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee13"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b552"
+					},
+					"cw_id": 174,
+					"prj_name": "SPARTA",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee14"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b550"
+					},
+					"cw_id": 172,
+					"prj_name": "CONCORDIA",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee15"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b3"
+					},
+					"cw_id": 14,
+					"prj_name": "certMILS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess",
+					"trl": 4,
+					"mrl": 5,
+					"score": 43,
+					"median": 43,
+					"performance": 0,
+					"min": -9,
+					"max": 4
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee16"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d3"
+					},
+					"cw_id": 46,
+					"prj_name": "EU-SEC",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee17"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50e"
+					},
+					"cw_id": 105,
+					"prj_name": "REASSURE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess",
+					"trl": 3,
+					"mrl": 4,
+					"score": 34,
+					"median": 43,
+					"performance": -9,
+					"min": -9,
+					"max": 4
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee18"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54c"
+					},
+					"cw_id": 168,
+					"prj_name": "DEFEND",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee19"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b553"
+					},
+					"cw_id": 175,
+					"prj_name": "CyberSec4Europe",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee1a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b554"
+					},
+					"cw_id": 176,
+					"prj_name": "ECHO",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess",
+					"trl": 6,
+					"mrl": 5,
+					"score": 47,
+					"median": 43,
+					"performance": 4,
+					"min": -9,
+					"max": 4
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee1b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ca"
+					},
+					"cw_id": 37,
+					"prj_name": "DISCOVERY",
+					"segment": "Cybersecurity Governance",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee1c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52f"
+					},
+					"cw_id": 138,
+					"prj_name": "TREDISEC",
+					"segment": "Cybersecurity Governance",
+					"ring": "Hold"
+				}
+			],
+			"Drop": []
+		},
+		"Human Aspects": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee1d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ad"
+					},
+					"cw_id": 8,
+					"prj_name": "ASAP",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee1e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e3"
+					},
+					"cw_id": 62,
+					"prj_name": "MAMI",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee1f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52e"
+					},
+					"cw_id": 137,
+					"prj_name": "TOREADOR",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee20"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cd"
+					},
+					"cw_id": 40,
+					"prj_name": "DOGANA",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee21"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b508"
+					},
+					"cw_id": 99,
+					"prj_name": "Privacy.Us",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee22"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c8"
+					},
+					"cw_id": 35,
+					"prj_name": "DECODE",
+					"segment": "Human Aspects",
+					"ring": "Assess",
+					"trl": 4,
+					"mrl": 3,
+					"score": 29,
+					"median": 29,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee23"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d9"
+					},
+					"cw_id": 52,
+					"prj_name": "GHOST",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee24"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b500"
+					},
+					"cw_id": 91,
+					"prj_name": "PrEstoCloud",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee25"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b524"
+					},
+					"cw_id": 127,
+					"prj_name": "SPECIAL",
+					"segment": "Human Aspects",
+					"ring": "Assess"
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee26"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e4"
+					},
+					"cw_id": 63,
+					"prj_name": "MAPPING",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee27"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4fb"
+					},
+					"cw_id": 86,
+					"prj_name": "PQCRYPTO",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee28"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b537"
+					},
+					"cw_id": 146,
+					"prj_name": "WISER",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb0e0a14539368d07ee29"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b532"
+					},
+					"cw_id": 141,
+					"prj_name": "U2PIA",
+					"segment": "Human Aspects",
+					"ring": "Drop"
+				}
+			]
+		}
+	},
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb111a14539368d07ee2b"
+	},
+	"radar": {
+		"$oid": "5e6fb0920651af3964f64377"
+	},
+	"data": {
+		"Secure Systems": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee2c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4a6"
+					},
+					"cw_id": 1,
+					"prj_name": "AARC2",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee2d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ab"
+					},
+					"cw_id": 6,
+					"prj_name": "ARIES",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee2e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b5"
+					},
+					"cw_id": 16,
+					"prj_name": "CIPSEC",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee2f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bb"
+					},
+					"cw_id": 22,
+					"prj_name": "COEMS",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee30"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b6"
+					},
+					"cw_id": 17,
+					"prj_name": "CITADEL",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee31"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4dd"
+					},
+					"cw_id": 56,
+					"prj_name": "HIPS",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee32"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b520"
+					},
+					"cw_id": 123,
+					"prj_name": "SISSDEN",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee33"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b55e"
+					},
+					"cw_id": 186,
+					"prj_name": "symbIoTe",
+					"segment": "Secure Systems",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee34"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d7"
+					},
+					"cw_id": 50,
+					"prj_name": "FutureTrust",
+					"segment": "Secure Systems",
+					"ring": "Adopt",
+					"trl": 6,
+					"mrl": 5,
+					"score": 47,
+					"median": 47,
+					"performance": 0,
+					"min": -25,
+					"max": 2
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee35"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4df"
+					},
+					"cw_id": 58,
+					"prj_name": "KONFIDO",
+					"segment": "Secure Systems",
+					"ring": "Adopt",
+					"trl": 4,
+					"mrl": 2,
+					"score": 22,
+					"median": 47,
+					"performance": -25,
+					"min": -25,
+					"max": 2
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee36"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e1"
+					},
+					"cw_id": 60,
+					"prj_name": "LIGHTest",
+					"segment": "Secure Systems",
+					"ring": "Adopt",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 47,
+					"performance": 2,
+					"min": -25,
+					"max": 2
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee37"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e9"
+					},
+					"cw_id": 68,
+					"prj_name": "MH-MD",
+					"segment": "Secure Systems",
+					"ring": "Adopt",
+					"trl": 6,
+					"mrl": 5,
+					"score": 47,
+					"median": 47,
+					"performance": 0,
+					"min": -25,
+					"max": 2
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee38"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b517"
+					},
+					"cw_id": 114,
+					"prj_name": "SAURON",
+					"segment": "Secure Systems",
+					"ring": "Adopt",
+					"trl": 4,
+					"mrl": 2,
+					"score": 22,
+					"median": 47,
+					"performance": -25,
+					"min": -25,
+					"max": 2
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee39"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51f"
+					},
+					"cw_id": 122,
+					"prj_name": "SHIELD",
+					"segment": "Secure Systems",
+					"ring": "Adopt",
+					"trl": 6,
+					"mrl": 5,
+					"score": 47,
+					"median": 47,
+					"performance": 0,
+					"min": -25,
+					"max": 2
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee3a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b534"
+					},
+					"cw_id": 143,
+					"prj_name": "VESSEDIA",
+					"segment": "Secure Systems",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee3b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d2"
+					},
+					"cw_id": 45,
+					"prj_name": "ENCASE",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 6,
+					"mrl": 2,
+					"score": 26,
+					"median": 42.5,
+					"performance": -16.5,
+					"min": -17.5,
+					"max": 6.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee3c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e8"
+					},
+					"cw_id": 67,
+					"prj_name": "mF2C",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 6,
+					"mrl": 5,
+					"score": 47,
+					"median": 42.5,
+					"performance": 4.5,
+					"min": -17.5,
+					"max": 6.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee3d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b515"
+					},
+					"cw_id": 112,
+					"prj_name": "SAFERtec",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 2,
+					"mrl": 3,
+					"score": 25,
+					"median": 42.5,
+					"performance": -17.5,
+					"min": -17.5,
+					"max": 6.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee3e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b523"
+					},
+					"cw_id": 126,
+					"prj_name": "SODA",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 7,
+					"mrl": 4,
+					"score": 42,
+					"median": 42.5,
+					"performance": -0.5,
+					"min": -17.5,
+					"max": 6.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee3f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b533"
+					},
+					"cw_id": 142,
+					"prj_name": "UNICORN",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 4,
+					"mrl": 5,
+					"score": 43,
+					"median": 42.5,
+					"performance": 0.5,
+					"min": -17.5,
+					"max": 6.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee40"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b558"
+					},
+					"cw_id": 180,
+					"prj_name": "PROTASIS",
+					"segment": "Secure Systems",
+					"ring": "Trial",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 42.5,
+					"performance": 6.5,
+					"min": -17.5,
+					"max": 6.5
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee41"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b545"
+					},
+					"cw_id": 161,
+					"prj_name": "SEMIoTICS",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee42"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54a"
+					},
+					"cw_id": 166,
+					"prj_name": "SPEAR",
+					"segment": "Secure Systems",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee43"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b519"
+					},
+					"cw_id": 116,
+					"prj_name": "SCOTT",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 6,
+					"mrl": 5,
+					"score": 47,
+					"median": 23.5,
+					"performance": 23.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee44"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53c"
+					},
+					"cw_id": 151,
+					"prj_name": "REACT",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 1,
+					"mrl": 1,
+					"score": 9,
+					"median": 23.5,
+					"performance": -14.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee45"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53e"
+					},
+					"cw_id": 153,
+					"prj_name": "YAKSHA",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 3,
+					"mrl": 2,
+					"score": 20,
+					"median": 23.5,
+					"performance": -3.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee46"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53d"
+					},
+					"cw_id": 152,
+					"prj_name": "SerIoT",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 6,
+					"mrl": 1,
+					"score": 19,
+					"median": 23.5,
+					"performance": -4.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee47"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b540"
+					},
+					"cw_id": 155,
+					"prj_name": "CYBER-TRUST",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 3,
+					"mrl": 3,
+					"score": 27,
+					"median": 23.5,
+					"performance": 3.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee48"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b544"
+					},
+					"cw_id": 160,
+					"prj_name": "SealedGRID",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 2,
+					"mrl": 2,
+					"score": 18,
+					"median": 23.5,
+					"performance": -5.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee49"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b546"
+					},
+					"cw_id": 162,
+					"prj_name": "ASTRID",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 2,
+					"mrl": 1,
+					"score": 11,
+					"median": 23.5,
+					"performance": -12.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee4a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54f"
+					},
+					"cw_id": 171,
+					"prj_name": "THREAT-ARREST",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 6,
+					"mrl": 6,
+					"score": 54,
+					"median": 23.5,
+					"performance": 30.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee4b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b555"
+					},
+					"cw_id": 177,
+					"prj_name": "ENACT",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 3,
+					"mrl": 3,
+					"score": 27,
+					"median": 23.5,
+					"performance": 3.5,
+					"min": -14.5,
+					"max": 30.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee4c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b560"
+					},
+					"cw_id": 188,
+					"prj_name": "SecureIoT",
+					"segment": "Secure Systems",
+					"ring": "Assess",
+					"trl": 6,
+					"mrl": 5,
+					"score": 47,
+					"median": 23.5,
+					"performance": 23.5,
+					"min": -14.5,
+					"max": 30.5
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee4d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ac"
+					},
+					"cw_id": 7,
+					"prj_name": "ARMOUR",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee4e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b4"
+					},
+					"cw_id": 15,
+					"prj_name": "CHOReVOLUTION",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee4f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b7"
+					},
+					"cw_id": 18,
+					"prj_name": "CLARUS",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee50"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b8"
+					},
+					"cw_id": 19,
+					"prj_name": "CloudSocket",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee51"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c5"
+					},
+					"cw_id": 32,
+					"prj_name": "CYCLONE",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee52"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4da"
+					},
+					"cw_id": 53,
+					"prj_name": "HEAT",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee53"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f2"
+					},
+					"cw_id": 77,
+					"prj_name": "OPERANDO",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee54"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f6"
+					},
+					"cw_id": 81,
+					"prj_name": "PANORAMIX",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee55"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b507"
+					},
+					"cw_id": 98,
+					"prj_name": "PRIVACY FLAG",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee56"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51b"
+					},
+					"cw_id": 118,
+					"prj_name": "SecIoT",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee57"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51c"
+					},
+					"cw_id": 119,
+					"prj_name": "SERECA",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee58"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b538"
+					},
+					"cw_id": 147,
+					"prj_name": "WITDOM",
+					"segment": "Secure Systems",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee59"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ea"
+					},
+					"cw_id": 69,
+					"prj_name": "MIKELANGELO",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 1,
+					"mrl": 1,
+					"score": 9,
+					"median": 13.5,
+					"performance": -4.5,
+					"min": -4.5,
+					"max": 42.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee5a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4eb"
+					},
+					"cw_id": 70,
+					"prj_name": "MITIGATE",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 1,
+					"mrl": 1,
+					"score": 9,
+					"median": 13.5,
+					"performance": -4.5,
+					"min": -4.5,
+					"max": 42.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee5b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ec"
+					},
+					"cw_id": 71,
+					"prj_name": "MUSA",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 2,
+					"mrl": 1,
+					"score": 11,
+					"median": 13.5,
+					"performance": -2.5,
+					"min": -4.5,
+					"max": 42.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee5c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50a"
+					},
+					"cw_id": 101,
+					"prj_name": "ProBOS",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 2,
+					"mrl": 2,
+					"score": 18,
+					"median": 13.5,
+					"performance": 4.5,
+					"min": -4.5,
+					"max": 42.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee5d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f4"
+					},
+					"cw_id": 79,
+					"prj_name": "PaaSword",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 1,
+					"mrl": 2,
+					"score": 16,
+					"median": 13.5,
+					"performance": 2.5,
+					"min": -4.5,
+					"max": 42.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee5e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b513"
+					},
+					"cw_id": 110,
+					"prj_name": "SafeCloud",
+					"segment": "Secure Systems",
+					"ring": "Hold",
+					"trl": 7,
+					"mrl": 6,
+					"score": 56,
+					"median": 13.5,
+					"performance": 42.5,
+					"min": -4.5,
+					"max": 42.5
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee5f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c4"
+					},
+					"cw_id": 31,
+					"prj_name": "CyberWiz",
+					"segment": "Secure Systems",
+					"ring": "Drop"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee60"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4f0"
+					},
+					"cw_id": 75,
+					"prj_name": "OCTAVE",
+					"segment": "Secure Systems",
+					"ring": "Drop"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee61"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e5"
+					},
+					"cw_id": 64,
+					"prj_name": "MAS2TERING",
+					"segment": "Secure Systems",
+					"ring": "Drop",
+					"trl": 4,
+					"mrl": 5,
+					"score": 43,
+					"median": 43,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"Verification & Assurance": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee62"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c3"
+					},
+					"cw_id": 30,
+					"prj_name": "CYBECO",
+					"segment": "Verification & Assurance",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee63"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b514"
+					},
+					"cw_id": 111,
+					"prj_name": "SAFEcrypto",
+					"segment": "Verification & Assurance",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee64"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4aa"
+					},
+					"cw_id": 5,
+					"prj_name": "ANASTACIA",
+					"segment": "Verification & Assurance",
+					"ring": "Trial",
+					"trl": 4,
+					"mrl": 3,
+					"score": 29,
+					"median": 19,
+					"performance": 10,
+					"min": -10,
+					"max": 10
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee65"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b53b"
+					},
+					"cw_id": 150,
+					"prj_name": "PROMETHEUS",
+					"segment": "Verification & Assurance",
+					"ring": "Trial",
+					"trl": 1,
+					"mrl": 1,
+					"score": 9,
+					"median": 19,
+					"performance": -10,
+					"min": -10,
+					"max": 10
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee66"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b543"
+					},
+					"cw_id": 159,
+					"prj_name": "FUTURE TPM",
+					"segment": "Verification & Assurance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee67"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b516"
+					},
+					"cw_id": 113,
+					"prj_name": "SAINT",
+					"segment": "Verification & Assurance",
+					"ring": "Assess",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 49,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee68"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51d"
+					},
+					"cw_id": 120,
+					"prj_name": "SHARCS",
+					"segment": "Verification & Assurance",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee69"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52b"
+					},
+					"cw_id": 134,
+					"prj_name": "SUPERCLOUD",
+					"segment": "Verification & Assurance",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee6a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d0"
+					},
+					"cw_id": 43,
+					"prj_name": "ECRYPT-CSA",
+					"segment": "Verification & Assurance",
+					"ring": "Hold",
+					"trl": 4,
+					"mrl": 2,
+					"score": 22,
+					"median": 23.5,
+					"performance": -1.5,
+					"min": -1.5,
+					"max": 1.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee6b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4db"
+					},
+					"cw_id": 54,
+					"prj_name": "HECTOR",
+					"segment": "Verification & Assurance",
+					"ring": "Hold",
+					"trl": 2,
+					"mrl": 3,
+					"score": 25,
+					"median": 23.5,
+					"performance": 1.5,
+					"min": -1.5,
+					"max": 1.5
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee6c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51a"
+					},
+					"cw_id": 117,
+					"prj_name": "SCR",
+					"segment": "Verification & Assurance",
+					"ring": "Drop"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee6d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b536"
+					},
+					"cw_id": 145,
+					"prj_name": "VisiOn",
+					"segment": "Verification & Assurance",
+					"ring": "Drop"
+				}
+			]
+		},
+		"Operational Risk": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee6e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ae"
+					},
+					"cw_id": 9,
+					"prj_name": "ATENA",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee6f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b1"
+					},
+					"cw_id": 12,
+					"prj_name": "C3ISP",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee70"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b541"
+					},
+					"cw_id": 157,
+					"prj_name": "CYBECO II",
+					"segment": "Operational Risk",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee71"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cb"
+					},
+					"cw_id": 38,
+					"prj_name": "DiSIEM",
+					"segment": "Operational Risk",
+					"ring": "Adopt",
+					"trl": 6,
+					"mrl": 4,
+					"score": 40,
+					"median": 40,
+					"performance": 0,
+					"min": -29,
+					"max": 3
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee72"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4dc"
+					},
+					"cw_id": 55,
+					"prj_name": "HERMENEUT",
+					"segment": "Operational Risk",
+					"ring": "Adopt",
+					"trl": 4,
+					"mrl": 5,
+					"score": 43,
+					"median": 40,
+					"performance": 3,
+					"min": -29,
+					"max": 3
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee73"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ef"
+					},
+					"cw_id": 74,
+					"prj_name": "OCGN",
+					"segment": "Operational Risk",
+					"ring": "Adopt",
+					"trl": 2,
+					"mrl": 1,
+					"score": 11,
+					"median": 40,
+					"performance": -29,
+					"min": -29,
+					"max": 3
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee74"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c9"
+					},
+					"cw_id": 36,
+					"prj_name": "DEFENDER",
+					"segment": "Operational Risk",
+					"ring": "Trial"
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee75"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4de"
+					},
+					"cw_id": 57,
+					"prj_name": "IMPACT",
+					"segment": "Operational Risk",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee76"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b521"
+					},
+					"cw_id": 124,
+					"prj_name": "SMESEC",
+					"segment": "Operational Risk",
+					"ring": "Assess",
+					"trl": 8,
+					"mrl": 6,
+					"score": 58,
+					"median": 41.5,
+					"performance": 16.5,
+					"min": -21.5,
+					"max": 16.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee77"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b528"
+					},
+					"cw_id": 131,
+					"prj_name": "STOP-IT",
+					"segment": "Operational Risk",
+					"ring": "Assess",
+					"trl": 7,
+					"mrl": 6,
+					"score": 56,
+					"median": 41.5,
+					"performance": 14.5,
+					"min": -21.5,
+					"max": 16.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee78"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b539"
+					},
+					"cw_id": 148,
+					"prj_name": "FENTEC",
+					"segment": "Operational Risk",
+					"ring": "Assess",
+					"trl": 3,
+					"mrl": 3,
+					"score": 27,
+					"median": 41.5,
+					"performance": -14.5,
+					"min": -21.5,
+					"max": 16.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee79"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b55d"
+					},
+					"cw_id": 185,
+					"prj_name": "PANACEA",
+					"segment": "Operational Risk",
+					"ring": "Assess",
+					"trl": 3,
+					"mrl": 2,
+					"score": 20,
+					"median": 41.5,
+					"performance": -21.5,
+					"min": -21.5,
+					"max": 16.5
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee7a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c6"
+					},
+					"cw_id": 33,
+					"prj_name": "CYRail",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee7b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50d"
+					},
+					"cw_id": 104,
+					"prj_name": "RAPID",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee7c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b518"
+					},
+					"cw_id": 115,
+					"prj_name": "SCISSOR",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee7d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b529"
+					},
+					"cw_id": 132,
+					"prj_name": "STORM",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee7e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52a"
+					},
+					"cw_id": 133,
+					"prj_name": "SUNFISH",
+					"segment": "Operational Risk",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee7f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b505"
+					},
+					"cw_id": 96,
+					"prj_name": "PRISMACLOUD",
+					"segment": "Operational Risk",
+					"ring": "Hold",
+					"trl": 3,
+					"mrl": 4,
+					"score": 34,
+					"median": 28.5,
+					"performance": 5.5,
+					"min": -5.5,
+					"max": 5.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee80"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b510"
+					},
+					"cw_id": 107,
+					"prj_name": "REDSENTRY",
+					"segment": "Operational Risk",
+					"ring": "Hold",
+					"trl": 1,
+					"mrl": 3,
+					"score": 23,
+					"median": 28.5,
+					"performance": -5.5,
+					"min": -5.5,
+					"max": 5.5
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee81"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4af"
+					},
+					"cw_id": 10,
+					"prj_name": "BEACON",
+					"segment": "Operational Risk",
+					"ring": "Drop"
+				}
+			]
+		},
+		"Identity & Privacy": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee82"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c1"
+					},
+					"cw_id": 28,
+					"prj_name": "CryptoCloud",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee83"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ee"
+					},
+					"cw_id": 73,
+					"prj_name": "NeCS",
+					"segment": "Identity & Privacy",
+					"ring": "Adopt",
+					"trl": 3,
+					"mrl": 2,
+					"score": 20,
+					"median": 20,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee84"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cf"
+					},
+					"cw_id": 42,
+					"prj_name": "e-Sides",
+					"segment": "Identity & Privacy",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee85"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b51e"
+					},
+					"cw_id": 121,
+					"prj_name": "SHiELD (Health)",
+					"segment": "Identity & Privacy",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee86"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b535"
+					},
+					"cw_id": 144,
+					"prj_name": "VIRT-EU",
+					"segment": "Identity & Privacy",
+					"ring": "Trial"
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee87"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b526"
+					},
+					"cw_id": 129,
+					"prj_name": "SPOOC",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee88"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b542"
+					},
+					"cw_id": 158,
+					"prj_name": "PRIVILEDGE",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee89"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b548"
+					},
+					"cw_id": 164,
+					"prj_name": "PAPAYA",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee8a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b547"
+					},
+					"cw_id": 163,
+					"prj_name": "BPR4GDPR",
+					"segment": "Identity & Privacy",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee8b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b549"
+					},
+					"cw_id": 165,
+					"prj_name": "POSEIDON",
+					"segment": "Identity & Privacy",
+					"ring": "Assess",
+					"trl": 6,
+					"mrl": 4,
+					"score": 40,
+					"median": 22,
+					"performance": 18,
+					"min": -4,
+					"max": 18
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee8c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54e"
+					},
+					"cw_id": 170,
+					"prj_name": "OLYMPUS",
+					"segment": "Identity & Privacy",
+					"ring": "Assess",
+					"trl": 2,
+					"mrl": 2,
+					"score": 18,
+					"median": 22,
+					"performance": -4,
+					"min": -4,
+					"max": 18
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee8d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b556"
+					},
+					"cw_id": 178,
+					"prj_name": "PDP4E",
+					"segment": "Identity & Privacy",
+					"ring": "Assess",
+					"trl": 4,
+					"mrl": 2,
+					"score": 22,
+					"median": 22,
+					"performance": 0,
+					"min": -4,
+					"max": 18
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee8e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bf"
+					},
+					"cw_id": 26,
+					"prj_name": "CREDENTIAL",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee8f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c7"
+					},
+					"cw_id": 34,
+					"prj_name": "DAPPER",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee90"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d8"
+					},
+					"cw_id": 51,
+					"prj_name": "GenoPri",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee91"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50c"
+					},
+					"cw_id": 103,
+					"prj_name": "Ps2Share",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee92"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b525"
+					},
+					"cw_id": 128,
+					"prj_name": "SpeechXRays",
+					"segment": "Identity & Privacy",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee93"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b509"
+					},
+					"cw_id": 100,
+					"prj_name": "PRIVACY4FORENSICS",
+					"segment": "Identity & Privacy",
+					"ring": "Hold",
+					"trl": 2,
+					"mrl": 3,
+					"score": 25,
+					"median": 25,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee94"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b531"
+					},
+					"cw_id": 140,
+					"prj_name": "TYPES",
+					"segment": "Identity & Privacy",
+					"ring": "Drop"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee95"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e2"
+					},
+					"cw_id": 61,
+					"prj_name": "LV-Pri20",
+					"segment": "Identity & Privacy",
+					"ring": "Drop",
+					"trl": 3,
+					"mrl": 1,
+					"score": 13,
+					"median": 13,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			]
+		},
+		"Cybersecurity Governance": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee96"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4a9"
+					},
+					"cw_id": 4,
+					"prj_name": "AEGIS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee97"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d4"
+					},
+					"cw_id": 47,
+					"prj_name": "EUNITY",
+					"segment": "Cybersecurity Governance",
+					"ring": "Adopt"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee98"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b2"
+					},
+					"cw_id": 13,
+					"prj_name": "CANVAS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Adopt",
+					"trl": 9,
+					"mrl": 3,
+					"score": 39,
+					"median": 42,
+					"performance": -3,
+					"min": -3,
+					"max": 21
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee99"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4bd"
+					},
+					"cw_id": 24,
+					"prj_name": "COMPACT",
+					"segment": "Cybersecurity Governance",
+					"ring": "Adopt",
+					"trl": 7,
+					"mrl": 4,
+					"score": 42,
+					"median": 42,
+					"performance": 0,
+					"min": -3,
+					"max": 21
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee9a"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50b"
+					},
+					"cw_id": 102,
+					"prj_name": "PROTECTIVE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Adopt",
+					"trl": 7,
+					"mrl": 7,
+					"score": 63,
+					"median": 42,
+					"performance": 21,
+					"min": -3,
+					"max": 21
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee9b"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d3"
+					},
+					"cw_id": 46,
+					"prj_name": "EU-SEC",
+					"segment": "Cybersecurity Governance",
+					"ring": "Trial",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 41.5,
+					"performance": 7.5,
+					"min": -7.5,
+					"max": 7.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee9c"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b50e"
+					},
+					"cw_id": 105,
+					"prj_name": "REASSURE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Trial",
+					"trl": 3,
+					"mrl": 4,
+					"score": 34,
+					"median": 41.5,
+					"performance": -7.5,
+					"min": -7.5,
+					"max": 7.5
+				}
+			],
+			"Assess": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee9d"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c2"
+					},
+					"cw_id": 29,
+					"prj_name": "CS-AWARE",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee9e"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54b"
+					},
+					"cw_id": 167,
+					"prj_name": "SMOOTH",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07ee9f"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b550"
+					},
+					"cw_id": 172,
+					"prj_name": "CONCORDIA",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea0"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b552"
+					},
+					"cw_id": 174,
+					"prj_name": "SPARTA",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea1"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4b3"
+					},
+					"cw_id": 14,
+					"prj_name": "certMILS",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess",
+					"trl": 4,
+					"mrl": 5,
+					"score": 43,
+					"median": 38,
+					"performance": 5,
+					"min": -11,
+					"max": 5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea2"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b54c"
+					},
+					"cw_id": 168,
+					"prj_name": "DEFEND",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess",
+					"trl": 3,
+					"mrl": 3,
+					"score": 27,
+					"median": 38,
+					"performance": -11,
+					"min": -11,
+					"max": 5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea3"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b553"
+					},
+					"cw_id": 175,
+					"prj_name": "CyberSec4Europe",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess",
+					"trl": 3,
+					"mrl": 4,
+					"score": 34,
+					"median": 38,
+					"performance": -4,
+					"min": -11,
+					"max": 5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea4"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b554"
+					},
+					"cw_id": 176,
+					"prj_name": "ECHO",
+					"segment": "Cybersecurity Governance",
+					"ring": "Assess",
+					"trl": 7,
+					"mrl": 4,
+					"score": 42,
+					"median": 38,
+					"performance": 4,
+					"min": -11,
+					"max": 5
+				}
+			],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea5"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ca"
+					},
+					"cw_id": 37,
+					"prj_name": "DISCOVERY",
+					"segment": "Cybersecurity Governance",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea6"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52f"
+					},
+					"cw_id": 138,
+					"prj_name": "TREDISEC",
+					"segment": "Cybersecurity Governance",
+					"ring": "Hold"
+				}
+			],
+			"Drop": []
+		},
+		"Human Aspects": {
+			"Adopt": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea7"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b52e"
+					},
+					"cw_id": 137,
+					"prj_name": "TOREADOR",
+					"segment": "Human Aspects",
+					"ring": "Adopt"
+				}
+			],
+			"Trial": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea8"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b508"
+					},
+					"cw_id": 99,
+					"prj_name": "Privacy.Us",
+					"segment": "Human Aspects",
+					"ring": "Trial"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eea9"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4c8"
+					},
+					"cw_id": 35,
+					"prj_name": "DECODE",
+					"segment": "Human Aspects",
+					"ring": "Trial",
+					"trl": 6,
+					"mrl": 4,
+					"score": 40,
+					"median": 44.5,
+					"performance": -4.5,
+					"min": -31.5,
+					"max": 4.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeaa"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4d9"
+					},
+					"cw_id": 52,
+					"prj_name": "GHOST",
+					"segment": "Human Aspects",
+					"ring": "Trial",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 44.5,
+					"performance": 4.5,
+					"min": -31.5,
+					"max": 4.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeab"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b500"
+					},
+					"cw_id": 91,
+					"prj_name": "PrEstoCloud",
+					"segment": "Human Aspects",
+					"ring": "Trial",
+					"trl": 7,
+					"mrl": 5,
+					"score": 49,
+					"median": 44.5,
+					"performance": 4.5,
+					"min": -31.5,
+					"max": 4.5
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeac"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b524"
+					},
+					"cw_id": 127,
+					"prj_name": "SPECIAL",
+					"segment": "Human Aspects",
+					"ring": "Trial",
+					"trl": 3,
+					"mrl": 1,
+					"score": 13,
+					"median": 44.5,
+					"performance": -31.5,
+					"min": -31.5,
+					"max": 4.5
+				}
+			],
+			"Assess": [],
+			"Hold": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eead"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4ad"
+					},
+					"cw_id": 8,
+					"prj_name": "ASAP",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeae"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e3"
+					},
+					"cw_id": 62,
+					"prj_name": "MAMI",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeaf"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4e4"
+					},
+					"cw_id": 63,
+					"prj_name": "MAPPING",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeb0"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4fb"
+					},
+					"cw_id": 86,
+					"prj_name": "PQCRYPTO",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeb1"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b537"
+					},
+					"cw_id": 146,
+					"prj_name": "WISER",
+					"segment": "Human Aspects",
+					"ring": "Hold"
+				},
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeb2"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b4cd"
+					},
+					"cw_id": 40,
+					"prj_name": "DOGANA",
+					"segment": "Human Aspects",
+					"ring": "Hold",
+					"trl": 7,
+					"mrl": 6,
+					"score": 56,
+					"median": 56,
+					"performance": 0,
+					"min": 0,
+					"max": 0
+				}
+			],
+			"Drop": [
+				{
+					"_id": {
+						"$oid": "5e6fb111a14539368d07eeb3"
+					},
+					"project": {
+						"$oid": "5e6fb087d91b74395379b532"
+					},
+					"cw_id": 141,
+					"prj_name": "U2PIA",
+					"segment": "Human Aspects",
+					"ring": "Drop"
+				}
+			]
+		}
+	},
+	"__v": 0
+}

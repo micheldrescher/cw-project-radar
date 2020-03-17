@@ -1,0 +1,96 @@
+{
+	"_id": {
+		"$oid": "5e6fb0920651af3964f64375"
+	},
+	"status": "published",
+	"year": 2018,
+	"release": "Autumn",
+	"summary": "First radar",
+	"slug": "autumn-2018",
+	"name": "Autumn 2018",
+	"__v": 0,
+	"data": {
+		"$oid": "5e6fb0a5a14539368d07ed12"
+	},
+	"referenceDate": {
+		"$date": "2018-09-30T23:00:00Z"
+	},
+	"rendering": {
+		"$oid": "5e6fb0aca14539368d07ed9e"
+	},
+	"publicationDate": {
+		"$date": "2020-03-16T17:00:42.538Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "5e6fb0920651af3964f64376"
+	},
+	"status": "published",
+	"year": 2019,
+	"release": "Spring",
+	"summary": "Second radar",
+	"slug": "spring-2019",
+	"name": "Spring 2019",
+	"__v": 0,
+	"data": {
+		"$oid": "5e6fb0e0a14539368d07ed9f"
+	},
+	"referenceDate": {
+		"$date": "2019-04-30T23:00:00Z"
+	},
+	"rendering": {
+		"$oid": "5e6fb0eaa14539368d07ee2a"
+	},
+	"publicationDate": {
+		"$date": "2020-03-16T17:01:41.721Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "5e6fb0920651af3964f64377"
+	},
+	"status": "published",
+	"year": 2019,
+	"release": "Autumn",
+	"summary": "Third radar",
+	"slug": "autumn-2019",
+	"name": "Autumn 2019",
+	"__v": 0,
+	"data": {
+		"$oid": "5e6fb111a14539368d07ee2b"
+	},
+	"referenceDate": {
+		"$date": "2019-11-01T00:00:00Z"
+	},
+	"rendering": {
+		"$oid": "5e6fb118a14539368d07eeb4"
+	},
+	"publicationDate": {
+		"$date": "2020-03-16T17:02:23.777Z"
+	}
+}
+{
+	"_id": {
+		"$oid": "5e6fb0920651af3964f64378"
+	},
+	"status": "created",
+	"year": 2020,
+	"release": "Spring",
+	"summary": "Fourth radar",
+	"slug": "spring-2020",
+	"name": "Spring 2020",
+	"__v": 0
+}
+{
+	"_id": {
+		"$oid": "5e6fb0920651af3964f64379"
+	},
+	"status": "created",
+	"year": 2020,
+	"release": "Autumn",
+	"summary": "Fifth radar",
+	"slug": "autumn-2020",
+	"name": "Autumn 2020",
+	"__v": 0
+}
