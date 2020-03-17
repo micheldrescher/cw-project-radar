@@ -45,7 +45,18 @@ const createScoreScale = blip => {
     // no score scale if no score in project
     if (!blip.score) return undefined
 
-    console.log(blip.min, blip.median, blip.max, blip.score)
+    // create the SVG
+    const svg = SVG().attr({
+        viewBox: '-25 -20 500 50'
+    })
+
+    // if only one score, or all scores with the same value
+    if (blip.min === blip.max && blip.min === 0) {
+        svg.text('Not enough data available.')
+            .y(0)
+            .x(225)
+        return svg.svg()
+    }
 
     // prepare and adjust scale values
     const shift = blip.min < 0 ? Math.abs(blip.min) : 0
@@ -57,10 +68,6 @@ const createScoreScale = blip => {
         .domain([0, values[2]])
         .range([0, 450])
 
-    // create the SVG
-    const svg = SVG().attr({
-        viewBox: '-25 -20 500 50'
-    })
     const g = svg.group().addClass('data')
     // add the base line
     g.line(0, 0, 450, 0)
