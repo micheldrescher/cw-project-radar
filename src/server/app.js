@@ -18,6 +18,7 @@ const globalErrorHandler = require('./handlers/errorHandler')
 const logger = require('./utils/logger')
 const projectRouter = require('./routers/projectRouter')
 const radarRouter = require('./routers/radarRouter')
+const userRouter = require('./routers/userRouter')
 const viewRouter = require('./routers/viewRouter')
 
 // set up the app as an express object
@@ -98,12 +99,12 @@ app.use(express.static(path.join(__dirname, '../client')))
 //
 // ROUTES
 //
-
 // client views
 app.use('/', viewRouter)
 // API
 app.use('/api/v1/project', projectRouter)
 app.use('/api/v1/radar', radarRouter)
+app.use('/api/v1/user', userRouter)
 
 // handle undefined routes - LAST ROUTE!
 app.all('*', (req, res, next) => {

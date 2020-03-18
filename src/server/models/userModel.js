@@ -7,32 +7,27 @@ const crypto = require('crypto')
 const mongoose = require('mongoose')
 const validator = require('validator')
 
-//
-// EXPORTS
-//
-module.exports = User
-
 const userSchema = new mongoose.Schema({
     name: {
         type: String,
         unique: true, // this is JUST an index shorthand, it does NOT prevent duplicates!
-        required: [true, 'Please tell us your name!']
+        required: [true, 'A username is required, and must be unique.']
     },
-    // email: {
-    //     type: String,
-    //     required: [true, 'Please provide your email'],
-    //     unique: true,
-    //     lowercase: true,
-    //     validate: [validator.isEmail, 'Please provide a valid email']
-    // },
-    // photo: {
-    //     type: String,
-    //     default: 'default.jpg'
-    // },
+    email: {
+        type: String,
+        required: [true, 'Please provide a contact email address'],
+        unique: true,
+        lowercase: true,
+        validate: [validator.isEmail, 'Please provide a valid email address.']
+    },
     role: {
         type: String,
-        enum: ['user', 'cw-hub', 'admin'],
-        default: 'user'
+        enum: [
+            'project', // a user is allowed to maintain a specific project (not implemented yet)
+            'cw-hub', // The ProjectHub user (with this role) is allowed to submit MTRL scores, classifications, and JRC taxonomy changes
+            'admin' // Admin users are allowed to to everything.
+        ],
+        default: 'project'
     },
     password: {
         type: String,
@@ -51,9 +46,6 @@ const userSchema = new mongoose.Schema({
             message: 'Passwords are not the same!'
         }
     },
-    // passwordChangedAt: Date,
-    // passwordResetToken: String,
-    // passwordResetExpires: Date,
     active: {
         type: Boolean,
         default: true,
@@ -68,20 +60,13 @@ userSchema.pre('save', async function(next) {
     // Hash the password with cost of 12
     this.password = await bcrypt.hash(this.password, 12)
 
-    // Delete passwordConfirm field
+    // Empty the passwordConfirm field
     this.passwordConfirm = undefined
     next()
 })
 
-userSchema.pre('save', function(next) {
-    if (!this.isModified('password') || this.isNew) return next()
-
-    this.passwordChangedAt = Date.now() - 1000
-    next()
-})
-
 userSchema.pre(/^find/, function(next) {
-    // this points to the current query
+    // "this" points to the current query
     this.find({ active: { $ne: false } })
     next()
 })
@@ -90,30 +75,12 @@ userSchema.methods.correctPassword = async function(candidatePassword, userPassw
     return await bcrypt.compare(candidatePassword, userPassword)
 }
 
-userSchema.methods.changedPasswordAfter = function(JWTTimestamp) {
-    if (this.passwordChangedAt) {
-        const changedTimestamp = parseInt(this.passwordChangedAt.getTime() / 1000, 10)
-
-        return JWTTimestamp < changedTimestamp
-    }
-
-    // False means NOT changed
-    return false
-}
-
-// userSchema.methods.createPasswordResetToken = function() {
-//     const resetToken = crypto.randomBytes(32).toString('hex')
-
-//     this.passwordResetToken = crypto
-//         .createHash('sha256')
-//         .update(resetToken)
-//         .digest('hex')
-
-//     // console.log({ resetToken }, this.passwordResetToken);
-
-//     this.passwordResetExpires = Date.now() + 10 * 60 * 1000
-
-//     return resetToken
-// }
-
+//
+// MODELS
+//
 const User = mongoose.model('User', userSchema)
+
+//
+// EXPORTS
+//
+module.exports = User
