@@ -15,7 +15,7 @@ const AppError = require('./../utils/AppError')
 //
 const signToken = id => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN
+        expiresIn: process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000
     })
 }
 
@@ -52,18 +52,26 @@ const createSendToken = (user, statusCode, req, res) => {
 // LOGIN
 //
 exports.login = catchAsync(async (req, res, next) => {
+    console.log('ping 1')
     const { name, password } = req.body
+    console.log('ping 2,', name, password)
 
     // 1) Check if email and password are supplied in the request
     if (!name || !password) {
+        console.log('ping 3.a HTTP 400')
         return next(new AppError('Please provide name and password!', 400))
     }
+    console.log('ping 3.b ')
     // 2) Check if user exists && password is correct
     const user = await User.findOne({ name }).select('+password')
+    console.log('ping 4 ')
+    console.log(user)
 
     if (!user || !(await user.correctPassword(password, user.password))) {
+        console.log('ping 5.a Wrong name or password HTTP 401')
         return next(new AppError('Incorrect name or password', 401))
     }
+    console.log('ping 5.b user OK ')
 
     // 3) If everything ok, send token to client (JWT is the sign that the user is logged in)
     createSendToken(user, 200, req, res)
@@ -112,6 +120,7 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
 // Any error or a missing token denote a user not being logged in and therefore not
 // present in the request object.
 exports.isLoggedIn = async (req, res, next) => {
+    console.log('1) IS LOGGED IN - JWT =', req.cookies.jwt)
     if (req.cookies.jwt) {
         try {
             // 1) verify token
@@ -120,18 +129,16 @@ exports.isLoggedIn = async (req, res, next) => {
             // 2) Check if user still exists
             const currentUser = await User.findById(decoded.id)
             if (!currentUser) {
-                return next()
-            }
-
-            // 3) Check if user changed password after the token was issued
-            if (currentUser.changedPasswordAfter(decoded.iat)) {
+                console.log('2) IS LOGGED IN - NO USER FOUND')
                 return next()
             }
 
             // THERE IS A LOGGED IN USER
             res.locals.user = currentUser
+            console.log('2) IS LOGGED IN - USER SUCCESSFULLY ADDED TO LOCALS')
             return next()
         } catch (err) {
+            console.log('2) IS LOGGED IN - ERROR =', err)
             return next()
         }
     }

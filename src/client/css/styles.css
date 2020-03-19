@@ -64,6 +64,29 @@ header.header {
 }
 
 /*
+ * Header - user menu
+ */
+.user--menu {
+    width: 20%;
+    display: inline-block;
+    margin: auto;
+    text-align: center;
+}
+
+.user--menu .nav__el {
+    margin: 0 1em;
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.user--menu .nav__el img {
+    width: 32px;
+    height: 32px;
+    vertical-align: bottom;
+}
+
+/*
 * Header - menu bar
 */
 .header--menu {

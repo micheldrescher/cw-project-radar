@@ -7,6 +7,7 @@
 // app modules
 import linkupRadar from './js/radar/linkupRadar'
 import showAlert from './js/util/alert'
+import { login, logout } from './js/login'
 
 // import { displayMap } from './mapbox'
 // import { login, logout } from './login'
@@ -16,6 +17,8 @@ import showAlert from './js/util/alert'
 // DOM ELEMENTS
 const radarButtons = document.querySelectorAll('.radar')
 const radarSection = document.getElementById('radar')
+const loginForm = document.getElementById('login-form')
+const logOutBtn = document.querySelector('.nav__el--logout')
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -41,20 +44,22 @@ if (radarSection) {
     linkupRadar(radarRootDOM)
 }
 
-// if (mapBox) {
-//     const locations = JSON.parse(mapBox.dataset.locations)
-//     displayMap(locations)
-// }
+//
+// Activate login form
+//
+if (loginForm) {
+    loginForm.addEventListener('submit', e => {
+        e.preventDefault()
+        const name = document.getElementById('name').value
+        const password = document.getElementById('password').value
+        login(name, password, document.referrer)
+    })
+}
 
-// if (loginForm)
-//     loginForm.addEventListener('submit', e => {
-//         e.preventDefault()
-//         const email = document.getElementById('email').value
-//         const password = document.getElementById('password').value
-//         login(email, password)
-//     })
-
-// if (logOutBtn) logOutBtn.addEventListener('click', logout)
+//
+// Activate the logout button
+//
+if (logOutBtn) logOutBtn.addEventListener('click', logout)
 
 // if (userDataForm)
 //     userDataForm.addEventListener('submit', e => {

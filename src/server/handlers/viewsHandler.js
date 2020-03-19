@@ -29,10 +29,11 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     next()
 })
 
-//
-// HANDLER FUNCTIONS
-//
-
+/********************************/
+/*                              */
+/*   PUBLIC HANDLER FUNCTIONS   */
+/*                              */
+/********************************/
 //
 // show main/entry page
 //
@@ -63,6 +64,21 @@ exports.showRadar = catchAsync(async (req, res, next) => {
     })
 })
 
+/******************************/
+/*                            */
+/*   USER ACCOUNT FUNCTIONS   */
+/*                            */
+/******************************/
+
+//
+// show the login form
+//
+exports.loginForm = (req, res) => {
+    res.status(200).render('login', {
+        title: 'Login'
+    })
+}
+
 // exports.getTour = catchAsync(async (req, res, next) => {
 //     // 1) Get the data, for the requested tour (including reviews and guides)
 //     const tour = await Tour.findOne({ slug: req.params.slug }).populate({
@@ -81,12 +97,6 @@ exports.showRadar = catchAsync(async (req, res, next) => {
 //         tour
 //     })
 // })
-
-// exports.getLoginForm = (req, res) => {
-//     res.status(200).render('login', {
-//         title: 'Log into your account'
-//     })
-// }
 
 // exports.getAccount = (req, res) => {
 //     res.status(200).render('account', {

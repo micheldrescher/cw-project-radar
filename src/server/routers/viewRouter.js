@@ -4,8 +4,8 @@
 // libraries
 const express = require('express')
 // app modules
+const authController = require('../controllers/authController')
 const viewsHandler = require('../handlers/viewsHandler')
-// const authController = require('../controllers/authController')
 
 //
 // CONFIGURE
@@ -15,15 +15,21 @@ const router = express.Router()
 //
 // ROUTER MIDDLEWARE
 //
+// all editions for the header
 router.use(viewsHandler.getEditions)
+// user menu in the header
+router.use(authController.isLoggedIn)
 
 //
 // ROUTES
 //
+// main
 router.get('/', viewsHandler.showMain)
+// radars
 router.get('/radar/:slug', viewsHandler.showRadar)
+// users
+router.get('/user/login', authController.isLoggedIn, viewsHandler.loginForm)
 
-// router.get('/tour/:slug', authController.isLoggedIn, viewsController.getTour)
 // router.get('/login', authController.isLoggedIn, viewsController.getLoginForm)
 // router.get('/me', authController.protect, viewsController.getAccount)
 
