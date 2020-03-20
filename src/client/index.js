@@ -9,7 +9,7 @@ import linkupRadar from './js/radar/linkupRadar'
 import showAlert from './js/util/alert'
 import { login, logout } from './js/user/login'
 import changePassword from './js/user/userSettings'
-import createUser from './js/admin/adminActions'
+import { createUser, deleteUser } from './js/admin/adminActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -115,39 +115,18 @@ if (newUserForm) {
     })
 }
 
-// if (userDataForm)
-//     userDataForm.addEventListener('submit', e => {
-//         e.preventDefault()
-//         const form = new FormData()
-//         form.append('name', document.getElementById('name').value)
-//         form.append('email', document.getElementById('email').value)
-//         form.append('photo', document.getElementById('photo').files[0])
-
-//         updateSettings(form, 'data')
-//     })
-
-// if (userPasswordForm)
-//     userPasswordForm.addEventListener('submit', async e => {
-//         e.preventDefault()
-//         document.querySelector('.btn--save-password').textContent = 'Updating...'
-
-//         const passwordCurrent = document.getElementById('password-current').value
-//         const password = document.getElementById('password').value
-//         const passwordConfirm = document.getElementById('password-confirm').value
-//         await updateSettings({ passwordCurrent, password, passwordConfirm }, 'password')
-
-//         document.querySelector('.btn--save-password').textContent = 'Save password'
-//         document.getElementById('password-current').value = ''
-//         document.getElementById('password').value = ''
-//         document.getElementById('password-confirm').value = ''
-//     })
-
-// if (bookBtn)
-//     bookBtn.addEventListener('click', e => {
-//         e.target.textContent = 'Processing...'
-//         const { tourId } = e.target.dataset
-//         bookTour(tourId)
-//     })
+//
+// DELETE USER BUTTON LIST
+//
+const deleteUserLinks = document.querySelectorAll('.delete-user')
+if (deleteUserLinks) {
+    deleteUserLinks.forEach(link => {
+        link.addEventListener('click', async event => {
+            event.preventDefault()
+            await deleteUser(event.path[1].getAttribute('route'), location.href)
+        })
+    })
+}
 
 // show alerts sent by the server
 const alertMsg = document.querySelector('body').dataset.alertmsg
