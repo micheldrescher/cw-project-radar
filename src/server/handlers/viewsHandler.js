@@ -7,6 +7,7 @@ const AppError = require('./../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
 const logger = require('./../utils/logger')
 const radarController = require('../controllers/radarController')
+const User = require('../models/userModel')
 
 //
 // MIDDLEWARE
@@ -87,6 +88,23 @@ exports.accountPage = (req, res) => {
         title: 'Your account'
     })
 }
+
+//
+// User account page
+//
+exports.manageUsers = catchAsync(async (req, res, next) => {
+    // 1) Fetch all users
+    const users = await User.find({})
+    if (!users || users.length === 0) {
+        return next(new AppError(`No users found in this application. Schrodinger's users?`, 404))
+    }
+
+    // 2) Render user management page
+    res.status(200).render('admin/manageUsers', {
+        title: 'Manage users',
+        users
+    })
+})
 
 // exports.getTour = catchAsync(async (req, res, next) => {
 //     // 1) Get the data, for the requested tour (including reviews and guides)

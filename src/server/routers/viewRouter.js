@@ -30,7 +30,8 @@ router.get('/radar/:slug', viewsH.showRadar)
 // users
 router.get('/user/login', authC.isLoggedIn, viewsH.loginForm)
 router.get('/user/account', authC.protect, viewsH.accountPage)
-
+//admin actions
+router.get('/admin/users', authC.protect, authC.restrictTo('admin'), viewsH.manageUsers)
 // router.post('/submit-user-data', authController.protect, viewsController.updateUserData)
 
 //

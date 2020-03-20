@@ -34,7 +34,7 @@ router.patch('/updatePassword', authController.updatePassword)
 //
 // ROUTES FOR ADMINS ONLY
 //
-// router.use(authController.restrictTo('admin'))
+router.use(authController.restrictTo('admin'))
 //get all users, create user
 router
     .route('/')

@@ -9,6 +9,7 @@ import linkupRadar from './js/radar/linkupRadar'
 import showAlert from './js/util/alert'
 import { login, logout } from './js/user/login'
 import changePassword from './js/user/userSettings'
+import createUser from './js/admin/adminActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -33,7 +34,7 @@ if (adminButtons) {
         btn.addEventListener('click', event => {
             event.preventDefault()
             const route = event.target.getAttribute('route')
-            window.location.assign(``)
+            window.location.assign(route)
         })
     })
 }
@@ -87,6 +88,30 @@ if (passwordForm) {
         document.getElementById('current').textContent = ''
         document.getElementById('newPass').textContent = ''
         document.getElementById('newConfirm').textContent = ''
+    })
+}
+
+//
+// Create user
+//
+const newUserForm = document.getElementById('new-user-form')
+if (newUserForm) {
+    newUserForm.addEventListener('submit', async e => {
+        e.preventDefault()
+        document.getElementById('btn--create-user').textContent = 'Updating...'
+
+        const name = document.getElementById('name').value
+        const email = document.getElementById('email').value
+        const password = document.getElementById('password').value
+        const confirm = document.getElementById('confirm').value
+        const role = document.getElementById('role').value
+        await createUser(name, email, password, confirm, role)
+
+        document.getElementById('btn--create-user').textContent = 'Create user'
+        document.getElementById('name').textContent = ''
+        document.getElementById('email').textContent = ''
+        document.getElementById('password').textContent = ''
+        document.getElementById('confirm').textContent = ''
     })
 }
 
