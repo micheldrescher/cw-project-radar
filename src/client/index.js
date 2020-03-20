@@ -105,7 +105,7 @@ if (newUserForm) {
         const password = document.getElementById('password').value
         const confirm = document.getElementById('confirm').value
         const role = document.getElementById('role').value
-        await createUser(name, email, password, confirm, role)
+        await createUser(name, email, password, confirm, role, location.href)
 
         document.getElementById('btn--create-user').textContent = 'Create user'
         document.getElementById('name').textContent = ''
@@ -124,6 +124,19 @@ if (deleteUserLinks) {
         link.addEventListener('click', async event => {
             event.preventDefault()
             await deleteUser(event.path[1].getAttribute('route'), location.href)
+        })
+    })
+}
+
+//
+// DELETE USER BUTTON LIST
+//
+const editUserLinks = document.querySelectorAll('.edit-user')
+if (editUserLinks) {
+    editUserLinks.forEach(link => {
+        link.addEventListener('click', async event => {
+            event.preventDefault()
+            await editUser(event.path[1].getAttribute('route'), location.href)
         })
     })
 }

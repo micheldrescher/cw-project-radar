@@ -9,7 +9,7 @@ import showAlert from '../util/alert'
 //
 // create a new user account
 //
-const createUser = async (name, email, password, passwordConfirm, role) => {
+const createUser = async (name, email, password, passwordConfirm, role, referrer) => {
     try {
         const res = await axios({
             method: 'POST',
@@ -27,6 +27,9 @@ const createUser = async (name, email, password, passwordConfirm, role) => {
 
         if (res.data.status === 'success') {
             showAlert('success', 'User created.')
+            window.setTimeout(() => {
+                location.assign(referrer)
+            }, 1500)
         }
     } catch (err) {
         showAlert('error', err.response.data.message)
