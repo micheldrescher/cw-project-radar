@@ -106,54 +106,16 @@ exports.manageUsers = catchAsync(async (req, res, next) => {
     })
 })
 
-// exports.getTour = catchAsync(async (req, res, next) => {
-//     // 1) Get the data, for the requested tour (including reviews and guides)
-//     const tour = await Tour.findOne({ slug: req.params.slug }).populate({
-//         path: 'reviews',
-//         fields: 'review rating user'
-//     })
+exports.editUser = catchAsync(async (req, res, next) => {
+    // 1) Fetch the user
+    const user = await User.findById(req.params.id)
+    if (!user) {
+        return next(new AppError(`No user found with the given id!`, 404))
+    }
 
-//     if (!tour) {
-//         return next(new AppError('There is no tour with that name.', 404))
-//     }
-
-//     // 2) Build template
-//     // 3) Render template using data from 1)
-//     res.status(200).render('tour', {
-//         title: `${tour.name} Tour`,
-//         tour
-//     })
-// })
-
-// exports.getMyTours = catchAsync(async (req, res, next) => {
-//     // 1) Find all bookings
-//     const bookings = await Booking.find({ user: req.user.id })
-
-//     // 2) Find tours with the returned IDs
-//     const tourIDs = bookings.map(el => el.tour)
-//     const tours = await Tour.find({ _id: { $in: tourIDs } })
-
-//     res.status(200).render('overview', {
-//         title: 'My Tours',
-//         tours
-//     })
-// })
-
-// exports.updateUserData = catchAsync(async (req, res, next) => {
-//     const updatedUser = await User.findByIdAndUpdate(
-//         req.user.id,
-//         {
-//             name: req.body.name,
-//             email: req.body.email
-//         },
-//         {
-//             new: true,
-//             runValidators: true
-//         }
-//     )
-
-//     res.status(200).render('account', {
-//         title: 'Your account',
-//         user: updatedUser
-//     })
-// })
+    // 2) Render user edit page
+    res.status(200).render('admin/editUser', {
+        title: 'Edit users',
+        targetUser: user
+    })
+})

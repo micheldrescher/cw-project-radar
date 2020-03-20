@@ -1,0 +1,39 @@
+extends ../_base
+
+mixin userRoleOption(value, label, targetUser)
+    - if (targetUser.role === value) 
+        option(value=value selected)= label
+    - else
+        option(value=value)= label
+
+
+block content
+    h2 Edit user's details
+    .edit-user-form
+        form.form#edit-user-form
+            .form__group
+                label.form__label(for='name') Username
+                input#name.form__input(type='string', placeholder='username', required, value=`${targetUser.name}`)
+            .form__group.ma-bt-md
+                label.form__label(for='email') Email address
+                input#email.form__input(type='string', placeholder='••••••••', required, value=`${targetUser.email}`)
+            .form__group
+                label.form__label(for="role") Role
+                select#role(name="role")
+                    +userRoleOption('admin', 'Admin', targetUser)
+                    +userRoleOption('cw-hub', 'CW Hub', targetUser)
+                    +userRoleOption('project', 'Project', targetUser)
+            .form__group.ma-bt-md
+                input#userid.form__input(type='hidden', required, value=`${targetUser._id}`)
+            .form__group
+                button.btn#btn--create-user Update user
+    h2 Edit #{targetUser.name}'s password
+    form.form.form--password#set-password-form
+        .form__group.ma-bt-md
+            label.form__label(for='newPass') New password
+            input#newPass.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__group.ma-bt-md
+            label.form__label(for='newConfirm') Confirm new password
+            input#newConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+        .form__group
+            button.btn.btn--set-password Change password

@@ -46,8 +46,6 @@ const deleteUser = async (route, referrer) => {
             url: route
         })
 
-        console.log(res)
-
         if (res.data.status === 'success') {
             showAlert('success', 'User successfully deleted.')
             window.setTimeout(() => {
@@ -59,4 +57,40 @@ const deleteUser = async (route, referrer) => {
     }
 }
 
-module.exports = { createUser, deleteUser }
+//
+// Admin updating user's account
+//
+const updateUsersDetails = async (name, email, role, id) => {
+    try {
+        const res = await axios({
+            method: 'PATCH',
+            url: `/api/v1/user/${id}`,
+            data: {
+                name,
+                email,
+                role
+            }
+        })
+
+        if (res.data.status === 'success') {
+            showAlert('success', 'User successfully updated.')
+            window.setTimeout(() => {
+                location.assign('/admin/users')
+            }, 1500)
+        }
+    } catch (err) {
+        showAlert('error', err.response.data.message)
+    }
+}
+
+//
+// Admin updating user's password
+//
+const updateUsersPassword = async (route, referrer) => {
+    try {
+    } catch (err) {
+        showAlert('error', err.response.data.message)
+    }
+}
+
+module.exports = { createUser, deleteUser, updateUsersDetails, updateUsersPassword }

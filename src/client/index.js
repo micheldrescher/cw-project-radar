@@ -9,7 +9,12 @@ import linkupRadar from './js/radar/linkupRadar'
 import showAlert from './js/util/alert'
 import { login, logout } from './js/user/login'
 import changePassword from './js/user/userSettings'
-import { createUser, deleteUser } from './js/admin/adminActions'
+import {
+    createUser,
+    deleteUser,
+    updateUsersDetails,
+    updateUsersPassword
+} from './js/admin/adminActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -116,7 +121,7 @@ if (newUserForm) {
 }
 
 //
-// DELETE USER BUTTON LIST
+// DELETE USER LINKS
 //
 const deleteUserLinks = document.querySelectorAll('.delete-user')
 if (deleteUserLinks) {
@@ -129,17 +134,37 @@ if (deleteUserLinks) {
 }
 
 //
-// DELETE USER BUTTON LIST
+// EDIT USER LINKS
 //
 const editUserLinks = document.querySelectorAll('.edit-user')
 if (editUserLinks) {
     editUserLinks.forEach(link => {
         link.addEventListener('click', async event => {
             event.preventDefault()
-            await editUser(event.path[1].getAttribute('route'), location.href)
+            location.replace(event.path[1].getAttribute('route'))
         })
     })
 }
+
+//
+// UPDATE USER'S DETAILS BUTTON
+//
+const updateUserDetailsForm = document.getElementById('edit-user-form')
+if (updateUserDetailsForm) {
+    updateUserDetailsForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const name = document.getElementById('name').value
+        const email = document.getElementById('email').value
+        const role = document.getElementById('role').value
+        const id = document.getElementById('userid').value
+        console.log(name, email, role, id)
+        await updateUsersDetails(name, email, role, id)
+    })
+}
+
+//
+// UPDATE USER'S PASSWORD BUTTON
+//
 
 // show alerts sent by the server
 const alertMsg = document.querySelector('body').dataset.alertmsg
