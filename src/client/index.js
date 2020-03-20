@@ -7,22 +7,13 @@
 // app modules
 import linkupRadar from './js/radar/linkupRadar'
 import showAlert from './js/util/alert'
-import { login, logout } from './js/login'
-
-// import { displayMap } from './mapbox'
-// import { login, logout } from './login'
-// import { updateSettings } from './updateSettings'
-// import { bookTour } from './stripe'
-
-// DOM ELEMENTS
-const radarButtons = document.querySelectorAll('.radar')
-const radarSection = document.getElementById('radar')
-const loginForm = document.getElementById('login-form')
-const logOutBtn = document.querySelector('.nav__el--logout')
+import { login, logout } from './js/user/login'
+import changePassword from './js/user/userSettings'
 
 //
 // RADAR MENU BUTTONS EVENT
 //
+const radarButtons = document.querySelectorAll('.radar')
 if (radarButtons) {
     radarButtons.forEach(btn => {
         btn.addEventListener('click', event => {
@@ -34,8 +25,23 @@ if (radarButtons) {
 }
 
 //
+// ADMIN MENU BUTTONS EVENT
+//
+const adminButtons = document.querySelectorAll('.admin')
+if (adminButtons) {
+    adminButtons.forEach(btn => {
+        btn.addEventListener('click', event => {
+            event.preventDefault()
+            const route = event.target.getAttribute('route')
+            window.location.assign(``)
+        })
+    })
+}
+
+//
 // SHOW RADAR - CLIENT SIDE
 //
+const radarSection = document.getElementById('radar')
 if (radarSection) {
     // 1) Select the root element of the radar section
     const radarRootDOM = d3.select('section#radar')
@@ -45,8 +51,9 @@ if (radarSection) {
 }
 
 //
-// Activate login form
+// Login form
 //
+const loginForm = document.getElementById('login-form')
 if (loginForm) {
     loginForm.addEventListener('submit', e => {
         e.preventDefault()
@@ -57,9 +64,31 @@ if (loginForm) {
 }
 
 //
-// Activate the logout button
+// Logout
 //
+const logOutBtn = document.querySelector('.nav__el--logout')
 if (logOutBtn) logOutBtn.addEventListener('click', logout)
+
+//
+// Change password
+//
+const passwordForm = document.getElementById('password-form')
+if (passwordForm) {
+    passwordForm.addEventListener('submit', async e => {
+        e.preventDefault()
+        document.querySelector('.btn--update-password').textContent = 'Updating...'
+
+        const current = document.getElementById('current').value
+        const newPass = document.getElementById('newPass').value
+        const newConfirm = document.getElementById('newConfirm').value
+        await changePassword(current, newPass, newConfirm)
+
+        document.querySelector('.btn--update-password').textContent = 'Change password'
+        document.getElementById('current').textContent = ''
+        document.getElementById('newPass').textContent = ''
+        document.getElementById('newConfirm').textContent = ''
+    })
+}
 
 // if (userDataForm)
 //     userDataForm.addEventListener('submit', e => {

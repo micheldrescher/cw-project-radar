@@ -74,8 +74,17 @@ exports.showRadar = catchAsync(async (req, res, next) => {
 // show the login form
 //
 exports.loginForm = (req, res) => {
-    res.status(200).render('login', {
+    res.status(200).render('user/login', {
         title: 'Login'
+    })
+}
+
+//
+// User account page
+//
+exports.accountPage = (req, res) => {
+    res.status(200).render('user/account', {
+        title: 'Your account'
     })
 }
 
@@ -97,12 +106,6 @@ exports.loginForm = (req, res) => {
 //         tour
 //     })
 // })
-
-// exports.getAccount = (req, res) => {
-//     res.status(200).render('account', {
-//         title: 'Your account'
-//     })
-// }
 
 // exports.getMyTours = catchAsync(async (req, res, next) => {
 //     // 1) Find all bookings

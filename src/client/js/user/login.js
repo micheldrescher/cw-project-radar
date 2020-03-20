@@ -1,8 +1,8 @@
 /* eslint-disable */
 import axios from 'axios'
-import showAlert from './util/alert'
+import showAlert from '../util/alert'
 
-export const login = async (name, password, referrer) => {
+const login = async (name, password, referrer) => {
     try {
         const res = await axios({
             method: 'POST',
@@ -25,7 +25,7 @@ export const login = async (name, password, referrer) => {
     }
 }
 
-export const logout = async () => {
+const logout = async () => {
     try {
         const res = await axios({
             method: 'GET',
@@ -37,3 +37,8 @@ export const logout = async () => {
         showAlert('error', 'Error logging out! Try again.')
     }
 }
+
+//
+// EXPORTS
+//
+module.exports = { login, logout }

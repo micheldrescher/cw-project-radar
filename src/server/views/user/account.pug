@@ -1,0 +1,26 @@
+extends ../_base
+
+block content
+    main.main
+        .user-details
+            h2 Your account details
+            label Username
+            .field.field-username #{user.name}
+            label Email address
+            .field.field-email #{user.email}
+            label Role
+            .field.field-role #{user.role}
+        .password-form
+            h2 Change password
+            form.form.form--password#password-form
+                .form__group
+                    label.form__label(for='current') Current password
+                    input#current.form__input(type='password', placeholder='current password', required)
+                .form__group.ma-bt-md
+                    label.form__label(for='newPass') New password
+                    input#newPass.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                .form__group.ma-bt-md
+                    label.form__label(for='newConfirm') Confirm new password
+                    input#newConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
+                .form__group
+                    button.btn.btn--update-password Change password

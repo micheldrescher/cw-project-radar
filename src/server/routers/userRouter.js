@@ -26,8 +26,8 @@ router.get('/logout', authController.logout)
 // ROUTES FOR LOGGED IN USERS
 //
 // protect for logged in users
-// router.use(authController.protect)
-// router.patch('/updateMyPassword', authController.updatePassword)
+router.use(authController.protect)
+router.patch('/updatePassword', authController.updatePassword)
 // router.get('/me', userController.getMe, userController.getUser)
 // router.patch('/updateMe', userController.updateMe)
 

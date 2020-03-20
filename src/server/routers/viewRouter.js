@@ -4,8 +4,8 @@
 // libraries
 const express = require('express')
 // app modules
-const authController = require('../controllers/authController')
-const viewsHandler = require('../handlers/viewsHandler')
+const authC = require('../controllers/authController')
+const viewsH = require('../handlers/viewsHandler')
 
 //
 // CONFIGURE
@@ -16,24 +16,20 @@ const router = express.Router()
 // ROUTER MIDDLEWARE
 //
 // all editions for the header
-router.use(viewsHandler.getEditions)
+router.use(viewsH.getEditions)
 // user menu in the header
-router.use(authController.isLoggedIn)
+router.use(authC.isLoggedIn)
 
 //
 // ROUTES
 //
 // main
-router.get('/', viewsHandler.showMain)
+router.get('/', viewsH.showMain)
 // radars
-router.get('/radar/:slug', viewsHandler.showRadar)
+router.get('/radar/:slug', viewsH.showRadar)
 // users
-router.get('/user/login', authController.isLoggedIn, viewsHandler.loginForm)
-
-// router.get('/login', authController.isLoggedIn, viewsController.getLoginForm)
-// router.get('/me', authController.protect, viewsController.getAccount)
-
-// router.get('/my-tours', authController.protect, viewsController.getMyTours)
+router.get('/user/login', authC.isLoggedIn, viewsH.loginForm)
+router.get('/user/account', authC.protect, viewsH.accountPage)
 
 // router.post('/submit-user-data', authController.protect, viewsController.updateUserData)
 
