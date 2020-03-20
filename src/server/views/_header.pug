@@ -24,7 +24,7 @@ header.header
                         .sub-menu
                             each e in editions
                                 .menu-item: button.radar(radar=`${e.slug}`) #{e.name}
-            - if (user.role === 'admin')
+            - if (user && user.role === 'admin')
                 .menu-item
                     button Admin
                     .div(style="position: relative; top: 2px;")
