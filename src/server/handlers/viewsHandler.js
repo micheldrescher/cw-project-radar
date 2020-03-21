@@ -93,9 +93,11 @@ exports.accountPage = (req, res) => {
 // User account page
 //
 exports.manageUsers = catchAsync(async (req, res, next) => {
-    // 1) Fetch all users
-    const users = await User.find({})
-    if (!users || users.length === 0) {
+    // 1) Fetch all users - except "myself"
+    const users = await User.find({
+        _id: { $ne: res.locals.user._id }
+    })
+    if (!users) {
         return next(new AppError(`No users found in this application. Schrodinger's users?`, 404))
     }
 
@@ -115,7 +117,7 @@ exports.editUser = catchAsync(async (req, res, next) => {
 
     // 2) Render user edit page
     res.status(200).render('admin/editUser', {
-        title: 'Edit users',
+        title: 'Edit use details',
         targetUser: user
     })
 })
