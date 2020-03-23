@@ -3,7 +3,6 @@
 //
 // libraries
 const bcrypt = require('bcryptjs')
-const crypto = require('crypto')
 const mongoose = require('mongoose')
 const validator = require('validator')
 
@@ -25,7 +24,7 @@ const userSchema = new mongoose.Schema({
         enum: [
             'project', // a user is allowed to maintain a specific project (not implemented yet)
             'cw-hub', // The ProjectHub user (with this role) is allowed to submit MTRL scores, classifications, and JRC taxonomy changes
-            'admin' // Admin users are allowed to to everything.
+            'admin' // Admin users are allowed to to everything and anything.
         ],
         default: 'project'
     },

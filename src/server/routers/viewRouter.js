@@ -27,21 +27,20 @@ router.use(authC.isLoggedIn)
 router.get('/', viewsH.showMain)
 // radars
 router.get('/radar/:slug', viewsH.showRadar)
+// users
+router.get('/user/login', viewsH.loginForm)
 //
 // PROTECTED ROUTES
 //
-router.use(authC.protect)
 // users
-router.get('/user/login', viewsH.loginForm)
-router.get('/user/account', viewsH.accountPage)
+router.get('/user/account', authC.protect, viewsH.accountPage)
 //
 // RESTRICTED ROUTES
 //
-router.use(authC.restrictTo('admin'))
+router.use('/admin/user', authC.protect, authC.restrictTo('admin'))
 //admin actions
-router.get('/admin/users/edit/:id', viewsH.editUser)
-router.get('/admin/users', viewsH.manageUsers)
-// router.post('/submit-user-data', authController.protect, viewsController.updateUserData)
+router.get('/admin/user/edit/:id', viewsH.editUser)
+router.get('/admin/user', viewsH.manageUsers)
 
 //
 // EXPORTS

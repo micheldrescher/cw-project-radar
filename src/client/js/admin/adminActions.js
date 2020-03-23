@@ -75,7 +75,7 @@ const updateUsersDetails = async (name, email, role, id) => {
         if (res.data.status === 'success') {
             showAlert('success', 'User successfully updated.')
             window.setTimeout(() => {
-                location.assign('/admin/users')
+                location.assign('/admin/user')
             }, 1500)
         }
     } catch (err) {

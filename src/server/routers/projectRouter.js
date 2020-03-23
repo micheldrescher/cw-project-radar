@@ -5,7 +5,7 @@
 const express = require('express')
 // app modules
 const projectHandler = require('../handlers/projectHandler')
-// const authController = require('./../controllers/authController')
+const authC = require('./../controllers/authController')
 
 const router = express.Router()
 
@@ -14,16 +14,35 @@ const router = express.Router()
 //
 router
     .route('/')
-    .get(projectHandler.getAllProjects)
-    .post(projectHandler.createProject)
+    .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), projectHandler.getAllProjects)
+    .post(authC.protect, authC.restrictTo('admin', 'cw-hub'), projectHandler.createProject)
 router
     .route('/:id')
-    .get(projectHandler.getProject)
-    .patch(projectHandler.updateProject)
-    .delete(projectHandler.deleteProject)
-router.route('/:cwid/categorise').post(projectHandler.addCategory) // This is BY CW ID!!
-router.route('/:cwid/score').post(projectHandler.addMTRLScore) // This is BY CW ID!!
-router.route('/prj_id/:cwid').get(projectHandler.getByCWId) // This is BY CW ID!!
+    .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), projectHandler.getProject)
+    .patch(authC.protect, authC.restrictTo('admin', 'cw-hub'), projectHandler.updateProject)
+    .delete(authC.protect, authC.restrictTo('admin', 'cw-hub'), projectHandler.deleteProject)
+
+// This is BY CW ID!!
+router.post(
+    '/:cwid/categorise',
+    authC.protect,
+    authC.restrictTo('admin', 'cw-hub'),
+    projectHandler.addCategory
+)
+// This is BY CW ID!!
+router.post(
+    '/:cwid/score',
+    authC.protect,
+    authC.restrictTo('admin', 'cw-hub'),
+    projectHandler.addMTRLScore
+)
+// This is BY CW ID!!
+router.get(
+    '/prj_id/:cwid',
+    authC.protect,
+    authC.restrictTo('admin', 'cw-hub'),
+    projectHandler.getByCWId
+)
 
 //
 // EXPORTS

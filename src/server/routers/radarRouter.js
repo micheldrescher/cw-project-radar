@@ -6,49 +6,70 @@ const express = require('express')
 // app modules
 // const AppError = require('./../utils/AppError')
 const radarHandler = require('./../handlers/radarHandler')
-// const authController = require('./../controllers/authController')
+const authC = require('./../controllers/authController')
 
 const router = express.Router()
 
 //
-// ROUTES
+// PUBLIC ROUTES
 //
+router.get('/editions', radarHandler.getEditions)
+
+//
+// PROTECTED ROUTES (LOGGED IN USERS ONLY)
+//
+
+//
+// RESTRICTED ROUTES (CERTAIN ROLES ONLY)
+//
+
 router
     .route('/')
     // .get(authController.isLoggedIn, radarController.getAllRadars)
-    .get(radarHandler.getAllRadars)
-    .post(radarHandler.createRadar)
+    .get(authC.protect, authC.restrictTo('admn', 'cw-hub'), radarHandler.getAllRadars)
+    .post(authC.protect, authC.restrictTo('admn', 'cw-hub'), radarHandler.createRadar)
 router
     .route('/:slug')
-    .get(radarHandler.getRadarBySlug)
-    .patch(radarHandler.updateRadar)
-    .delete(radarHandler.deleteRadar)
+    .get(authC.protect, authC.restrictTo('admn', 'cw-hub'), radarHandler.getRadarBySlug)
+    .patch(authC.protect, authC.restrictTo('admn', 'cw-hub'), radarHandler.updateRadar)
+    .delete(authC.protect, authC.restrictTo('admn', 'cw-hub'), radarHandler.deleteRadar)
 
-router.get('/:slug/populate/:date?', radarHandler.populateRadar)
-router.get('/:slug/render', radarHandler.renderRadar)
-router.get('/:slug/publish', radarHandler.publishRadar)
-router.get('/:slug/reset', radarHandler.resetRadar)
-router.get('/:slug/archive', radarHandler.archiveRadar)
-router.get('/:slug/republish', radarHandler.republishRadar)
-
-router.get('/editions', radarHandler.getEditions)
-
-// router
-//     .route('/:id')
-//     .get(getRadar)
-//     .patch(protect, restrictTo('admin'), updateRadar)
-
-// router
-//     .route('/')
-//     .get(getAllRadars)
-
-// router.route('/list').get(getRadarList)
-
-// router
-//     .route('/:id')
-//     .get(getRadar)
-//     .patch(protect, restrictTo('admin'), updateRadar)
-//     .delete(protect, restrictTo('admin'), deleteRadar)
+router.patch(
+    '/:slug/populate/:date?',
+    authC.protect,
+    authC.restrictTo('admn', 'cw-hub'),
+    radarHandler.populateRadar
+)
+router.patch(
+    '/:slug/render',
+    authC.protect,
+    authC.restrictTo('admn', 'cw-hub'),
+    radarHandler.renderRadar
+)
+router.patch(
+    '/:slug/publish',
+    authC.protect,
+    authC.restrictTo('admn', 'cw-hub'),
+    radarHandler.publishRadar
+)
+router.patch(
+    '/:slug/archive',
+    authC.protect,
+    authC.restrictTo('admn', 'cw-hub'),
+    radarHandler.archiveRadar
+)
+router.patch(
+    '/:slug/reset',
+    authC.protect,
+    authC.restrictTo('admn', 'cw-hub'),
+    radarHandler.resetRadar
+)
+router.patch(
+    '/:slug/republish',
+    authC.protect,
+    authC.restrictTo('admn', 'cw-hub'),
+    radarHandler.republishRadar
+)
 
 //
 // EXPORTS
