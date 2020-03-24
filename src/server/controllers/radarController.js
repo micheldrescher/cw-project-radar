@@ -44,7 +44,7 @@ exports.getEditions = async () => {
     // include only the slug and the name
     let queryStr = {
         sort: '-year,release',
-        fields: 'name,slug,status,year,release'
+        fields: 'name,slug'
     }
     const features = new APIFeatures(Radar.find(filter), queryStr)
         .filter()
