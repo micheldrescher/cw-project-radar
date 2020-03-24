@@ -49,7 +49,7 @@ exports.getRadarBySlug = catchAsync(async (req, res, next) => {
 
 exports.getEditions = catchAsync(async (req, res, next) => {
     // 1) Get editions
-    const editions = radarController.getEditions()
+    const editions = await radarController.getEditions()
 
     // 2) Error handling
     if (!editions || editions.length === 0) {
@@ -115,12 +115,22 @@ exports.publishRadar = catchAsync(async (req, res, next) => {
 })
 
 // reset the radar
-exports.resetRadar = catchAsync(async (req, res, next) => {
-    httpResponses.notImplemented(res)
+exports.archiveRadar = catchAsync(async (req, res, next) => {
+    const { slug } = req.params
+
+    const radar = await radarController.archiveRadar(slug)
+    if (!radar || radar.length === 0) {
+        return next(new AppError(`Error while populating the radar.`, 500))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        radar
+    })
 })
 
 // reset the radar
-exports.archiveRadar = catchAsync(async (req, res, next) => {
+exports.resetRadar = catchAsync(async (req, res, next) => {
     httpResponses.notImplemented(res)
 })
 
