@@ -224,6 +224,28 @@ exports.publishRadar = async slug => {
 }
 
 //
+// archive a radar
+//
+// At some point, a radar becomes uninteresting, at which point it should be archived (not deleted).
+exports.archiveRadar = async slug => {
+    // 1) Obtain the radar
+    const radar = await this.getRadarBySlug(slug)
+    if (!radar) {
+        throw new AppError(`No radar found for id ${slug}.`, 404)
+    }
+    // radar state change check
+    if (!['published'].includes(radar.status)) {
+        throw new AppError(`Radar ${radar.name} is not in state published.`, 500)
+    }
+
+    // 2) Set state to archived
+    radar.status = 'archived'
+    await radar.save()
+
+    return radar
+}
+
+//
 // Calculate statistics for each ring
 //
 const calculateStatistics = entries => {
