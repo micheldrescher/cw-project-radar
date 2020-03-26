@@ -101,6 +101,25 @@ exports.updatePassword = catchAsync(async (req, res, next) => {
     createSendToken(user, 200, req, res)
 })
 
+//
+// Update the given user's password (as an admin only)
+//
+exports.updateUserPassword = catchAsync(async (req, res, next) => {
+    // 1) Get user from collection
+    const user = await User.findById(req.params.id).select('+password')
+
+    // 2) If so, update password
+    user.password = req.body.password
+    user.passwordConfirm = req.body.confirm
+    await user.save()
+    // User.findByIdAndUpdate will NOT work as intended!
+
+    // send back success respnse
+    res.status(200).json({
+        status: 'success'
+    })
+})
+
 /*******************/
 /*                 */
 /*  Authorisation  */

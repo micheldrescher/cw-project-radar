@@ -157,7 +157,6 @@ if (updateUserDetailsForm) {
         const email = document.getElementById('email').value
         const role = document.getElementById('role').value
         const id = document.getElementById('userid').value
-        console.log(name, email, role, id)
         await updateUsersDetails(name, email, role, id)
     })
 }
@@ -165,6 +164,17 @@ if (updateUserDetailsForm) {
 //
 // UPDATE USER'S PASSWORD BUTTON
 //
+const setUserPasswordForm = document.getElementById('set-password-form')
+if (setUserPasswordForm) {
+    setUserPasswordForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const userid = document.getElementById('userid').value
+        const password = document.getElementById('newPass').value
+        const confirm = document.getElementById('newConfirm').value
+        console.log(password, confirm, userid)
+        await updateUsersPassword(userid, password, confirm)
+    })
+}
 
 // show alerts sent by the server
 const alertMsg = document.querySelector('body').dataset.alertmsg

@@ -86,8 +86,23 @@ const updateUsersDetails = async (name, email, role, id) => {
 //
 // Admin updating user's password
 //
-const updateUsersPassword = async (route, referrer) => {
+const updateUsersPassword = async (userid, password, confirm) => {
     try {
+        const res = await axios({
+            method: 'PATCH',
+            url: `/api/v1/user/${userid}/password`,
+            data: {
+                password,
+                confirm
+            }
+        })
+
+        if (res.data.status === 'success') {
+            showAlert('success', 'User password set.')
+            window.setTimeout(() => {
+                location.assign('/admin/user')
+            }, 1500)
+        }
     } catch (err) {
         showAlert('error', err.response.data.message)
     }

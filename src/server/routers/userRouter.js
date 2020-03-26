@@ -40,6 +40,8 @@ router
     .get(authC.protect, authC.restrictTo('admin'), userH.getUser)
     .patch(authC.protect, authC.restrictTo('admin'), userH.updateUser)
     .delete(authC.protect, authC.restrictTo('admin'), userH.deleteUser)
+// admin updating user's password
+router.patch('/:id/password', authC.protect, authC.restrictTo('admin'), authC.updateUserPassword)
 
 //
 // EXPORTS
