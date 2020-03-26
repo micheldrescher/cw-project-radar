@@ -21,6 +21,6 @@ exports.getAllUsers = handlerFactory.getAll(User)
 // Get one user
 exports.getUser = handlerFactory.getOne(User)
 // Update a user (except Password!!!)
-exports.updateUser = handlerFactory.updateOne(User, 'password', 'passwordConfirm')
+exports.updateUser = handlerFactory.updateOne(User, 'password', 'passwordConfirm', 'active')
 // delete a user
 exports.deleteUser = handlerFactory.deleteOne(User)
