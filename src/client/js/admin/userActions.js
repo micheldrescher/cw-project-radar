@@ -23,8 +23,6 @@ const createUser = async (name, email, password, passwordConfirm, role, referrer
             }
         })
 
-        console.log(res)
-
         if (res.data.status === 'success') {
             showAlert('success', 'User created.')
             window.setTimeout(() => {

@@ -3,11 +3,13 @@
 //
 // libraries
 // app modules
+const APIFeatures = require('../utils/apiFeatures')
 const AppError = require('./../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
 const logger = require('./../utils/logger')
 const radarController = require('../controllers/radarController')
 const User = require('../models/userModel')
+const Radar = require('../models/radarModel')
 
 //
 // MIDDLEWARE
@@ -119,5 +121,46 @@ exports.editUser = catchAsync(async (req, res, next) => {
     res.status(200).render('admin/editUser', {
         title: 'Edit use details',
         targetUser: user
+    })
+})
+
+/******************************/
+/*                            */
+/*   RADAR PAGES  FUNCTIONS   */
+/*                            */
+/******************************/
+
+//
+// Radars overview page
+//
+exports.manageRadars = catchAsync(async (req, res, next) => {
+    // 1) Fetch all Radars
+    const radars = await new APIFeatures(Radar.find(), { sort: '-year,release' }).filter().sort()
+        .query
+    if (!radars) {
+        return next(new AppError(`No radars found AT ALL in this application.`, 404))
+    }
+
+    // 2) Render radar management page
+    res.status(200).render('admin/manageRadars', {
+        title: 'Manage radars',
+        radars
+    })
+})
+
+//
+// Edit a radar
+//
+exports.editRadar = catchAsync(async (req, res, next) => {
+    // 1) Fetch the radar
+    const radar = await Radar.findById(req.params.id)
+    if (!radar) {
+        return next(new AppError(`No radar found with the given id!`, 404))
+    }
+
+    // 2) Render radar edit page
+    res.status(200).render('admin/editRadar', {
+        title: 'Edit radar',
+        radar
     })
 })

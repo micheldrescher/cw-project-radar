@@ -14,7 +14,8 @@ import {
     deleteUser,
     updateUsersDetails,
     updateUsersPassword
-} from './js/admin/adminActions'
+} from './js/admin/userActions'
+import { createRadar, updateRadar, deleteRadar } from './js/admin/radarActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -25,7 +26,7 @@ if (radarButtons) {
         btn.addEventListener('click', event => {
             event.preventDefault()
             const slug = event.target.getAttribute('radar')
-            window.location.assign(`/radar/${slug}`)
+            location.assign(`/radar/${slug}`)
         })
     })
 }
@@ -39,7 +40,7 @@ if (adminButtons) {
         btn.addEventListener('click', event => {
             event.preventDefault()
             const route = event.target.getAttribute('route')
-            window.location.assign(route)
+            location.assign(route)
         })
     })
 }
@@ -141,7 +142,7 @@ if (editUserLinks) {
     editUserLinks.forEach(link => {
         link.addEventListener('click', async event => {
             event.preventDefault()
-            location.replace(event.path[1].getAttribute('route'))
+            location.assign(event.path[1].getAttribute('route'))
         })
     })
 }
@@ -171,8 +172,62 @@ if (setUserPasswordForm) {
         const userid = document.getElementById('userid').value
         const password = document.getElementById('newPass').value
         const confirm = document.getElementById('newConfirm').value
-        console.log(password, confirm, userid)
         await updateUsersPassword(userid, password, confirm)
+    })
+}
+
+//
+// CREATE RADAR FORM
+//
+const createRadarForm = document.getElementById('new-radar-form')
+if (createRadarForm) {
+    createRadarForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const edition = document.getElementById('edition').value
+        const year = document.getElementById('year').value
+        const summary = document.getElementById('summary').value
+
+        await createRadar(edition, year, summary)
+    })
+}
+
+//
+// EDIT RADAR BUTTONS
+//
+const editRadarLinks = document.querySelectorAll('.edit-radar')
+if (editRadarLinks) {
+    editRadarLinks.forEach(link => {
+        link.addEventListener('click', async event => {
+            event.preventDefault()
+            location.assign(event.path[1].getAttribute('route'))
+        })
+    })
+}
+
+//
+// DELETE RADAR BUTTONS
+//
+const deleteRadarLinks = document.querySelectorAll('.delete-radar')
+if (deleteRadarLinks) {
+    deleteRadarLinks.forEach(link => {
+        link.addEventListener('click', async event => {
+            event.preventDefault()
+            console.log(event.path[1].getAttribute('route'))
+            await deleteRadar(event.path[1].getAttribute('route'), location.href)
+        })
+    })
+}
+
+//
+// EDIT INDIVIDUAL RADAR
+//
+const updateRadarForm = document.getElementById('edit-radar-form')
+if (updateRadarForm) {
+    updateRadarForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const id = document.getElementById('radarid').value
+        const summary = document.getElementById('summary').value
+        await updateRadar(id, summary)
     })
 }
 

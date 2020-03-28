@@ -1,0 +1,25 @@
+extends ../_base
+
+block content
+    h2 Edit #{radar.name} radar
+    .edit-radar-form: form.form#edit-radar-form
+        .form__group
+            label.form__label(for='summary') Summary
+            textarea#summary(name="summary", cols="70", rows="10")= radar.summary
+        .form__group.ma-bt-md
+            input#radarid.form__input(type='hidden', required, value=`${radar._id}`)
+        .form__group
+            button.btn#btn--update-radar Update radar
+
+    h2 Administer Radar
+        //- .form__group.ma-bt-md
+        //-     label.form__label(for='email') Email address
+        //-     input#email.form__input(type='string', placeholder='••••••••', required, value=`${targetUser.email}`)
+        //- .form__group
+        //-     label.form__label(for="role") Role
+        //-     select#role(name="role")
+        //-         +userRoleOption('admin', 'Admin', targetUser)
+        //-         +userRoleOption('cw-hub', 'CW Hub', targetUser)
+        //-         +userRoleOption('project', 'Project', targetUser)
+        //- .form__group.ma-bt-md
+        //-     input#userid.form__input(type='hidden', required, value=`${targetUser._id}`)

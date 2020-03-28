@@ -1,7 +1,7 @@
 extends ../_base
 
 mixin action(actionClass, label, route, imageStr)
-    a(route=route, class=actionClass)
+    a(route=route, class=actionClass, style="cursor: pointer")
         img(width=16, alt=label, src=imageStr)
 
 mixin userActions(user)
