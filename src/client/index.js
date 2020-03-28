@@ -15,7 +15,7 @@ import {
     updateUsersDetails,
     updateUsersPassword
 } from './js/admin/userActions'
-import { createRadar, updateRadar, deleteRadar } from './js/admin/radarActions'
+import { createRadar, updateRadar, deleteRadar, advanceRadar } from './js/admin/radarActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -228,6 +228,19 @@ if (updateRadarForm) {
         const id = document.getElementById('radarid').value
         const summary = document.getElementById('summary').value
         await updateRadar(id, summary)
+    })
+}
+
+//
+// ADVANCE RADAR BUTTONS
+//
+const administerRadarButtons = document.querySelectorAll('.administer-radar')
+if (administerRadarButtons) {
+    administerRadarButtons.forEach(link => {
+        link.addEventListener('click', async event => {
+            event.preventDefault()
+            await advanceRadar(event.path[1].getAttribute('route'), location.href)
+        })
     })
 }
 

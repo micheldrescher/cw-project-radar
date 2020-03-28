@@ -77,4 +77,30 @@ const deleteRadar = async (route, referrer) => {
     }
 }
 
-module.exports = { createRadar, updateRadar, deleteRadar }
+//
+// delete a radar
+//
+const advanceRadar = async (route, referrer) => {
+    try {
+        const res = await axios({
+            method: 'PATCH',
+            url: route
+        })
+
+        if (res.data.status === 'success') {
+            showAlert('success', 'Success!')
+            window.setTimeout(() => {
+                location.assign(referrer)
+            }, 1500)
+        }
+    } catch (err) {
+        showAlert('error', err.response.data.message)
+    }
+}
+
+module.exports = {
+    createRadar,
+    updateRadar,
+    deleteRadar,
+    advanceRadar
+}
