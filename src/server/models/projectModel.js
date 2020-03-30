@@ -4,13 +4,14 @@
 // libraries
 const mongoose = require('mongoose')
 const validator = require('validator')
+// modules
+const nextSeq = require('./sequenceModel')
 
 const projectSchema = new mongoose.Schema(
     {
-        // cloudwatch gives it a unique id
+        // cloudwatch gives it a unique id - automatically set using a sequence!!
         cw_id: {
             type: Number,
-            required: true,
             unique: true
         },
         // a short name (usually an abbreviation)
@@ -75,6 +76,18 @@ const projectSchema = new mongoose.Schema(
         toObject: { virtuals: true }
     }
 )
+
+//
+// SCHEMA MIDDLEWARE
+//
+// ensure that cw_id gets a unique number.
+projectSchema.pre('save', async function(next) {
+    if (this.isNew) {
+        this.cw_id = await nextSeq('project')
+    }
+
+    next()
+})
 
 //
 // INDEXES
