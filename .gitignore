@@ -8,3 +8,4 @@ src/client/views/*.js
 dist
 
 __OLD__
+_playground_
