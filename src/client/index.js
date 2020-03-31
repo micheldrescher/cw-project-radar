@@ -16,6 +16,7 @@ import {
     updateUsersPassword
 } from './js/admin/userActions'
 import { createRadar, updateRadar, deleteRadar, advanceRadar } from './js/admin/radarActions'
+import { createProject } from './js/admin/projectActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -241,6 +242,30 @@ if (administerRadarButtons) {
             event.preventDefault()
             await advanceRadar(event.path[1].getAttribute('route'), location.href)
         })
+    })
+}
+
+//
+// CREATE NEW PROJECT FORM
+//
+const newProjectForm = document.getElementById('new-project-form')
+if (newProjectForm) {
+    newProjectForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const values = {
+            name: document.getElementById('name').value,
+            title: document.getElementById('title').value,
+            startDate: document.getElementById('startdate').value,
+            endDate: document.getElementById('enddate').value,
+            call: document.getElementById('fundingcall').value,
+            type: document.getElementById('projecttype').value,
+            budget: document.getElementById('budget').value,
+            projectURL: document.getElementById('projecturl').value,
+            fundingBodyLink: document.getElementById('fundingbodylink').value,
+            cwurl: document.getElementById('cwprojecthublink').value,
+            teaser: document.getElementById('teaser').value
+        }
+        await createProject(values)
     })
 }
 
