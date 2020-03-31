@@ -1,0 +1,85 @@
+extends ../_base
+
+
+mixin action(actionClass, label, route, imageStr)
+    a(route=route, class=actionClass, style="cursor: pointer; margin: 0 2px;")
+        img(width=16, alt=label, src=imageStr)
+
+mixin projectRow(project)
+    -function prettyDate(date){
+        -var d = date.getDate(dateString);
+        -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+        -var m = monthNames[date.getMonth()];
+        -var y = date.getFullYear();
+        -return m+' '+y;
+    -} 
+    -function prettyMTRL(mtrl) {
+        - if (!mtrl) return ''
+        - return `MTRL: ${mtrl.mrl}, ${mtrl.trl}`
+    -}
+    tr
+        td #{project.cw_id}
+        td #{project.name}
+        td #{prettyDate(project.startDate)}
+        td #{prettyDate(project.endDate)}
+        td #{project.classification}
+        td #{prettyMTRL(project.mtrl)}
+        td
+            +action('edit-project', `Edit ${project.name}`, `/admin/project/edit/${project._id}`, 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9ItCh0LvQvtC5XzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTAwMHB4IiBoZWlnaHQ9IjEwMDBweCIgdmlld0JveD0iMCAwIDEwMDAgMTAwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwMCAxMDAwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGQ9Ik05NjguMTYxLDMxLjgzOWMzNi40NTYsMzYuNDU2LDM2LjM5Niw5NS41NDcsMCwxMzIuMDAzbC00My45OTEsNDMuOTkxTDc5Mi4xMzgsNzUuODNsNDMuOTkxLTQzLjk5MQ0KCUM4NzIuNTgzLTQuNTg2LDkzMS43MDQtNC42MTcsOTY4LjE2MSwzMS44Mzl6IE0zMDguMjM4LDU1OS43OWwtNDMuOTYsMTc1Ljk2M2wxNzUuOTYzLTQzLjk5MWw0MzkuOTM4LTQzOS45MzhMNzQ4LjE0NywxMTkuODIxDQoJTDMwOC4yMzgsNTU5Ljc5eiBNNzQ2LjYyNyw0NzMuMzg3djQwMi4xNzVIMTI0LjQzOFYyNTMuMzczaDQwMi4yMDRsMTI0LjQwNy0xMjQuNDM4SDBWMTAwMGg4NzEuMDY0VjM0OC45MThMNzQ2LjYyNyw0NzMuMzg3eiIvPg0KPC9zdmc+DQo=')
+            //- +action('delete-project', `Delete ${project.name}`, `/api/v1/proejct/${project._id}`, 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTI4MC4wMDAwMDBwdCIgaGVpZ2h0PSIxMjgwLjAwMDAwMHB0IiB2aWV3Qm94PSIwIDAgMTI4MC4wMDAwMDAgMTI4MC4wMDAwMDAiCiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ij4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTI4MC4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiMwMDAwMDAiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik0xMzQ4IDExNDUyIGwtOTQzIC05NDIgMjA0OCAtMjA0OCBjMTEyNiAtMTEyNiAyMDQ3IC0yMDU0IDIwNDcKLTIwNjIgMCAtOCAtOTIxIC05MzYgLTIwNDcgLTIwNjIgbC0yMDQ4IC0yMDQ4IDk0MyAtOTQyIDk0MiAtOTQzIDIwNDggMjA0OApjMTEyNiAxMTI2IDIwNTQgMjA0NyAyMDYyIDIwNDcgOCAwIDkzNiAtOTIxIDIwNjIgLTIwNDcgbDIwNDggLTIwNDggOTQyIDk0Mwo5NDMgOTQyIC0yMDQ4IDIwNDggYy0xMTI2IDExMjYgLTIwNDcgMjA1NCAtMjA0NyAyMDYyIDAgOCA5MjEgOTM2IDIwNDcgMjA2MgpsMjA0OCAyMDQ4IC05NDMgOTQyIC05NDIgOTQzIC0yMDQ4IC0yMDQ4IGMtMTEyNiAtMTEyNiAtMjA1NCAtMjA0NyAtMjA2MgotMjA0NyAtOCAwIC05MzYgOTIxIC0yMDYyIDIwNDcgbC0yMDQ4IDIwNDggLTk0MiAtOTQzeiIvPgo8L2c+Cjwvc3ZnPgo=')
+
+
+block content
+
+    h2 Add new project
+    .new-project-form: form.form.form--new-project#new-project-form
+        .form__group
+            label.form__label(for='name') Acronym
+            input#name.form__input(type='string', placeholder='Acronym', required)
+        .form__group
+            label.form__label(for='title') Title
+            input#title.form__input(type='string', placeholder='Title', required)
+        .form__group
+            label.form__label(for='startdate') Start date
+            input#startdate.form__input(type='string', placeholder='yyyy-mm-dd', required)
+        .form__group
+            label.form__label(for='enddte') End date
+            input#enddate.form__input(type='string', placeholder='yyyy-mm-dd', required)
+        .form__group
+            label.form__label(for='fundingcall') EC funding call (optional)
+            input#fundingcall.form__input(type='string', placeholder='ICT-07-2014')
+        .form__group
+            label.form__label(for='projecttype') Project type (optional)
+            input#projecttype.form__input(type='string', placeholder='RIA')
+        .form__group
+            label.form__label(for='budget') Budget (optional)
+            input#budget.form__input(type='number', placeholder='12345678.90')
+        .form__group
+            label.form__label(for='proejcturl') Project homepage
+            input#projecturl.form__input(type='string', placeholder='https://www.project.eu')
+        .form__group
+            label.form__label(for='fundingbodylink') Funding body entry
+            input#fundingbodylink.form__input(type='string', placeholder='https://cordis.europa.eu/...')
+        .form__group
+            label.form__label(for='cwprojecthublink') CW ProjectHUB link
+            input#cwprojecthublink.form__input(type='string', placeholder='https://cyberwatching.eu/projects/...')
+        .form__group
+            label.form__label(for='teaser') Teaser
+            textarea#teaser.form__input(type='string', placeholder='Teaser', required)(cols="70", rows="10")
+
+        .form__group
+            button.btn#btn--create-project Save project
+
+    h2 Manage projects
+    table
+        thead
+            tr
+                td CW ID
+                td Name
+                td Start date
+                td End date
+                td Classification
+                td Last score
+                td Actions
+        each p in projects
+            +projectRow(p)

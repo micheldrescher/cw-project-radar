@@ -6,10 +6,13 @@
 const APIFeatures = require('../utils/apiFeatures')
 const AppError = require('./../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
+const classificationController = require('./../controllers/classificationController')
+const mtrlScoresController = require('./../controllers/mtrlScoresController')
 const logger = require('./../utils/logger')
 const radarController = require('../controllers/radarController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
+const { Project } = require('../models/projectModel')
 
 //
 // MIDDLEWARE
@@ -162,5 +165,44 @@ exports.editRadar = catchAsync(async (req, res, next) => {
     res.status(200).render('admin/editRadar', {
         title: 'Edit radar',
         radar
+    })
+})
+
+/**************************/
+/*                        */
+/*   PROJECT  FUNCTIONS   */
+/*                        */
+/**************************/
+
+//
+// Projects overview page
+//
+exports.manageProjects = catchAsync(async (req, res, next) => {
+    // 1) Fetch all Projects
+    const projects = await new APIFeatures(Project.find(), { sort: 'cw_id' }).filter().sort().query
+    if (!projects) {
+        return next(new AppError(`No proejcts found AT ALL in this application.`, 404))
+    }
+
+    // Decorate the projects with their classification and their last score (temporarily)
+    await Promise.all(
+        projects.map(async prj => {
+            // add classification
+            if (prj.hasClassifications) {
+                let segment = await classificationController.getClassification(prj._id, Date.now())
+                prj.classification = segment.classification
+            }
+            // add MTRL score
+            if (prj.hasScores) {
+                let score = await mtrlScoresController.getScore(prj._id, Date.now())
+                prj.mtrl = score
+            }
+        })
+    )
+
+    // 2) Render projects management page
+    res.status(200).render('admin/manageProjects', {
+        title: 'Manage projects',
+        projects
     })
 })
