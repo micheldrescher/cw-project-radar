@@ -58,9 +58,31 @@ const createProject = async prjData => {
 //
 
 //
+// delete a radar
+//
+const deleteProject = async (route, referrer) => {
+    try {
+        const res = await axios({
+            method: 'DELETE',
+            url: route
+        })
+
+        if (res.data.status === 'success') {
+            showAlert('success', 'Project successfully deleted.')
+            window.setTimeout(() => {
+                location.assign(referrer)
+            }, 1500)
+        }
+    } catch (err) {
+        showAlert('error', err.response.data.message)
+    }
+}
+
+//
 // EXPORTS
 //
 
 module.exports = {
-    createProject
+    createProject,
+    deleteProject
 }

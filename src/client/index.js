@@ -16,7 +16,7 @@ import {
     updateUsersPassword
 } from './js/admin/userActions'
 import { createRadar, updateRadar, deleteRadar, advanceRadar } from './js/admin/radarActions'
-import { createProject } from './js/admin/projectActions'
+import { createProject, deleteProject } from './js/admin/projectActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -266,6 +266,19 @@ if (newProjectForm) {
             teaser: document.getElementById('teaser').value
         }
         await createProject(values)
+    })
+}
+
+//
+// DELETE PROJECT LINKS
+//
+const deleteProjectLinks = document.querySelectorAll('.delete-project')
+if (deleteProjectLinks) {
+    deleteProjectLinks.forEach(link => {
+        link.addEventListener('click', async event => {
+            event.preventDefault()
+            await deleteProject(event.path[1].getAttribute('route'), location.href)
+        })
     })
 }
 
