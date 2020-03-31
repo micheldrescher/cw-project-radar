@@ -79,10 +79,57 @@ const deleteProject = async (route, referrer) => {
 }
 
 //
+// UPDATE PROJECT
+//
+const updateProject = async prjData => {
+    try {
+        const {
+            name,
+            title,
+            startDate,
+            endDate,
+            call,
+            type,
+            budget,
+            projectURL,
+            fundingBodyLink,
+            cwurl,
+            teaser
+        } = prjData
+        const res = await axios({
+            method: 'PATCH',
+            url: `/api/v1/project/${prjData.id}`,
+            data: {
+                name,
+                title,
+                startDate,
+                endDate,
+                call,
+                type,
+                budget,
+                projectURL,
+                fundingBodyLink,
+                cwurl,
+                teaser
+            }
+        })
+
+        if (res.data.status === 'success') {
+            showAlert('success', 'Project updated.')
+            window.setTimeout(() => {
+                location.assign('/admin/project')
+            }, 1500)
+        }
+    } catch (err) {
+        showAlert('error', err.response.data.message)
+    }
+}
+
+//
 // EXPORTS
 //
-
 module.exports = {
     createProject,
-    deleteProject
+    deleteProject,
+    updateProject
 }

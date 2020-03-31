@@ -58,6 +58,7 @@ router.get('/admin/radar/edit/:id', viewsH.editRadar) // edit a radar
 // Project administration
 //
 router.get('/admin/project', viewsH.manageProjects) // project admin panel
+router.get('/admin/project/edit/:id', viewsH.editProject) // edit project form
 
 //
 // EXPORTS

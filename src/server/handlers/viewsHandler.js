@@ -206,3 +206,20 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
         projects
     })
 })
+
+//
+// Edit a project
+//
+exports.editProject = catchAsync(async (req, res, next) => {
+    // 1) Fetch the radar
+    const project = await Project.findById(req.params.id)
+    if (!project) {
+        return next(new AppError(`No project found with the given id!`, 404))
+    }
+
+    // 2) Render radar edit page
+    res.status(200).render('admin/editProject', {
+        title: 'Edit project',
+        project
+    })
+})

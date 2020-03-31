@@ -16,7 +16,7 @@ import {
     updateUsersPassword
 } from './js/admin/userActions'
 import { createRadar, updateRadar, deleteRadar, advanceRadar } from './js/admin/radarActions'
-import { createProject, deleteProject } from './js/admin/projectActions'
+import { createProject, deleteProject, updateProject } from './js/admin/projectActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -279,6 +279,45 @@ if (deleteProjectLinks) {
             event.preventDefault()
             await deleteProject(event.path[1].getAttribute('route'), location.href)
         })
+    })
+}
+
+//
+// EDIT PROJECT BUTTONS
+//
+const editProjectLinks = document.querySelectorAll('.edit-project')
+if (editProjectLinks) {
+    editProjectLinks.forEach(link => {
+        link.addEventListener('click', async event => {
+            event.preventDefault()
+            location.assign(event.path[1].getAttribute('route'))
+        })
+    })
+}
+
+//
+// EDIT PROJECT FORM
+//
+const editProjectForm = document.getElementById('edit-project-form')
+if (editProjectForm) {
+    editProjectForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const values = {
+            id: document.getElementById('projectid').value,
+            name: document.getElementById('name').value,
+            title: document.getElementById('title').value,
+            startDate: document.getElementById('startdate').value,
+            endDate: document.getElementById('enddate').value,
+            call: document.getElementById('fundingcall').value,
+            type: document.getElementById('projecttype').value,
+            budget: document.getElementById('budget').value,
+            projectURL: document.getElementById('projecturl').value,
+            fundingBodyLink: document.getElementById('fundingbodylink').value,
+            cwurl: document.getElementById('cwprojecthublink').value,
+            teaser: document.getElementById('teaser').value
+        }
+        console.log(values)
+        await updateProject(values)
     })
 }
 
