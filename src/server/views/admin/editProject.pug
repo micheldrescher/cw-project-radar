@@ -67,6 +67,6 @@ block content
             input#cwprojecthublink.form__input(type='string', value=project.cwurl)
         .form__group
             label.form__label(for='teaser') Teaser
-            textarea#teaser.form__input(type='string', required)(cols="70", rows="10")= project.teaser
+            textarea#teaser.form__input(type='string', required, cols="70", rows="10")= project.teaser
         .form__group
             button.btn#btn--create-project Save project
