@@ -42,6 +42,9 @@ block content
             label.form__label(for='title') Title
             input#title.form__input(type='string', required, value=project.title)
         .form__group
+            label.form__label(for='rcn') RCN
+            input#rcn.form__input(type='number', required, value=project.rcn)
+        .form__group
             label.form__label(for='startdate') Start date
             input#startdate.form__input(type='string', required, value=`${project.startDate.toISOString().split('T')[0]}`) 
         .form__group

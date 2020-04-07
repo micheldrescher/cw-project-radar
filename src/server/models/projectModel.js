@@ -19,6 +19,12 @@ const projectSchema = new mongoose.Schema(
             type: String,
             required: true
         },
+        // the unique RCN number assigned by the EC when awarded.
+        rcn: {
+            type: Number,
+            required: true,
+            unique: true
+        },
         // the full title of the project
         title: {
             type: String,
@@ -93,6 +99,8 @@ projectSchema.pre('save', async function(next) {
 // INDEXES
 //
 projectSchema.index({ cw_id: 1 }) // index on the project's CW id
+projectSchema.index({ name: 1 }) // index on the project's CW id
+projectSchema.index({ rcn: 1 }) // index on the project's RCN
 
 //
 // MODEL

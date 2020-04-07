@@ -20,6 +20,7 @@ mixin projectRow(project)
     tr
         td #{project.cw_id}
         td #{project.name}
+        td #{project.rcn}
         td #{prettyDate(project.startDate)}
         td #{prettyDate(project.endDate)}
         td #{project.classification}
@@ -31,6 +32,28 @@ mixin projectRow(project)
 
 block content
 
+    //- h2 Import projects
+    //- p Note that the imported file MUST adhere to the following requirements:
+    //- ol: li The first line MUST be a column name line in the following order:
+    //-     ol: li name [String]
+    //-         li title [String]
+    //-         li teaser [String]
+    //-         li startDate [Date, yyyy-mm-dd notation]
+    //-         li endDate [Date, yyyy-mm-dd notation]
+    //-         li fundingCall [String]
+    //-         li type [String]
+    //-         li budget [Number]
+    //-         li projectURL [URL]
+    //-         li fundingBodyLink [URL]
+    //-         li projectHubLink [URL]
+    //-     li the file MUST be a TSV, i.e. a TAB separated file, not a comma separated file!
+
+    //- .import-projects-form: form(action="/api/v1/project" method="patch" enctype="multipart/form-data" ).form-import-proejcts#import-projects-form
+    //-     .form__group.form__file-upload
+    //-           input.form__upload(type='file', accept='text/tab-separated-values', id='importfile', name='importfile')
+    //-     .form__group
+    //-         button.btn#btn--import-projects Import projects
+
     h2 Add new project
     .new-project-form: form.form.form--new-project#new-project-form
         .form__group
@@ -39,6 +62,12 @@ block content
         .form__group
             label.form__label(for='title') Title
             input#title.form__input(type='string', placeholder='Title', required)
+        .form__group
+            label.form__label(for='rcn') RCN
+            input#rcn.form__input(type='number', placeholder='rcn', required)
+        .form__group
+            label.form__label(for='teaser') Teaser
+            textarea#teaser.form__input(type='string', placeholder='Teaser', required, cols="70", rows="10")
         .form__group
             label.form__label(for='startdate') Start date
             input#startdate.form__input(type='string', placeholder='yyyy-mm-dd', required)
@@ -64,10 +93,6 @@ block content
             label.form__label(for='cwprojecthublink') CW ProjectHUB link
             input#cwprojecthublink.form__input(type='string', placeholder='https://cyberwatching.eu/projects/...')
         .form__group
-            label.form__label(for='teaser') Teaser
-            textarea#teaser.form__input(type='string', placeholder='Teaser', required, cols="70", rows="10")
-
-        .form__group
             button.btn#btn--create-project Save project
 
     h2 Manage projects
@@ -76,6 +101,7 @@ block content
             tr
                 td CW ID
                 td Name
+                td RCN
                 td Start date
                 td End date
                 td Classification

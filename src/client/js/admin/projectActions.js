@@ -13,6 +13,7 @@ const createProject = async prjData => {
     try {
         const {
             name,
+            rcn,
             title,
             startDate,
             endDate,
@@ -29,6 +30,7 @@ const createProject = async prjData => {
             url: '/api/v1/project/',
             data: {
                 name,
+                rcn,
                 title,
                 startDate,
                 endDate,
@@ -86,6 +88,7 @@ const updateProject = async prjData => {
         const {
             name,
             title,
+            rcn,
             startDate,
             endDate,
             call,
@@ -102,6 +105,7 @@ const updateProject = async prjData => {
             data: {
                 name,
                 title,
+                rcn,
                 startDate,
                 endDate,
                 call,
@@ -126,10 +130,33 @@ const updateProject = async prjData => {
 }
 
 //
+// IMPORT PROJECTS FILE
+//
+// const importProjects = async data => {
+//     try {
+//         const res = await axios({
+//             method: 'PATCH',
+//             url: '/api/v1/project',
+//             data
+//         })
+
+//         if (res.data.status === 'success') {
+//             showAlert('success', 'Projects (not yet) imported.')
+//             window.setTimeout(() => {
+//                 location.assign('/admin/project')
+//             }, 1500)
+//         }
+//     } catch (err) {
+//         showAlert('error', err.response.data.message)
+//     }
+// }
+
+//
 // EXPORTS
 //
 module.exports = {
     createProject,
     deleteProject,
     updateProject
+    // importProjects
 }

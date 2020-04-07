@@ -16,7 +16,12 @@ import {
     updateUsersPassword
 } from './js/admin/userActions'
 import { createRadar, updateRadar, deleteRadar, advanceRadar } from './js/admin/radarActions'
-import { createProject, deleteProject, updateProject } from './js/admin/projectActions'
+import {
+    createProject,
+    deleteProject,
+    updateProject,
+    importProjects
+} from './js/admin/projectActions'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -254,6 +259,7 @@ if (newProjectForm) {
         event.preventDefault()
         const values = {
             name: document.getElementById('name').value,
+            rcn: document.getElementById('rcn').value,
             title: document.getElementById('title').value,
             startDate: document.getElementById('startdate').value,
             endDate: document.getElementById('enddate').value,
@@ -305,6 +311,7 @@ if (editProjectForm) {
         const values = {
             id: document.getElementById('projectid').value,
             name: document.getElementById('name').value,
+            rcn: document.getElementById('rcn').value,
             title: document.getElementById('title').value,
             startDate: document.getElementById('startdate').value,
             endDate: document.getElementById('enddate').value,
@@ -320,6 +327,19 @@ if (editProjectForm) {
         await updateProject(values)
     })
 }
+
+//
+// Upload a file and import the projects
+//
+// const uploadImportForm = document.getElementById('import-projects-form')
+// if (uploadImportForm) {
+//     uploadImportForm.addEventListener('submit', async event => {
+//         event.preventDefault()
+//         const form = new FormData()
+//         form.append('importfile', document.getElementById('importfile').files[0])
+//         importProjects(form)
+//     })
+// }
 
 // show alerts sent by the server
 const alertMsg = document.querySelector('body').dataset.alertmsg
