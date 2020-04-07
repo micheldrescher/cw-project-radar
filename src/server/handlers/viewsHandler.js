@@ -221,9 +221,8 @@ exports.editProject = catchAsync(async (req, res, next) => {
     // 2) Get all classifications and MTRL scores for the project
     const classifications = await Classification.find({ project: project._id })
     const mtrlScores = await MTRLScore.find({ project: project._id })
-    console.log(classifications)
-    console.log(mtrlScores)
-    // 2) Render radar edit page
+
+    // 3) Render radar edit page
     res.status(200).render('admin/editProject', {
         title: 'Edit project',
         project,
