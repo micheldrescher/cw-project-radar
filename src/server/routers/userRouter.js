@@ -6,6 +6,7 @@ const express = require('express')
 // app modules
 const authC = require('../controllers/authController')
 const userH = require('./../handlers/userHandler')
+const sanitiser = require('../utils/sanitiseJSON')
 
 //
 // CONFIGURE
@@ -24,7 +25,7 @@ router.post('/login', authC.login)
 // logout
 router.get('/logout', authC.protect, authC.logout)
 // update password
-router.patch('/updatePassword', authC.protect, authC.updatePassword)
+router.patch('/updatePassword', authC.protect, sanitiser.scrubBody, authC.updatePassword)
 
 //
 // ROUTES FOR ADMINS ONLY
@@ -33,15 +34,21 @@ router.patch('/updatePassword', authC.protect, authC.updatePassword)
 router
     .route('/')
     .get(authC.protect, authC.restrictTo('admin'), userH.getAllUsers)
-    .post(authC.protect, authC.restrictTo('admin'), userH.createUser)
+    .post(authC.protect, authC.restrictTo('admin'), sanitiser.scrubBody, userH.createUser)
 // get, update, delete
 router
     .route('/:id')
     .get(authC.protect, authC.restrictTo('admin'), userH.getUser)
-    .patch(authC.protect, authC.restrictTo('admin'), userH.updateUser)
+    .patch(authC.protect, authC.restrictTo('admin'), sanitiser.scrubBody, userH.updateUser)
     .delete(authC.protect, authC.restrictTo('admin'), userH.deleteUser)
 // admin updating user's password
-router.patch('/:id/password', authC.protect, authC.restrictTo('admin'), authC.updateUserPassword)
+router.patch(
+    '/:id/password',
+    authC.protect,
+    authC.restrictTo('admin'),
+    sanitiser.scrubBody,
+    authC.updateUserPassword
+)
 
 //
 // EXPORTS
