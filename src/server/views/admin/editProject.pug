@@ -5,29 +5,39 @@ extends ../_base
 //-     a(route=route, class=actionClass, style="cursor: pointer; margin: 0 2px;")
 //-         img(width=16, alt=label, src=imageStr)
 
-//- mixin projectRow(project)
-//-     -function prettyDate(date){
-//-         -var d = date.getDate(dateString);
-//-         -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-//-         -var m = monthNames[date.getMonth()];
-//-         -var y = date.getFullYear();
-//-         -return m+' '+y;
-//-     -} 
-//-     -function prettyMTRL(mtrl) {
-//-         - if (!mtrl) return ''
-//-         - return `MTRL: ${mtrl.mrl}, ${mtrl.trl}`
-//-     -}
-//-     tr
-//-         td #{project.cw_id}
-//-         td #{project.name}
-//-         td #{prettyDate(project.startDate)}
-//-         td #{prettyDate(project.endDate)}
-//-         td #{project.classification}
-//-         td #{prettyMTRL(project.mtrl)}
-//-         td
-//-             +action('edit-project', `Edit ${project.name}`, `/admin/project/edit/${project._id}`, 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNy4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9ItCh0LvQvtC5XzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTAwMHB4IiBoZWlnaHQ9IjEwMDBweCIgdmlld0JveD0iMCAwIDEwMDAgMTAwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwMCAxMDAwIiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGQ9Ik05NjguMTYxLDMxLjgzOWMzNi40NTYsMzYuNDU2LDM2LjM5Niw5NS41NDcsMCwxMzIuMDAzbC00My45OTEsNDMuOTkxTDc5Mi4xMzgsNzUuODNsNDMuOTkxLTQzLjk5MQ0KCUM4NzIuNTgzLTQuNTg2LDkzMS43MDQtNC42MTcsOTY4LjE2MSwzMS44Mzl6IE0zMDguMjM4LDU1OS43OWwtNDMuOTYsMTc1Ljk2M2wxNzUuOTYzLTQzLjk5MWw0MzkuOTM4LTQzOS45MzhMNzQ4LjE0NywxMTkuODIxDQoJTDMwOC4yMzgsNTU5Ljc5eiBNNzQ2LjYyNyw0NzMuMzg3djQwMi4xNzVIMTI0LjQzOFYyNTMuMzczaDQwMi4yMDRsMTI0LjQwNy0xMjQuNDM4SDBWMTAwMGg4NzEuMDY0VjM0OC45MThMNzQ2LjYyNyw0NzMuMzg3eiIvPg0KPC9zdmc+DQo=')
-//-             +action('delete-project', `Delete ${project.name}`, `/api/v1/project/${project._id}`, 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/Pgo8IURPQ1RZUEUgc3ZnIFBVQkxJQyAiLS8vVzNDLy9EVEQgU1ZHIDIwMDEwOTA0Ly9FTiIKICJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy1TVkctMjAwMTA5MDQvRFREL3N2ZzEwLmR0ZCI+CjxzdmcgdmVyc2lvbj0iMS4wIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiB3aWR0aD0iMTI4MC4wMDAwMDBwdCIgaGVpZ2h0PSIxMjgwLjAwMDAwMHB0IiB2aWV3Qm94PSIwIDAgMTI4MC4wMDAwMDAgMTI4MC4wMDAwMDAiCiBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJ4TWlkWU1pZCBtZWV0Ij4KPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMC4wMDAwMDAsMTI4MC4wMDAwMDApIHNjYWxlKDAuMTAwMDAwLC0wLjEwMDAwMCkiCmZpbGw9IiMwMDAwMDAiIHN0cm9rZT0ibm9uZSI+CjxwYXRoIGQ9Ik0xMzQ4IDExNDUyIGwtOTQzIC05NDIgMjA0OCAtMjA0OCBjMTEyNiAtMTEyNiAyMDQ3IC0yMDU0IDIwNDcKLTIwNjIgMCAtOCAtOTIxIC05MzYgLTIwNDcgLTIwNjIgbC0yMDQ4IC0yMDQ4IDk0MyAtOTQyIDk0MiAtOTQzIDIwNDggMjA0OApjMTEyNiAxMTI2IDIwNTQgMjA0NyAyMDYyIDIwNDcgOCAwIDkzNiAtOTIxIDIwNjIgLTIwNDcgbDIwNDggLTIwNDggOTQyIDk0Mwo5NDMgOTQyIC0yMDQ4IDIwNDggYy0xMTI2IDExMjYgLTIwNDcgMjA1NCAtMjA0NyAyMDYyIDAgOCA5MjEgOTM2IDIwNDcgMjA2MgpsMjA0OCAyMDQ4IC05NDMgOTQyIC05NDIgOTQzIC0yMDQ4IC0yMDQ4IGMtMTEyNiAtMTEyNiAtMjA1NCAtMjA0NyAtMjA2MgotMjA0NyAtOCAwIC05MzYgOTIxIC0yMDYyIDIwNDcgbC0yMDQ4IDIwNDggLTk0MiAtOTQzeiIvPgo8L2c+Cjwvc3ZnPgo=')
+mixin classificationRow(classification)
+    -function prettyDate(date) {
+        -var d = date.getDate(date);
+        -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+        -var m = monthNames[date.getMonth()];
+        -var y = date.getFullYear();
+        -return d+' '+m+' '+y;
+    -}
+    tr
+        td #{classification.classification}
+        td #{prettyDate(classification.classifiedOn)}
+        td #{classification.classifiedBy}
+        td #{classification.changeSummary}
 
+mixin mtrlScoreRow(score)
+    -function prettyDate(date) {
+        -var d = date.getDate(date);
+        -var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
+        -var m = monthNames[date.getMonth()];
+        -var y = date.getFullYear();
+        -return d+' '+m+' '+y;
+    -}
+    -function prettyMTRL(mrl, trl) {
+        - if (!mrl || !trl) return ''
+        - return `MTRL: ${mrl}, ${trl}`
+    -}
+    tr
+        td #{prettyDate(score.scoringDate)}
+        td #{prettyMTRL(score.mrl,score.trl)}
+
+mixin scaleOptions()
+    each val in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        option(value=val)= val
 
 block content
 
@@ -73,3 +83,56 @@ block content
             textarea#teaser.form__input(type='string', required, cols="70", rows="10")= project.teaser
         .form__group
             button.btn#btn--create-project Save project
+
+
+    h2 Add MTRL score
+    table
+        thead
+            tr
+                td When
+                td Score
+        each s in mtrlScores
+            +mtrlScoreRow(s)
+    
+    .addscore-form: form.form.form--add-score#add-score-form
+        .form__group
+            input#cwid.form__input(type='hidden', required, value=project.cw_id)
+        .form__group
+            label.form__label(for="mrl") MRL
+            select#mrl(name="mrl")
+                +scaleOptions()
+        .form__group
+            label.form__label(for="trl") TRL
+            select#trl(name="trl")
+                +scaleOptions()
+        .form__group
+            button.btn#btn--add-score Add
+
+    h2 Add Classification
+    table
+        thead
+            tr
+                td Classification
+                td When
+                td By
+                td Reason
+        each c in classifications
+            +classificationRow(c)
+    
+    .addcategory-form: form.form.form--add-category#add-category-form
+        .form__group
+            input#cwid.form__input(type='hidden', required, value=project.cw_id)
+        .form__group
+            label.form__label(for="classification") Category
+            select#classification(name="classification")
+                option(value="Secure Systems")= "Secure Systems"
+                option(value="Verification & Assurance")= "Verification & Assurance"
+                option(value="Operational Risk")= "Operational Risk"
+                option(value="Identity & Privacy")= "Identity & Privacy"
+                option(value="Cybersecurity Governance")= "Cybersecurity Governance"
+                option(value="Human Aspects")= "Human Aspects"
+        .form__group
+            label.form__label(for='changeSummary') Reason
+            input#changeSummary.form__input(type='string', required)
+        .form__group
+            button.btn#btn--add-category Add

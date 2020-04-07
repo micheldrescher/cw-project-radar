@@ -58,10 +58,6 @@ const createProject = async prjData => {
 //
 // Delete a project
 //
-
-//
-// delete a radar
-//
 const deleteProject = async (route, referrer) => {
     try {
         const res = await axios({

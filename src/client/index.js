@@ -22,6 +22,7 @@ import {
     updateProject,
     importProjects
 } from './js/admin/projectActions'
+import { addClassification, addScore } from './js/admin/scoreAndClassify'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -323,7 +324,6 @@ if (editProjectForm) {
             cwurl: document.getElementById('cwprojecthublink').value,
             teaser: document.getElementById('teaser').value
         }
-        console.log(values)
         await updateProject(values)
     })
 }
@@ -338,6 +338,36 @@ if (uploadImportForm) {
         const form = new FormData()
         form.append('importfile', document.getElementById('importfile').files[0])
         importProjects(form)
+    })
+}
+
+//
+// Add a category to a project
+//
+const addCategoryForm = document.getElementById('add-category-form')
+if (addCategoryForm) {
+    addCategoryForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const cw_id = document.getElementById('cwid').value
+        const classification = document.getElementById('classification').value
+        const classifiedBy = 'Cyberwatching' // for now this is hardcoded when using the web UI
+        const changeSummary = document.getElementById('changeSummary').value
+        addClassification(cw_id, classification, classifiedBy, changeSummary)
+    })
+}
+
+//
+// Add a MTRL score to a project
+//
+const addScoreForm = document.getElementById('add-score-form')
+if (addScoreForm) {
+    addScoreForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const cw_id = document.getElementById('cwid').value
+        const mrl = document.getElementById('mrl').value
+        const trl = document.getElementById('trl').value
+        console.log(cw_id, mrl, trl)
+        addScore(cw_id, mrl, trl)
     })
 }
 

@@ -6,6 +6,8 @@
 const APIFeatures = require('../utils/apiFeatures')
 const AppError = require('./../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
+const { Classification } = require('../models/classificationModel')
+const { MTRLScore } = require('../models/mtrlScoreModel')
 const classificationController = require('./../controllers/classificationController')
 const mtrlScoresController = require('./../controllers/mtrlScoresController')
 const logger = require('./../utils/logger')
@@ -13,7 +15,6 @@ const radarController = require('../controllers/radarController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
-
 //
 // MIDDLEWARE
 //
@@ -211,15 +212,22 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
 // Edit a project
 //
 exports.editProject = catchAsync(async (req, res, next) => {
-    // 1) Fetch the radar
+    // 1) Fetch the project
     const project = await Project.findById(req.params.id)
     if (!project) {
         return next(new AppError(`No project found with the given id!`, 404))
     }
 
+    // 2) Get all classifications and MTRL scores for the project
+    const classifications = await Classification.find({ project: project._id })
+    const mtrlScores = await MTRLScore.find({ project: project._id })
+    console.log(classifications)
+    console.log(mtrlScores)
     // 2) Render radar edit page
     res.status(200).render('admin/editProject', {
         title: 'Edit project',
-        project
+        project,
+        classifications,
+        mtrlScores
     })
 })
