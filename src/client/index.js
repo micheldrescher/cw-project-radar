@@ -238,15 +238,30 @@ if (updateRadarForm) {
     })
 }
 
+// //
+// // ADVANCE RADAR BUTTONS
+// //
+// const administerRadarsButtons = document.querySelectorAll('.administer-radar')
+// if (administerRadarsButtons) {
+//     administerRadarsButtons.forEach(link => {
+//         link.addEventListener('click', async event => {
+//             event.preventDefault()
+//             await advanceRadar(event.path[1].getAttribute('route'), location.href)
+//         })
+//     })
+// }
+
 //
-// ADVANCE RADAR BUTTONS
+// ADMINISTER RADAR BUTTONS
 //
-const administerRadarButtons = document.querySelectorAll('.administer-radar')
-if (administerRadarButtons) {
-    administerRadarButtons.forEach(link => {
-        link.addEventListener('click', async event => {
+const administerRadarForms = document.querySelectorAll('.administer-radar-form')
+if (administerRadarForms) {
+    administerRadarForms.forEach(form => {
+        form.addEventListener('submit', async event => {
             event.preventDefault()
-            await advanceRadar(event.path[1].getAttribute('route'), location.href)
+            const cutoff = document.getElementById('cutoff').value
+            const route = event.target.getAttribute('route')
+            advanceRadar(route, cutoff, location.href)
         })
     })
 }

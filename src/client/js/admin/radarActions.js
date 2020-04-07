@@ -80,11 +80,12 @@ const deleteRadar = async (route, referrer) => {
 //
 // delete a radar
 //
-const advanceRadar = async (route, referrer) => {
+const advanceRadar = async (route, cutoff, referrer) => {
+    const path = route.includes('populate') ? route + '/' + cutoff : route
     try {
         const res = await axios({
             method: 'PATCH',
-            url: route
+            url: path
         })
 
         if (res.data.status === 'success') {
