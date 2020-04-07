@@ -16,6 +16,12 @@ router
     .route('/')
     .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), projectHandler.getAllProjects)
     .post(authC.protect, authC.restrictTo('admin', 'cw-hub'), projectHandler.createProject)
+    .patch(
+        authC.protect,
+        authC.restrictTo('admin', 'cw-hub'),
+        projectHandler.importFile, // moves the multi-part file data into the request object
+        projectHandler.importProjects // reads from request object as usual
+    )
 router
     .route('/:id')
     .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), projectHandler.getProject)

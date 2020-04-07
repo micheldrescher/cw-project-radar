@@ -331,15 +331,15 @@ if (editProjectForm) {
 //
 // Upload a file and import the projects
 //
-// const uploadImportForm = document.getElementById('import-projects-form')
-// if (uploadImportForm) {
-//     uploadImportForm.addEventListener('submit', async event => {
-//         event.preventDefault()
-//         const form = new FormData()
-//         form.append('importfile', document.getElementById('importfile').files[0])
-//         importProjects(form)
-//     })
-// }
+const uploadImportForm = document.getElementById('import-projects-form')
+if (uploadImportForm) {
+    uploadImportForm.addEventListener('submit', async event => {
+        event.preventDefault()
+        const form = new FormData()
+        form.append('importfile', document.getElementById('importfile').files[0])
+        importProjects(form)
+    })
+}
 
 // show alerts sent by the server
 const alertMsg = document.querySelector('body').dataset.alertmsg

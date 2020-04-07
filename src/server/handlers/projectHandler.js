@@ -1,6 +1,8 @@
 //
 // IMPORTS
 //
+// libraries
+const multer = require('multer')
 // app modules
 const catchAsync = require('../utils/catchAsync')
 const handlerFactory = require('./handlerFactory')
@@ -8,6 +10,41 @@ const handlerFactory = require('./handlerFactory')
 const AppError = require('../utils/AppError')
 const { Project } = require('../models/projectModel')
 const projectController = require('../controllers/projectController')
+
+//
+// CONFIGURE MULTER FOR FILE UPLOADS
+//
+// store all uploads in memory
+const multerStorage = multer.memoryStorage()
+// filter out anything that is not text/csv or text/tsv
+const multerFilter = (req, file, cb) => {
+    if (file.mimetype.startsWith('text')) {
+        cb(null, true)
+    } else {
+        cb(new AppError('Not a text file!', 400), false)
+    }
+}
+// multer middleware to store multipart import-file data in the request object
+const upload = multer({
+    storage: multerStorage,
+    fileFilter: multerFilter
+})
+
+exports.importFile = upload.single('importfile')
+// actually imports the projects
+exports.importProjects = catchAsync(async (req, res, next) => {
+    // 1) Check if there is a file in the req object
+    if (!req.file) return next()
+
+    // 2) Pull the file's buffer and pass it onto the project controller
+    const result = await projectController.importProjects(req.file.buffer)
+
+    // 3 If all ok return a success / 200 OK response
+    res.status(201).json({
+        status: 'success',
+        messages: result.messages
+    })
+})
 
 exports.createProject = handlerFactory.createOne(
     Project,

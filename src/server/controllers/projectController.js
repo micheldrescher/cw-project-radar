@@ -7,6 +7,7 @@ const AppError = require('../utils/AppError')
 const { Classification } = require('../models/classificationModel')
 const { MTRLScore } = require('../models/mtrlScoreModel')
 const { Project } = require('../models/projectModel')
+const importHelper = require('./projects/projectsImportHelper')
 
 //
 // get by CW ID
@@ -60,4 +61,21 @@ exports.addMTRLScore = async (cwid, data) => {
     await project.save()
 
     return project
+}
+
+exports.importProjects = async buffer => {
+    // 1) Read the buffer into an array of objects
+    let result = await importHelper.parseTSV(buffer)
+    if (result.status !== 'success') {
+        throw new AppError(`Error parsing import file: ${result.messages[0]}`, 400)
+    }
+
+    // 2) Instantiate the data into Project documents (and store them right away)
+    result = await importHelper.createProjects(result)
+
+    // 3) Reverse the order of messages in result
+    result.messages.reverse()
+
+    // 4) return the result
+    return result
 }

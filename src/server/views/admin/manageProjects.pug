@@ -32,27 +32,28 @@ mixin projectRow(project)
 
 block content
 
-    //- h2 Import projects
-    //- p Note that the imported file MUST adhere to the following requirements:
-    //- ol: li The first line MUST be a column name line in the following order:
-    //-     ol: li name [String]
-    //-         li title [String]
-    //-         li teaser [String]
-    //-         li startDate [Date, yyyy-mm-dd notation]
-    //-         li endDate [Date, yyyy-mm-dd notation]
-    //-         li fundingCall [String]
-    //-         li type [String]
-    //-         li budget [Number]
-    //-         li projectURL [URL]
-    //-         li fundingBodyLink [URL]
-    //-         li projectHubLink [URL]
-    //-     li the file MUST be a TSV, i.e. a TAB separated file, not a comma separated file!
+    h2 Import projects
+    p Note that the imported file MUST adhere to the following requirements:
+    ol: li The first line MUST be a column name line in the following order:
+        ol: li name [String]
+            li rcn
+            li fundingCall [String]
+            li type [String]
+            li startDate [Date, yyyy-mm-dd notation]
+            li endDate [Date, yyyy-mm-dd notation]
+            li budget [Number]
+            li title [String]
+            li teaser [String]
+            li projectURL [URL]
+            li fundingBodyLink [URL]
+            li projectHubLink [URL]
+        li the file MUST be a TSV, i.e. a TAB separated file, not a comma separated file!
 
-    //- .import-projects-form: form(action="/api/v1/project" method="patch" enctype="multipart/form-data" ).form-import-proejcts#import-projects-form
-    //-     .form__group.form__file-upload
-    //-           input.form__upload(type='file', accept='text/tab-separated-values', id='importfile', name='importfile')
-    //-     .form__group
-    //-         button.btn#btn--import-projects Import projects
+    .import-projects-form: form(action="/api/v1/project" method="patch" enctype="multipart/form-data" ).form-import-proejcts#import-projects-form
+        .form__group.form__file-upload
+              input.form__upload(type='file', accept='text/tab-separated-values', id='importfile', name='importfile')
+        .form__group
+            button.btn#btn--import-projects Import projects
 
     h2 Add new project
     .new-project-form: form.form.form--new-project#new-project-form
