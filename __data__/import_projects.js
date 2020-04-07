@@ -131,6 +131,7 @@ const createProjects = data => {
         const project = new Project({
             name: prj.name,
             cw_id: prj.cw_id,
+            rcn: prj.rcn,
             call: prj.call,
             type: prj.type,
             startDate: moment(prj.startDate, 'MMM YYYY'),
