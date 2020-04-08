@@ -72,12 +72,6 @@ router.patch(
     handler.archiveRadar
 )
 router.patch('/:slug/reset', authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.resetRadar)
-router.patch(
-    '/:slug/republish',
-    authC.protect,
-    authC.restrictTo('admin', 'cw-hub'),
-    handler.republishRadar
-)
 
 //
 // EXPORTS

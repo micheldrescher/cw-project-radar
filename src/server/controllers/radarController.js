@@ -246,6 +246,34 @@ exports.archiveRadar = async slug => {
 }
 
 //
+// Reset a radar
+//
+exports.resetRadar = async slug => {
+    // 1) Get the radar for the slug
+    const radar = await this.getRadarBySlug(slug)
+    if (!radar) {
+        throw new AppError(`No radar found for id ${slug}.`, 404)
+    }
+    // 2) Delete all associated data
+    await RadarData.deleteOne({ radar: radar._id })
+    await RadarRendering.deleteOne({ radar: radar._id })
+
+    // 3) set status to 'created'
+    radar.status = 'created'
+
+    // 4) Reset, publication date, reference date, data, and rendering to 'undefined'
+    radar.publicationDate = undefined
+    radar.referenceDate = undefined
+    radar.data = undefined
+    radar.rendering = undefined
+
+    // 5) save radar, and return it
+    await radar.save()
+
+    return radar
+}
+
+//
 // Calculate statistics for each ring
 //
 const calculateStatistics = entries => {

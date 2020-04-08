@@ -105,7 +105,7 @@ exports.publishRadar = catchAsync(async (req, res, next) => {
 
     const radar = await radarController.publishRadar(slug)
     if (!radar || radar.length === 0) {
-        return next(new AppError(`Error while populating the radar.`, 500))
+        return next(new AppError(`Error while publishing the radar.`, 500))
     }
 
     res.status(200).json({
@@ -120,7 +120,7 @@ exports.archiveRadar = catchAsync(async (req, res, next) => {
 
     const radar = await radarController.archiveRadar(slug)
     if (!radar || radar.length === 0) {
-        return next(new AppError(`Error while populating the radar.`, 500))
+        return next(new AppError(`Error while archiving the radar.`, 500))
     }
 
     res.status(200).json({
@@ -131,10 +131,15 @@ exports.archiveRadar = catchAsync(async (req, res, next) => {
 
 // reset the radar
 exports.resetRadar = catchAsync(async (req, res, next) => {
-    httpResponses.notImplemented(res)
-})
+    const { slug } = req.params
 
-// reset the radar
-exports.republishRadar = catchAsync(async (req, res, next) => {
-    httpResponses.notImplemented(res)
+    const radar = await radarController.resetRadar(slug)
+    if (!radar || radar.length === 0) {
+        return next(new AppError(`Error while populating the radar.`, 500))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        radar
+    })
 })
