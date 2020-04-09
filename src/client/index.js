@@ -381,8 +381,9 @@ if (addScoreForm) {
         const cw_id = document.getElementById('cwid').value
         const mrl = document.getElementById('mrl').value
         const trl = document.getElementById('trl').value
-        console.log(cw_id, mrl, trl)
-        addScore(cw_id, mrl, trl)
+        const scoringDate = document.getElementById('scoringdate').value
+        console.log(cw_id, mrl, trl, scoringDate)
+        addScore(cw_id, mrl, trl, scoringDate)
     })
 }
 

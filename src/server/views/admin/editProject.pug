@@ -14,8 +14,8 @@ mixin classificationRow(classification)
         -return d+' '+m+' '+y;
     -}
     tr
-        td #{classification.classification}
         td #{prettyDate(classification.classifiedOn)}
+        td #{classification.classification}
         td #{classification.classifiedBy}
         td #{classification.changeSummary}
 
@@ -94,6 +94,8 @@ block content
         each s in mtrlScores
             +mtrlScoreRow(s)
     
+    p
+
     .addscore-form: form.form.form--add-score#add-score-form
         .form__group
             input#cwid.form__input(type='hidden', required, value=project.cw_id)
@@ -106,14 +108,17 @@ block content
             select#trl(name="trl")
                 +scaleOptions()
         .form__group
+            label.form__label(for="scoringDate") Scored on
+            input#scoringdate.form__input(type="date")
+        .form__group
             button.btn#btn--add-score Add
 
     h2 Add Classification
     table
         thead
             tr
-                td Classification
                 td When
+                td Classification
                 td By
                 td Reason
         each c in classifications
