@@ -1,6 +1,6 @@
 {
 	"_id": {
-		"$oid": "5e6fb0920651af3964f64375"
+		"$oid": "5e905641a4f5467bec36bef8"
 	},
 	"status": "published",
 	"year": 2018,
@@ -10,21 +10,21 @@
 	"name": "Autumn 2018",
 	"__v": 0,
 	"data": {
-		"$oid": "5e6fb0a5a14539368d07ed12"
+		"$oid": "5e905dcacccf2b8263d3abe8"
 	},
 	"referenceDate": {
-		"$date": "2018-09-30T23:00:00Z"
+		"$date": "2018-11-01T00:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5e6fb0aca14539368d07ed9e"
+		"$oid": "5e905dd4cccf2b8263d3ac8e"
 	},
 	"publicationDate": {
-		"$date": "2020-03-16T17:00:42.538Z"
+		"$date": "2020-04-10T11:51:52.654Z"
 	}
 }
 {
 	"_id": {
-		"$oid": "5e6fb0920651af3964f64376"
+		"$oid": "5e905641a4f5467bec36bef9"
 	},
 	"status": "published",
 	"year": 2019,
@@ -34,21 +34,21 @@
 	"name": "Spring 2019",
 	"__v": 0,
 	"data": {
-		"$oid": "5e6fb0e0a14539368d07ed9f"
+		"$oid": "5e905e20cccf2b8263d3ac8f"
 	},
 	"referenceDate": {
 		"$date": "2019-04-30T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5e6fb0eaa14539368d07ee2a"
+		"$oid": "5e905e24cccf2b8263d3ad3e"
 	},
 	"publicationDate": {
-		"$date": "2020-03-16T17:01:41.721Z"
+		"$date": "2020-04-10T11:53:12.135Z"
 	}
 }
 {
 	"_id": {
-		"$oid": "5e6fb0920651af3964f64377"
+		"$oid": "5e905641a4f5467bec36befa"
 	},
 	"status": "published",
 	"year": 2019,
@@ -58,21 +58,21 @@
 	"name": "Autumn 2019",
 	"__v": 0,
 	"data": {
-		"$oid": "5e6fb111a14539368d07ee2b"
+		"$oid": "5e905e58cccf2b8263d3ad3f"
 	},
 	"referenceDate": {
 		"$date": "2019-11-01T00:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5e6fb118a14539368d07eeb4"
+		"$oid": "5e905e5ccccf2b8263d3ae00"
 	},
 	"publicationDate": {
-		"$date": "2020-03-16T17:02:23.777Z"
+		"$date": "2020-04-10T11:54:24.393Z"
 	}
 }
 {
 	"_id": {
-		"$oid": "5e6fb0920651af3964f64378"
+		"$oid": "5e905641a4f5467bec36befb"
 	},
 	"status": "created",
 	"year": 2020,
@@ -84,7 +84,7 @@
 }
 {
 	"_id": {
-		"$oid": "5e6fb0920651af3964f64379"
+		"$oid": "5e905641a4f5467bec36befc"
 	},
 	"status": "created",
 	"year": 2020,
