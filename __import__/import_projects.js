@@ -90,7 +90,7 @@ const importProjects = () => {
     return new Promise((resolve, reject) => {
         const data = []
         console.log('\n==> IMPORTING ALL PROJECTS')
-        fs.createReadStream('__data__/projects.tsv')
+        fs.createReadStream('__import__/projects.tsv')
             .pipe(csv.parse(csvParseOptions))
 
             .on('error', error => {

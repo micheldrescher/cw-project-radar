@@ -71,7 +71,7 @@ const importClassifications = () => {
     return new Promise((resolve, reject) => {
         console.log('\n==> IMPORTING classifications')
         const data = []
-        fs.createReadStream('__data__/segments.tsv')
+        fs.createReadStream('__import__/segments.tsv')
             .pipe(csv.parse(csvParseOptions))
 
             .on('error', error => {

@@ -54,9 +54,18 @@ const runScript = async () => {
     const deleteResult = await MTRLScore.deleteMany({})
     console.log(`Deleted ${deleteResult.deletedCount} MTRL scores.`)
 
-    const autumn2018Data = await importScores('__data__/radar_autumn_2018.tsv', '2018-08-31')
-    const spring2019Data = await importScores('__data__/radar_spring_2019.tsv', '2019-03-31')
-    const autumn2019Data = await importScores('__data__/radar_autumn_2019.tsv', '2019-08-31')
+    const autumn2018Data = await importScores(
+        '__import__/mtrl_scores_autumn_2018.tsv',
+        '2018-08-31'
+    )
+    const spring2019Data = await importScores(
+        '__import__/mtrl_scores_spring_2019.tsv',
+        '2019-03-31'
+    )
+    const autumn2019Data = await importScores(
+        '__import__/mtrl_scores_autumn_2019.tsv',
+        '2019-08-31'
+    )
 
     const data = filterData(autumn2018Data.concat(spring2019Data.concat(autumn2019Data)))
 
@@ -93,8 +102,8 @@ const importScores = (path, date) => {
                 data.push({
                     id: obj.id,
                     name: obj.name,
-                    trl: obj.TRL,
-                    mrl: obj.MRL,
+                    trl: obj.trl,
+                    mrl: obj.mrl,
                     date: aDate
                 })
             })
