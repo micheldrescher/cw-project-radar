@@ -152,7 +152,6 @@ cw_id	name	segment
 151	REACT	Secure Systems
 152	SerIoT	Secure Systems
 153	YAKSHA	Secure Systems
-154	DECODE	
 155	CYBER-TRUST	Secure Systems
 158	PRIVILEDGE	Identity & Privacy
 159	FUTURE TPM	Verification & Assurance
@@ -185,3 +184,76 @@ cw_id	name	segment
 186	symbIoTe	Secure Systems
 187	CREATE-IoT	
 188	SecureIoT	Secure Systems
+189	CAPITAL	
+190	IPaCSO	
+191	PANOPTESEC	Secure Systems
+192	SERENITI	Secure Systems
+193	SecureCloud	Secure Systems
+194	ASCEMA	Secure Systems
+195	LipVerify	Secure Systems
+196	ConnectProtect	Secure Systems
+197	ThreatMark	Secure Systems
+198	Eye-O-T	Secure Systems
+199	PerfectDashboard 2.0	Secure Systems
+200	CHINO	Secure Systems
+201	CyberSure	Verification & Assurance
+202	LIMPET	
+203	LocationWise	Secure Systems
+204	PROOFY	
+205	cyberwatching.eu	
+206	UNFRAUD	Secure Systems
+207	CLTRe	Identity & Privacy
+208	3ants	
+209	GO 4G	Identity & Privacy
+210	SAFETY 4.0	
+211	TFence	Secure Systems
+212	UltraFiBi	Secure Systems
+213	ProtonSuite	Identity & Privacy
+214	RPS	
+215	SecureHospitals.eu	
+216	ASCLEPIOS	Identity & Privacy
+217	CUREX	Operational Risk
+218	V-SPHERE	Secure Systems
+219	AF-Cyber	Verification & Assurance
+220	SIGAGuard	Secure Systems
+221	TrueProactive	Secure Systems
+222	RESISTO	Operational Risk
+223	SECREDAS	Verification & Assurance
+224	ELIoT Pro	Secure Systems
+225	CYBERSECURITY	Human Aspects
+226	Blocknetwork	Secure Systems
+227	SAFECARE	Secure Systems
+228	ADVERSARY	Human Aspects
+229	SPHINX	Secure Systems
+230	SERUMS	Secure Systems
+231	SECONDO	Operational Risk
+232	TRINITY	Secure Systems
+233	RADDICS	Operational Risk
+234	FeatureCloud	Secure Systems
+235	SamurAI	
+236	D-FENCE	Secure Systems
+237	nIoVe	Secure Systems
+238	GUARD	Secure Systems
+239	InfraStress	Secure Systems
+240	ODIX 2.0	Secure Systems
+241	C4IIoT	Secure Systems
+242	CYBERCULT	Human Aspects
+243	SOTER	Secure Systems
+244	SPIDER	Operational Risk
+245	EnergyShield	Secure Systems
+246	CRITICAL-CHAINS	Operational Risk
+247	MALAGA	Operational Risk
+248	CyberSANE	Secure Systems
+249	Cyber-MAR	Secure Systems
+250	PHOENIX	Secure Systems
+251	DAN	Operational Risk
+252	vACCINE	Secure Systems
+253	CARAMEL	Secure Systems
+254	FORESIGHT	Verification & Assurance
+255	5GZORRO	Verification & Assurance
+256	LOCARD	Verification & Assurance
+257	INSPIRE-5Gplus	Operational Risk
+258	AERAS	Verification & Assurance
+259	UP2DATE	Secure Systems
+260	1-SWARM	Secure Systems
+261	SAPPAN	Secure Systems
