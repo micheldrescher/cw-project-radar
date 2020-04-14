@@ -15,6 +15,7 @@ const radarController = require('../controllers/radarController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
+const { jrcTaxonomy } = require('./../../common/js/lib/jrc-taxonomy')
 //
 // MIDDLEWARE
 //
@@ -224,11 +225,12 @@ exports.editProject = catchAsync(async (req, res, next) => {
     })
     const mtrlScores = await MTRLScore.find({ project: project._id }).sort({ scoringDate: 1 })
 
-    // 3) Render radar edit page
+    // 4) Render radar edit page
     res.status(200).render('admin/editProject', {
         title: 'Edit project',
         project,
         classifications,
-        mtrlScores
+        mtrlScores,
+        jrcTaxonomy
     })
 })

@@ -141,3 +141,27 @@ block content
             input#changeSummary.form__input(type='string', required)
         .form__group
             button.btn#btn--add-category Add
+
+    h2 Edit project tags
+    .edittags-form: form.form.form--edit-tags#edit-tags-form
+        +jrcDimension(jrcTaxonomy.cybersecurity)
+        +jrcDimension(jrcTaxonomy.sectors)
+        +jrcDimension(jrcTaxonomy.technology)
+        .form__group
+            button.btn#btn--edit-Tags Set tags
+
+mixin jrcDimension(dimension)
+    ul: li
+        - if (project.tags.includes(dimension.tag))
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag, checked)
+        - else 
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
+        label(for=dimension.tag)= dimension.name
+        li: ul
+            each term in dimension.terms
+                li 
+                    - if (project.tags.includes(term.tag))
+                        input.term(type='checkbox', name=term.tag, value=term.tag, checked)
+                    - else 
+                        input.term(type='checkbox', name=term.tag, value=term.tag)
+                    label(for=term.tag)= term.name

@@ -387,6 +387,55 @@ if (addScoreForm) {
     })
 }
 
+//
+// Taxonomy tag checkboxes
+//
+// when selecting a dimension header, unselect al the dimension's terms
+const dimensionHeaders = document.querySelectorAll('.dimension-header')
+if (dimensionHeaders) {
+    dimensionHeaders.forEach(box => {
+        box.addEventListener('click', event => {
+            const termBoxes = box.parentNode.parentNode.querySelectorAll('.term')
+            termBoxes.forEach(tB => (tB.checked = false))
+        })
+    })
+}
+// when selecting a dimension's term, unselect the dimension header
+const dimensionTerms = document.querySelectorAll('.term')
+if (dimensionTerms) {
+    dimensionTerms.forEach(termBox => {
+        termBox.addEventListener('click', event => {
+            const parentBox = termBox.parentNode.parentNode.parentNode.parentNode.querySelector(
+                '.dimension-header'
+            )
+            parentBox.checked = false
+        })
+    })
+}
+
+//
+// Taxonomy tags submit
+//
+const taxonomySubmit = document.getElementById('edit-tags-form')
+if (taxonomySubmit) {
+    taxonomySubmit.addEventListener('submit', async event => {
+        event.preventDefault()
+        const values = {
+            id: document.getElementById('projectid').value,
+            tags: []
+        }
+        const checked = []
+        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach(c => {
+            values.tags.push(c.value)
+        })
+        await updateProject(values)
+    })
+}
+
+//
+//
+//
+
 // show alerts sent by the server
 const alertMsg = document.querySelector('body').dataset.alertmsg
 const alertType = document.querySelector('body').dataset.alerttype

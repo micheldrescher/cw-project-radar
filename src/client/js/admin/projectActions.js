@@ -93,7 +93,8 @@ const updateProject = async prjData => {
             projectURL,
             fundingBodyLink,
             cwurl,
-            teaser
+            teaser,
+            tags
         } = prjData
         const res = await axios({
             method: 'PATCH',
@@ -110,7 +111,8 @@ const updateProject = async prjData => {
                 projectURL,
                 fundingBodyLink,
                 cwurl,
-                teaser
+                teaser,
+                tags
             }
         })
 

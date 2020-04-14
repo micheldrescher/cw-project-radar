@@ -5,7 +5,16 @@
 const mongoose = require('mongoose')
 const validator = require('validator')
 // modules
+const AppError = require('./../utils/AppError')
 const nextSeq = require('./sequenceModel')
+const { getAllTags } = require('./jrc-taxonomy')
+
+const isValidTerm = value => {
+    const allTags = getAllTags()
+    value.forEach(term => {
+        if (!allTags.includes(term)) throw new AppError(`${term} is an invalid tag.`, 400)
+    })
+}
 
 const projectSchema = new mongoose.Schema(
     {
@@ -75,6 +84,13 @@ const projectSchema = new mongoose.Schema(
         cwurl: {
             type: String,
             validate: [validator.isURL, 'Invalid URL.']
+        },
+        tags: {
+            type: [String],
+            validate: {
+                validator: isValidTerm,
+                message: props => `${props.value} is not a valid JRC taxonomy term tag!`
+            }
         }
     },
     {
