@@ -263,18 +263,61 @@ header.header {
     left: 0;
 }
 
-/* Radar overview */
+/********************
+ *                  *
+ *  Radar overview  *
+ *                  *
+ ********************/
+/* The radar title */
 #radar > #overview > h1 {
     font-size: 2.5em;
     text-align: center;
     margin-bottom: 0.5em;
 }
 
-#radar > #overview > div {
+/* Radar description incl. animation */
+#radar > #overview > #summary-container {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid lightgray;
+    border-radius: 10px;
+    display: flex;
+    align-items: stretch;
+    height: 3.5em;
+    transition: 0.3s;
+}
+#radar > #overview > #summary-container.open {
+    height: 15em;
+}
+/* The content area */
+#radar > #overview > #summary-container > #scroller {
+    overflow-y: scroll;
+    margin: 1em;
+}
+#radar > #overview > #summary-container > #scroller > #summary {
     text-align: center;
     font-size: 1.2em;
 }
+/* the flicker area */
+#radar > #overview > #summary-container > #flicker {
+    border-left: 1px solid lightgray;
+}
+#radar > #overview > #summary-container > #flicker > #summary-flicker {
+    width: 1.5em;
+    font-size: 1.2em;
+    text-align: center;
+    line-height: 2em;
+    transition-duration: 0.3s;
+    height: 1.5em;
+    cursor: pointer;
+}
+#radar > #overview > #summary-container > #flicker > #summary-flicker.open {
+    transition-duration: 0.3s;
+    transform: rotateX(180deg);
+}
 
+/* The radar rendering and tables area */
 #radardata {
     display: flex;
 }

@@ -433,10 +433,19 @@ if (taxonomySubmit) {
 }
 
 //
+// Radar description expander
 //
-//
+const rdExpander = document.querySelector('#overview #summary-flicker')
+if (rdExpander) {
+    console.log('Expander!')
+    rdExpander.addEventListener('click', event => {
+        event.target.classList.toggle('open')
+        event.target.parentNode.parentNode.classList.toggle('open')
+        console.log(event.target.parentNode.parentNode)
+    })
+}
 
 // show alerts sent by the server
 const alertMsg = document.querySelector('body').dataset.alertmsg
 const alertType = document.querySelector('body').dataset.alerttype
-if (alertMsg && alertType) showAlert(alertType, alertMsg, 500)
+if (alertMsg && alertType) showAlert(alertType, alertMsg, 2000)

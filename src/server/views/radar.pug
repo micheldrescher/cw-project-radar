@@ -11,7 +11,14 @@ block content
     section#radar
         section#overview
             h1 #{radar.name}
-            div #{radar.summary}
+            #summary-container 
+                #scroller
+                    #summary #{radar.summary}
+                #flicker
+                    #summary-flicker &#x2303
+
+        section#filters
+
         section#radardata
             #rendering
                 != radar.rendering.rendering.get('svg')
