@@ -7,6 +7,9 @@ block header
     else 
         div #{header}
 
+block footer
+    div #{footer}
+
 block content
     .prjTitle  #{project.title}
     .prjTeaser #{project.teaser}
@@ -24,22 +27,4 @@ block content
             .mtrl
                 #mrl.key MRL <span>#{blip.mrl}</span>
                 #trl.key TRL <span>#{blip.trl}</span>
-block footer
-    div #{footer}
-
-
-//-     <section class="content">
-//-         <div id="score">
-//-             <div id="scale" style="width: 49.7%;display: inline-block;">
-//-                 <div></div>
-//-                 <svg viewBox="-25 -20 400 50" style="width: 400px;height: 50px;display:  inline-block;"><g class="data"><path d="M0,0L0,10" stroke-width="1" stroke="black"></path><path d="M43.08510638297872,0L43.08510638297872,10" stroke-width="1" stroke="black"></path><path d="M450,0L450,10" stroke-width="1" stroke="black"></path><path d="M0,0L450,0" stroke-width="2" stroke="black"></path><text x="0" y="25">min</text><text x="43.08510638297872" y="25">median</text><text x="450" y="25">max</text><path d="M450,0L450,-15" stroke-width="3" stroke="red"></path></g></svg>
-//-             </div>
-//-             <div id="mtrl" style="display:  inline-block;vertical-align: top;width: 49.7%;font-size:  0.9em;">
-//-                 <div id="mrl">MRL: <span>3</span></div>
-//-                 <div id="trl">TRL: <span>3</span></div>
-//-             </div>
-//-         </div>
-//-     </section>
-//-     <footer>footer</footer>
-//- </div>
 
