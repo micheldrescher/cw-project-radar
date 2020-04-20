@@ -15,7 +15,7 @@ const radarController = require('../controllers/radarController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
-const { jrcTaxonomy } = require('./../../common/js/lib/jrc-taxonomy')
+const { jrcTaxonomy } = require('./../models/jrc-taxonomy')
 //
 // MIDDLEWARE
 //
@@ -68,7 +68,8 @@ exports.showRadar = catchAsync(async (req, res, next) => {
     // 4) Show success page
     res.status(200).render(`${__dirname}/../views/radar`, {
         title: radar.name,
-        radar
+        radar,
+        jrcTaxonomy
     })
 })
 
