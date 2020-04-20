@@ -437,11 +437,9 @@ if (taxonomySubmit) {
 //
 const rdExpander = document.querySelector('#overview #summary-flicker')
 if (rdExpander) {
-    console.log('Expander!')
     rdExpander.addEventListener('click', event => {
         event.target.classList.toggle('open')
         event.target.parentNode.parentNode.classList.toggle('open')
-        console.log(event.target.parentNode.parentNode)
     })
 }
 
