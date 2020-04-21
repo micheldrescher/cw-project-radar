@@ -162,14 +162,18 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
     var y = coords[1]
 
     // 1) A blip is a group of a circle and a number (as text)
-    const blipGroup = root
+    let blipGroup = root
         .select(`g.segment.segment-${segIdx}`)
         .append('g')
         .attr('class', 'blip')
         .attr('id', `blip-${blip.cw_id}`)
         .attr('transform', `translate(${x}, ${y})`)
         .attr('label', `${blip.cw_id}. ${blip.prj_name}`)
-        .attr('data', JSON.stringify(blip))
+    // add the tags as direct DOM attribute
+    if (blip.tags && blip.tags.length > 0) blipGroup = blipGroup.attr('tags', blip.tags.join(' '))
+    // finally add the blip data
+    blip.tags = undefined // they are already plotted, no need to do that twice
+    blipGroup = blipGroup.attr('data', JSON.stringify(blip))
 
     // 2) Add the circle to the blup group
     const colour = arcColour(blip)
