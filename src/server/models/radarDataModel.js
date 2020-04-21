@@ -15,6 +15,7 @@ const blipSchema = new mongoose.Schema({
         ref: 'Project',
         required: [true, 'Radar blip entry must have a project reference']
     },
+    tags: [String],
     cw_id: Number, // temporary
     prj_name: String, // temporary
     segment: String, // temporary

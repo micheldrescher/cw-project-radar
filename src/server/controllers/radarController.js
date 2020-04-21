@@ -128,6 +128,7 @@ exports.populateRadar = async (slug, date) => {
             entries.forEach(e => {
                 const blip = new Blip({
                     project: e.prj._id,
+                    tags: e.prj.tags,
                     cw_id: e.prj.cw_id, // temporary
                     prj_name: e.prj.name, // temporary
                     segment: segKey, // temporary
