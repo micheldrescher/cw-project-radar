@@ -292,8 +292,9 @@ header.header {
 }
 /* The content area */
 #radar > #overview > #summary-container > #scroller {
-    overflow-y: scroll;
+    overflow-y: auto;
     margin: 1em;
+    width: 100%;
 }
 #radar > #overview > #summary-container > #scroller > #summary {
     text-align: center;
