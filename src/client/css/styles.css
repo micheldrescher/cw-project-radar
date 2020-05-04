@@ -286,9 +286,10 @@ header.header {
     align-items: stretch;
     height: 3.5em;
     transition: 0.3s;
+    max-height: 15em;
 }
 #radar > #overview > #summary-container.open {
-    height: 15em;
+    height: min-content;
 }
 /* The content area */
 #radar > #overview > #summary-container > #scroller {
@@ -493,7 +494,7 @@ section.modal > div.modal-window > header > div.closeBtn:focus {
  */
 section.modal > div.modal-window > section {
     flex: 1 1 auto;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 /*
@@ -515,6 +516,21 @@ div.modal > div.window > footer {
     border-top: 1px solid #666;
     background-color: #ddd;
 }
+
+/******************************
+ *                            *
+ *  MODAL dialogue Ok/Cancel  *
+ *                            *
+ ******************************/
+/* The button bar of a Yes/No etc modal dialogue */
+section.modal > div.modal-window > section.buttonbar {
+    flex: 1 0 auto;
+    text-align: center;
+    padding: 0.5em;
+    border-top: 1px solid lightgrey;
+    margin: 0.5em 0 0 0;
+}
+/* The action buttons get some styling as well */
 
 /********************************
  *  Project info modal content  *
@@ -590,4 +606,19 @@ div.modal > div.window > footer {
 }
 #projectInfo .score .mtrl #trl {
     flex: 1 1 0px;
+}
+
+/*************************************
+ *                                   *
+ *  JRC Taxonomy edit/filters forms  *
+ *                                   *
+ ************************************/
+form.form--filter-tags ul,
+form.form--edit-tags ul {
+    list-style: none;
+}
+
+form.form--filter-tags > ul > li:first-child {
+    font-weight: bold;
+    font-size: 1.2em;
 }

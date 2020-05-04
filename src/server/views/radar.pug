@@ -4,11 +4,13 @@ block append head
     script(src='https://d3js.org/d3.v5.min.js')
     script(src='/lib/d3-tip.js')
     script(src='/views/projectInfo.js')
+    script(src='/views/jrcTaxonomyFilterModal.js')
 
 //- Main content block for the page.
 block content
     //- The radar section
     section#radar
+
         section#overview
             h1 #{radar.name}
             #summary-container 
@@ -17,12 +19,14 @@ block content
                 #flicker
                     #summary-flicker &#x2303
 
-        section#filters
+        section#radarview
+            section#filters
+                include _jrcfilter
 
-        section#radardata
-            #rendering
-                != radar.rendering.rendering.get('svg')
-            #tables
-                != radar.rendering.rendering.get('tables')
+            section#radardata
+                #rendering
+                    != radar.rendering.rendering.get('svg')
+                #tables
+                    != radar.rendering.rendering.get('tables')
 
 

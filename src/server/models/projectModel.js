@@ -7,7 +7,7 @@ const validator = require('validator')
 // modules
 const AppError = require('./../utils/AppError')
 const nextSeq = require('./sequenceModel')
-const { getAllTags } = require('./jrc-taxonomy')
+const { getAllTags } = require('./../../common/datamodel/jrc-taxonomy')
 
 const isValidTerm = value => {
     const allTags = getAllTags()

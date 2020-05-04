@@ -1,0 +1,23 @@
+extends _okCancelModal
+
+block content
+    .filtertags-form: form.form.form--filter-tags#filter-tags-form
+        +jrcDimension(jrcTaxonomy.cybersecurity)
+        +jrcDimension(jrcTaxonomy.sectors)
+        +jrcDimension(jrcTaxonomy.technology)
+
+mixin jrcDimension(dimension)
+    ul: li
+        //- - if (project.tags.includes(dimension.tag))
+        //-     input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag, checked)
+        //- - else 
+        input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
+        label(for=dimension.tag)= dimension.name
+        li: ul
+            each term in dimension.terms
+                li 
+                    - if (filterTags.includes(term.tag))
+                        input.term(type='checkbox', name=term.tag, value=term.tag, checked)
+                    - else 
+                        input.term(type='checkbox', name=term.tag, value=term.tag)
+                    label(for=term.tag)= term.name

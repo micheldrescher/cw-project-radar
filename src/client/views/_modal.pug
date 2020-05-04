@@ -2,7 +2,11 @@ section.modal(id=modalID): .modal-window
     header
         .closeBtn &times;
         block header
-    section
-        block content
-    footer
-        block footer
+
+    section.toolbar: block toolbar
+
+    section: block content
+
+    section.buttonbar: block buttons
+    
+    footer: block footer

@@ -15,7 +15,7 @@ const radarController = require('../controllers/radarController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
-const { jrcTaxonomy } = require('./../models/jrc-taxonomy')
+const { jrcTaxonomy } = require('./../../common/datamodel/jrc-taxonomy')
 //
 // MIDDLEWARE
 //

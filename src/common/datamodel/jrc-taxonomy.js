@@ -175,7 +175,7 @@ const sectors = {
  */
 const technology = {
     tag: 'technology',
-    name: 'Technology & User Cases',
+    name: 'Technology & Use Cases',
     description: '',
     terms: [
         {

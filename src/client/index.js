@@ -6,6 +6,8 @@
 
 // app modules
 import linkupRadar from './js/radar/linkupRadar'
+import filterProjects from './js/radar/filterProjects'
+import showFilterTagForm from './js/radar/filterTags'
 import showAlert from './js/util/alert'
 import { login, logout } from './js/user/login'
 import changePassword from './js/user/userSettings'
@@ -23,6 +25,11 @@ import {
     importProjects
 } from './js/admin/projectActions'
 import { addClassification, addScore } from './js/admin/scoreAndClassify'
+
+//
+// GLOBAL VARS
+//
+const storageID = 'eu.cyberwatching.radar.user.jrcFilter'
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -62,6 +69,11 @@ if (radarSection) {
 
     // 2) Link up DOM elements with interactive JavaScript
     linkupRadar(radarRootDOM)
+
+    // 3) filter out projects according to filter tags
+    let filterTags = JSON.parse(sessionStorage.getItem(storageID))
+    if (!filterTags) filterTags = JSON.parse(localStorage.getItem(storageID))
+    filterProjects(filterTags)
 }
 
 //
@@ -238,19 +250,6 @@ if (updateRadarForm) {
     })
 }
 
-// //
-// // ADVANCE RADAR BUTTONS
-// //
-// const administerRadarsButtons = document.querySelectorAll('.administer-radar')
-// if (administerRadarsButtons) {
-//     administerRadarsButtons.forEach(link => {
-//         link.addEventListener('click', async event => {
-//             event.preventDefault()
-//             await advanceRadar(event.path[1].getAttribute('route'), location.href)
-//         })
-//     })
-// }
-
 //
 // ADMINISTER RADAR BUTTONS
 //
@@ -424,7 +423,6 @@ if (taxonomySubmit) {
             id: document.getElementById('projectid').value,
             tags: []
         }
-        const checked = []
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach(c => {
             values.tags.push(c.value)
         })
@@ -440,6 +438,19 @@ if (rdExpander) {
     rdExpander.addEventListener('click', event => {
         event.target.classList.toggle('open')
         event.target.parentNode.parentNode.classList.toggle('open')
+    })
+}
+
+//
+// user-selected JRC filters
+//
+const jrcTagFormButton = document.getElementById('jrc-tag-form-button')
+if (jrcTagFormButton) {
+    jrcTagFormButton.addEventListener('click', event => {
+        event.preventDefault()
+        let filterTags = JSON.parse(sessionStorage.getItem(storageID))
+        if (!filterTags) filterTags = JSON.parse(localStorage.getItem(storageID))
+        showFilterTagForm(filterTags)
     })
 }
 
