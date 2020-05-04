@@ -13,23 +13,29 @@ const sanitiser = require('../utils/sanitiseJSON')
 //
 const router = express.Router()
 
-//
-// PUBLIC ROUTES
-//
+/*********************/
+/*                   */
+/*   PUBLIC ROUTES   */
+/*                   */
+/*********************/
 // login
 router.post('/login', authC.login)
 
-//
-// ROUTES FOR LOGGED IN USERS
-//
+/*****************************/
+/*                           */
+/*   LOGGED IN USER ROUTES   */
+/*                           */
+/*****************************/
 // logout
 router.get('/logout', authC.protect, authC.logout)
 // update password
 router.patch('/updatePassword', authC.protect, sanitiser.scrubBody, authC.updatePassword)
 
-//
-// ROUTES FOR ADMINS ONLY
-//
+/*******************************/
+/*                             */
+/*   ADMIN RESTRICTED ROUTES   */
+/*                             */
+/*******************************/
 //get all users, create user
 router
     .route('/')

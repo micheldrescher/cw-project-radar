@@ -11,18 +11,24 @@ const sanitiser = require('../utils/sanitiseJSON')
 
 const router = express.Router()
 
-//
-// PUBLIC ROUTES
-//
+/*********************/
+/*                   */
+/*   PUBLIC ROUTES   */
+/*                   */
+/*********************/
 router.get('/editions', handler.getEditions)
 
-//
-// PROTECTED ROUTES (LOGGED IN USERS ONLY)
-//
+/*****************************/
+/*                           */
+/*   LOGGED IN USER ROUTES   */
+/*                           */
+/*****************************/
 
-//
-// RESTRICTED ROUTES (CERTAIN ROLES ONLY)
-//
+/*******************************/
+/*                             */
+/*   ADMIN RESTRICTED ROUTES   */
+/*                             */
+/*******************************/
 
 router
     .route('/')

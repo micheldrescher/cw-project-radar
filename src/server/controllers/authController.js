@@ -53,15 +53,17 @@ const createSendToken = (user, statusCode, req, res) => {
 //
 exports.login = catchAsync(async (req, res, next) => {
     const { name, password } = req.body
-
+    console.log('name=', name, 'password=', password)
     // 1) Check if email and password are supplied in the request
     if (!name || !password) {
         return next(new AppError('Please provide name and password!', 400))
     }
     // 2) Check if user exists && password is correct
     const user = await User.findOne({ name }).select('+password')
+    console.log('user=', user)
 
     if (!user || !(await user.correctPassword(password, user.password))) {
+        console.log('Incorrect user name or password')
         return next(new AppError('Incorrect name or password', 401))
     }
 

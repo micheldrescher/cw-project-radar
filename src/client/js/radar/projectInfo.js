@@ -13,7 +13,7 @@ export { showProjectData as default }
 
 const showProjectData = async blip => {
     // fetch project info
-    const response = await (await axios.get('/api/v1/project/' + blip.project)).data
+    const response = await (await axios.get('/api/v1/project/prj_id/' + blip.cw_id)).data
     // TODO add error message to footer in red
 
     // compile HTML from the template
@@ -21,7 +21,7 @@ const showProjectData = async blip => {
         modalID: 'projectInfo',
         header: blip.prj_name,
         footer: '',
-        project: response.data.data,
+        project: response.data,
         blip,
         scale: createScoreScale(blip)
     })

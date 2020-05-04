@@ -13,33 +13,39 @@ const router = express.Router()
 //
 // ROUTES
 //
+
+/*********************/
+/*                   */
+/*   PUBLIC ROUTES   */
+/*                   */
+/*********************/
+// get project by Cyberwatching ID
+router.get('/prj_id/:cwid', handler.getByCWId)
+
+/*****************************/
+/*                           */
+/*   LOGGED IN USER ROUTES   */
+/*                           */
+/*****************************/
+
+/*******************************/
+/*                             */
+/*   ADMIN RESTRICTED ROUTES   */
+/*                             */
+/*******************************/
+router.use('/', authC.protect, authC.restrictTo('admin', 'cw-hub'))
+router.use('/:id', authC.protect, authC.restrictTo('admin', 'cw-hub'))
+
 router
     .route('/')
-    .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.getAllProjects)
-    .post(
-        authC.protect,
-        authC.restrictTo('admin', 'cw-hub'),
-        sanitiser.scrubBody,
-        handler.createProject
-    )
-    .patch(
-        authC.protect,
-        authC.restrictTo('admin', 'cw-hub'),
-        handler.importFile, // moves the multi-part file data into the request object
-        handler.importProjects // reads from request object as usual
-    )
-
+    .get(handler.getAllProjects)
+    .post(sanitiser.scrubBody, handler.createProject)
+    .patch(handler.importFile, handler.importProjects)
 router
     .route('/:id')
-    .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.getProject)
-    .patch(
-        authC.protect,
-        authC.restrictTo('admin', 'cw-hub'),
-        sanitiser.scrubBody,
-        handler.updateProject
-    )
-    .delete(authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.deleteProject)
-
+    .get(handler.getProject)
+    .patch(sanitiser.scrubBody, handler.updateProject)
+    .delete(handler.deleteProject)
 // This is BY CW ID!!
 router.post(
     '/:cwid/categorise',
@@ -56,8 +62,6 @@ router.post(
     sanitiser.scrubBody,
     handler.addMTRLScore
 )
-// This is BY CW ID!!
-router.get('/prj_id/:cwid', authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.getByCWId)
 
 //
 // EXPORTS
