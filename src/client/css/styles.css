@@ -625,6 +625,7 @@ section.modal > div.modal-window > section.buttonbar {
 #radar section#filters div.filter {
     margin: 0.5em 0;
     display: flex;
+    align-items: flex-start;
 }
 #radar section#filters div.filter:first-child {
     margin-top: 0em;
@@ -649,16 +650,14 @@ section#filters div.filter button {
 section#filters div.filter div.tags {
     font-family: 'Lato';
     font-size: 0.8em;
-    padding: 0.2em;
-    flex: 1 0 auto;
 }
 /* Each individual tag */
 section#filters div.filter div.tags div.tag {
     display: inline-block;
-    border: 1px solid lightgray;
-    padding: 0.1em;
+    border: 1px solid darkgray;
+    padding: 0.1em 0.5em;
     border-radius: 0.5em;
-    margin-right: 0.5em;
+    margin: 0 0.3em 0.5em 0.3em;
 }
 /* elements in the modal to select the tags */
 form.form--filter-tags ul,
