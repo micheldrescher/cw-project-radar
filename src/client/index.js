@@ -71,9 +71,11 @@ if (radarSection) {
     // 2) Link up DOM elements with interactive JavaScript
     linkupRadar(radarRootDOM)
 
-    // 3) filter out projects according to filter tags
-    let filterTags = JSON.parse(sessionStorage.getItem(storageID))
-    if (!filterTags) filterTags = JSON.parse(localStorage.getItem(storageID))
+    // 3) load filters
+    const filterTags = JSON.parse(localStorage.getItem(storageID))
+    // 4) update the tags list in the UI
+    updateFilterList(document.querySelector('#jrctagsfilter div.tags'), filterTags, getName)
+    // 5) filter out projects
     filterProjects(filterTags)
 }
 
@@ -447,16 +449,14 @@ if (rdExpander) {
 //
 const jrcTagFormButton = document.querySelector('#jrctagsfilter button')
 if (jrcTagFormButton) {
-    // fetch the user selected tags
-    let filterTags = JSON.parse(sessionStorage.getItem(storageID))
-    if (!filterTags) filterTags = JSON.parse(localStorage.getItem(storageID))
     // wire up the button to show the filter tags meny
     jrcTagFormButton.addEventListener('click', event => {
         event.preventDefault()
+        // load filters
+        const filterTags = JSON.parse(localStorage.getItem(storageID))
+        // show modal
         showFilterTagForm(filterTags)
     })
-    // update the tags list in the UI
-    updateFilterList(document.querySelector('#jrctagsfilter div.tags'), filterTags, getName)
 }
 
 // show alerts sent by the server
