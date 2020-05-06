@@ -352,4 +352,22 @@ const getTags = node => {
     return tags
 }
 
-module.exports = { jrcTaxonomy, getAllTags, getTagsR, getTags }
+const getName = tag => {
+    // check cybersecyrity
+    for (let i = 0; i < cybersecurity.terms.length; i++) {
+        const term = cybersecurity.terms[i]
+        if (term.tag === tag) return term.name
+    }
+    // check sectors
+    for (let i = 0; i < sectors.terms.length; i++) {
+        const term = sectors.terms[i]
+        if (term.tag === tag) return term.name
+    }
+    // check technology
+    for (let i = 0; i < technology.terms.length; i++) {
+        const term = technology.terms[i]
+        if (term.tag === tag) return term.name
+    }
+}
+
+module.exports = { jrcTaxonomy, getAllTags, getTagsR, getTags, getName }

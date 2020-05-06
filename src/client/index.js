@@ -7,7 +7,7 @@
 // app modules
 import linkupRadar from './js/radar/linkupRadar'
 import filterProjects from './js/radar/filterProjects'
-import showFilterTagForm from './js/radar/filterTags'
+import { showFilterTagForm, updateFilterList } from './js/radar/filterTags'
 import showAlert from './js/util/alert'
 import { login, logout } from './js/user/login'
 import changePassword from './js/user/userSettings'
@@ -25,6 +25,7 @@ import {
     importProjects
 } from './js/admin/projectActions'
 import { addClassification, addScore } from './js/admin/scoreAndClassify'
+import { getName } from '../common/datamodel/jrc-taxonomy'
 
 //
 // GLOBAL VARS
@@ -444,14 +445,18 @@ if (rdExpander) {
 //
 // user-selected JRC filters
 //
-const jrcTagFormButton = document.getElementById('jrc-tag-form-button')
+const jrcTagFormButton = document.querySelector('#jrctagsfilter button')
 if (jrcTagFormButton) {
+    // fetch the user selected tags
+    let filterTags = JSON.parse(sessionStorage.getItem(storageID))
+    if (!filterTags) filterTags = JSON.parse(localStorage.getItem(storageID))
+    // wire up the button to show the filter tags meny
     jrcTagFormButton.addEventListener('click', event => {
         event.preventDefault()
-        let filterTags = JSON.parse(sessionStorage.getItem(storageID))
-        if (!filterTags) filterTags = JSON.parse(localStorage.getItem(storageID))
         showFilterTagForm(filterTags)
     })
+    // update the tags list in the UI
+    updateFilterList(document.querySelector('#jrctagsfilter div.tags'), filterTags, getName)
 }
 
 // show alerts sent by the server

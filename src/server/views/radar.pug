@@ -19,14 +19,11 @@ block content
                 #flicker
                     #summary-flicker &#x2303
 
-        section#radarview
-            section#filters
-                include _jrcfilter
+        section#filters
+            include jrc-tagfilter
 
-            section#radardata
-                #rendering
-                    != radar.rendering.rendering.get('svg')
-                #tables
-                    != radar.rendering.rendering.get('tables')
-
-
+        section#radardata
+            #rendering
+                != radar.rendering.rendering.get('svg')
+            #tables
+                != radar.rendering.rendering.get('tables')
