@@ -354,16 +354,19 @@ const getTags = node => {
 
 const getName = tag => {
     // check cybersecyrity
+    if (cybersecurity.tag === tag) return cybersecurity.name
     for (let i = 0; i < cybersecurity.terms.length; i++) {
         const term = cybersecurity.terms[i]
         if (term.tag === tag) return term.name
     }
     // check sectors
+    if (sectors.tag === tag) return sectors.name
     for (let i = 0; i < sectors.terms.length; i++) {
         const term = sectors.terms[i]
         if (term.tag === tag) return term.name
     }
     // check technology
+    if (technology.tag === tag) return technology.name
     for (let i = 0; i < technology.terms.length; i++) {
         const term = technology.terms[i]
         if (term.tag === tag) return term.name
