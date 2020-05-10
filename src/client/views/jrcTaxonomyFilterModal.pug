@@ -8,15 +8,15 @@ block content
 
 mixin jrcDimension(dimension)
     ul: li
-        //- - if (project.tags.includes(dimension.tag))
-        //-     input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag, checked)
-        //- - else 
-        input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
+        - if (filterTags.tags.includes(dimension.tag))
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag, checked)
+        - else 
+            input.dimension-header(type='checkbox', name=dimension.tag, value=dimension.tag)
         label(for=dimension.tag)= dimension.name
         li: ul
             each term in dimension.terms
                 li 
-                    - if (filterTags.includes(term.tag))
+                    - if (filterTags.tags.includes(term.tag))
                         input.term(type='checkbox', name=term.tag, value=term.tag, checked)
                     - else 
                         input.term(type='checkbox', name=term.tag, value=term.tag)

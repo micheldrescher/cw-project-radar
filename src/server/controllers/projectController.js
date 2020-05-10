@@ -91,8 +91,11 @@ exports.getMatchingProjects = async filter => {
         queryResult = await query
     } else {
         // check operator
-        if (filter.union) query = query.where('tags').all(filter.tags)
-        else query = query.where('tags').in(filter.tags)
+        if (filter.union === 'all') {
+            query = query.where('tags').all(filter.tags)
+        } else {
+            query = query.where('tags').in(filter.tags)
+        }
         queryResult = await query
     }
 

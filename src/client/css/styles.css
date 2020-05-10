@@ -633,13 +633,14 @@ section.modal > div.modal-window > section.buttonbar {
 #radar section#filters div.filter:last-child {
     margin-bottom: 0em;
 }
-/* Each filter list has a button and a noneditable list of tags */
+/* Each filter ... */
 section#filters div.filter * {
     vertical-align: top;
 }
 section#filters div.filter > *:first-child {
     margin-right: 0.5em;
 }
+/* ... has a button, ... */
 section#filters div.filter button {
     font-family: 'Lato';
     font-size: 0.8em;
@@ -647,6 +648,20 @@ section#filters div.filter button {
     height: max-content;
     flex: 0 0 auto;
 }
+/* ... an ops div, ... */
+section#filters div.filter div.ops {
+    flex: 0 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 0.2em;
+    font-size: 0.8em;
+}
+section#filters div.filter div.ops * {
+    text-align: center;
+    margin: auto;
+}
+
+/* ... and a noneditable list of tags. */
 section#filters div.filter div.tags {
     font-family: 'Lato';
     font-size: 0.8em;

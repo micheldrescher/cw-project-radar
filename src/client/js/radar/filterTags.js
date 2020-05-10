@@ -5,17 +5,12 @@
 // modules
 // app modules
 import { jrcTaxonomy, getName } from './../../../common/datamodel/jrc-taxonomy'
-import filterProjects from './filterProjects'
+import { getTags, getProjectIDs, updateTags } from '../util/localStore'
 
 //
 // EXPORTS
 //
-export { showFilterTagForm, updateFilterList }
-
-//
-// GLOBAL VARS
-//
-const storageID = 'eu.cyberwatching.radar.user.jrcFilter'
+export { showFilterTagForm, updateFilterList, filterRadar }
 
 /*****************
  *               *
@@ -27,13 +22,16 @@ const storageID = 'eu.cyberwatching.radar.user.jrcFilter'
 // JRC FILTER TAGS FORM
 //
 // Show the filter tags form using client-side PUG
-const showFilterTagForm = filterTags => {
+const showFilterTagForm = () => {
+    // get filter tags
+    const filter = getTags()
+    console.log(filter)
     // compile HTML from the template
     const modalString = jrctaxonomyfiltermodalTemplate({
         modalID: 'filterTags',
         header: 'Filter by JRC Cybersecurity taxonomy terms',
         jrcTaxonomy,
-        filterTags,
+        filterTags: filter,
         okButtonLabel: 'Apply',
         cancelButtonLabel: 'Cancel'
     })
@@ -41,13 +39,13 @@ const showFilterTagForm = filterTags => {
     document.getElementById('modals').innerHTML = modalString
 
     // wire up buttons
-    wireupButtons()
+    wireupButtons(filter)
 
     // wireup checkboxes
     wireupCheckboxes()
 }
 // connect the buttons in the Modal dialogue
-const wireupButtons = () => {
+const wireupButtons = filter => {
     // link up the close button - DELETES the modal! (it is recreated anyway)
     document.querySelector('#filterTags .closeBtn').onclick = () => {
         document.getElementById('filterTags').remove()
@@ -57,18 +55,22 @@ const wireupButtons = () => {
         document.getElementById('filterTags').remove()
     }
     // link up the Ok button
-    document.getElementById('modalOK').onclick = () => {
-        const filterTags = []
+    document.getElementById('modalOK').onclick = async () => {
+        filter.tags = []
+        // add the tags
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach(c => {
-            filterTags.push(c.value)
+            filter.tags.push(c.value)
         })
+        // TODO add the operator
+
         // store tags in local storage
-        localStorage.setItem(storageID, JSON.stringify(filterTags))
-        // update the UI
+        await updateTags(filter)
+
+        // update the UI & filter projects
         // TODO how can I make this generic the JRC is currently hardcoded!
-        updateFilterList(document.querySelector('#jrctagsfilter div.tags'), filterTags, getName)
-        // filter projects
-        filterProjects(filterTags)
+        updateFilterList(document.getElementById('jrctagsfilter'), filter, getName)
+        filterRadar()
+
         // close modal
         document.getElementById('filterTags').remove()
     }
@@ -99,15 +101,48 @@ const wireupCheckboxes = () => {
 // UPDATE FILTER UI
 //
 // Given the list of tags, update the filter UI with the actual term names
-const updateFilterList = (node, tags, getNameFunc) => {
-    // remove all node children
-    node.innerHTML = ''
-    // now add them
-    tags.forEach(tag => {
-        const divNode = document.createElement('div')
-        divNode.setAttribute('class', 'tag')
-        const divText = document.createTextNode(getNameFunc(tag))
-        divNode.appendChild(divText)
-        node.appendChild(divNode)
+const updateFilterList = (filterNode, filter, getNameFunc) => {
+    // 1) Update filter operation
+    const anyRadio = filterNode.childNodes[1].childNodes[2]
+    const allRadio = filterNode.childNodes[1].childNodes[3]
+    if (filter.union === 'any') {
+        anyRadio.checked = true
+        allRadio.checked = false
+    } else {
+        anyRadio.checked = false
+        allRadio.checked = true
+    }
+    // 2) Update filter tag list
+    const tags = filterNode.lastChild
+    // remove all tags
+    tags.innerHTML = ''
+    // now add new list of tags
+    filter.tags.forEach(tag => {
+        const tagNode = document.createElement('div')
+        tagNode.setAttribute('class', 'tag')
+        const tagText = document.createTextNode(getNameFunc(tag))
+        tagNode.appendChild(tagText)
+        tags.appendChild(tagNode)
+    })
+}
+
+const filterRadar = async () => {
+    // 1) Get the tags as a quick check
+    const tags = getTags()
+    // 2) Fetch all projects from the server that have the filter tags set
+    const matchingProjects = await getProjectIDs()
+
+    // 3) Test all document blips whether they match or not
+    const allBlips = document.querySelectorAll('g.blip')
+    allBlips.forEach(blip => {
+        // 3.1) get the CW ID from the blip
+        const cwID = JSON.parse(blip.getAttribute('data')).cw_id
+        // 3.2) check if cwID is in the matching projects array.
+        //      If it is, mark as visible. If not, mark it invisible.
+        if (matchingProjects.includes(cwID)) {
+            blip.setAttribute('display', 'inherit')
+        } else {
+            blip.setAttribute('display', 'none')
+        }
     })
 }

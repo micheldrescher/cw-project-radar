@@ -6,8 +6,8 @@
 
 // app modules
 import linkupRadar from './js/radar/linkupRadar'
-import filterProjects from './js/radar/filterProjects'
-import { showFilterTagForm, updateFilterList } from './js/radar/filterTags'
+import { showFilterTagForm, updateFilterList, filterRadar } from './js/radar/filterTags'
+import { getTags, updateTags } from './js/util/localStore'
 import showAlert from './js/util/alert'
 import { login, logout } from './js/user/login'
 import changePassword from './js/user/userSettings'
@@ -27,10 +27,11 @@ import {
 import { addClassification, addScore } from './js/admin/scoreAndClassify'
 import { getName } from '../common/datamodel/jrc-taxonomy'
 
-//
-// GLOBAL VARS
-//
-const storageID = 'eu.cyberwatching.radar.user.jrcFilter'
+/****************************************************************
+ *                                                              *
+ *                       M E N U    B A R                       *
+ *                                                              *
+ ****************************************************************/
 
 //
 // RADAR MENU BUTTONS EVENT
@@ -60,24 +61,11 @@ if (adminButtons) {
     })
 }
 
-//
-// SHOW RADAR - CLIENT SIDE
-//
-const radarSection = document.getElementById('radar')
-if (radarSection) {
-    // 1) Select the root element of the radar section
-    const radarRootDOM = d3.select('section#radar')
-
-    // 2) Link up DOM elements with interactive JavaScript
-    linkupRadar(radarRootDOM)
-
-    // 3) load filters
-    const filterTags = JSON.parse(localStorage.getItem(storageID))
-    // 4) update the tags list in the UI
-    updateFilterList(document.querySelector('#jrctagsfilter div.tags'), filterTags, getName)
-    // 5) filter out projects
-    filterProjects(filterTags)
-}
+/****************************************************************
+ *                                                              *
+ *           U S E R   A C C O U N T   A C T I O N S            *
+ *                                                              *
+ ****************************************************************/
 
 //
 // Login form
@@ -118,6 +106,65 @@ if (passwordForm) {
         document.getElementById('newConfirm').textContent = ''
     })
 }
+
+/****************************************************************
+ *                                                              *
+ *                  R A D A R    D I S P L A Y                  *
+ *                                                              *
+ ****************************************************************/
+//
+// Display the radar
+//
+const radarSection = document.getElementById('radar')
+if (radarSection) {
+    // The static display of the radar is done through the PUG template
+    // This is to make it dynamic
+    const radarRootDOM = d3.select('section#radar')
+
+    // 1) Link up DOM elements with interactive JavaScript
+    linkupRadar(radarRootDOM)
+
+    // 2) load filters
+    const filterTags = getTags()
+    // 4) update the tags list in the UI
+    updateFilterList(document.getElementById('jrctagsfilter'), filterTags, getName)
+    // 5) filter out projects
+    filterRadar(filterTags)
+}
+
+//
+// Show JRC tag filter modal form
+//
+const jrcTagFormButton = document.querySelector('#jrctagsfilter button')
+if (jrcTagFormButton) {
+    // wire up the button to show the filter tags meny
+    jrcTagFormButton.addEventListener('click', event => {
+        event.preventDefault()
+        // show modal
+        showFilterTagForm()
+    })
+}
+
+//
+// Radio buttons for any or all matching
+//
+const anyAllRadios = document.querySelectorAll('div.ops input')
+if (anyAllRadios) {
+    anyAllRadios.forEach(radio => {
+        radio.addEventListener('click', async event => {
+            const filter = getTags()
+            filter.union = event.target.value
+            await updateTags(filter)
+            filterRadar()
+            console.log(event.target.value)
+        })
+    })
+}
+/*********************************************************/
+/*********************************************************/
+/*********************************************************/
+/*********************************************************/
+/*********************************************************/
 
 //
 // Create user
@@ -249,7 +296,7 @@ if (updateRadarForm) {
         event.preventDefault()
         const id = document.getElementById('radarid').value
         const summary = document.getElementById('summary').value
-        await updateRadar(id, summary)
+        await filterRadar(id, summary)
     })
 }
 
@@ -441,21 +488,6 @@ if (rdExpander) {
     rdExpander.addEventListener('click', event => {
         event.target.classList.toggle('open')
         event.target.parentNode.parentNode.classList.toggle('open')
-    })
-}
-
-//
-// user-selected JRC filters
-//
-const jrcTagFormButton = document.querySelector('#jrctagsfilter button')
-if (jrcTagFormButton) {
-    // wire up the button to show the filter tags meny
-    jrcTagFormButton.addEventListener('click', event => {
-        event.preventDefault()
-        // load filters
-        const filterTags = JSON.parse(localStorage.getItem(storageID))
-        // show modal
-        showFilterTagForm(filterTags)
     })
 }
 
