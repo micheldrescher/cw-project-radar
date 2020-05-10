@@ -79,3 +79,23 @@ exports.importProjects = async buffer => {
     // 4) return the result
     return result
 }
+
+exports.getMatchingProjects = async filter => {
+    let queryResult
+
+    // base query
+    let query = Project.find().select({ cw_id: 1, _id: 0 })
+
+    // if empty filter, all projecs match
+    if (!filter.tags || filter.tags.length === 0) {
+        queryResult = await query
+    } else {
+        // check operator
+        if (filter.union) query = query.where('tags').all(filter.tags)
+        else query = query.where('tags').in(filter.tags)
+        queryResult = await query
+    }
+
+    // reduce the returned objects to a number array
+    return queryResult.map(prj => prj.cw_id)
+}

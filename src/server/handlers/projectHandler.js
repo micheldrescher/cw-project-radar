@@ -109,3 +109,11 @@ exports.addMTRLScore = catchAsync(async (req, res, next) => {
         data: score
     })
 })
+
+exports.getMatchingProjects = catchAsync(async (req, res, next) => {
+    const result = await projectController.getMatchingProjects(req.body.filter)
+    res.status(200).json({
+        status: 'success',
+        data: result
+    })
+})
