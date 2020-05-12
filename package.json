@@ -10,7 +10,7 @@
         "build:c:pug": "pug -c -D --name-after-file -o dist/client/views src/client/views",
         "build:c:js": "parcel build src/client/index.js --no-source-maps --target browser --bundle-node-modules --out-dir dist/client --out-file bundle.js",
         "build:c:static": "cp -R src/client/css dist/client && cp -R src/client/img dist/client && cp -R src/client/lib dist/client",
-        "build:s": "rm -rf dist/server && mkdir dist/server && cp -R src/server dist && cp .env.prod dist/.env",
+        "build:s": "rm -rf dist/server && mkdir dist/server && cp -R src/server dist && cp -R src/common dist && cp .env.prod dist/.env",
         "dev": "cp .env.dev .env && nodemon src/server/server.js",
         "dev:watch:pug": "pug -c -w --name-after-file -o src/client/views src/client/views",
         "dev:watch:js": "parcel watch src/client/index.js --out-dir src/client --out-file bundle.js",

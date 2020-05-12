@@ -32,6 +32,7 @@ WORKDIR /home/node/cw-project-radar
 
 # copy the distrobution files
 COPY --chown=node:node --from=builder /home/node/cw/dist/client ./client
+COPY --chown=node:node --from=builder /home/node/cw/dist/common ./common
 COPY --chown=node:node --from=builder /home/node/cw/dist/server ./server
 COPY --chown=node:node --from=builder /home/node/cw/dist/.env .
 COPY --chown=node:node --from=builder /home/node/cw/node_modules ./node_modules
