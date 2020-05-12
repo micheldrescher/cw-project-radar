@@ -16,6 +16,10 @@ services:
         depends_on:
             - mongo
         command: node server/server.js
+        environment:
+            - JWT_SECRET=your_key
+            - JWT_EXPIRES_IN=2
+            - JWT_COOKIE_EXPIRES_IN=2
 
     mongo:
         build:
