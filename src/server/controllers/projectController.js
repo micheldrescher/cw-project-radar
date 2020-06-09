@@ -102,3 +102,20 @@ exports.getMatchingProjects = async filter => {
     // reduce the returned objects to a number array
     return queryResult.map(prj => prj.cw_id)
 }
+
+exports.findProjects = async criteria => {
+    const terms = criteria.terms || ''
+    const caseSensitive = criteria.case || false
+
+    let query = Project.find({
+        $text: {
+            $search: terms,
+            $language: 'en',
+            $caseSensitive: caseSensitive
+        }
+    }).select('cw_id rcn name title -_id')
+
+    let queryResult = await query
+
+    return queryResult
+}

@@ -117,6 +117,7 @@ projectSchema.pre('save', async function(next) {
 projectSchema.index({ cw_id: 1 }) // index on the project's CW id
 projectSchema.index({ name: 1 }) // index on the project's CW id
 projectSchema.index({ rcn: 1 }) // index on the project's RCN
+projectSchema.index({ name: 'text', title: 'text', teaser: 'text' }) // text indexes for textual search
 
 //
 // MODEL

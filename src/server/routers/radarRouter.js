@@ -37,7 +37,7 @@ router
     .post(
         authC.protect,
         authC.restrictTo('admin', 'cw-hub'),
-        sanitiser.scrubBody,
+        sanitiser.scrubEmpty,
         handler.createRadar
     )
 router
@@ -48,7 +48,7 @@ router
     .patch(
         authC.protect,
         authC.restrictTo('admin', 'cw-hub'),
-        sanitiser.scrubBody,
+        sanitiser.scrubEmpty,
         handler.updateRadar
     )
     .delete(authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.deleteRadar)

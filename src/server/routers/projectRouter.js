@@ -22,6 +22,7 @@ const router = express.Router()
 // get project by Cyberwatching ID
 router.get('/prj_id/:cwid', handler.getByCWId)
 router.post('/match', handler.getMatchingProjects)
+router.post('/search', sanitiser.scrubEmpty, handler.findProjects)
 
 /*****************************/
 /*                           */
@@ -40,19 +41,19 @@ router.use('/:id', authC.protect, authC.restrictTo('admin', 'cw-hub'))
 router
     .route('/')
     .get(handler.getAllProjects)
-    .post(sanitiser.scrubBody, handler.createProject)
+    .post(sanitiser.scrubEmpty, handler.createProject)
     .patch(handler.importFile, handler.importProjects)
 router
     .route('/:id')
     .get(handler.getProject)
-    .patch(sanitiser.scrubBody, handler.updateProject)
+    .patch(sanitiser.scrubEmpty, handler.updateProject)
     .delete(handler.deleteProject)
 // This is BY CW ID!!
 router.post(
     '/:cwid/categorise',
     authC.protect,
     authC.restrictTo('admin', 'cw-hub'),
-    sanitiser.scrubBody,
+    sanitiser.scrubEmpty,
     handler.addCategory
 )
 // This is BY CW ID!!
@@ -60,7 +61,7 @@ router.post(
     '/:cwid/score',
     authC.protect,
     authC.restrictTo('admin', 'cw-hub'),
-    sanitiser.scrubBody,
+    sanitiser.scrubEmpty,
     handler.addMTRLScore
 )
 

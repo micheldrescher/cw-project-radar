@@ -5,7 +5,12 @@
 // app modules
 const catchAsync = require('./catchAsync')
 
-exports.scrubBody = catchAsync(async (req, res, next) => {
+//
+// scrubEmpty
+//
+// EXPRESS middleware for scrubbing empty JSON terms
+//
+exports.scrubEmpty = catchAsync(async (req, res, next) => {
     // 1) fetch data
     const data = req.body
 

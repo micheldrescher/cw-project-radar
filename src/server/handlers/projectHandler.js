@@ -110,10 +110,25 @@ exports.addMTRLScore = catchAsync(async (req, res, next) => {
     })
 })
 
+//
+// Search for projects that match the given filter tags
+//
 exports.getMatchingProjects = catchAsync(async (req, res, next) => {
     const result = await projectController.getMatchingProjects(req.body.filter)
     res.status(200).json({
         status: 'success',
+        data: result
+    })
+})
+
+//
+// Search for projects using the given search criteria
+//
+exports.findProjects = catchAsync(async (req, res, next) => {
+    const result = await projectController.findProjects(req.body)
+    res.status(200).json({
+        status: 'success',
+        results: result.length,
         data: result
     })
 })
