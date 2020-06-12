@@ -114,7 +114,7 @@ exports.updateUserPassword = catchAsync(async (req, res, next) => {
     await user.save()
     // User.findByIdAndUpdate will NOT work as intended!
 
-    // send back success respnse
+    // send back success response
     res.status(200).json({
         status: 'success'
     })
