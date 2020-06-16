@@ -42,14 +42,14 @@ Path                               | Method | Access    | Description
 `/api/v1/project/prj_id/:cwid`     | GET    |           | Get public project data using its Cyberwatching ID [more...](project/project_get_cwid.md)
 `/api/v1/project/match`            | POST   |           | Get the Cyberwatching IDs of projects that for the POSTed taxonomy terms [more...](project/project_match.md)
 `/api/v1/project/search`           | POST   |           | Full-text search of projects matching the POSTed search terms. [more...](project/project_search.md)
-`/api/v1/project`                  | GET    | manager   | Get all projects
-`/api/v1/project`                  | POST   | manager   | Create new project
+`/api/v1/project`                  | GET    | manager   | Get all projects 
+`/api/v1/project`                  | POST   | manager   | Create new project. [more...](project/project_create.md)
 `/api/v1/project`                  | PATCH  | manager   | Import projects from the uploaded file
 `/api/v1/project/:id`              | GET    | manager   | Get project info
-`/api/v1/project/:id`              | PATCH  | manager   | Update project data
+`/api/v1/project/:id`              | PATCH  | manager   | Update project data. [more...](project/project_update.md)
 `/api/v1/project/:id`              | DELETE | manager   | Delete project
-`/api/v1/project/:cwid/categorise` | POST   | manager   | Add a new categorisation to a project
-`/api/v1/project/:cwid/score`      | POST   | manager   | Add a new MTRL score for the project
+`/api/v1/project/:cwid/categorise` | POST   | manager   | Add a new categorisation to a project. [more...](project/project_categorise.md)
+`/api/v1/project/:cwid/score`      | POST   | manager   | Add a new MTRL score for the project. [more...](project/project_score.md)
 
 #### User
 

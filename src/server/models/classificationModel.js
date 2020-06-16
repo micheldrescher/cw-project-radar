@@ -27,7 +27,7 @@ const classificationSchema = new mongoose.Schema(
         project: {
             type: mongoose.Schema.ObjectId,
             ref: 'Project',
-            required: ['A classification must belong to a proejct', true]
+            required: ['A classification must belong to a project', true]
         },
         // track the date of this classification change
         classifiedOn: {

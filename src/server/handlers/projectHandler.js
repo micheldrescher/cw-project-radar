@@ -58,7 +58,9 @@ exports.updateProject = handlerFactory.updateOne(
     Project,
     'cw_id',
     'hasClassifications',
-    'hasScores'
+    'hasScores',
+    'classification',
+    'mtrlScores'
 )
 exports.deleteProject = handlerFactory.deleteOne(Project)
 
