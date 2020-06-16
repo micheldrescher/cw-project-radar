@@ -52,7 +52,7 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     const editions = await radarController.getEditions()
 
     // 2) Error handling
-    if (!editions || editions.length === 0) {
+    if (!editions) {
         return next(
             new AppError('Could not fetch radar editions. Contact system administrator.', 500)
         )

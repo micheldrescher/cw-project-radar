@@ -73,10 +73,11 @@ exports.login = catchAsync(async (req, res, next) => {
 // Logout the current user
 //
 exports.logout = (req, res) => {
-    res.cookie('jwt', 'loggedout', {
-        expires: new Date(Date.now() + 2 * 1000), // the dud token expires in 2 seconds
-        httpOnly: true // we are logging in and out over HTTP(S) only
-    })
+    res.clearCookie('jwt')
+    // res.cookie('jwt', 'loggedout', {
+    //     expires: new Date(Date.now() + 2 * 1000), // the dud token expires in 2 seconds
+    //     httpOnly: true // we are logging in and out over HTTP(S) only
+    // })
     res.status(200).json({ status: 'success' })
 }
 

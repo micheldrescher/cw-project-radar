@@ -32,7 +32,6 @@ router.get('/editions', handler.getEditions)
 
 router
     .route('/')
-    // .get(authController.isLoggedIn, radarController.getAllRadars)
     .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.getAllRadars)
     .post(
         authC.protect,
