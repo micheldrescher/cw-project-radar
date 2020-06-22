@@ -1,6 +1,6 @@
 const conn = new Mongo()
 
-db = conn.getDB('cw-project-radar')
+const db = conn.getDB('cw-project-radar')
 db.dropDatabase()
 
 //
@@ -8,7 +8,7 @@ db.dropDatabase()
 //
 db.createCollection('sequences')
 db.sequences.createIndex({ _id: 1, seq: 1 }, { unique: true })
-db.sequences.insert( { _id: "project", seq: 0 } )
+db.sequences.insert({ _id: 'project', seq: 0 })
 
 //
 // Users
@@ -17,11 +17,11 @@ db.createCollection('users')
 db.users.createIndex({ email: 1 }, { unique: true })
 db.users.createIndex({ name: 1 }, { unique: true })
 db.users.insert({
-    name: "admin", 
-    email: "cyber@cyberwatching.eu",	
-    password: "$2a$12$.n4NvG1ok5vxZYhf032Mn.QK9ZX9tDs2Gs3LRkIq.9lqxwxYV9T8K",
-    role: "admin",
-	active: true
+    name: 'admin',
+    email: 'cyber@cyberwatching.eu',
+    password: '$2a$12$.n4NvG1ok5vxZYhf032Mn.QK9ZX9tDs2Gs3LRkIq.9lqxwxYV9T8K',
+    role: 'admin',
+    active: true
 })
 
 //

@@ -1,6 +1,10 @@
 echo "*******************"
 echo "POPULATING DATABASE"
 echo "*******************"
+
+pwd
+echo $0
+echo "$(dirname "$0")"
 cd "$(dirname "$0")"
 
 mongoimport -d cw-project-radar -c users --file users.json
