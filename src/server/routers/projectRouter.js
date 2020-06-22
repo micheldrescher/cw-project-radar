@@ -35,8 +35,8 @@ router.post('/search', sanitiser.scrubEmpty, handler.findProjects)
 /*   ADMIN RESTRICTED ROUTES   */
 /*                             */
 /*******************************/
-router.use('/', authC.protect, authC.restrictTo('admin', 'cw-hub'))
-router.use('/:id', authC.protect, authC.restrictTo('admin', 'cw-hub'))
+router.use('/', authC.protect, authC.restrictTo('admin', 'manager'))
+router.use('/:id', authC.protect, authC.restrictTo('admin', 'manager'))
 
 router
     .route('/')
@@ -52,7 +52,7 @@ router
 router.post(
     '/:cwid/categorise',
     authC.protect,
-    authC.restrictTo('admin', 'cw-hub'),
+    authC.restrictTo('admin', 'manager'),
     sanitiser.scrubEmpty,
     handler.addCategory
 )
@@ -60,7 +60,7 @@ router.post(
 router.post(
     '/:cwid/score',
     authC.protect,
-    authC.restrictTo('admin', 'cw-hub'),
+    authC.restrictTo('admin', 'manager'),
     sanitiser.scrubEmpty,
     handler.addMTRLScore
 )

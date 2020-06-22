@@ -50,13 +50,13 @@ router.get('/admin/user/edit/:id', viewsH.editUser) // edit user details
 //
 // Radar administration
 //
-router.use('/admin/radar', authC.protect, authC.restrictTo('admin'))
+router.use('/admin/radar', authC.protect, authC.restrictTo('manager'))
 router.get('/admin/radar', viewsH.manageRadars) // radar admin panel
 router.get('/admin/radar/edit/:id', viewsH.editRadar) // edit a radar
 //
 // Project administration
 //
-router.use('/admin/project', authC.protect, authC.restrictTo('admin'))
+router.use('/admin/project', authC.protect, authC.restrictTo('manager'))
 router.get('/admin/project', viewsH.manageProjects) // project admin panel
 router.get('/admin/project/edit/:id', viewsH.editProject) // edit project form
 
