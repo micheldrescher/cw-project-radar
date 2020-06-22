@@ -21,7 +21,7 @@ block content
                 label.form__label(for="role") Role
                 select#role(name="role")
                     +userRoleOption('admin', 'Admin', targetUser)
-                    +userRoleOption('cw-hub', 'CW Hub', targetUser)
+                    +userRoleOption('manager', 'Manager', targetUser)
                     +userRoleOption('project', 'Project', targetUser)
             .form__group.ma-bt-md
                 input#userid.form__input(type='hidden', required, value=`${targetUser._id}`)

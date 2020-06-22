@@ -53,7 +53,6 @@ const createSendToken = (user, statusCode, req, res) => {
 //
 exports.login = catchAsync(async (req, res, next) => {
     const { name, password } = req.body
-
     // 1) Check if email and password are supplied in the request
     if (!name || !password) {
         return next(new AppError('Please provide name and password!', 400))
