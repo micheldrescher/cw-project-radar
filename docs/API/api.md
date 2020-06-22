@@ -84,3 +84,15 @@ User no longer exists | `401 Unauthorized`  | `The user belonging to this token 
 Access denied         | `403 Forbidden`     | `You do not have permission to perform this action.`
 
 [More details](auth/auth_generic_messages.md)
+
+## Data model
+
+The data model for the Project Radar comprises of five major components that are accessible via the REST API to controll the behaviour and contents of the application:
+
+Component      | Description
+---------------|------------
+User           | Models both end users (typically admins) and programmatic agents (typically managers of data) that access and manipulate instances and contents of the other components. [more...](user/user_model.md)
+Radar          | A Radar comprises a snapshot of classified projects with or without MTRL scores that is rendered for visual display and analysis. [more...](radar/radar_model.md)
+Project        | Projects collate static information about an EC funded project such as start and end time, funding call, budget, etc.
+MTRL Score     | A MTRL Score documents a Project's maturity in Technology and go-to-market strategy at a given point in time.
+Classification | A Classification models where it belongs in the Cyberwatching sybersecurity and privacy (CS & P) research taxonomy. The segments of a Radar are based on the six second-tier in the CS & P taxonomy.
