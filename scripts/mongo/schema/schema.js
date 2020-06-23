@@ -8,7 +8,6 @@ db.dropDatabase()
 //
 db.createCollection('sequences')
 db.sequences.createIndex({ _id: 1, seq: 1 }, { unique: true })
-db.sequences.insert({ _id: 'project', seq: 0 })
 
 //
 // Users
@@ -16,13 +15,6 @@ db.sequences.insert({ _id: 'project', seq: 0 })
 db.createCollection('users')
 db.users.createIndex({ email: 1 }, { unique: true })
 db.users.createIndex({ name: 1 }, { unique: true })
-db.users.insert({
-    name: 'admin',
-    email: 'cyber@cyberwatching.eu',
-    password: '$2a$12$.n4NvG1ok5vxZYhf032Mn.QK9ZX9tDs2Gs3LRkIq.9lqxwxYV9T8K',
-    role: 'admin',
-    active: true
-})
 
 //
 // Projects

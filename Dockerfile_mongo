@@ -1,3 +1,6 @@
 FROM mongo:4.2.3
 
-COPY ./scripts/mongo/startup* /docker-entrypoint-initdb.d/
+COPY ./scripts/mongo/schema/schema.js /docker-entrypoint-initdb.d/01-schema.js
+COPY ./scripts/mongo/schema/init.js /docker-entrypoint-initdb.d/02-init.js
+
+COPY ./scripts/mongo /scripts

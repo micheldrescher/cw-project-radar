@@ -15,13 +15,23 @@ This version is written from scratch as a full stack application using Node.js, 
 
 This will give you a blank Cyberwatching Project Radar application in production mode.
 
+Data in the database will be stored in a persistent volume managed by Docker. 
+
 Play around with adding users, projects, radars, MTRL scores and classifications.
 
 ### Adding Cyberwatching baseline data
 
 Cyberwatching.eu regularly publishes baseline data extracted from its production service in this repository.
 
+Previously exported baseline data will be archived into a suitably named compressed file for your perusal. The latest export will be available as JSON files.
 
+To add the latest baseline data to your local radar instance, run the following commands:
+
+1. On the command line, run `docker ps` to find out about the id of the docker container running off the `cw-radar-mongo:latest` image.
+1. Start an interactive shell in the docker container: `docker exec -it <id> /bin/bash` where \<id\> is the container id from the previous step
+1. Run `/scripts/import.sh` to populate the database with the latest baseline data.
+
+To use archived baseline data, unzip the respective ZIP file, overwriting the files in the current directory (make backups if you want to keep the latest baseline), and then run the import shell script.
 
 
 
