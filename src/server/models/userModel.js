@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         enum: [
             'project', // a user is allowed to maintain a specific project (not implemented yet)
-            'cw-hub', // The ProjectHub user (with this role) is allowed to submit MTRL scores, classifications, and JRC taxonomy changes
+            'manager', // A manager is allowed to do almost everything. Expect there to be only one manager, the cw-hub "user".
             'admin' // Admin users are allowed to to everything and anything.
         ],
         default: 'project'
@@ -42,7 +42,7 @@ const userSchema = new mongoose.Schema({
             validator: function(el) {
                 return el === this.password
             },
-            message: 'Passwords are not the same!'
+            message: 'Passwords are not the same'
         }
     },
     active: {

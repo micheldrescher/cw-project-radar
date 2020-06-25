@@ -32,52 +32,56 @@ router.get('/editions', handler.getEditions)
 
 router
     .route('/')
-    // .get(authController.isLoggedIn, radarController.getAllRadars)
-    .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.getAllRadars)
+    .get(authC.protect, authC.restrictTo('admin', 'manager'), handler.getAllRadars)
     .post(
         authC.protect,
-        authC.restrictTo('admin', 'cw-hub'),
-        sanitiser.scrubBody,
+        authC.restrictTo('admin', 'manager'),
+        sanitiser.scrubEmpty,
         handler.createRadar
     )
 router
     .route('/:slug')
-    .get(authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.getRadarBySlug)
+    .get(authC.protect, authC.restrictTo('admin', 'manager'), handler.getRadarBySlug)
 router
     .route('/:id')
     .patch(
         authC.protect,
-        authC.restrictTo('admin', 'cw-hub'),
-        sanitiser.scrubBody,
+        authC.restrictTo('admin', 'manager'),
+        sanitiser.scrubEmpty,
         handler.updateRadar
     )
-    .delete(authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.deleteRadar)
+    .delete(authC.protect, authC.restrictTo('admin', 'manager'), handler.deleteRadar)
 
 router.patch(
     '/:slug/populate/:date?',
     authC.protect,
-    authC.restrictTo('admin', 'cw-hub'),
+    authC.restrictTo('admin', 'manager'),
     handler.populateRadar
 )
 router.patch(
     '/:slug/render',
     authC.protect,
-    authC.restrictTo('admin', 'cw-hub'),
+    authC.restrictTo('admin', 'manager'),
     handler.renderRadar
 )
 router.patch(
     '/:slug/publish',
     authC.protect,
-    authC.restrictTo('admin', 'cw-hub'),
+    authC.restrictTo('admin', 'manager'),
     handler.publishRadar
 )
 router.patch(
     '/:slug/archive',
     authC.protect,
-    authC.restrictTo('admin', 'cw-hub'),
+    authC.restrictTo('admin', 'manager'),
     handler.archiveRadar
 )
-router.patch('/:slug/reset', authC.protect, authC.restrictTo('admin', 'cw-hub'), handler.resetRadar)
+router.patch(
+    '/:slug/reset',
+    authC.protect,
+    authC.restrictTo('admin', 'manager'),
+    handler.resetRadar
+)
 
 //
 // EXPORTS

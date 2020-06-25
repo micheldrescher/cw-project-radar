@@ -29,7 +29,7 @@ router.post('/login', authC.login)
 // logout
 router.get('/logout', authC.protect, authC.logout)
 // update password
-router.patch('/updatePassword', authC.protect, sanitiser.scrubBody, authC.updatePassword)
+router.patch('/updatePassword', authC.protect, sanitiser.scrubEmpty, authC.updatePassword)
 
 /*******************************/
 /*                             */
@@ -40,19 +40,19 @@ router.patch('/updatePassword', authC.protect, sanitiser.scrubBody, authC.update
 router
     .route('/')
     .get(authC.protect, authC.restrictTo('admin'), userH.getAllUsers)
-    .post(authC.protect, authC.restrictTo('admin'), sanitiser.scrubBody, userH.createUser)
+    .post(authC.protect, authC.restrictTo('admin'), sanitiser.scrubEmpty, userH.createUser)
 // get, update, delete
 router
     .route('/:id')
     .get(authC.protect, authC.restrictTo('admin'), userH.getUser)
-    .patch(authC.protect, authC.restrictTo('admin'), sanitiser.scrubBody, userH.updateUser)
+    .patch(authC.protect, authC.restrictTo('admin'), sanitiser.scrubEmpty, userH.updateUser)
     .delete(authC.protect, authC.restrictTo('admin'), userH.deleteUser)
 // admin updating user's password
 router.patch(
     '/:id/password',
     authC.protect,
     authC.restrictTo('admin'),
-    sanitiser.scrubBody,
+    sanitiser.scrubEmpty,
     authC.updateUserPassword
 )
 

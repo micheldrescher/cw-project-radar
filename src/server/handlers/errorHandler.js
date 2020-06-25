@@ -44,8 +44,8 @@ const sendErrorProd = (err, req, res) => {
     // A) API
     if (req.originalUrl.startsWith('/api')) {
         // Operational error from within our app code
-        if (err.isOperational()) {
-            res.status(err.statusCode).json({
+        if (err.isOperational) {
+            return res.status(err.statusCode).json({
                 status: err.status,
                 message: err.message
             })
@@ -56,7 +56,7 @@ const sendErrorProd = (err, req, res) => {
             logger.error('--==** ERROR **==--', err)
 
             // 2) Send the generic error
-            res.status(500).json({
+            return res.status(500).json({
                 status: 'error',
                 message: 'Something went very wrong.'
             })
@@ -89,15 +89,13 @@ const errorHandler = (err, req, res, next) => {
     if (process.env.NODE_ENV === 'development') {
         sendErrorDev(err, req, res)
     } else if (process.env.NODE_ENV === 'production') {
-        let error = { ...err }
-
         // capture other specific errors that are NOT operational
         // and turn them into operational errors
-        if (error.name === 'CastError') error = handleCastErrorDB(error)
-        if (error.code === 11000) error = handleDuplicateFieldsDB(error)
-        if (error.name === 'ValidationError') error = handleValidationErrorDB(error)
+        if (err.name === 'CastError') err = handleCastErrorDB(err)
+        if (err.code === 11000) err = handleDuplicateFieldsDB(err)
+        if (err.name === 'ValidationError') err = handleValidationErrorDB(err)
 
-        sendErrorProd(error, req, res)
+        sendErrorProd(err, req, res)
     }
 }
 
