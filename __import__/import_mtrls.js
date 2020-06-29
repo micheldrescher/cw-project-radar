@@ -66,8 +66,14 @@ const runScript = async () => {
         '__import__/mtrl_scores_autumn_2019.tsv',
         '2019-08-31'
     )
+    const spring2020Data = await importScores(
+        '__import__/mtrl_scores_spring_2020.tsv',
+        '2019-06-30'
+    )
 
-    const data = filterData(autumn2018Data.concat(spring2019Data.concat(autumn2019Data)))
+    const data = filterData(
+        autumn2018Data.concat(spring2019Data.concat(autumn2019Data.concat(spring2020Data)))
+    )
 
     await addScores(data)
 

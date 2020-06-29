@@ -1,6 +1,6 @@
-{
+[{
 	"_id": {
-		"$oid": "5e905641a4f5467bec36bef8"
+		"$oid": "5efa1417522c51f12536f13c"
 	},
 	"status": "published",
 	"year": 2018,
@@ -10,21 +10,21 @@
 	"name": "Autumn 2018",
 	"__v": 0,
 	"data": {
-		"$oid": "5e905dcacccf2b8263d3abe8"
+		"$oid": "5efa147210c6a5f0c3a1e077"
 	},
 	"referenceDate": {
-		"$date": "2018-11-01T00:00:00Z"
+		"$date": "2018-09-30T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5e905dd4cccf2b8263d3ac8e"
+		"$oid": "5efa147610c6a5f0c3a1e11e"
 	},
 	"publicationDate": {
-		"$date": "2020-04-10T11:51:52.654Z"
+		"$date": "2020-06-29T16:19:05.792Z"
 	}
-}
+},
 {
 	"_id": {
-		"$oid": "5e905641a4f5467bec36bef9"
+		"$oid": "5efa1417522c51f12536f13d"
 	},
 	"status": "published",
 	"year": 2019,
@@ -34,21 +34,21 @@
 	"name": "Spring 2019",
 	"__v": 0,
 	"data": {
-		"$oid": "5e905e20cccf2b8263d3ac8f"
+		"$oid": "5efa14ac10c6a5f0c3a1e11f"
 	},
 	"referenceDate": {
-		"$date": "2019-04-30T23:00:00Z"
+		"$date": "2019-05-31T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5e905e24cccf2b8263d3ad3e"
+		"$oid": "5efa14b010c6a5f0c3a1e1d3"
 	},
 	"publicationDate": {
-		"$date": "2020-04-10T11:53:12.135Z"
+		"$date": "2020-06-29T16:20:03.481Z"
 	}
-}
+},
 {
 	"_id": {
-		"$oid": "5e905641a4f5467bec36befa"
+		"$oid": "5efa1417522c51f12536f13e"
 	},
 	"status": "published",
 	"year": 2019,
@@ -58,33 +58,45 @@
 	"name": "Autumn 2019",
 	"__v": 0,
 	"data": {
-		"$oid": "5e905e58cccf2b8263d3ad3f"
+		"$oid": "5efa14dc10c6a5f0c3a1e1d4"
 	},
 	"referenceDate": {
-		"$date": "2019-11-01T00:00:00Z"
+		"$date": "2019-09-30T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5e905e5ccccf2b8263d3ae00"
+		"$oid": "5efa14e510c6a5f0c3a1e294"
 	},
 	"publicationDate": {
-		"$date": "2020-04-10T11:54:24.393Z"
+		"$date": "2020-06-29T16:20:56.983Z"
 	}
-}
+},
 {
 	"_id": {
-		"$oid": "5e905641a4f5467bec36befb"
+		"$oid": "5efa1417522c51f12536f13f"
 	},
-	"status": "created",
+	"status": "published",
 	"year": 2020,
 	"release": "Spring",
 	"summary": "Fourth radar",
 	"slug": "spring-2020",
 	"name": "Spring 2020",
-	"__v": 0
-}
+	"__v": 0,
+	"data": {
+		"$oid": "5efa152810c6a5f0c3a1e295"
+	},
+	"referenceDate": {
+		"$date": "2020-06-30T23:00:00Z"
+	},
+	"rendering": {
+		"$oid": "5efa152c10c6a5f0c3a1e350"
+	},
+	"publicationDate": {
+		"$date": "2020-06-29T16:22:07.234Z"
+	}
+},
 {
 	"_id": {
-		"$oid": "5e905641a4f5467bec36befc"
+		"$oid": "5efa1417522c51f12536f140"
 	},
 	"status": "created",
 	"year": 2020,
@@ -93,4 +105,5 @@
 	"slug": "autumn-2020",
 	"name": "Autumn 2020",
 	"__v": 0
-}
+}]
+

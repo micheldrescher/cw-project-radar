@@ -16,7 +16,9 @@
         "dev:watch:js": "parcel watch src/client/index.js --out-dir src/client --out-file bundle.js",
         "start": "cp .env.prod .env && node dist/server/server.js",
         "debug": "ndb server.js",
-        "init": "sh scripts/mongo/init-mongo.sh && sh scripts/mongo/populate-mongo.sh"
+        "init": "sh scripts/mongo/init.sh",
+        "import": "sh scripts/mongo/import.sh",
+        "export": "sh scripts/mongo/export.sh"
     },
     "keywords": [
         "cyberwatching.eu",
