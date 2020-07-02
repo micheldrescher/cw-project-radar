@@ -1,10 +1,8 @@
 [back](../api.md)
 
-# Filter projects by taxonomy terms
+# Search for projects using ful-text search
 
-Fetch the names of projects that match against a given set of taxonomy terms. This is used in the UI to filter for EC JRC taxonomy terms.
-
-**NOTE:**  Currently the taxonomy terms are all hardcoded - see common/datamodel/jrc-taxonomy for details.
+Fetch the names of projects that match the given set of full-text search terms. 
 
 ## Request
 
