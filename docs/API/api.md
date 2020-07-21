@@ -40,6 +40,7 @@ Path                                  | Method | Access    | Description
 Path                               | Method | Access    | Description
 -----------------------------------|--------|-----------|----------------------------------------
 `/api/v1/project/prj_id/:cwid`     | GET    |           | Get public project data using its Cyberwatching ID [more...](project/project_get_cwid.md)
+`/api/v1/project/rcn/:rcn`         | GET    |           | Get public project data using its RCN [more...](project/project_get_rcn.md)
 `/api/v1/project/match`            | POST   |           | Get the Cyberwatching IDs of projects that for the POSTed taxonomy terms [more...](project/project_match.md)
 `/api/v1/project/search`           | POST   |           | Full-text search of projects matching the POSTed search terms. [more...](project/project_search.md)
 `/api/v1/project`                  | GET    | manager   | Get all projects 

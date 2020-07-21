@@ -12,8 +12,15 @@ const importHelper = require('./projects/projectsImportHelper')
 //
 // get by CW ID
 //
-exports.getByCWId = async cwid => {
-    return await Project.findOne({ cw_id: cwid })
+exports.getByCWId = async cw_id => {
+    return await Project.findOne({ cw_id })
+}
+
+//
+// get by RCN
+//
+exports.getByRCN = async rcn => {
+    return await Project.findOne({ rcn })
 }
 
 //

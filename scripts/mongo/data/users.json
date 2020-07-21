@@ -1,10 +1,11 @@
-{
+[{
 	"_id": {
-		"$oid": "5e90544685e0a968e5eea8c6"
+		"$oid": "5efa11f4ee2313b4b5a103b2"
 	},
 	"name": "admin",
 	"email": "cyber@cyberwatching.eu",
 	"password": "$2a$12$.n4NvG1ok5vxZYhf032Mn.QK9ZX9tDs2Gs3LRkIq.9lqxwxYV9T8K",
 	"role": "admin",
 	"active": true
-}
+}]
+

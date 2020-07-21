@@ -65,11 +65,37 @@ exports.updateProject = handlerFactory.updateOne(
 exports.deleteProject = handlerFactory.deleteOne(Project)
 
 exports.getByCWId = catchAsync(async (req, res, next) => {
-    const project = await projectController.getByCWId(req.params.cwid)
-    if (!project) {
-        throw new AppError(`No project found with id ${req.params.cwid}`, 404)
+    // input checking
+    if (!req.params.cwid || isNaN(req.params.cwid)) {
+        throw new AppError('Missing or non-number cwid in request.', 400)
     }
 
+    // fetch or find project
+    const project = await projectController.getByCWId(req.params.cwid)
+    if (!project) {
+        throw new AppError(`No project found with cwid ${req.params.cwid}`, 404)
+    }
+
+    // return project if found
+    res.status(200).json({
+        status: 'success',
+        data: project
+    })
+})
+
+exports.getByRCN = catchAsync(async (req, res, next) => {
+    // input checking
+    if (!req.params.rcn || isNaN(req.params.rcn)) {
+        throw new AppError('Missing or non-number rcn in request.', 400)
+    }
+
+    // fetch/find project
+    const project = await projectController.getByRCN(req.params.rcn)
+    if (!project) {
+        throw new AppError(`No project found with rcn ${req.params.rcn}`, 404)
+    }
+
+    // return project if found
     res.status(200).json({
         status: 'success',
         data: project

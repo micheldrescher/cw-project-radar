@@ -1,18 +1,18 @@
 [back](../api.md)
 
-# Get a project by Cyberwatching ID
+# Get a project by RCN
 
-Fetch project information using its Cyberwatching ID (internally assigned)
+Fetch project information using its unique RCN (assigned by the EC).
 
 ## Request
 
-* URL: `/api/v1/project/prj_id/:cwid`
+* URL: `/api/v1/project/rcn/:rcn`
 * Method: `GET`
 * URL Params:
-    1. cwid - the numeric ID assigned by Cyberwatching to identify the project in the radar
+    1. rcn - the numeric rcn assigned by the EC Cyberwatching to this project
 * Body Params: `n/a`
 
-Example: `/api/v1/project/prj_id/13`
+Example: `/api/v1/project/rcn/202697`
 
 ## Response
 
@@ -28,6 +28,7 @@ Example: `/api/v1/project/prj_id/13`
         "_id": "5e9055de1c16f47b348f66cc",
         "name": "CANVAS",
         "cw_id": 13,
+        "rcn": 202697,
         ...
     }
 }
@@ -40,7 +41,7 @@ OR
 ```json
 {
     "status": "fail",
-    "message": "Missing or non-number cw_id in request."
+    "message": "Missing or non-number rcn in request."
 }
 ```
 
@@ -51,7 +52,7 @@ OR
 ```json
 {
     "status": "fail",
-    "message": "No project found with cw_id 13."
+    "message": "No project found with rcn 202697."
 }
 ```
 
