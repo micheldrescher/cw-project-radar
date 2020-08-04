@@ -2,6 +2,8 @@ version: '3.7'
 
 services:
     cw-project-radar:
+        env_file:
+          - .env.prod
         build:
             context: .
             dockerfile: Dockerfile_node
