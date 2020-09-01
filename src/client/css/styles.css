@@ -195,6 +195,7 @@ header.header {
 
 .footer .funding {
     display: table;
+    padding-bottom: 1rem;
 }
 
 .footer .funding img,
@@ -205,6 +206,10 @@ header.header {
 .funding p {
     vertical-align: top;
     padding-left: 1rem;
+}
+
+.footer .version {
+    text-align: center;
 }
 
 /*
