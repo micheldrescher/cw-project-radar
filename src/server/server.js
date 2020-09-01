@@ -8,6 +8,10 @@ const mongoose = require('mongoose')
 const logger = require('./utils/logger')
 
 //
+// TODO remove as it's temporary!
+console.log(process.env.MODEL_SEGMENTS)
+
+//
 // HANDLING UNCAUGHT EXCEPTIONS
 //
 // This needs to be one of the first things to register
