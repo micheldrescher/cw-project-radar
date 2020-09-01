@@ -21,7 +21,7 @@ db.users.createIndex({ name: 1 }, { unique: true })
 //
 db.createCollection('projects')
 db.projects.createIndex({ cw_id: 1 }, { unique: true })
-db.projects.createIndex({ name: 1 }, { unique: true })
+db.projects.createIndex({ name: 1 })
 db.projects.createIndex({ rcn: 1 }, { unique: true })
 
 //
