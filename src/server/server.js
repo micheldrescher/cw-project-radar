@@ -8,15 +8,11 @@ const mongoose = require('mongoose')
 const logger = require('./utils/logger')
 
 //
-// TODO remove as it's temporary!
-console.log(process.env.MODEL_SEGMENTS)
-
-//
 // HANDLING UNCAUGHT EXCEPTIONS
 //
 // This needs to be one of the first things to register
 // before any exceptions might occur!
-process.on('uncaughtException', err => {
+process.on('uncaughtException', (err) => {
     logger.error('💥 Uncaught exception --> Shutting down.')
     // eslint-disable-next-line no-console
     console.log(err)
@@ -36,16 +32,16 @@ mongoose
         useNewUrlParser: true,
         useCreateIndex: true,
         useFindAndModify: false,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
     })
-    .catch(err => {
+    .catch((err) => {
         // initial connect error handling
         logger.error('💥 DB connection failed, terminating immediately.')
         logger.error(err)
         process.exit(1)
     })
 // log intermittent connection errors
-mongoose.connection.on('error', err => {
+mongoose.connection.on('error', (err) => {
     logger.error('💥 DB connection interrupted, trying to reconnect.')
     logger.error(err)
 })
@@ -68,7 +64,7 @@ const server = app.listen(PORT, () => {
 //
 // HANDLE UNHANDLED REJECTIONS
 //
-process.on('unhandledRejection', err => {
+process.on('unhandledRejection', (err) => {
     logger.error('💥 Unhandled rejection --> Shutting down.')
     // eslint-disable-next-line no-console
     console.log(err)
