@@ -27,7 +27,7 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     if (!editions || editions.length === 0) {
         res.locals.alert = {
             status: 'warning',
-            message: 'Unable to fetch radar editions.'
+            message: 'Unable to fetch radar editions.',
         }
     } else {
         // 4) process result
@@ -48,7 +48,8 @@ exports.getEditions = catchAsync(async (req, res, next) => {
 exports.showMain = catchAsync(async (req, res, next) => {
     // TODO expand on default content.
     res.status(200).render('main', {
-        title: 'Welcome'
+        title: 'Welcome',
+        pageclass: 'main',
     })
 })
 
@@ -69,7 +70,7 @@ exports.showRadar = catchAsync(async (req, res, next) => {
     res.status(200).render(`${__dirname}/../views/radar`, {
         title: radar.name,
         radar,
-        jrcTaxonomy
+        jrcTaxonomy,
     })
 })
 
@@ -84,7 +85,7 @@ exports.showRadar = catchAsync(async (req, res, next) => {
 //
 exports.loginForm = (req, res) => {
     res.status(200).render('user/login', {
-        title: 'Login'
+        title: 'Login',
     })
 }
 
@@ -93,7 +94,7 @@ exports.loginForm = (req, res) => {
 //
 exports.accountPage = (req, res) => {
     res.status(200).render('user/account', {
-        title: 'Your account'
+        title: 'Your account',
     })
 }
 
@@ -103,7 +104,7 @@ exports.accountPage = (req, res) => {
 exports.manageUsers = catchAsync(async (req, res, next) => {
     // 1) Fetch all users - except "myself"
     const users = await User.find({
-        _id: { $ne: res.locals.user._id }
+        _id: { $ne: res.locals.user._id },
     })
     if (!users) {
         return next(new AppError(`No users found in this application. Schrodinger's users?`, 404))
@@ -112,7 +113,7 @@ exports.manageUsers = catchAsync(async (req, res, next) => {
     // 2) Render user management page
     res.status(200).render('admin/manageUsers', {
         title: 'Manage users',
-        users
+        users,
     })
 })
 
@@ -126,7 +127,7 @@ exports.editUser = catchAsync(async (req, res, next) => {
     // 2) Render user edit page
     res.status(200).render('admin/editUser', {
         title: 'Edit use details',
-        targetUser: user
+        targetUser: user,
     })
 })
 
@@ -150,7 +151,7 @@ exports.manageRadars = catchAsync(async (req, res, next) => {
     // 2) Render radar management page
     res.status(200).render('admin/manageRadars', {
         title: 'Manage radars',
-        radars
+        radars,
     })
 })
 
@@ -167,7 +168,7 @@ exports.editRadar = catchAsync(async (req, res, next) => {
     // 2) Render radar edit page
     res.status(200).render('admin/editRadar', {
         title: 'Edit radar',
-        radar
+        radar,
     })
 })
 
@@ -189,7 +190,7 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
 
     // Decorate the projects with their classification and their last score (temporarily)
     await Promise.all(
-        projects.map(async prj => {
+        projects.map(async (prj) => {
             // add classification
             if (prj.hasClassifications) {
                 let segment = await classificationController.getClassification(prj._id, Date.now())
@@ -206,7 +207,7 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
     // 2) Render projects management page
     res.status(200).render('admin/manageProjects', {
         title: 'Manage projects',
-        projects
+        projects,
     })
 })
 
@@ -222,7 +223,7 @@ exports.editProject = catchAsync(async (req, res, next) => {
 
     // 2) Get all classifications and MTRL scores for the project
     const classifications = await Classification.find({ project: project._id }).sort({
-        classifiedOn: 1
+        classifiedOn: 1,
     })
     const mtrlScores = await MTRLScore.find({ project: project._id }).sort({ scoringDate: 1 })
 
@@ -232,6 +233,6 @@ exports.editProject = catchAsync(async (req, res, next) => {
         project,
         classifications,
         mtrlScores,
-        jrcTaxonomy
+        jrcTaxonomy,
     })
 })

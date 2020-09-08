@@ -56,6 +56,10 @@ header.header {
     text-align: center;
 }
 
+.title a {
+    text-decoration: none;
+}
+
 .title span {
     font-family: 'Lato';
     font-size: 3.5rem;
@@ -232,6 +236,37 @@ header.header {
 }
 .alert--error {
     background-color: #ffb6b1;
+}
+
+/***************
+ *             *
+ *  MAIN PAGE  *
+ *             *
+ ***************/
+
+/* EC project funding stats */
+.main .stats {
+    text-align: center;
+    margin: 48pt;
+}
+
+.main .stats .stat {
+    display: inline;
+    margin: 24pt;
+}
+
+.main .stat .txt {
+    font-size: 18pt;
+}
+.main .stat .num {
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+/* intro text */
+.main .intro {
+    margin: 48pt;
+    font-size: 14pt;
 }
 
 /*****************
