@@ -535,11 +535,18 @@ section.modal > div.modal-window > header > div.closeBtn:focus {
 }
 
 /*
+ * Modal TOOLBAR
+ */
+section.modal > div.modal-window > section.toolbar:empty {
+    display: none;
+}
+/*
  * General layout for the content section
  */
 section.modal > div.modal-window > section {
     flex: 1 1 auto;
     overflow-y: auto;
+    margin: 1em;
 }
 
 /*
