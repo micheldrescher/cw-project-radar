@@ -27,10 +27,7 @@ exports.plotRadar = (root, data) => {
 
 const plotSegments = (root, data, angles, radii) => {
     const viewBox = `-${size / 2} -${size / 2} ${size} ${size}`
-    const svg = root
-        .select('.svg')
-        .append('svg')
-        .attr('viewBox', viewBox)
+    const svg = root.select('.svg').append('svg').attr('viewBox', viewBox)
 
     // calc the blip diameter as half the difference between inner and outer
     // radii of the last ring (minus 2 for a blip stroke of 1)
@@ -110,7 +107,7 @@ const plotRing = (root, ringName, blips, segIdx, ringIdx, angles, radii, blipDia
         endA: angles[segIdx + 1],
         innerR: radii[ringIdx],
         outerR: radii[ringIdx + 1],
-        blipDia
+        blipDia,
     })
 
     // 4) Add a separator line to the third ring
@@ -148,17 +145,7 @@ const plotLines = (group, startA, endA, radius) => {
     const endY2 = radius * Math.sin(endA - Math.PI / 2)
 
     // drawing "left" line
-    group
-        .append('line')
-        .attr('x1', 0)
-        .attr('y1', 0)
-        .attr('x2', endX1)
-        .attr('y2', endY1)
+    group.append('line').attr('x1', 0).attr('y1', 0).attr('x2', endX1).attr('y2', endY1)
     // draw "right" line
-    group
-        .append('line')
-        .attr('x1', 0)
-        .attr('y1', 0)
-        .attr('x2', endX2)
-        .attr('y2', endY2)
+    group.append('line').attr('x1', 0).attr('y1', 0).attr('x2', endX2).attr('y2', endY2)
 }

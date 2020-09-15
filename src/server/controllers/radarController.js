@@ -19,8 +19,8 @@ const { Project } = require('../models/projectModel')
 //
 // MODULE VARS
 //
-const rings = process.env.MODEL_RINGS.split(',').map(e => e.trim())
-const segments = process.env.MODEL_SEGMENTS.split(',').map(e => e.trim())
+const rings = process.env.MODEL_RINGS.split(',').map((e) => e.trim())
+const segments = process.env.MODEL_SEGMENTS.split(',').map((e) => e.trim())
 
 //
 // Fetch a radar by its slug
@@ -38,13 +38,13 @@ exports.getEditions = async () => {
     // we want only published radars
     // TODO vary the filter based on logged in user
     let filter = {
-        status: 'published'
+        status: 'published',
     }
     // sort by year, then editiion (desc.)
     // include only the slug and the name
     let queryStr = {
         sort: '-year,release',
-        fields: 'name,slug'
+        fields: 'name,slug',
     }
     const features = new APIFeatures(Radar.find(filter), queryStr)
         .filter()
@@ -79,22 +79,22 @@ exports.populateRadar = async (slug, date) => {
     const projects = await Project.find({
         endDate: { $gte: prjMaxAge.toDate() },
         startDate: { $lt: radarDate.toDate() },
-        hasClassifications: true
+        hasClassifications: true,
     })
 
     // 3) Create a temporary map of maps
     const data = new Map()
-    segments.forEach(segment => {
+    segments.forEach((segment) => {
         const segMap = new Map()
         data.set(segment, segMap)
-        rings.forEach(ring => {
+        rings.forEach((ring) => {
             segMap.set(ring, new Array())
         })
     })
 
     // 4) Map all projects into data.
     await Promise.all(
-        projects.map(async prj => {
+        projects.map(async (prj) => {
             let segment = await classificationController.getClassification(
                 prj._id,
                 radarDate.toDate()
@@ -106,18 +106,16 @@ exports.populateRadar = async (slug, date) => {
             if (prj.hasScores) {
                 score = await mtrlScoresController.getScore(prj._id, radarDate.toDate())
             }
-            data.get(segment)
-                .get(ring)
-                .push({
-                    prj,
-                    score
-                })
+            data.get(segment).get(ring).push({
+                prj,
+                score,
+            })
         })
     )
 
     // 5) Map all projects into blips stored in the radar including statistics
     const radarData = new RadarData({
-        radar: radar._id
+        radar: radar._id,
     })
     radarData.data = new Map()
     for (const [segKey, segMap] of data.entries()) {
@@ -125,14 +123,14 @@ exports.populateRadar = async (slug, date) => {
         for (const [ringKey, entries] of segMap.entries()) {
             const stats = calculateStatistics(entries)
             const ringData = []
-            entries.forEach(e => {
+            entries.forEach((e) => {
                 const blip = new Blip({
                     project: e.prj._id,
                     tags: e.prj.tags,
                     cw_id: e.prj.cw_id, // temporary
                     prj_name: e.prj.name, // temporary
                     segment: segKey, // temporary
-                    ring: ringKey // temporary
+                    ring: ringKey, // temporary
                 })
                 if (e.score) {
                     blip.trl = e.score.trl
@@ -163,7 +161,7 @@ exports.populateRadar = async (slug, date) => {
 //
 // Render the radar into a scalable SVG image
 //
-exports.renderRadar = async slug => {
+exports.renderRadar = async (slug) => {
     // 1) Obtain the radar
     const radar = await this.getRadarBySlug(slug, 'data')
 
@@ -187,7 +185,7 @@ exports.renderRadar = async slug => {
 
     // add to the radar, update state, and save
     const rendering = new RadarRendering({
-        radar: radar._id
+        radar: radar._id,
     })
     rendering.rendering = new Map()
     rendering.rendering.set('svg', svgContainer.html())
@@ -205,7 +203,7 @@ exports.renderRadar = async slug => {
 //
 // Once checked for any mistakes after rendering, an admin (or other
 // authorised user) can publish the radar for the public to analyse
-exports.publishRadar = async slug => {
+exports.publishRadar = async (slug) => {
     // 1) Obtain the radar
     const radar = await this.getRadarBySlug(slug)
     if (!radar) {
@@ -228,7 +226,7 @@ exports.publishRadar = async slug => {
 // archive a radar
 //
 // At some point, a radar becomes uninteresting, at which point it should be archived (not deleted).
-exports.archiveRadar = async slug => {
+exports.archiveRadar = async (slug) => {
     // 1) Obtain the radar
     const radar = await this.getRadarBySlug(slug)
     if (!radar) {
@@ -249,7 +247,7 @@ exports.archiveRadar = async slug => {
 //
 // Reset a radar
 //
-exports.resetRadar = async slug => {
+exports.resetRadar = async (slug) => {
     // 1) Get the radar for the slug
     const radar = await this.getRadarBySlug(slug)
     if (!radar) {
@@ -277,10 +275,10 @@ exports.resetRadar = async slug => {
 //
 // Calculate statistics for each ring
 //
-const calculateStatistics = entries => {
+const calculateStatistics = (entries) => {
     const scores = entries
-        .filter(entry => entry.score)
-        .map(entry => {
+        .filter((entry) => entry.score)
+        .map((entry) => {
             return entry.score.score
         })
     if (!scores || scores.length === 0) {
@@ -288,14 +286,14 @@ const calculateStatistics = entries => {
     }
 
     const median = simpleStats.median(scores)
-    const perfs = scores.map(score => score - median)
+    const perfs = scores.map((score) => score - median)
     const min = perfs.reduce((aMin, perf) => (perf < aMin ? perf : aMin))
     const max = perfs.reduce((aMin, perf) => (perf > aMin ? perf : aMin))
 
     return {
         median,
         min,
-        max
+        max,
     }
 }
 
