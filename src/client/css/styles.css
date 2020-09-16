@@ -744,29 +744,41 @@ section.modal > div.modal-window > section.buttonbar {
  *                              *
  *******************************/
 /* General layout for the filter list(s) */
-#radar section#filters {
+#radar > #filters {
     margin: 0 4em;
+    display: flex;
 }
-#radar section#filters div.filter {
+
+/*
+ * All other filters
+ */
+/* Other filters get all space and have a right margin */
+#radar > #filters > #other {
+    flex: 1 1 auto;
+    margin-right: 1em;
+}
+
+/* Each filder ... */
+#radar > #filters > #other > div.filter {
     margin: 0.5em 0;
     display: flex;
     align-items: flex-start;
 }
-#radar section#filters div.filter:first-child {
+#radar > #filters > #other > .filter:first-child {
     margin-top: 0em;
 }
-#radar section#filters div.filter:last-child {
+#radar > #filters > #other > .filter:last-child {
     margin-bottom: 0em;
 }
-/* Each filter ... */
-section#filters div.filter * {
+/* Each filter child ... */
+#filters > #other > .filter * {
     vertical-align: top;
 }
-section#filters div.filter > *:first-child {
+#filters > #other > .filter > *:first-child {
     margin-right: 0.5em;
 }
 /* ... has a button, ... */
-section#filters div.filter button {
+#filters > #other > div.filter button {
     font-family: 'Lato';
     font-size: 0.8em;
     padding: 0.2em;
@@ -774,25 +786,25 @@ section#filters div.filter button {
     flex: 0 0 auto;
 }
 /* ... an ops div, ... */
-section#filters div.filter div.ops {
+#filters > #other > div.filter div.ops {
     flex: 0 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 0.2em;
     font-size: 0.8em;
 }
-section#filters div.filter div.ops * {
+#filters > #other > div.filter div.ops * {
     text-align: center;
     margin: auto;
 }
 
 /* ... and a noneditable list of tags. */
-section#filters div.filter div.tags {
+#filters > #other > div.filter div.tags {
     font-family: 'Lato';
     font-size: 0.8em;
 }
 /* Each individual tag */
-section#filters div.filter div.tags div.tag {
+#filters > #other > div.filter div.tags div.tag {
     display: inline-block;
     border: 1px solid darkgray;
     padding: 0.1em 0.5em;
@@ -807,4 +819,53 @@ form.form--edit-tags ul {
 form.form--filter-tags > ul > li:first-child {
     font-weight: bold;
     font-size: 1.2em;
+}
+
+/*
+ * Search
+ */
+/* Search area stays small and can shrink if necessary, but not grow */
+#filters > #search {
+    flex: 0 1 auto;
+}
+/* search text field needs styling */
+#filters > #search #search_term {
+}
+#filters > #search #search_term:focus {
+    outline: none;
+}
+/* ditto the cancel button */
+#filters > #search #search_clear {
+    background-color: white;
+    border: unset;
+    font-size: 16pt;
+    vertical-align: middle;
+    color: black;
+    line-height: 0%;
+}
+#filters > #search > #search_clear:focus {
+    outline: none;
+}
+/* search results list position is absolute so as to overlay the radar if very long */
+#filters > #search > #search_results {
+    position: absolute;
+    display: grid;
+    gap: 0 0;
+    border: 1px solid lightgray;
+}
+/* each search result element */
+#filters > #search > #search_results > button {
+    display: block;
+    margin: 0;
+    border: 0;
+    background-color: white;
+    text-align: left;
+    border-bottom: 1px dotted lightgray;
+    padding: 0.3em 0.5em;
+}
+#filters > #search > #search_results > button:last-child {
+    border-bottom: unset;
+}
+#filters > #search > #search_results > button:hover {
+    background-color: #eaeaea;
 }
