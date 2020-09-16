@@ -15,17 +15,18 @@ import {
     createUser,
     deleteUser,
     updateUsersDetails,
-    updateUsersPassword
+    updateUsersPassword,
 } from './js/admin/userActions'
 import { createRadar, updateRadar, deleteRadar, advanceRadar } from './js/admin/radarActions'
 import {
     createProject,
     deleteProject,
     updateProject,
-    importProjects
+    importProjects,
 } from './js/admin/projectActions'
 import { addClassification, addScore } from './js/admin/scoreAndClassify'
 import { getName } from '../common/datamodel/jrc-taxonomy'
+import { searchProjects, clearProjects } from './js/radar/search.js'
 
 /****************************************************************
  *                                                              *
@@ -38,8 +39,8 @@ import { getName } from '../common/datamodel/jrc-taxonomy'
 //
 const radarButtons = document.querySelectorAll('.radar')
 if (radarButtons) {
-    radarButtons.forEach(btn => {
-        btn.addEventListener('click', event => {
+    radarButtons.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
             event.preventDefault()
             const slug = event.target.getAttribute('radar')
             location.assign(`/radar/${slug}`)
@@ -52,8 +53,8 @@ if (radarButtons) {
 //
 const adminButtons = document.querySelectorAll('.admin')
 if (adminButtons) {
-    adminButtons.forEach(btn => {
-        btn.addEventListener('click', event => {
+    adminButtons.forEach((btn) => {
+        btn.addEventListener('click', (event) => {
             event.preventDefault()
             const route = event.target.getAttribute('route')
             location.assign(route)
@@ -72,7 +73,7 @@ if (adminButtons) {
 //
 const loginForm = document.getElementById('login-form')
 if (loginForm) {
-    loginForm.addEventListener('submit', e => {
+    loginForm.addEventListener('submit', (e) => {
         e.preventDefault()
         const name = document.getElementById('name').value
         const password = document.getElementById('password').value
@@ -91,7 +92,7 @@ if (logOutBtn) logOutBtn.addEventListener('click', logout)
 //
 const passwordForm = document.getElementById('password-form')
 if (passwordForm) {
-    passwordForm.addEventListener('submit', async e => {
+    passwordForm.addEventListener('submit', async (e) => {
         e.preventDefault()
         document.querySelector('.btn--update-password').textContent = 'Updating...'
 
@@ -112,6 +113,23 @@ if (passwordForm) {
  *                  R A D A R    D I S P L A Y                  *
  *                                                              *
  ****************************************************************/
+
+//
+// Interactive search form
+//
+const searchField = document.getElementById('search_term')
+if (searchField) {
+    searchField.addEventListener('keyup', (e) => searchProjects(searchField.value))
+}
+// clear button
+const clearBtn = document.getElementById('search_clear')
+if (clearBtn) {
+    clearBtn.addEventListener('click', (e) => {
+        if (searchField) searchField.value = ''
+        clearProjects()
+    })
+}
+
 //
 // Display the radar
 //
@@ -138,7 +156,7 @@ if (radarSection) {
 const jrcTagFormButton = document.querySelector('#jrctagsfilter button')
 if (jrcTagFormButton) {
     // wire up the button to show the filter tags meny
-    jrcTagFormButton.addEventListener('click', event => {
+    jrcTagFormButton.addEventListener('click', (event) => {
         event.preventDefault()
         // show modal
         showFilterTagForm()
@@ -150,8 +168,8 @@ if (jrcTagFormButton) {
 //
 const anyAllRadios = document.querySelectorAll('div.ops input')
 if (anyAllRadios) {
-    anyAllRadios.forEach(radio => {
-        radio.addEventListener('click', async event => {
+    anyAllRadios.forEach((radio) => {
+        radio.addEventListener('click', async (event) => {
             const filter = getTags()
             filter.union = event.target.value
             await updateTags(filter)
@@ -171,7 +189,7 @@ if (anyAllRadios) {
 //
 const newUserForm = document.getElementById('new-user-form')
 if (newUserForm) {
-    newUserForm.addEventListener('submit', async e => {
+    newUserForm.addEventListener('submit', async (e) => {
         e.preventDefault()
         document.getElementById('btn--create-user').textContent = 'Updating...'
 
@@ -195,8 +213,8 @@ if (newUserForm) {
 //
 const deleteUserLinks = document.querySelectorAll('.delete-user')
 if (deleteUserLinks) {
-    deleteUserLinks.forEach(link => {
-        link.addEventListener('click', async event => {
+    deleteUserLinks.forEach((link) => {
+        link.addEventListener('click', async (event) => {
             event.preventDefault()
             await deleteUser(event.path[1].getAttribute('route'), location.href)
         })
@@ -208,8 +226,8 @@ if (deleteUserLinks) {
 //
 const editUserLinks = document.querySelectorAll('.edit-user')
 if (editUserLinks) {
-    editUserLinks.forEach(link => {
-        link.addEventListener('click', async event => {
+    editUserLinks.forEach((link) => {
+        link.addEventListener('click', async (event) => {
             event.preventDefault()
             location.assign(event.path[1].getAttribute('route'))
         })
@@ -221,7 +239,7 @@ if (editUserLinks) {
 //
 const updateUserDetailsForm = document.getElementById('edit-user-form')
 if (updateUserDetailsForm) {
-    updateUserDetailsForm.addEventListener('submit', async event => {
+    updateUserDetailsForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const name = document.getElementById('name').value
         const email = document.getElementById('email').value
@@ -236,7 +254,7 @@ if (updateUserDetailsForm) {
 //
 const setUserPasswordForm = document.getElementById('set-password-form')
 if (setUserPasswordForm) {
-    setUserPasswordForm.addEventListener('submit', async event => {
+    setUserPasswordForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const userid = document.getElementById('userid').value
         const password = document.getElementById('newPass').value
@@ -250,7 +268,7 @@ if (setUserPasswordForm) {
 //
 const createRadarForm = document.getElementById('new-radar-form')
 if (createRadarForm) {
-    createRadarForm.addEventListener('submit', async event => {
+    createRadarForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const edition = document.getElementById('edition').value
         const year = document.getElementById('year').value
@@ -265,8 +283,8 @@ if (createRadarForm) {
 //
 const editRadarLinks = document.querySelectorAll('.edit-radar')
 if (editRadarLinks) {
-    editRadarLinks.forEach(link => {
-        link.addEventListener('click', async event => {
+    editRadarLinks.forEach((link) => {
+        link.addEventListener('click', async (event) => {
             event.preventDefault()
             location.assign(event.path[1].getAttribute('route'))
         })
@@ -278,8 +296,8 @@ if (editRadarLinks) {
 //
 const deleteRadarLinks = document.querySelectorAll('.delete-radar')
 if (deleteRadarLinks) {
-    deleteRadarLinks.forEach(link => {
-        link.addEventListener('click', async event => {
+    deleteRadarLinks.forEach((link) => {
+        link.addEventListener('click', async (event) => {
             event.preventDefault()
             console.log(event.path[1].getAttribute('route'))
             await deleteRadar(event.path[1].getAttribute('route'), location.href)
@@ -292,7 +310,7 @@ if (deleteRadarLinks) {
 //
 const updateRadarForm = document.getElementById('edit-radar-form')
 if (updateRadarForm) {
-    updateRadarForm.addEventListener('submit', async event => {
+    updateRadarForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const id = document.getElementById('radarid').value
         const summary = document.getElementById('summary').value
@@ -305,8 +323,8 @@ if (updateRadarForm) {
 //
 const administerRadarForms = document.querySelectorAll('.administer-radar-form')
 if (administerRadarForms) {
-    administerRadarForms.forEach(form => {
-        form.addEventListener('submit', async event => {
+    administerRadarForms.forEach((form) => {
+        form.addEventListener('submit', async (event) => {
             event.preventDefault()
             const cutoff = document.getElementById('cutoff').value
             const route = event.target.getAttribute('route')
@@ -320,7 +338,7 @@ if (administerRadarForms) {
 //
 const newProjectForm = document.getElementById('new-project-form')
 if (newProjectForm) {
-    newProjectForm.addEventListener('submit', async event => {
+    newProjectForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const values = {
             name: document.getElementById('name').value,
@@ -334,7 +352,7 @@ if (newProjectForm) {
             projectURL: document.getElementById('projecturl').value,
             fundingBodyLink: document.getElementById('fundingbodylink').value,
             cwurl: document.getElementById('cwprojecthublink').value,
-            teaser: document.getElementById('teaser').value
+            teaser: document.getElementById('teaser').value,
         }
         await createProject(values)
     })
@@ -345,8 +363,8 @@ if (newProjectForm) {
 //
 const deleteProjectLinks = document.querySelectorAll('.delete-project')
 if (deleteProjectLinks) {
-    deleteProjectLinks.forEach(link => {
-        link.addEventListener('click', async event => {
+    deleteProjectLinks.forEach((link) => {
+        link.addEventListener('click', async (event) => {
             event.preventDefault()
             await deleteProject(event.path[1].getAttribute('route'), location.href)
         })
@@ -358,8 +376,8 @@ if (deleteProjectLinks) {
 //
 const editProjectLinks = document.querySelectorAll('.edit-project')
 if (editProjectLinks) {
-    editProjectLinks.forEach(link => {
-        link.addEventListener('click', async event => {
+    editProjectLinks.forEach((link) => {
+        link.addEventListener('click', async (event) => {
             event.preventDefault()
             location.assign(event.path[1].getAttribute('route'))
         })
@@ -371,7 +389,7 @@ if (editProjectLinks) {
 //
 const editProjectForm = document.getElementById('edit-project-form')
 if (editProjectForm) {
-    editProjectForm.addEventListener('submit', async event => {
+    editProjectForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const values = {
             id: document.getElementById('projectid').value,
@@ -386,7 +404,7 @@ if (editProjectForm) {
             projectURL: document.getElementById('projecturl').value,
             fundingBodyLink: document.getElementById('fundingbodylink').value,
             cwurl: document.getElementById('cwprojecthublink').value,
-            teaser: document.getElementById('teaser').value
+            teaser: document.getElementById('teaser').value,
         }
         await updateProject(values)
     })
@@ -397,7 +415,7 @@ if (editProjectForm) {
 //
 const uploadImportForm = document.getElementById('import-projects-form')
 if (uploadImportForm) {
-    uploadImportForm.addEventListener('submit', async event => {
+    uploadImportForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const form = new FormData()
         form.append('importfile', document.getElementById('importfile').files[0])
@@ -410,7 +428,7 @@ if (uploadImportForm) {
 //
 const addCategoryForm = document.getElementById('add-category-form')
 if (addCategoryForm) {
-    addCategoryForm.addEventListener('submit', async event => {
+    addCategoryForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const cw_id = document.getElementById('cwid').value
         const classification = document.getElementById('classification').value
@@ -425,7 +443,7 @@ if (addCategoryForm) {
 //
 const addScoreForm = document.getElementById('add-score-form')
 if (addScoreForm) {
-    addScoreForm.addEventListener('submit', async event => {
+    addScoreForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const cw_id = document.getElementById('cwid').value
         const mrl = document.getElementById('mrl').value
@@ -442,18 +460,18 @@ if (addScoreForm) {
 // when selecting a dimension header, unselect al the dimension's terms
 const dimensionHeaders = document.querySelectorAll('.dimension-header')
 if (dimensionHeaders) {
-    dimensionHeaders.forEach(box => {
-        box.addEventListener('click', event => {
+    dimensionHeaders.forEach((box) => {
+        box.addEventListener('click', (event) => {
             const termBoxes = box.parentNode.parentNode.querySelectorAll('.term')
-            termBoxes.forEach(tB => (tB.checked = false))
+            termBoxes.forEach((tB) => (tB.checked = false))
         })
     })
 }
 // when selecting a dimension's term, unselect the dimension header
 const dimensionTerms = document.querySelectorAll('.term')
 if (dimensionTerms) {
-    dimensionTerms.forEach(termBox => {
-        termBox.addEventListener('click', event => {
+    dimensionTerms.forEach((termBox) => {
+        termBox.addEventListener('click', (event) => {
             const parentBox = termBox.parentNode.parentNode.parentNode.parentNode.querySelector(
                 '.dimension-header'
             )
@@ -467,13 +485,13 @@ if (dimensionTerms) {
 //
 const taxonomySubmit = document.getElementById('edit-tags-form')
 if (taxonomySubmit) {
-    taxonomySubmit.addEventListener('submit', async event => {
+    taxonomySubmit.addEventListener('submit', async (event) => {
         event.preventDefault()
         const values = {
             id: document.getElementById('projectid').value,
-            tags: []
+            tags: [],
         }
-        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach(c => {
+        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
             values.tags.push(c.value)
         })
         await updateProject(values)
@@ -485,7 +503,7 @@ if (taxonomySubmit) {
 //
 const rdExpander = document.querySelector('#overview #summary-flicker')
 if (rdExpander) {
-    rdExpander.addEventListener('click', event => {
+    rdExpander.addEventListener('click', (event) => {
         event.target.classList.toggle('open')
         event.target.parentNode.parentNode.classList.toggle('open')
     })
