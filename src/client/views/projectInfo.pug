@@ -1,5 +1,44 @@
 extends _modal
 
+mixin miniRadar(model, segment, ring)
+    svg(id="circ" viewBox="0 0 102 102")
+        // draw an empty mini radar
+        // first the ring borders
+        - const theta = 360/model.segments.length
+        - for (let i=0; i<model.rings.length; i++) {
+            circle(cx=51 cy=51 r=i*10 + 10 stroke-width="1px" stroke="black" fill="transparent")
+        - }
+        // then the lines
+        - for (let i=0; i<model.segments.length; i++) {
+            line(x1=51 y1=51 x2=51 y2=0 stroke-width=1 stroke='black' transform=`rotate(${theta*i}, 51, 51)`)
+        - }
+        // finally, a special circle that "fills" the appropriate ring segment.
+        // First, calculate some values...
+        - const radius = 10*model.rings.indexOf(ring)+5
+        - const circumference = 2 * Math.PI * radius
+        - offset = 0.25 * circumference // needed to let the circle begin at top, not right
+        - const dashLen = (theta / 360) * circumference
+        - const dashPause = circumference - dashLen
+        - const rotate = theta*model.segments.indexOf(segment)
+        // draw the circle
+        circle(cx=51 cy=51 r=radius stroke-dasharray=`${dashLen}, ${dashPause}` stroke-dashoffset=offset stroke="black" stroke-width="10px" fill="none", transform=`rotate(${rotate}, 51, 51)`)
+        //- - const rotate = 
+        //- draw a circle with a dashed line 
+        // ... and then rotated according to the project's segment.
+
+mixin lifecycle(model, ring)
+    - for (let i=0; i<model.lcycle.length; i++) {
+        - if (i != 0) {
+            div &#x25B8;
+        - }
+        - if (model.lcycle[i] === ring) {
+            div.current #{model.lcycle[i]}
+        - } else {
+            div #{model.lcycle[i]}
+        - }
+    - }
+
+
 block header
     if (project.cwurl)
         div 
@@ -19,12 +58,22 @@ block content
         .key.budget Budget <span>#{new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(project.budget)}</span>
         .key.call Funding call <span>#{project.call}</span>
         .key.type Project type <span>#{project.type}</span>
-    if (scale)
+    .stats
         .score
-            .scale
+            - if (scale)
                 .label Relative performance
                 != scale
-            .mtrl
-                #mrl.key MRL <span>#{blip.mrl}</span>
-                #trl.key TRL <span>#{blip.trl}</span>
-
+                .mtrl
+                    #mrl.key MRL <span>#{blip.mrl}</span>
+                    #trl.key TRL <span>#{blip.trl}</span>
+                    #score.key Performance <span>#{blip.performance}</span>
+        .location
+            .legend
+                .key Segment: 
+                .value #{blip.segment}
+                .key Ring: 
+                .value #{blip.ring}
+                div#miniRadar
+                    +miniRadar(model, blip.segment, blip.ring)
+            #lifecycle
+                +lifecycle(model, blip.ring)

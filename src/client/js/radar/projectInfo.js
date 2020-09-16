@@ -5,6 +5,7 @@
 import axios from 'axios'
 import { SVG } from '@svgdotjs/svg.js'
 // app modules
+import { getModel } from '../util/localStore'
 
 //
 // EXPORTS
@@ -16,6 +17,7 @@ const showProjectData = async (blip) => {
     const response = await (await axios.get('/api/v1/project/prj_id/' + blip.cw_id)).data
     // TODO add error message to footer in red
 
+    const model = await getModel()
     // compile HTML from the template
     const modalString = projectinfoTemplate({
         modalID: 'projectInfo',
@@ -24,6 +26,7 @@ const showProjectData = async (blip) => {
         project: response.data,
         blip,
         scale: createScoreScale(blip),
+        model,
     })
     // add to DOM and display
     d3.select('#modals').html(modalString)

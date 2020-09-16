@@ -541,9 +541,15 @@ section.modal > div.modal-window > section.toolbar:empty {
     display: none;
 }
 /*
+ * Modal BUTTON BAR (if any)
+ */
+section.modal > div.modal-window > section.buttonbar:empty {
+    display: none;
+}
+/*
  * General layout for the content section
  */
-section.modal > div.modal-window > section {
+section.modal > div.modal-window > section#modal-content {
     flex: 1 1 auto;
     overflow-y: auto;
     margin: 1em;
@@ -585,7 +591,9 @@ section.modal > div.modal-window > section.buttonbar {
 /* The action buttons get some styling as well */
 
 /********************************
+ *                              *
  *  Project info modal content  *
+ *                              *
  ********************************/
 #projectInfo .prjTitle {
     font-size: 1.1em;
@@ -600,8 +608,7 @@ section.modal > div.modal-window > section.buttonbar {
 /* key project data (start, end, budget, call */
 #projectInfo .prjKeys {
     display: flex;
-    margin-bottom: 1.5em;
-    padding-bottom: 1.5em;
+    padding-bottom: 1em;
     border-bottom: 1px solid lightgray;
 }
 
@@ -623,32 +630,42 @@ section.modal > div.modal-window > section.buttonbar {
     color: black;
 }
 
-#projectInfo .score {
+/*
+ * Statistics div for the project
+ */
+#projectInfo .stats {
     display: flex;
-}
-#projectInfo .score .scale {
-    flex: 0.65 0.65 0px;
+    padding-top: 1em;
 }
 
-#projectInfo .score .scale .label {
+/*
+ * The MTRL scores and relative performance
+ */
+#projectInfo .stats > .score {
+    flex: 0.5 0.5 0px;
+    border-right: 1px solid lightgray;
+}
+#projectInfo .stats > .score > .label {
     text-align: center;
     font-weight: 700;
 }
-
 /* performance scale SVG */
-#projectInfo .score .scale svg line {
+#projectInfo .stats > .score svg {
+    display: block;
+}
+#projectInfo .stats > .score svg line {
     stroke-width: 2;
 }
-#projectInfo .score .scale svg line#perf {
+#projectInfo .stats > .score svg line#perf {
     stroke: red;
     stroke-width: 3;
 }
-#projectInfo .score .scale svg text {
+#projectInfo .stats > .score svg text {
     text-anchor: middle;
     font-size: 0.9em;
 }
 
-/* MTRL score layput */
+/* MTRL score layout */
 #projectInfo .score .mtrl {
     flex: 0.35 0.35 0px;
     display: flex;
@@ -658,6 +675,67 @@ section.modal > div.modal-window > section.buttonbar {
 }
 #projectInfo .score .mtrl #trl {
     flex: 1 1 0px;
+}
+
+/*
+ * project's radar location info
+ */
+#projectInfo .stats > .location {
+    flex: 0.5 0.5 0px;
+    margin-left: 1.2em;
+}
+
+/*
+ * location legend
+ */
+#projectInfo .stats > .location > .legend {
+    display: grid;
+    grid-template-columns: 0.2fr 1fr 0.5fr;
+    width: fit-content;
+}
+#projectInfo .stats > .location > .legend > .key {
+    padding: 0 0.5em 0 0;
+    margin: auto 0;
+    vertical-align: middle;
+    text-align: right;
+    border: unset;
+}
+#projectInfo .stats > .location > .legend > .value {
+    vertical-align: middle;
+    margin: auto 0px;
+}
+#projectInfo .stats > .location > .legend > #miniRadar {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    margin: 0 1em;
+    grid-column: 3;
+}
+#projectInfo .stats > .location > .legend > #miniRadar > #circ {
+    height: 4em;
+}
+
+/*
+ * Lifecycle position indicator
+ */
+#lifecycle {
+    margin-top: 1em;
+    display: flex;
+    justify-content: center;
+}
+#lifecycle > * {
+    flex: 0 1 0px;
+    border: none;
+    margin: 0 0.5em;
+    font-size: 0.8em;
+    color: darkgray;
+}
+#lifecycle > *:first-child,
+#lifecycle > *:last-child {
+    margin: 0px;
+}
+#lifecycle > .current {
+    color: black;
+    font-weight: bold;
 }
 
 /********************************
