@@ -85,30 +85,65 @@ test('calcAngles 4', () => {
 })
 
 /*
- * calcRadii
+ * equiDistantRadii
  */
-test('calcRadii 0 0 0', () => {
-    expect(m.calcRadii(0, 0, 0)).toEqual([])
+test('equiDistantRadii 0 0 0', () => {
+    expect(m.equiDistantRadii(0, 0, 0)).toEqual([])
 })
 
-test('calcRadii 1 1 0', () => {
-    expect(m.calcRadii(1, 1, 0)).toEqual([])
+test('equiDistantRadii 0 1 0', () => {
+    expect(m.equiDistantRadii(0, 1, 0)).toEqual([])
 })
 
-test('calcRadii 1 0 1', () => {
-    expect(m.calcRadii(0, 0, 0)).toEqual([])
+test('equiDistantRadii 0 0 1', () => {
+    expect(m.equiDistantRadii(0, 0, 1)).toEqual([])
 })
 
-test('calcRadii 0 0 1', () => {
-    expect(m.calcRadii(0, 0, 1)).toEqual([])
+test('equiDistantRadii 0 1 1', () => {
+    expect(m.equiDistantRadii(0, 1, 1)).toEqual([0, 1])
 })
 
-test('calcRadii 1 1 100', () => {
-    expect(m.calcRadii(1, 1, 100)).toEqual([0, 100])
+test('equiDistantRadii 0 1 10', () => {
+    expect(m.equiDistantRadii(0, 1, 10)).toEqual([0, 10])
 })
 
-test('calcRadii 2 2 100', () => {
-    expect(m.calcRadii(2, 2, 100)).toEqual([0, 71, 100])
+test('equiDistantRadii 0 2 10', () => {
+    expect(m.equiDistantRadii(0, 2, 10)).toEqual([0, 5, 10])
+})
+
+test('equiDistantRadii 0 5 100', () => {
+    expect(m.equiDistantRadii(0, 5, 100)).toEqual([0, 20, 40, 60, 80, 100])
+})
+
+test('equiDistantRadii 100 5 100', () => {
+    expect(m.equiDistantRadii(100, 5, 100)).toEqual([0, 20, 40, 60, 80, 100])
+})
+
+/*
+ * equiSpatialRadii
+ */
+test('equiSpatialRadii 0 0 0', () => {
+    expect(m.equiSpatialRadii(0, 0, 0)).toEqual([])
+})
+
+test('equiSpatialRadii 1 1 0', () => {
+    expect(m.equiSpatialRadii(1, 1, 0)).toEqual([])
+})
+
+test('equiSpatialRadii 1 0 1', () => {
+    expect(m.equiSpatialRadii(0, 0, 0)).toEqual([])
+})
+
+test('equiSpatialRadii 0 0 1', () => {
+    expect(m.equiSpatialRadii(0, 0, 1)).toEqual([])
+})
+
+test('equiSpatialRadii 1 1 100', () => {
+    expect(m.equiSpatialRadii(1, 1, 100)).toEqual([0, 100])
+})
+
+test('equiSpatialRadii 2 2 100', () => {
+    expect(m.equiSpatialRadii(2, 2, 100)).toEqual([0, 71, 100])
 })
 
 /*

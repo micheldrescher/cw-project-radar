@@ -35,9 +35,24 @@ const calcAngles = (num) => {
 }
 
 //
-// calculate an array of radii for radar segment rings
+// calculate an array of radii for radar segment rings so that all ring arcs have the SAME THICKNESS.
 //
-const calcRadii = (numSegs, numRings, radius) => {
+const equiDistantRadii = (numSegs, numRings, radius) => {
+    if (numRings < 1 || radius < 1) return []
+
+    const delta = radius / numRings
+
+    const radii = []
+    for (let i = 0; i <= numRings; i++) {
+        radii.push(delta * i)
+    }
+    return radii
+}
+
+//
+// calculate an array of radii for radar segment rings so that all ring arcs have the SAME AREA.
+//
+const equiSpatialRadii = (numSegs, numRings, radius) => {
     if (numSegs < 1 || numRings < 1 || radius < 1) return []
 
     const angle = toRadian(theta(numSegs))
@@ -56,7 +71,6 @@ const scale = (sMin, sMax) => {
     let scale = {}
 
     scale.range = function (rMin, rMax) {
-        let range = {}
         const ratio = (sMax - sMin) / (rMax - rMin)
         const offset = 0 + sMin
         const shift = 0 - rMin
@@ -72,4 +86,12 @@ const scale = (sMin, sMax) => {
 //
 // EXPORTS
 //
-module.exports = { scale, theta, calcAngles, calcRadii, toRadian, toDegree }
+module.exports = {
+    scale,
+    theta,
+    calcAngles,
+    equiDistantRadii,
+    equiSpatialRadii,
+    toRadian,
+    toDegree,
+}

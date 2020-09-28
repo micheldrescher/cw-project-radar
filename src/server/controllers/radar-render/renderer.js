@@ -4,7 +4,7 @@
 // libraries
 const d3 = require('d3')
 // app modules
-const { calcAngles, calcRadii } = require('../../../common/util/maths')
+const { calcAngles, calcRadii: equiSpatialRadii } = require('../../../common/util/maths')
 const placeBlips = require('./blipPlacer')
 
 //
@@ -20,7 +20,7 @@ exports.plotRadar = (root, data) => {
     const numSegs = data.data.size
     const numRings = data.data.values().next().value.size
     const angles = calcAngles(numSegs)
-    const radii = calcRadii(numSegs, numRings, radius)
+    const radii = equiSpatialRadii(numSegs, numRings, radius)
 
     plotSegments(root, data.data, angles, radii)
 }
