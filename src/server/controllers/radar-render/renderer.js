@@ -4,7 +4,7 @@
 // libraries
 const d3 = require('d3')
 // app modules
-const { calcAngles, calcRadii } = require('../../utils/myMaths')
+const { calcAngles, calcRadii } = require('../../../common/util/maths')
 const placeBlips = require('./blipPlacer')
 
 //
