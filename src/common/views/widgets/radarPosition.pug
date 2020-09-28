@@ -1,0 +1,32 @@
+mixin radarPosition(segment, ring)
+    //- 
+    //- CSS
+    //- 
+    style(type="text/css").
+        #radar-position {
+            display: grid;
+            grid-template-columns: auto auto;
+            width: fit-content;
+            margin: 1em;
+        }
+        #radar-position > * {
+            margin: auto 0;
+            vertical-align: middle;
+        }
+        #radar-position > .name {
+            text-align: right;
+            padding-right: 0.5em;
+            font-size: 0.8em;
+            color: darkgray;
+        }
+
+    //- 
+    //-  TEMPLATE
+    //- 
+    #radar-position
+        .name
+            | Segment:
+        .value= segment
+        .name
+            | Ring:
+        .value= ring

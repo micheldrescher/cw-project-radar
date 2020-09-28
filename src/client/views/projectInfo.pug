@@ -1,79 +1,146 @@
 extends _modal
 
-mixin miniRadar(model, segment, ring)
-    svg(id="circ" viewBox="0 0 102 102")
-        // draw an empty mini radar
-        // first the ring borders
-        - const theta = 360/model.segments.length
-        - for (let i=0; i<model.rings.length; i++) {
-            circle(cx=51 cy=51 r=i*10 + 10 stroke-width="1px" stroke="black" fill="transparent")
-        - }
-        // then the lines
-        - for (let i=0; i<model.segments.length; i++) {
-            line(x1=51 y1=51 x2=51 y2=0 stroke-width=1 stroke='black' transform=`rotate(${theta*i}, 51, 51)`)
-        - }
-        // finally, a special circle that "fills" the appropriate ring segment.
-        // First, calculate some values...
-        - const radius = 10*model.rings.indexOf(ring)+5
-        - const circumference = 2 * Math.PI * radius
-        - offset = 0.25 * circumference // needed to let the circle begin at top, not right
-        - const dashLen = (theta / 360) * circumference
-        - const dashPause = circumference - dashLen
-        - const rotate = theta*model.segments.indexOf(segment)
-        // draw the circle
-        circle(cx=51 cy=51 r=radius stroke-dasharray=`${dashLen}, ${dashPause}` stroke-dashoffset=offset stroke="black" stroke-width="10px" fill="none", transform=`rotate(${rotate}, 51, 51)`)
-        //- - const rotate = 
-        //- draw a circle with a dashed line 
-        // ... and then rotated according to the project's segment.
+include ../../common/views/widgets/lifecycle.pug
+include ../../common/views/widgets/metric.pug
+include ../../common/views/widgets/mtrlPerfScale.pug
+include ../../common/views/widgets/radarLocation.pug
+include ../../common/views/widgets/radarPosition.pug
 
-mixin lifecycle(model, ring)
-    - for (let i=0; i<model.lcycle.length; i++) {
-        - if (i != 0) {
-            div &#x25B8;
-        - }
-        - if (model.lcycle[i] === ring) {
-            div.current #{model.lcycle[i]}
-        - } else {
-            div #{model.lcycle[i]}
-        - }
-    - }
+//-
+//- MIXINS
+//-
 
+//- 
+//- CSS
+//- 
+block append styles
+    style(type="text/css").
+        /*
+         * Project info modal
+         */
+        /* Title */
+        #projectInfo .prjTitle {
+            font-size: 1.1em;
+            text-align: center;
+            font-weight: 700;
+        }
+        /* Project teaser text */
+        #projectInfo .prjTeaser {
+            margin-bottom: 0.5em;
+        }
+        /*
+         * Project key metrics
+         */
+        #projectInfo .prjMetrics {
+            display: flex;
+            justify-content: space-around;
+            padding-bottom: 1em;
+            border-bottom: 1px solid lightgray;
+        }
+        #projectInfo .prjMetrics > .metric {
+            flex: 1 0 0px;
+            border-right: 1px solid lightgrey;
+        }
+        #projectInfo .prjMetrics > .metric:last-child {
+            border-right: none;
+        }
+        /*
+         * Statistics pane
+         */
+        #projectInfo .stats {
+            display: flex;
+            padding-top: 1em;
+        }
+        #projectInfo .stats .label {
+            text-align: center;
+            font-weight: 700;
+        }
+        /*
+         * MTRL score pane
+         */
+        #projectInfo .stats > .performance {
+            flex: 0.5 0.5 0px;
+            border-right: 1px solid lightgray;
+        }
+        #projectInfo .stats > .performance > .mtrl {
+            display: flex;
+            justify-content: space-around;
+        }
+        #projectInfo .stats > .performance > .mtrl > .metric {
+            border-right: 1px solid lightgray;
+            flex: 1 0 0px;
+        }
+        #projectInfo .stats > .performance > .mtrl > .metric:last-child {
+            border-right: none;
+        }
+        /*
+         * Project radar metrics
+         */
+        #projectInfo .stats > .metrics {
+            flex: 0.5 0.5 0px;
+        }
+        #projectInfo .stats > .metrics > .radar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            align-items: flex-start;
+        }
+        /* Radar position grid */
+        #projectInfo .stats > .metrics #radar-position {
+        }
+        /* Radar position radar */
+        #projectInfo .stats > .metrics #radar-location {
+            margin-left: 0em;    /* Somehow in flexboxes margins don't overlap... */
+        }
+        /* Project lifecycle */
+        #projectInfo .stats > .metrics #lifecycle {
+            flex: 1 0 0px;
+            margin-top: 0em;    /* Somehow in flexboxes margins don't overlap... */
+            margin-bottom: 0em; /* Somehow in flexboxes margins don't overlap... */
+        }
 
-block header
+//-
+//- HEADER
+//-
+block header 
     if (project.cwurl)
         div 
             a(href=project.cwurl target='_blank') #{header}
     else 
         div #{header}
 
+//-
+//- FOOTER
+//-
 block footer
     div #{footer}
 
+//-
+//- MAIN CONTENT
+//-
 block content
     .prjTitle  #{project.title}
     .prjTeaser #{project.teaser}
-    .prjKeys
-        .key.start Start date <span>#{new Date(project.startDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })}</span>
-        .key.end End date <span>#{new Date(project.endDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })}</span>
-        .key.budget Budget <span>#{new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(project.budget)}</span>
-        .key.call Funding call <span>#{project.call}</span>
-        .key.type Project type <span>#{project.type}</span>
+    //- Key project metrics pane
+    .prjMetrics
+        +metric('Start date', new Date(project.startDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  }))
+        +metric('End date', new Date(project.endDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  }))
+        +metric('Budget', new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(project.budget))
+        +metric('Funding call', project.call)
+        +metric('Funding call', project.type)
+    //- Project statistics pane
     .stats
-        .score
+        .performance
             - if (scale)
                 .label Relative performance
-                != scale
+                +mtrlPerfScale(scale)
                 .mtrl
-                    #mrl.key MRL <span>#{blip.mrl}</span>
-                    #trl.key TRL <span>#{blip.trl}</span>
-                    #score.key Performance <span>#{blip.performance}</span>
-        .location
-            .legend
-                .key Segment: 
-                .value #{blip.segment}
-                .key Ring: 
-                .value #{blip.ring}
-                div#miniRadar
-                    +miniRadar(model, blip.segment, blip.ring)
-            #lifecycle
-                +lifecycle(model, blip.ring)
+                    +metric('MRL', blip.mrl)
+                    +metric('TRL', blip.trl)
+                    +metric('Performance', blip.performance)
+        .metrics
+            .label Project metrics
+            .radar
+                +radarPosition(blip.segment, blip.ring)
+                +radarLocation(model, blip.segment, blip.ring)
+            +lifecycle(model, blip.ring)
