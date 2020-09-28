@@ -11,7 +11,9 @@ const { MTRLScore } = require('../models/mtrlScoreModel')
 const classificationController = require('./../controllers/classificationController')
 const mtrlScoresController = require('./../controllers/mtrlScoresController')
 const logger = require('./../utils/logger')
+const projectController = require('../controllers/projectController')
 const radarController = require('../controllers/radarController')
+const modelController = require('../controllers/modelController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
@@ -234,5 +236,66 @@ exports.editProject = catchAsync(async (req, res, next) => {
         classifications,
         mtrlScores,
         jrcTaxonomy,
+    })
+})
+
+//
+// Deliver the project widget
+//
+exports.getProjectWidget = catchAsync(async (req, res, next) => {
+    // 1) Get the correct radar (default to latest if not provided)
+    let radar
+    if (req.params.radar) {
+        radar = await radarController.getRadarBySlug(req.params.radar, 'data')
+    } else {
+        // 1.1 find all editions and pick the latest
+        let editions = await radarController.getEditions()
+        if (!editions || editions.length == 0) {
+            // no public editions available
+            return next(new AppError('No public info available', 204))
+        }
+        // 1.2 Now get the latest radar
+        radar = await radarController.getRadarBySlug(editions[0].slug, 'data')
+    }
+    if (!radar) {
+        // no radar found...
+        return next(new AppError('No radar with that slug', 404))
+    }
+
+    // 2) find the project' blip in the radar
+    let blip
+    // iterate over all segments
+    const segsIter = radar.data.data.values()
+    let seg = segsIter.next()
+    while (blip == null && !seg.done) {
+        // now iterate over the segments' rings
+        const ringsIter = seg.value.values()
+        let ring = ringsIter.next()
+        while (blip == null && !ring.done) {
+            // now let's find the blip in the array
+            for (let i = 0; i < ring.value.length; i++) {
+                if (ring.value[i].cw_id == req.params.cwid) {
+                    blip = ring.value[i]
+                    break
+                }
+            }
+            ring = ringsIter.next()
+        }
+        seg = segsIter.next()
+    }
+    if (!blip) {
+        // no blip found
+        return next(new AppError('Project not found in given radar', 404))
+    }
+
+    console.log(blip)
+
+    // 3) get the data model from the environment
+    const model = modelController.getModel()
+
+    // ??) Render the widget
+    res.status(200).render('widgets/project.pug', {
+        blip,
+        model,
     })
 })

@@ -5,7 +5,7 @@
 const Chance = require('chance')
 // modules
 const AppError = require('../../utils/AppError')
-const { toDegree, toRadian } = require('../../utils/myMaths')
+const { toDegree, toRadian } = require('../../../common/util/maths')
 
 //
 // GLOBALS
@@ -15,7 +15,7 @@ const gradients = process.env.GRADIENTS.split(',') || [
     '#FF8F00',
     '#FFFF00',
     '#BFFF00',
-    '#00FF00'
+    '#00FF00',
 ]
 
 //
@@ -28,7 +28,7 @@ const placeBlips = (blips, root, segIdx, ringIdx, geom) => {
     // 2) Iterate through all blips (projects) and add to ring
     blips.sort((a, b) => a.cw_id - b.cw_id)
     const blipCoords = []
-    blips.forEach(blip => {
+    blips.forEach((blip) => {
         // 2.1 - add the blip to the table
         addTableEntry(blip, root, segIdx, ringIdx)
         // 2.2 - find coordinates and draw blip in radar
@@ -42,10 +42,7 @@ const addTableEntry = (blip, root, segIdx, ringIdx) => {
     const ringList = root
         .select(`.segment-table.segment-${segIdx}`)
         .select(`.ring-table.ring-${ringIdx} > ul`)
-    ringList
-        .append('li')
-        .append('div')
-        .text(`${blip.cw_id}. ${blip.prj_name}`)
+    ringList.append('li').append('div').text(`${blip.cw_id}. ${blip.prj_name}`)
 
     //
     // TODO this is stuff to add items to the table
@@ -124,7 +121,7 @@ const pickCoords = (blip, chance, geom) => {
     //    (that works well for max 6 segments)
     var radius = chance.floating({
         min: Math.max(geom.blipDia, geom.innerR + geom.blipDia / 2),
-        max: geom.outerR - geom.blipDia / 2
+        max: geom.outerR - geom.blipDia / 2,
     })
 
     // 2) Randomly select a relative angle (from the start angle for
@@ -138,7 +135,7 @@ const pickCoords = (blip, chance, geom) => {
     // 2.2) Pic a random angle between the allowed maximums
     var angle = chance.floating({
         min: startA + delta,
-        max: endA - delta
+        max: endA - delta,
     })
 
     // STEP 3 - Translate polar coordinates into cartesian coordinates (while respecting
@@ -151,7 +148,7 @@ const pickCoords = (blip, chance, geom) => {
 
 const thereIsCollision = (blipWidth, coords, allCoords) => {
     return allCoords.some(
-        currCoords =>
+        (currCoords) =>
             Math.abs(currCoords[0] - coords[0]) < blipWidth &&
             Math.abs(currCoords[1] - coords[1]) < blipWidth
     )
@@ -195,7 +192,7 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .text(blip.cw_id)
 }
 
-const arcColour = blip => {
+const arcColour = (blip) => {
     // 0) If there is no score, return black
     if (!blip.score) return '#000000'
 
