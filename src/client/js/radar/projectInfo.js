@@ -26,6 +26,7 @@ const showProjectData = async (blip) => {
         blip,
         scale: createMTRLPerfScale(blip.score, blip.performance, blip.min, blip.max),
         model,
+        radiiFunc: require('../../../common/util/maths').equiSpatialRadii,
     })
     // add to DOM and display
     d3.select('#modals').html(modalString)

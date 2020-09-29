@@ -1,5 +1,4 @@
-
-mixin radarLocation(model, segment, ring)
+mixin radarLocation(model, segment, ring, radiiFunc)
     //- 
     //- CSS
     //- 
@@ -19,8 +18,14 @@ mixin radarLocation(model, segment, ring)
             // draw an empty mini radar
             // first the ring borders
             - const theta = 360/model.segments.length
-            - for (let i=0; i<model.rings.length; i++) {
-                circle(cx=51 cy=51 r=i*10 + 10 stroke-width="1px" stroke="black" fill="transparent")
+            - let radii
+            - if (radiiFunc) {
+            -    radii = radiiFunc(model.segments.length, model.rings.length, 50)
+            - } else {
+            -    radii = [0, 10, 30, 50, 70, 90]
+            - }
+            - for (let i=1; i<radii.length; i++) {
+                circle(cx=51 cy=51 r=radii[i] stroke-width="1px" stroke="black" fill="transparent")
             - }
             // then the lines
             - for (let i=0; i<model.segments.length; i++) {
@@ -29,14 +34,16 @@ mixin radarLocation(model, segment, ring)
             // finally, a special circle that "fills" the appropriate ring segment.
             // First, calculate some values...
             -
-                const radius = 10*model.rings.indexOf(ring)+5
+                const idx = model.rings.indexOf(ring)
+                const strokeW = radii[idx+1]-radii[idx]
+                const radius = radii[idx] + strokeW/2
                 const circumference = 2 * Math.PI * radius
                 offset = 0.25 * circumference // needed to let the circle begin at top, not right
                 const dashLen = (theta / 360) * circumference
                 const dashPause = circumference - dashLen
                 const rotate = theta*model.segments.indexOf(segment)
             // draw the circle
-            circle(cx=51 cy=51 r=radius stroke-dasharray=`${dashLen}, ${dashPause}` stroke-dashoffset=offset stroke="black" stroke-width="10px" fill="none", transform=`rotate(${rotate}, 51, 51)`)
+            circle(cx=51 cy=51 r=radius stroke-dasharray=`${dashLen}, ${dashPause}` stroke-dashoffset=offset stroke="black" stroke-width=strokeW fill="none", transform=`rotate(${rotate}, 51, 51)`)
             //- - const rotate = 
             //- draw a circle with a dashed line 
             // ... and then rotated according to the project's segment.
