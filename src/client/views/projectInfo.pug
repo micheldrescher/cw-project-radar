@@ -103,8 +103,11 @@ block append styles
 //- HEADER
 //-
 block header 
+    - console.log(project)
     if (project.cwurl)
         div 
+            !=project.cw_id 
+            |. 
             a(href=project.cwurl target='_blank') #{header}
     else 
         div #{header}
