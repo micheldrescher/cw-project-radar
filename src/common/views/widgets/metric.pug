@@ -21,7 +21,7 @@ mixin metric(key, value)
     //- 
     //- TEMPLATE
     //- 
-    .metric
+    .metric(class!=attributes.class)
         .key= key
         .value= value
 

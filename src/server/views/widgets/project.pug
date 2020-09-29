@@ -1,52 +1,66 @@
 include ../../../common/views/widgets/lifecycle.pug
+include ../../../common/views/widgets/metric.pug
+include ../../../common/views/widgets/mtrlPerfScale.pug
 include ../../../common/views/widgets/radarLocation.pug
+include ../../../common/views/widgets/radarPosition.pug
 
 doctype html
 html
     head
+        //-
+        //- CSS
+        //-
         link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700")
         style(type="text/css").
             body {
                 font-family: 'Lato';
                 font-size: 1rem;
+                width: 250px;
+                height: 100px;
+                margin-left: auto;
+                margin-right: auto;
             }
-            .stats > .location > .legend {
-                display: grid;
-                grid-template-columns: 0.2fr 1fr 0.5fr;
-                width: fit-content;
+            .mtrl {
+                display: flex;
             }
-            .stats > .location > .legend > .key {
+            .mtrl > * {
                 flex: 1 1 0px;
-                font-size: 0.8em;
-                color: darkgray;
-                padding: 0 0.5em 0 0;
-                margin: auto 0;
-                vertical-align: middle;
-                text-align: right;
-                border: unset;
+                margin: 0 10%
             }
-            .stats > .location > .legend > .value {
-                vertical-align: middle;
-                margin: auto 0px;
+            .mtrl > .metric.mrl {
+                border-top: 5px solid red;
+                background-color: #ffd7d7;
             }
-
+            .mtrl > .metric.trl {
+                border-top: 5px solid green;
+                background-color: #d7ffd7;
+            }
+            .mtrl > .metric > .key {
+                color: darkslategray;
+                font-weight: bold;
+            }
+            .mtrl > .metric > .value {
+                font-size: 1.5em;
+            }
+            #lifecycle {
+                align-items: baseline;
+            }
+            #lifecycle > *:not(.current) {
+                color: darkslategray !important;
+            }
+            #lifecycle .current {
+                font-size: 1.3em;
+                color: black;
+            }
+            
+    //-
+    //- TEMPLATE
+    //- 
     body
-    h1.cw.widget #{name}
-    .stats
-    .score
-        - if (scale)
-            .label Relative performance
-            != scale
+        .stats
             .mtrl
-                #mrl.key MRL <span>#{blip.mrl}</span>
-                #trl.key TRL <span>#{blip.trl}</span>
-                #score.key Performance <span>#{blip.performance}</span>
-    .location
-        .legend
-            .key Segment: 
-            .value #{blip.segment}
-            .key Ring: 
-            .value #{blip.ring}
-        +radarLocation(model, blip.segment, blip.ring)
-        +lifecycle(model, blip.ring)
+                +metric('MRL', blip.mrl)(class='mrl')
+                +metric('TRL', blip.trl)(class='trl')
+            .metrics
+                +lifecycle(model, blip.ring)
 
