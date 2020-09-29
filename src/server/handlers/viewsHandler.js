@@ -10,8 +10,6 @@ const { Classification } = require('../models/classificationModel')
 const { MTRLScore } = require('../models/mtrlScoreModel')
 const classificationController = require('./../controllers/classificationController')
 const mtrlScoresController = require('./../controllers/mtrlScoresController')
-const logger = require('./../utils/logger')
-const projectController = require('../controllers/projectController')
 const radarController = require('../controllers/radarController')
 const modelController = require('../controllers/modelController')
 const User = require('../models/userModel')
@@ -239,28 +237,17 @@ exports.editProject = catchAsync(async (req, res, next) => {
     })
 })
 
+/*************************/
+/*                       */
+/*        WIDGETS        */
+/*                       */
+/*************************/
 //
-// Deliver the project widget
+// Standard project widget
 //
 exports.getProjectWidget = catchAsync(async (req, res, next) => {
     // 1) Get the correct radar (default to latest if not provided)
-    let radar
-    if (req.params.radar) {
-        radar = await radarController.getRadarBySlug(req.params.radar, 'data')
-    } else {
-        // 1.1 find all editions and pick the latest
-        let editions = await radarController.getEditions()
-        if (!editions || editions.length == 0) {
-            // no public editions available
-            return next(new AppError('No public info available', 204))
-        }
-        // 1.2 Now get the latest radar
-        radar = await radarController.getRadarBySlug(editions[0].slug, 'data')
-    }
-    if (!radar) {
-        // no radar found...
-        return next(new AppError('No radar with that slug', 404))
-    }
+    const radar = await radarController.getBySlugOrLatest(req.params.radar, 'data')
 
     // 2) find the project' blip in the radar
     let blip
@@ -288,8 +275,6 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
         return next(new AppError('Project not found in given radar', 404))
     }
 
-    console.log(blip)
-
     // 3) get the data model from the environment
     const model = modelController.getModel()
 
@@ -297,5 +282,6 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
     res.status(200).render('widgets/project.pug', {
         blip,
         model,
+        radiiFunc: require('../../common/util/maths').equiSpatialRadii,
     })
 })
