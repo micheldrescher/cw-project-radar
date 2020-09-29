@@ -22,6 +22,11 @@ const { Project } = require('../models/projectModel')
 const rings = process.env.MODEL_RINGS.split(',').map((e) => e.trim())
 const segments = process.env.MODEL_SEGMENTS.split(',').map((e) => e.trim())
 
+/****************************
+ *                          *
+ *     LOOKUP FUNCTIONS     *
+ *                          *
+ ****************************/
 //
 // Fetch a radar by its slug
 //
@@ -55,6 +60,37 @@ exports.getEditions = async () => {
     return await features.query
 }
 
+//
+// fetches a radar by its slug or, if not provided, the latest one
+//
+exports.getBySlugOrLatest = async (slug, field) => {
+    let radar
+
+    if (slug) {
+        radar = await this.getRadarBySlug(slug, field)
+    } else {
+        // 1.1 find all editions and pick the latest
+        let editions = await this.getEditions()
+        if (!editions || editions.length == 0) {
+            // no public editions available
+            throw new AppError('No published radars available', 204)
+        }
+        // 1.2 Now get the latest published radar
+        radar = await this.getRadarBySlug(editions[0].slug, field)
+    }
+    if (!radar) {
+        // no radar found...
+        throw new AppError('No radar with that slug', 404)
+    }
+
+    return radar
+}
+
+/*******************************
+ *                             *
+ *     LIFECYCLE FUNCTIONS     *
+ *                             *
+ *******************************/
 //
 // populate the radar with project and scoring data statistics
 //
@@ -272,6 +308,11 @@ exports.resetRadar = async (slug) => {
     return radar
 }
 
+/*******************************
+ *                             *
+ *     PRIVATE   FUNCTIONS     *
+ *                             *
+ *******************************/
 //
 // Calculate statistics for each ring
 //

@@ -10,8 +10,8 @@ const { Classification } = require('../models/classificationModel')
 const { MTRLScore } = require('../models/mtrlScoreModel')
 const classificationController = require('./../controllers/classificationController')
 const mtrlScoresController = require('./../controllers/mtrlScoresController')
-const logger = require('./../utils/logger')
 const radarController = require('../controllers/radarController')
+const modelController = require('../controllers/modelController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
@@ -234,5 +234,54 @@ exports.editProject = catchAsync(async (req, res, next) => {
         classifications,
         mtrlScores,
         jrcTaxonomy,
+    })
+})
+
+/*************************/
+/*                       */
+/*        WIDGETS        */
+/*                       */
+/*************************/
+//
+// Standard project widget
+//
+exports.getProjectWidget = catchAsync(async (req, res, next) => {
+    // 1) Get the correct radar (default to latest if not provided)
+    const radar = await radarController.getBySlugOrLatest(req.params.radar, 'data')
+
+    // 2) find the project' blip in the radar
+    let blip
+    // iterate over all segments
+    const segsIter = radar.data.data.values()
+    let seg = segsIter.next()
+    while (blip == null && !seg.done) {
+        // now iterate over the segments' rings
+        const ringsIter = seg.value.values()
+        let ring = ringsIter.next()
+        while (blip == null && !ring.done) {
+            // now let's find the blip in the array
+            for (let i = 0; i < ring.value.length; i++) {
+                if (ring.value[i].cw_id == req.params.cwid) {
+                    blip = ring.value[i]
+                    break
+                }
+            }
+            ring = ringsIter.next()
+        }
+        seg = segsIter.next()
+    }
+    if (!blip) {
+        // no blip found
+        return next(new AppError('Project not found in given radar', 404))
+    }
+
+    // 3) get the data model from the environment
+    const model = modelController.getModel()
+
+    // ??) Render the widget
+    res.status(200).render('widgets/project.pug', {
+        blip,
+        model,
+        radiiFunc: require('../../common/util/maths').equiSpatialRadii,
     })
 })

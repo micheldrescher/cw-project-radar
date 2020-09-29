@@ -18,7 +18,8 @@
         "debug": "ndb server.js",
         "init": "sh scripts/mongo/init.sh",
         "import": "sh scripts/mongo/import.sh",
-        "export": "sh scripts/mongo/export.sh"
+        "export": "sh scripts/mongo/export.sh",
+        "test": "jest"
     },
     "keywords": [
         "cyberwatching.eu",
@@ -72,6 +73,7 @@
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.4.2",
         "ndb": "^1.1.5",
         "nodemon": "^2.0.4",
         "parcel-bundler": "^1.12.4",

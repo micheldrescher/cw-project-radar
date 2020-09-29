@@ -1,0 +1,66 @@
+include ../../../common/views/widgets/lifecycle.pug
+include ../../../common/views/widgets/metric.pug
+include ../../../common/views/widgets/mtrlPerfScale.pug
+include ../../../common/views/widgets/radarLocation.pug
+include ../../../common/views/widgets/radarPosition.pug
+
+doctype html
+html
+    head
+        //-
+        //- CSS
+        //-
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700")
+        style(type="text/css").
+            body {
+                font-family: 'Lato';
+                font-size: 1rem;
+                width: 250px;
+                height: 100px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .mtrl {
+                display: flex;
+            }
+            .mtrl > * {
+                flex: 1 1 0px;
+                margin: 0 10%
+            }
+            .mtrl > .metric.mrl {
+                border-top: 5px solid red;
+                background-color: #ffd7d7;
+            }
+            .mtrl > .metric.trl {
+                border-top: 5px solid green;
+                background-color: #d7ffd7;
+            }
+            .mtrl > .metric > .key {
+                color: darkslategray;
+                font-weight: bold;
+            }
+            .mtrl > .metric > .value {
+                font-size: 1.5em;
+            }
+            #lifecycle {
+                align-items: baseline;
+            }
+            #lifecycle > *:not(.current) {
+                color: darkslategray !important;
+            }
+            #lifecycle .current {
+                font-size: 1.3em;
+                color: black;
+            }
+            
+    //-
+    //- TEMPLATE
+    //- 
+    body
+        .stats
+            .mtrl
+                +metric('MRL', blip.mrl)(class='mrl')
+                +metric('TRL', blip.trl)(class='trl')
+            .metrics
+                +lifecycle(model, blip.ring)
+

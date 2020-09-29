@@ -9,79 +9,79 @@ const cybersecurity = {
         {
             tag: 'assuranceAuditCertification',
             name: 'Assurance, Audit, and Certification',
-            description: ''
+            description: '',
         },
         {
             tag: 'cryptology',
             name: 'Cryptology (Cryptography and Cryptanalysis)',
-            description: ''
+            description: '',
         },
         {
             tag: 'dataSecurityPrivacy',
             name: 'Data Security and Privacy',
-            description: ''
+            description: '',
         },
         {
             tag: 'educationTraining',
             name: 'Education and Training',
-            description: ''
+            description: '',
         },
         {
             tag: 'humanAspects',
             name: 'Human Aspects',
-            description: ''
+            description: '',
         },
         {
             tag: 'identityManagement',
             name: 'Identity Management',
-            description: ''
+            description: '',
         },
         {
             tag: 'incidentHandling',
             name: 'Incident Handling and Digital Forensics',
-            description: ''
+            description: '',
         },
         {
             tag: 'legalAspects',
             name: 'Legal Aspects',
-            description: ''
+            description: '',
         },
         {
             tag: 'networkDistributedSystems',
             name: 'Network and Distributed Systems',
-            description: ''
+            description: '',
         },
         {
             tag: 'securityManagementGovernance',
             name: 'Security Management and Governance',
-            description: ''
+            description: '',
         },
         {
             tag: 'securityMeasurements',
             name: 'Security Measurements',
-            description: ''
+            description: '',
         },
         {
             tag: 'securityEngineering',
             name: 'Software and Hardware Security Engineering',
-            description: ''
+            description: '',
         },
         {
             tag: 'steganography',
             name: 'Steganography, Steganalysis and Watermarking',
-            description: ''
+            description: '',
         },
         {
             tag: 'theoreticalFoundations',
             name: 'Theoretical Foundations',
-            description: ''
+            description: '',
         },
         {
             tag: 'trustManagement',
             name: 'Trust Management and Accountability',
-            description: ''
-        }
-    ]
+            description: '',
+        },
+    ],
 }
 
 /*
@@ -95,79 +95,79 @@ const sectors = {
         {
             tag: 'avMedia',
             name: 'Audiovisual and media',
-            description: ''
+            description: '',
         },
         {
             tag: 'chemical',
             name: 'Chemical',
-            description: ''
+            description: '',
         },
         {
             tag: 'defense',
             name: 'Defense',
-            description: ''
+            description: '',
         },
         {
             tag: 'digital',
             name: 'Digital Services and Platforms',
-            description: ''
+            description: '',
         },
         {
             tag: 'energy',
             name: 'Energy',
-            description: ''
+            description: '',
         },
         {
             tag: 'financial',
             name: 'Financial',
-            description: ''
+            description: '',
         },
         {
             tag: 'foodDrink',
             name: 'Food and Drink',
-            description: ''
+            description: '',
         },
         {
             tag: 'government',
             name: 'Government',
-            description: ''
+            description: '',
         },
         {
             tag: 'health',
             name: 'Health',
-            description: ''
+            description: '',
         },
         {
             tag: 'manufacturing',
             name: 'Manufacturing and Supply Chains',
-            description: ''
+            description: '',
         },
         {
             tag: 'nuclear',
             name: 'Nuclear',
-            description: ''
+            description: '',
         },
         {
             tag: 'safety',
             name: 'Safety and Security',
-            description: ''
+            description: '',
         },
         {
             tag: 'space',
             name: 'Space',
-            description: ''
+            description: '',
         },
         {
             tag: 'telecoms',
             name: 'Telecomm Infrastructure',
-            description: ''
+            description: '',
         },
         {
             tag: 'transportation',
             name: 'Transportation',
-            description: ''
-        }
-    ]
+            description: '',
+        },
+    ],
 }
 
 /*
@@ -181,120 +181,120 @@ const technology = {
         {
             tag: 'ai',
             name: 'Artificial Intelligence',
-            description: ''
+            description: '',
         },
         {
             tag: 'bigData',
             name: 'Big Data',
-            description: ''
+            description: '',
         },
         {
             tag: 'blockchain',
             name: 'Blockchain and Distributed Ledger Technology (DLT)',
-            description: ''
+            description: '',
         },
         {
             tag: 'cloud',
             name: 'Cloud, Edge and Virtualisation',
-            description: ''
+            description: '',
         },
         {
             tag: 'cip',
             name: 'Critical Infrastructure Protection (CIP)',
-            description: ''
+            description: '',
         },
         {
             tag: 'publicSpaces',
             name: 'Protection of public spaces',
-            description: ''
+            description: '',
         },
         {
             tag: 'disasterResilience',
             name: 'Disaster resilience and crisis management',
-            description: ''
+            description: '',
         },
         {
             tag: 'crimeTerrorism',
             name: 'Fight against crime and terrorism',
-            description: ''
+            description: '',
         },
         {
             tag: 'borders',
             name: 'Border and external security',
-            description: ''
+            description: '',
         },
         {
             tag: 'surveillance',
             name: 'Local/wide area observation and surveillance',
-            description: ''
+            description: '',
         },
         {
             tag: 'hardware',
             name: 'Hardware technology (RFID, chips, sensors, networking, etc.)',
-            description: ''
+            description: '',
         },
         {
             tag: 'hpc',
             name: 'High-performance computing (HPC)',
-            description: ''
+            description: '',
         },
         {
             tag: 'hmi',
             name: 'Human Machine Interface (HMI)',
-            description: ''
+            description: '',
         },
         {
             tag: 'iiot',
             name:
                 'Industrial IoT and Control Systems (e.g. SCADA and Cyber Physical Systems – CPS)',
-            description: ''
+            description: '',
         },
         {
             tag: 'is',
             name: 'Information Systems',
-            description: ''
+            description: '',
         },
         {
             tag: 'iot',
             name: 'Internet of Things, embedded systems, pervasive systems',
-            description: ''
+            description: '',
         },
         {
             tag: 'mobile',
             name: 'Mobile Devices',
-            description: ''
+            description: '',
         },
         {
             tag: 'os',
             name: 'Operating Systems',
-            description: ''
+            description: '',
         },
         {
             tag: 'quantum',
             name: 'Quantum Technologies (e.g. computing and communication)',
-            description: ''
+            description: '',
         },
         {
             tag: 'robotics',
             name: 'Robotics',
-            description: ''
+            description: '',
         },
         {
             tag: 'satellites',
             name: 'Satellite systems and applications',
-            description: ''
+            description: '',
         },
         {
             tag: 'vs',
             name: 'Vehicular Systems (e.g. autonomous vehicles)',
-            description: ''
+            description: '',
         },
         {
             tag: 'uav',
             name: 'UAV (unmanned aerial vehicles)',
-            description: ''
-        }
-    ]
+            description: '',
+        },
+    ],
 }
 
 /*
@@ -306,7 +306,7 @@ const jrcTaxonomy = {
     description: '',
     cybersecurity,
     sectors,
-    technology
+    technology,
 }
 
 //
@@ -326,12 +326,12 @@ const getAllTags = () => {
     return result
 }
 
-const getTagsR = node => {
+const getTagsR = (node) => {
     let tags = []
 
     tags.push(node.tag)
     if (node.terms && node.terms.length > 0) {
-        node.terms.forEach(n => {
+        node.terms.forEach((n) => {
             tags = tags.concat(getTagsR(n))
         })
     }
@@ -339,12 +339,12 @@ const getTagsR = node => {
     return tags
 }
 
-const getTags = node => {
+const getTags = (node) => {
     let tags = []
 
     tags.push(node.tag)
     if (node.terms && node.terms.length > 0) {
-        node.terms.forEach(n => {
+        node.terms.forEach((n) => {
             tags = tags.concat(n.tag)
         })
     }
@@ -352,7 +352,7 @@ const getTags = node => {
     return tags
 }
 
-const getName = tag => {
+const getName = (tag) => {
     // check cybersecyrity
     if (cybersecurity.tag === tag) return cybersecurity.name
     for (let i = 0; i < cybersecurity.terms.length; i++) {

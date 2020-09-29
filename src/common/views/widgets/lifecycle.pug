@@ -1,0 +1,39 @@
+mixin lifecycle(model, ring)
+    //- 
+    //- CSS
+    //- 
+    style(type="text/css").
+        #lifecycle {
+          margin: 1em;
+          display: flex;
+          justify-content: center;
+        }
+        #lifecycle > * {
+          flex: 0 1 0px;
+          border: none;
+          margin-right: 0.5em;
+          font-size: 0.8em;
+          color: darkgray;
+        }
+        #lifecycle > *:last-child {
+          margin-right: 0px;
+        }
+        #lifecycle > .current {
+          color: black;
+          font-weight: bold;
+        }
+
+    //- 
+    //- TEMPLATE
+    //- 
+    #lifecycle
+        - for (let i=0; i<model.lcycle.length; i++) {
+            - if (i != 0) {
+                div &#x25B8;
+            - }
+            - if (model.lcycle[i] === ring) {
+                div.current #{model.lcycle[i]}
+            - } else {
+                div #{model.lcycle[i]}
+            - }
+        - }

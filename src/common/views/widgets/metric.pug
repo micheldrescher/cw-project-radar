@@ -1,0 +1,46 @@
+mixin metric(key, value)
+    //- 
+    //- CSS
+    //- 
+    style(type="text/css").
+        .metric {
+            width: fit-content;
+            height: fit-content;
+            padding: 0.2em 0;
+        }
+        .metric > .key {
+            text-align: center;
+            font-size: 0.8em;
+            color: darkgray;
+        }
+        .metric > .value {
+            text-align: center;
+            font-weight: bold;
+            color: black;
+        }
+    //- 
+    //- TEMPLATE
+    //- 
+    .metric(class!=attributes.class)
+        .key= key
+        .value= value
+
+//-     #mrl.key MRL <span>#{blip.mrl}</span>
+
+
+
+//- <div class="key end">End date <span>Aug 2018</span></div>
+//- .key {
+//-     padding: 5px 0;
+//-     flex: 1 1 0px;
+//-     text-align: center;
+//-     border-right: 1px solid lightgrey;
+//-     font-size: 0.8em;
+//-     color: darkgray;
+//- }
+//- .key span {
+//-     font-weight: bold;
+//-     display: block;
+//-     font-size: 1.2em;
+//-     color: black;
+//- }
