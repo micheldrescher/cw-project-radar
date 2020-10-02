@@ -6,6 +6,7 @@ import axios from 'axios'
 // app modules
 import { getModel } from '../util/localStore'
 import { createMTRLPerfScale } from '../../../common/util/svg'
+import { SimpleMetric } from '../../../common/web-components/simple-metric/simple-metric'
 //
 // EXPORTS
 //
@@ -28,11 +29,14 @@ const showProjectData = async (blip) => {
         model,
         radiiFunc: require('../../../common/util/maths').equiSpatialRadii,
     })
+
     // add to DOM and display
-    d3.select('#modals').html(modalString)
+    const aDiv = document.createElement('div')
+    aDiv.innerHTML = modalString
+    document.getElementById('modals').appendChild(aDiv)
     // link up the close button - DELETES the modal! (it is recreated anyway)
-    d3.select('#projectInfo .closeBtn').on('click', () => {
-        d3.select('#projectInfo').remove()
+    document.querySelector('#projectInfo .closeBtn').addEventListener('click', () => {
+        document.querySelector('#projectInfo').remove()
     })
 }
 

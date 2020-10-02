@@ -1,7 +1,8 @@
 extends _modal
 
+include ../../common/web-components/simple-metric/simple-metric.pug
+
 include ../../common/views/widgets/lifecycle.pug
-include ../../common/views/widgets/metric.pug
 include ../../common/views/widgets/mtrlPerfScale.pug
 include ../../common/views/widgets/radarLocation.pug
 include ../../common/views/widgets/radarPosition.pug
@@ -37,11 +38,11 @@ block append styles
             padding-bottom: 1em;
             border-bottom: 1px solid lightgray;
         }
-        #projectInfo .prjMetrics > .metric {
+        #projectInfo .prjMetrics > simple-metric {
             flex: 1 0 0px;
             border-right: 1px solid lightgrey;
         }
-        #projectInfo .prjMetrics > .metric:last-child {
+        #projectInfo .prjMetrics > simple-metric:last-child {
             border-right: none;
         }
         /*
@@ -66,11 +67,12 @@ block append styles
             display: flex;
             justify-content: space-around;
         }
-        #projectInfo .stats > .performance > .mtrl > .metric {
+        #projectInfo .stats > .performance > .mtrl > * {
+            margin-top: 0.5em;
             border-right: 1px solid lightgray;
             flex: 1 0 0px;
         }
-        #projectInfo .stats > .performance > .mtrl > .metric:last-child {
+        #projectInfo .stats > .performance > .mtrl > *:last-child {
             border-right: none;
         }
         /*
@@ -103,7 +105,6 @@ block append styles
 //- HEADER
 //-
 block header 
-    - console.log(project)
     if (project.cwurl)
         div 
             !=project.cw_id 
@@ -126,11 +127,11 @@ block content
     .prjTeaser #{project.teaser}
     //- Key project metrics pane
     .prjMetrics
-        +metric('Start date', new Date(project.startDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  }))
-        +metric('End date', new Date(project.endDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  }))
-        +metric('Budget', new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(project.budget))
-        +metric('Funding call', project.call)
-        +metric('Funding call', project.type)
+        +simple-metric('Start date', new Date(project.startDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  }))
+        +simple-metric('End date', new Date(project.endDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  }))
+        +simple-metric('Budget', new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(project.budget))
+        +simple-metric('Funding call', project.call)
+        +simple-metric('Funding call', project.type)
     //- Project statistics pane
     .stats
         .performance
@@ -138,9 +139,9 @@ block content
                 .label Relative performance
                 +mtrlPerfScale(scale)
                 .mtrl
-                    +metric('MRL', blip.mrl)
-                    +metric('TRL', blip.trl)
-                    +metric('Performance', blip.performance)
+                    +simple-metric('MRL', blip.mrl)
+                    +simple-metric('TRL', blip.trl)
+                    +simple-metric('Performance', blip.performance)
         .metrics
             .label Project metrics
             .radar
