@@ -6,7 +6,7 @@ import axios from 'axios'
 // app modules
 import { getModel } from '../util/localStore'
 import { createMTRLPerfScale } from '../../../common/util/svg'
-import { SimpleMetric } from '../../../common/web-components/simple-metric/simple-metric'
+
 //
 // EXPORTS
 //

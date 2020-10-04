@@ -111,7 +111,10 @@ block header
             |. 
             a(href=project.cwurl target='_blank') #{header}
     else 
-        div #{header}
+        div 
+            !=project.cw_id 
+            |. 
+            !=header
 
 //-
 //- FOOTER
@@ -139,7 +142,7 @@ block content
                 .label Relative performance
                 +mtrlPerfScale(scale)
                 .mtrl
-                    +simple-metric('MRL', blip.mrl)
+                    +simple-metric('MRL', blip.mrl, 'mrl')
                     +simple-metric('TRL', blip.trl)
                     +simple-metric('Performance', blip.performance)
         .metrics

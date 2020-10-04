@@ -137,10 +137,9 @@ const radarSection = document.getElementById('radar')
 if (radarSection) {
     // The static display of the radar is done through the PUG template
     // This is to make it dynamic
-    const radarRootDOM = d3.select('section#radar')
 
     // 1) Link up DOM elements with interactive JavaScript
-    linkupRadar(radarRootDOM)
+    linkupRadar(document.getElementById('radar'))
 
     // 2) load filters
     const filterTags = getTags()
@@ -422,6 +421,7 @@ if (uploadImportForm) {
         importProjects(form)
     })
 }
+
 
 //
 // Add a category to a project

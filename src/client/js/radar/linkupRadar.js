@@ -2,10 +2,10 @@
 // IMPORTS
 //
 // libraries
-import '@babel/polyfill'
 // app modules
 import showAlert from '../util/alert'
 import showProjectData from './projectInfo'
+import { SimpleMetric } from '../../../common/web-components/simple-metric/simple-metric'
 
 //
 // EXPORTS
@@ -15,47 +15,44 @@ export { linkupRadar as default }
 //
 // FUNCTIONS
 //
-const linkupRadar = async radarRootDOM => {
+const linkupRadar = async (radarRootDOM) => {
+    // register custom HTML elements for this radar
+    customElements.define('simple-metric', SimpleMetric)
+
     // 1) Animate interactive quadrants
     interactiveQuadrants()
     // 2) Popover texts for blips
     interactiveBlips()
 }
 
+/*****************
+ *               *
+ *   QUADRANTS   *
+ *               *
+ *****************/
 const interactiveQuadrants = () => {
-    d3.selectAll('.segment')
-        .on('mouseover', mouseOverQuadrant)
-        .on('mouseout', mouseOutQuadrant)
-        .on('click', clickQuadrant)
-}
-
-const interactiveBlips = () => {
-    // 1) Configure the tooltip
-    const bliptip = configureBliptip()
-
-    d3.selectAll('.blip')
-        .on('mouseover', (d, i, a) => mouseOverBlip(bliptip, i, a))
-        .on('mouseout', (d, i, a) => mouseOutBlip(bliptip, i, a))
-        .on('click', clickBlip)
+    document.querySelectorAll('.segment').forEach((s, i) => {
+        s.addEventListener('mouseover', mouseOverQuadrant(i))
+        s.addEventListener('mouseout', mouseOutQuadrant(i))
+    //     b.addEventListener('click', clickBlip())
+    })
 }
 
 // highlight the selected quadrant,
 // dim the others
-const mouseOverQuadrant = (d, i) => {
-    d3.select(`.segment-${i}`).style('opacity', 1)
-    // dim the non-selected segments
-    d3.selectAll(`.segment:not(.segment-${i})`).style('opacity', 0.3)
-    // TODO highlight the segment's button
-    // d3.select('.button.' + order + '.full-view').style('opacity', 1)
-    // dim all other buttons
-    // d3.selectAll('.button.full-view:not(.' + order+')').style('opacity', 0.3)
+const mouseOverQuadrant = (i) => {
+    return (e) => {
+        document.querySelectorAll(`.segment-${i}`).forEach((s) => s.style.opacity = 1)
+        document.querySelectorAll(`.segment:not(.segment-${i})`).forEach((s) => s.style.opacity = 0.3)
+    }
 }
 
 // highlight all segments again
-const mouseOutQuadrant = (d, i) => {
-    d3.selectAll(`.segment:not(.segment-${i})`).style('opacity', 1)
-    // TODO reset all dimming for the buttons
-    // d3.selectAll('.button.full-view').style('opacity', 1)
+const mouseOutQuadrant = (i) => {
+    return (e) => {
+        document.querySelectorAll(`.segment:not(.segment-${i})`).forEach((s) => s.style.opacity = 1)
+    }
+    // d3.selectAll(`.segment:not(.segment-${i})`).style('opacity', 1)
 }
 
 // click the quadrant:
@@ -68,9 +65,7 @@ const clickQuadrant = (d, i, a) => {
     // if we are in zoom mode, unzoom
     if (zoomed) {
         // unzoom segments
-        d3.select(`g.segment.segment-${i}`)
-            .style('transform', undefined)
-            .classed('zoomed', false)
+        d3.select(`g.segment.segment-${i}`).style('transform', undefined).classed('zoomed', false)
         d3.selectAll(`.segment:not(.segment-${i})`).style('transform', undefined)
         // "un"rotate blips & performance ring
         d3.selectAll(`g.segment.segment-${i} .blip text`).style('transform', undefined)
@@ -100,28 +95,46 @@ const clickQuadrant = (d, i, a) => {
     d3.selectAll(`.segment-table:not(.segment-${i})`).style('display', 'none')
 }
 
-const configureBliptip = () => {
-    const svg = d3.select('#rendering > svg')
-    const bliptip = d3
-        .tip()
-        .attr('id', 'bliptip')
-        .offset([-8, 0])
-        .html(function(d) {
-            return d
-        })
-    svg.call(bliptip)
-    return bliptip
+/*************
+ *           *
+ *   BLIPS   *
+ *           *
+ *************/
+const interactiveBlips = () => {
+    document.querySelectorAll('.blip').forEach((b) => {
+        b.addEventListener('mouseenter', mouseOverBlip())
+        b.addEventListener('mouseout', mouseOutBlip())
+        b.addEventListener('click', clickBlip())
+    })
 }
 
-const mouseOverBlip = (tip, i, a) => {
-    tip.show(d3.select(`#${a[i].id}`).attr('label'))
+const mouseOverBlip = () => {
+    return (e) => {
+        // get the tooltip, set text, and display.
+        const tt = document.getElementById('tooltip')
+        tt.innerHTML = e.target.getAttribute('label')
+        tt.style.display = 'block'
+        //get blip and tooltip position and dimensions
+        const blipBox = e.target.getBoundingClientRect()
+        const ttBox = tt.getBoundingClientRect()
+        // move tooltip top of blip, horizontally centered
+        tt.style.left = (window.scrollX+blipBox.left)+blipBox.width/2-ttBox.width/2+'px'
+        tt.style.top = (window.scrollY+blipBox.top-ttBox.height-5)+'px'
+    }
 }
 
-const mouseOutBlip = (tip, i, a) => {
-    tip.hide()
+const mouseOutBlip = () => {
+    return (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        document.getElementById('tooltip').style.display = 'none'
+    }
 }
 
-const clickBlip = (d, i, a) => {
-    d3.event.stopPropagation() // stop the event bubbling up the hierarchy
-    showProjectData(JSON.parse(a[i].getAttribute('data')))
+const clickBlip = () => {
+    return (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        showProjectData(JSON.parse(e.target.parentNode.getAttribute('data')))
+    }
 }
