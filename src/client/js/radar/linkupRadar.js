@@ -6,6 +6,7 @@
 import showAlert from '../util/alert'
 import showProjectData from './projectInfo'
 import { SimpleMetric } from '../../../common/web-components/simple-metric/simple-metric'
+import { zoomIdentity } from 'd3'
 
 //
 // EXPORTS
@@ -31,10 +32,10 @@ const linkupRadar = async (radarRootDOM) => {
  *               *
  *****************/
 const interactiveQuadrants = () => {
-    document.querySelectorAll('.segment').forEach((s, i) => {
+    document.querySelectorAll('.segment').forEach((s, i, a) => {
         s.addEventListener('mouseover', mouseOverQuadrant(i))
         s.addEventListener('mouseout', mouseOutQuadrant(i))
-    //     b.addEventListener('click', clickBlip())
+        s.addEventListener('click', clickQuadrant(i, a.length))
     })
 }
 
@@ -52,47 +53,51 @@ const mouseOutQuadrant = (i) => {
     return (e) => {
         document.querySelectorAll(`.segment:not(.segment-${i})`).forEach((s) => s.style.opacity = 1)
     }
-    // d3.selectAll(`.segment:not(.segment-${i})`).style('opacity', 1)
 }
 
-// click the quadrant:
-// 1. scales up the selected quadrant and hides all other
-// 2. shows the quadrant's table and hides the others
-const clickQuadrant = (d, i, a) => {
-    console.log('Quadrant click event handling!')
-
-    const zoomed = d3.select(`g.segment.segment-${i}`).classed('zoomed')
-    // if we are in zoom mode, unzoom
-    if (zoomed) {
-        // unzoom segments
-        d3.select(`g.segment.segment-${i}`).style('transform', undefined).classed('zoomed', false)
-        d3.selectAll(`.segment:not(.segment-${i})`).style('transform', undefined)
-        // "un"rotate blips & performance ring
-        d3.selectAll(`g.segment.segment-${i} .blip text`).style('transform', undefined)
-        // hide the segment table
-        d3.selectAll(`.segment-table.segment-${i}`).style('display', 'none')
-        return
+const clickQuadrant = (i,l) => {
+    return (e) => {
+        const zoomed = document.querySelector(`.segment.segment-${i}.zoomed`)
+        if (zoomed) zoomOut(i, l)
+        else zoomIn(i, l)
     }
+}
 
-    const theta = 360 / a.length
+const zoomIn = (i,l) => {
+    // some calculations
+    const theta = 360 / l
     const offset = theta / 2
     const rotateLeft = i * theta + offset > 180
     let angle = -i * theta - offset
     if (rotateLeft) angle = 360 + angle
 
-    // clicked segment gets rotated, shifted down and scaleed by two
-    d3.select(`g.segment.segment-${i}`)
-        .style('transform', `scale(2) translateY(25%) rotate(${angle}deg)`)
-        .classed('zoomed', true)
-    // rotate the blip text by inverse angle
-    d3.selectAll(`g.segment.segment-${i} .blip text`).style('transform', `rotate(${-angle}deg)`)
-    // hide the other segments
-    d3.selectAll(`.segment:not(.segment-${i})`).style('transform', 'scale(0)')
+    // Rotate and transform clicked segment
+    const seg = document.querySelector(`.segment.segment-${i}`)
+    seg.style.transform = `scale(2) translateY(25%) rotate(${angle}deg)`
+    seg.classList.add('zoomed')
+    // text in clicked segment rotates at inverse angle (to level them again)
+    seg.querySelectorAll('.blip text').forEach((t) => t.style.transform = `rotate(${-angle}deg)`)
 
-    // select the corresponding table
-    d3.selectAll(`.segment-table.segment-${i}`).style('display', 'block')
-    // hide the other tables
-    d3.selectAll(`.segment-table:not(.segment-${i})`).style('display', 'none')
+    // hide all other segments
+    document.querySelectorAll(`.segment:not(.segment-${i})`).forEach((s) => s.style.transform = 'scale(0)')
+    
+    // show table for clicked segment
+    document.querySelectorAll(`.segment-table.segment-${i}`).forEach((t) => t.style.display = 'block')
+    // hide all other tables
+    document.querySelectorAll(`.segment-table:not(.segment-${i})`).forEach((t) => t.style.display = 'none')
+}
+
+const zoomOut = (i) => {
+    document.querySelectorAll('.segment').forEach((s) => {
+        s.style.transform = ''   // remove all transformtion styles from the segments
+        s.classList.remove('zoomed')    // remove zoomed class
+    })
+    document.querySelectorAll(`.segment.segment-${i} .blip text`).forEach((t) => {
+        t.style.transform = ''   // unrotate blips and rings
+    })
+    document.querySelectorAll('.segment-table').forEach((t) => {
+        t.style.display = 'none'        // hide the segment table
+    })
 }
 
 /*************
