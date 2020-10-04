@@ -6,7 +6,6 @@
 import showAlert from '../util/alert'
 import showProjectData from './projectInfo'
 import { SimpleMetric } from '../../../common/web-components/simple-metric/simple-metric'
-import { zoomIdentity } from 'd3'
 
 //
 // EXPORTS

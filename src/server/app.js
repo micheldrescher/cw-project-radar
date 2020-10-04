@@ -69,7 +69,6 @@ app.use(
                 frameAncestors: ["'self'"],
                 imgSrc: ["'self'", 'data:'],
                 objectSrc: ["'none'"],
-                scriptSrc: ["'self'", 'https://d3js.org'],
                 scriptSrcAttr: ["'none'"],
                 styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
             },
