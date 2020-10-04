@@ -1,5 +1,3 @@
-module.exports = { SimpleMetric }
-
 /*
  * WEB COMPONENT
  */
@@ -40,52 +38,5 @@ class SimpleMetric extends HTMLElement {
         this.shadowRoot.appendChild(template.content.cloneNode(true))
     }
 }
-customElements.define('simple-metric', SimpleMetric)
 
-/*
- * DEFINE ELEMENT
- */
-
-// <style>
-//     :host {
-//         display: inline-block;
-//         position: relative;
-//         cursor: default;
-//     }
-
-//     :host(:focus) {
-//         outline: 0;
-//     }
-
-//     :host(:focus)::before {
-//         box-shadow: 0 0 1px 2px #5b9dd9;
-//     }
-
-//     :host::before {
-//         content: '';
-//         display: block;
-//         width: 10px;
-//         height: 10px;
-//         border: 1px solid black;
-//         position: absolute;
-//         left: -18px;
-//         top: 3px;
-//         border-radius: 50%;
-//     }
-
-//     :host([aria-checked='true'])::before {
-//         background: red;
-//     }
-// </style>
-// ` // do something with foo here foo // ;<template id="simple=metric">
-//     // <style></style> //
-//     <div class="metric">
-//         //
-//         <div class="key"></div>
-//         //
-//         <div class="value"></div>
-//         //
-//     </div>
-//     //
-// </template>
-// }
+module.exports = { SimpleMetric }
