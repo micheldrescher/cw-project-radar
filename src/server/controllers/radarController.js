@@ -2,8 +2,6 @@
 // IMPORTS
 //
 // libraries
-const d3 = require('d3')
-const { JSDOM } = require('jsdom')
 const moment = require('moment')
 const simpleStats = require('simple-statistics')
 // modules
@@ -15,6 +13,7 @@ const Radar = require('../models/radarModel')
 const renderer = require('./radar-render/renderer')
 const { Blip, RadarData, RadarRendering } = require('../models/radarDataModel')
 const { Project } = require('../models/projectModel')
+const modelController = require('./modelController')
 
 //
 // MODULE VARS

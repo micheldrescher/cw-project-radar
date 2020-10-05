@@ -123,13 +123,21 @@ block footer
 //- MAIN CONTENT
 //-
 block content
+    -
+        function enGBDate(date) {
+            return new Date(date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })
+        }
+        function enGBMoney(amount) {
+            return new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(amount)
+        }
+
     .prjTitle  #{project.title}
     .prjTeaser #{project.teaser}
     //- Key project metrics pane
     .prjMetrics
-        +simple-metric('Start date', new Date(project.startDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  }))
-        +simple-metric('End date', new Date(project.endDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  }))
-        +simple-metric('Budget', new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(project.budget))
+        +simple-metric('Start date', enGBDate(project.startDate))
+        +simple-metric('End date', enGBDate(project.endDate))
+        +simple-metric('Budget', enGBMoney(project.budget))
         +simple-metric('Funding call', project.call)
         +simple-metric('Funding call', project.type)
     //- Project statistics pane
