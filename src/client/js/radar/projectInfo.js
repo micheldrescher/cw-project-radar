@@ -7,11 +7,6 @@ import axios from 'axios'
 import { getModel } from '../util/localStore'
 import { createMTRLPerfScale } from '../../../common/util/svg'
 
-//
-// EXPORTS
-//
-export { showProjectData as default }
-
 const showProjectData = async (blip) => {
     // fetch project info
     const response = await (await axios.get('/api/v1/project/prj_id/' + blip.cw_id)).data
@@ -46,3 +41,8 @@ const setFailureFooter = (cont, res) => {
     console.log(res)
     console.og('argh')
 }
+
+//
+// EXPORTS
+//
+export { showProjectData as default }

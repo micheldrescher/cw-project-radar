@@ -5,7 +5,8 @@
 // app modules
 import showAlert from '../util/alert'
 import showProjectData from './projectInfo'
-import { SimpleMetric } from '../../../common/web-components/simple-metric/simple-metric'
+import { SimpleMetric } from '../../../common/widgets/simple-metric/simple-metric'
+import { SDLCPosition } from '../../../common/widgets/sdlc-position/sdlc-position'
 
 //
 // EXPORTS
@@ -18,6 +19,7 @@ export { linkupRadar as default }
 const linkupRadar = async (radarRootDOM) => {
     // register custom HTML elements for this radar
     customElements.define('simple-metric', SimpleMetric)
+    customElements.define('sdlc-position', SDLCPosition)
 
     // 1) Animate interactive quadrants
     interactiveQuadrants()

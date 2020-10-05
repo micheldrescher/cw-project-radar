@@ -1,8 +1,8 @@
 extends _modal
 
-include ../../common/web-components/simple-metric/simple-metric.pug
+include ../../common/widgets/simple-metric/simple-metric.pug
+include ../../common/widgets/sdlc-position/sdlc-position.pug
 
-include ../../common/views/widgets/lifecycle.pug
 include ../../common/views/widgets/mtrlPerfScale.pug
 include ../../common/views/widgets/radarLocation.pug
 include ../../common/views/widgets/radarPosition.pug
@@ -150,4 +150,4 @@ block content
             .radar
                 +radarPosition(blip.segment, blip.ring)
                 +radarLocation(model, blip.segment, blip.ring, radiiFunc)
-            +lifecycle(model, blip.ring)
+            +sdlc-position(model.lcycle, blip.ring)
