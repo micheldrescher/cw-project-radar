@@ -105,15 +105,12 @@ block append styles
 //- HEADER
 //-
 block header 
-    if (project.cwurl)
-        div 
-            !=project.cw_id 
-            |. 
+    div 
+        !=project.cw_id 
+        |. 
+        if (project.cwurl)
             a(href=project.cwurl target='_blank') #{header}
-    else 
-        div 
-            !=project.cw_id 
-            |. 
+        else 
             !=header
 
 //-
