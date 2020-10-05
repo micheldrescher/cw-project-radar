@@ -2,8 +2,8 @@ extends _modal
 
 include ../../common/widgets/simple-metric/simple-metric.pug
 include ../../common/widgets/sdlc-position/sdlc-position.pug
+include ../../common/widgets/mtrl-performance/mtrl-performance.pug
 
-include ../../common/views/widgets/mtrlPerfScale.pug
 include ../../common/views/widgets/radarLocation.pug
 include ../../common/views/widgets/radarPosition.pug
 
@@ -143,9 +143,9 @@ block content
     //- Project statistics pane
     .stats
         .performance
-            - if (scale)
+            if (blip.score)
                 .label Relative performance
-                +mtrlPerfScale(scale)
+                +mtrl-performance(blip.score, blip.performance, blip.min, blip.max)
                 .mtrl
                     +simple-metric('MRL', blip.mrl, 'mrl')
                     +simple-metric('TRL', blip.trl)

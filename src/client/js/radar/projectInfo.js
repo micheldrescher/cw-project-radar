@@ -5,7 +5,6 @@
 import axios from 'axios'
 // app modules
 import { getModel } from '../util/localStore'
-import { createMTRLPerfScale } from '../../../common/util/svg'
 
 const showProjectData = async (blip) => {
     // fetch project info
@@ -20,7 +19,6 @@ const showProjectData = async (blip) => {
         footer: '',
         project: response.data,
         blip,
-        scale: createMTRLPerfScale(blip.score, blip.performance, blip.min, blip.max),
         model,
         radiiFunc: require('../../../common/util/maths').equiSpatialRadii,
     })

@@ -7,6 +7,7 @@ import showAlert from '../util/alert'
 import showProjectData from './projectInfo'
 import { SimpleMetric } from '../../../common/widgets/simple-metric/simple-metric'
 import { SDLCPosition } from '../../../common/widgets/sdlc-position/sdlc-position'
+import { MTRLPerformance } from '../../../common/widgets/mtrl-performance/mtrl-performance'
 
 //
 // EXPORTS
@@ -20,6 +21,7 @@ const linkupRadar = async (radarRootDOM) => {
     // register custom HTML elements for this radar
     customElements.define('simple-metric', SimpleMetric)
     customElements.define('sdlc-position', SDLCPosition)
+    customElements.define('mtrl-performance', MTRLPerformance)
 
     // 1) Animate interactive quadrants
     interactiveQuadrants()
