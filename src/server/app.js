@@ -63,7 +63,7 @@ app.use(
     helmet({
         contentSecurityPolicy: {
             directives: {
-                defaultSrc: ["'self'"],
+                defaultSrc: ["'self'", 'ws://localhost:*/'],
                 baseUri: ["'self'"],
                 fontSrc: ["'self'", 'https:', 'data:'],
                 frameAncestors: ["'self'"],
