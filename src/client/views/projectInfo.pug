@@ -1,11 +1,11 @@
 extends _modal
 
+include ../../common/widgets/radar-location/radar-coords.pug
 include ../../common/widgets/simple-metric/simple-metric.pug
 include ../../common/widgets/sdlc-position/sdlc-position.pug
 include ../../common/widgets/mtrl-performance/mtrl-performance.pug
 
 include ../../common/views/widgets/radarLocation.pug
-include ../../common/views/widgets/radarPosition.pug
 
 //-
 //- MIXINS
@@ -153,6 +153,6 @@ block content
         .metrics
             .label Project metrics
             .radar
-                +radarPosition(blip.segment, blip.ring)
+                +radar-coords(blip.segment, blip.ring)
                 +radarLocation(model, blip.segment, blip.ring, radiiFunc)
             +sdlc-position(model.lcycle, blip.ring)
