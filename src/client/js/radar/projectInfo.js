@@ -20,7 +20,7 @@ const showProjectData = async (blip) => {
         project: response.data,
         blip,
         model,
-        radiiFunc: require('../../../common/util/maths').equiSpatialRadii,
+        radiiFunc: require('../../../common/util/maths').equiDistantRadii,
     })
 
     // add to DOM and display

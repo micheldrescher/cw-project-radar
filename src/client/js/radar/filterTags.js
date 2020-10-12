@@ -44,6 +44,7 @@ const showFilterTagForm = () => {
     // wireup checkboxes
     wireupCheckboxes()
 }
+
 // connect the buttons in the Modal dialogue
 const wireupButtons = filter => {
     // link up the close button - DELETES the modal! (it is recreated anyway)
