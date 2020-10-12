@@ -13,6 +13,11 @@ const toRadian = (angleDeg) => (Math.PI * angleDeg) / 180
 const toDegree = (angleRad) => (angleRad * 180) / Math.PI
 
 //
+// round a floating point number to the given number of decimals
+//
+const roundDec = (f, d) => Math.round(f * Math.pow(10, d)) / Math.pow(10, d)
+
+//
 // Calc angle (in degree) for equally sized segments in a radar
 //
 const theta = (num) => {
@@ -94,4 +99,5 @@ module.exports = {
     equiSpatialRadii,
     toRadian,
     toDegree,
+    roundDec,
 }

@@ -233,3 +233,13 @@ describe('scale negative values', () => {
         expect(scale(600)).toBe(150)
     })
 })
+
+/*
+ * roundDec
+ */
+test('round zero, no decimals', () => {
+    expect(m.roundDec(0, 0)).toBe(0)
+})
+test('round 1.2345 2 dec to 1.23', () => {
+    expect(m.roundDec(1.2345, 2)).toBe(1.23)
+})
