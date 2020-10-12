@@ -14,47 +14,51 @@ class MTRLPerformance extends HTMLElement {
      * STYLE
      */
     style = `
-:host line {
-    stroke: black;
-    stroke-width: 2;
-    stroke-linecap: square;
-}
-:host line#perf {
-    stroke: red;
-}
-:host text {
-    text-anchor: middle;
-}
+<style>
+    :host line {
+        stroke: black;
+        stroke-width: 2;
+        stroke-linecap: square;
+    }
+    :host line#perf {
+        stroke: red;
+    }
+    :host text {
+        text-anchor: middle;
+    }
+</style>
 `
     /*
      * TEMPLATE
      */
-    tpl = ``
+    static tpl = ``
 
     /*
      * CONSTRUCTOR
      */
     constructor() {
         super()
+        const template = document.createElement('template')
+        template.innerHTML = this.style + this.tpl
+
         this.attachShadow({ mode: 'open' })
-        // create and attach style
-        const s = document.createElement('style')
-        s.textContent = this.style
-        this.shadowRoot.appendChild(s)
+        this.shadowRoot.appendChild(template.content.cloneNode(true))
 
         // get the attributes sorted
         const score = this.hasAttribute('score') ? Number(this.getAttribute('score')) : 0
-        const performance = this.hasAttribute('performance') ? Number(this.getAttribute('performance')) : 0
+        const performance = this.hasAttribute('performance')
+            ? Number(this.getAttribute('performance'))
+            : 0
         const min = this.hasAttribute('min') ? Number(this.getAttribute('min')) : -10
         const max = this.hasAttribute('max') ? Number(this.getAttribute('max')) : 10
-        
+
         // build and attach the DOM
         this.shadowRoot.appendChild(this.buildDOM(score, performance, min, max))
     }
 
     buildDOM = (score, performance, min, max) => {
         const result = document.createElement('div')
-        
+
         // no score scale if no score in project
         if (!score) return result
 

@@ -4,7 +4,7 @@
 class SimpleMetric extends HTMLElement {
     style = `
 <style>
-    simple-metric {
+    :host {
         width: fit-content;
         height: fit-content;
         padding: 0.2em 0;

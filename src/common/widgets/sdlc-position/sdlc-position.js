@@ -6,22 +6,24 @@ class SDLCPosition extends HTMLElement {
      * STYLE
      */
     style = `
-:host {
-    margin: 1em;
-    display: flex;
-    justify-content: center;
-}
-:host > .current {
-    color: black;
-    font-weight: bold;
-}
-:host > * {
-    flex: 0 1 0px;
-    border: none;
-    margin-right: 0.5em;
-    font-size: 0.8em;
-    color: darkgray;
-}
+<style>
+    :host {
+        margin: 1em;
+        display: flex;
+        justify-content: center;
+    }
+    :host > .current {
+        color: black;
+        font-weight: bold;
+    }
+    :host > * {
+        flex: 0 1 0px;
+        border: none;
+        margin-right: 0.5em;
+        font-size: 0.8em;
+        color: darkgray;
+    }
+</style>
 `
     /*
      * TEMPLATE
@@ -33,11 +35,11 @@ class SDLCPosition extends HTMLElement {
      */
     constructor() {
         super()
+        const template = document.createElement('template')
+        template.innerHTML = this.style + this.tpl
+
         this.attachShadow({ mode: 'open' })
-        // create and attach style
-        const s = document.createElement('style')
-        s.textContent = this.style
-        this.shadowRoot.appendChild(s)
+        this.shadowRoot.appendChild(template.content.cloneNode(true))
 
         // get the attributes sorted
         const phases = this.hasAttribute('phases') ? JSON.parse(this.getAttribute('phases')) : []
@@ -49,7 +51,7 @@ class SDLCPosition extends HTMLElement {
 
     buildDOM = (host, phases, phase) => {
         const dom = []
-        for (let i=0; i < phases.length; i++) {
+        for (let i = 0; i < phases.length; i++) {
             // little triangle between phases
             if (i != 0) {
                 const tri = document.createElement('div')
