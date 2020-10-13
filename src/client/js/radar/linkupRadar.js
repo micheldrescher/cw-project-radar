@@ -6,6 +6,7 @@
 import showAlert from '../util/alert'
 import showProjectData from './projectInfo'
 import { RadarCoordinates } from '../../../common/widgets/radar-location/radar-coords'
+import { RadarLocation } from '../../../common/widgets/radar-location/radar-location'
 import { SimpleMetric } from '../../../common/widgets/simple-metric/simple-metric'
 import { SDLCPosition } from '../../../common/widgets/sdlc-position/sdlc-position'
 import { MTRLPerformance } from '../../../common/widgets/mtrl-performance/mtrl-performance'
@@ -24,6 +25,7 @@ const linkupRadar = async (radarRootDOM) => {
     customElements.define('sdlc-position', SDLCPosition)
     customElements.define('radar-coords', RadarCoordinates)
     customElements.define('mtrl-performance', MTRLPerformance)
+    customElements.define('radar-location', RadarLocation)
 
     // 1) Animate interactive quadrants
     interactiveQuadrants()

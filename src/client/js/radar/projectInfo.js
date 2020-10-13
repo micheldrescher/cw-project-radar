@@ -15,12 +15,10 @@ const showProjectData = async (blip) => {
     // compile HTML from the template
     const modalString = projectinfoTemplate({
         modalID: 'projectInfo',
-        header: blip.prj_name,
         footer: '',
         project: response.data,
         blip,
         model,
-        radiiFunc: require('../../../common/util/maths').equiDistantRadii,
     })
 
     // add to DOM and display

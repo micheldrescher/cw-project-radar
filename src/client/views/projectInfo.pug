@@ -1,11 +1,10 @@
 extends _modal
 
+include ../../common/widgets/radar-location/radar-location.pug
 include ../../common/widgets/radar-location/radar-coords.pug
 include ../../common/widgets/simple-metric/simple-metric.pug
 include ../../common/widgets/sdlc-position/sdlc-position.pug
 include ../../common/widgets/mtrl-performance/mtrl-performance.pug
-
-include ../../common/views/widgets/radarLocation.pug
 
 //-
 //- MIXINS
@@ -91,7 +90,7 @@ block append styles
         #projectInfo .stats > .metrics #radar-position {
         }
         /* Radar position radar */
-        #projectInfo .stats > .metrics #radar-location {
+        #projectInfo .stats > .metrics radar-location {
             margin-left: 0em;    /* Somehow in flexboxes margins don't overlap... */
         }
         /* Project lifecycle */
@@ -109,9 +108,9 @@ block header
         !=project.cw_id 
         |. 
         if (project.cwurl)
-            a(href=project.cwurl target='_blank') #{header}
+            a(href=project.cwurl target='_blank') #{blip.prj_name}
         else 
-            !=header
+            !=blip.prj_name
 
 //-
 //- FOOTER
@@ -154,5 +153,5 @@ block content
             .label Project metrics
             .radar
                 +radar-coords(blip.segment, blip.ring)
-                +radarLocation(model, blip.segment, blip.ring, radiiFunc)
+                +radar-location(model, blip.segment, blip.ring, 'distance')
             +sdlc-position(model.lcycle, blip.ring)

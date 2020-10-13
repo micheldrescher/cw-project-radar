@@ -1,0 +1,7 @@
+mixin radar-location(model, segment, ring, mode)
+    radar-location(
+        numSegments = model.segments.length, 
+        numRings = model.rings.length,
+        segIdx = model.segments.indexOf(segment),
+        ringIdx = model.rings.indexOf(ring),
+        mode = mode)
