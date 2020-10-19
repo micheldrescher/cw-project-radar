@@ -2,8 +2,8 @@ node_modules
 .DS_Store
 .env*
 .cache
-src/client/radar.js
-src/client/radar.js.map
+src/client/radar.*
+src/client/project-widget.*
 src/client/views/*.js
 dist
 
