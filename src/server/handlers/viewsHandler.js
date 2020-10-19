@@ -280,8 +280,8 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
 
     // ??) Render the widget
     res.status(200).render('widgets/project.pug', {
+        radar: radar.name,
         blip,
         model,
-        radiiFunc: require('../../common/util/maths').equiSpatialRadii,
     })
 })

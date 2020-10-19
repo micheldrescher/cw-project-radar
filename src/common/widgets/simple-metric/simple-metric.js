@@ -7,23 +7,28 @@ class SimpleMetric extends HTMLElement {
     :host {
         width: fit-content;
         height: fit-content;
-        padding: 0.2em 0;
+        display: flex;
+        flex-direction: column;
     }
     .key {
         text-align: center;
         font-size: 0.8em;
         color: darkgray;
+        flex: 1 0 0px;
     }
     .value {
-        text-align: center;
         font-weight: bold;
         color: black;
+        flex: 2 0 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 `
     tpl = `
-<div class="key"><slot name="key"></slot></div>
-<div class="value"><slot name="value"></slot></div>
+<div class="key"><slot name="key" part="key-slot"></slot></div>
+<div class="value"><slot name="value" part="value-slot"></slot></div>
 `
     /*
      * TEMPLATE
