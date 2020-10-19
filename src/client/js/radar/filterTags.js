@@ -4,7 +4,7 @@
 // libraries
 // modules
 // app modules
-import { jrcTaxonomy, getName } from './../../../common/datamodel/jrc-taxonomy'
+import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
 import { getTags, getProjectIDs, updateTags } from '../util/localStore'
 
 //
@@ -33,7 +33,7 @@ const showFilterTagForm = () => {
         jrcTaxonomy,
         filterTags: filter,
         okButtonLabel: 'Apply',
-        cancelButtonLabel: 'Cancel'
+        cancelButtonLabel: 'Cancel',
     })
     // add to DOM and display
     document.getElementById('modals').innerHTML = modalString
@@ -46,7 +46,7 @@ const showFilterTagForm = () => {
 }
 
 // connect the buttons in the Modal dialogue
-const wireupButtons = filter => {
+const wireupButtons = (filter) => {
     // link up the close button - DELETES the modal! (it is recreated anyway)
     document.querySelector('#filterTags .closeBtn').onclick = () => {
         document.getElementById('filterTags').remove()
@@ -59,7 +59,7 @@ const wireupButtons = filter => {
     document.getElementById('modalOK').onclick = async () => {
         filter.tags = []
         // add the tags
-        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach(c => {
+        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
             filter.tags.push(c.value)
         })
         // TODO add the operator
@@ -80,16 +80,16 @@ const wireupButtons = filter => {
 const wireupCheckboxes = () => {
     // when selecting a dimension header, unselect al the dimension's terms
     const dimensionHeaders = document.querySelectorAll('.dimension-header')
-    dimensionHeaders.forEach(box => {
-        box.addEventListener('click', event => {
+    dimensionHeaders.forEach((box) => {
+        box.addEventListener('click', (event) => {
             const termBoxes = box.parentNode.parentNode.querySelectorAll('.term')
-            termBoxes.forEach(tB => (tB.checked = false))
+            termBoxes.forEach((tB) => (tB.checked = false))
         })
     })
     // when selecting a dimension's term, unselect the dimension header
     const dimensionTerms = document.querySelectorAll('.term')
-    dimensionTerms.forEach(termBox => {
-        termBox.addEventListener('click', event => {
+    dimensionTerms.forEach((termBox) => {
+        termBox.addEventListener('click', (event) => {
             const parentBox = termBox.parentNode.parentNode.parentNode.parentNode.querySelector(
                 '.dimension-header'
             )
@@ -118,7 +118,7 @@ const updateFilterList = (filterNode, filter, getNameFunc) => {
     // remove all tags
     tags.innerHTML = ''
     // now add new list of tags
-    filter.tags.forEach(tag => {
+    filter.tags.forEach((tag) => {
         const tagNode = document.createElement('div')
         tagNode.setAttribute('class', 'tag')
         const tagText = document.createTextNode(getNameFunc(tag))
@@ -135,7 +135,7 @@ const filterRadar = async () => {
 
     // 3) Test all document blips whether they match or not
     const allBlips = document.querySelectorAll('g.blip')
-    allBlips.forEach(blip => {
+    allBlips.forEach((blip) => {
         // 3.1) get the CW ID from the blip
         const cwID = JSON.parse(blip.getAttribute('data')).cw_id
         // 3.2) check if cwID is in the matching projects array.

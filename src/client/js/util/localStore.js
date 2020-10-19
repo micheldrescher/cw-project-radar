@@ -4,7 +4,7 @@
 // libraries
 import axios from 'axios'
 // modules
-import showAlert from '../util/alert'
+import showAlert from './alert'
 
 //
 // EXPORTS
