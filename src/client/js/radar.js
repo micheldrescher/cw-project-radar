@@ -5,28 +5,23 @@
 // libraries
 
 // app modules
-import linkupRadar from './js/radar/linkupRadar'
-import { showFilterTagForm, updateFilterList, filterRadar } from './js/radar/filterTags'
-import { getTags, updateTags } from './js/util/localStore'
-import showAlert from './js/util/alert'
-import { login, logout } from './js/user/login'
-import changePassword from './js/user/userSettings'
+import linkupRadar from './radar/linkupRadar'
+import { showFilterTagForm, updateFilterList, filterRadar } from './radar/filterTags'
+import { getTags, updateTags } from './util/localStore'
+import showAlert from './util/alert'
+import { login, logout } from './user/login'
+import changePassword from './user/userSettings'
 import {
     createUser,
     deleteUser,
     updateUsersDetails,
     updateUsersPassword,
-} from './js/admin/userActions'
-import { createRadar, updateRadar, deleteRadar, advanceRadar } from './js/admin/radarActions'
-import {
-    createProject,
-    deleteProject,
-    updateProject,
-    importProjects,
-} from './js/admin/projectActions'
-import { addClassification, addScore } from './js/admin/scoreAndClassify'
-import { getName } from '../common/datamodel/jrc-taxonomy'
-import { searchProjects, clearProjects } from './js/radar/search.js'
+} from './admin/userActions'
+import { createRadar, updateRadar, deleteRadar, advanceRadar } from './admin/radarActions'
+import { createProject, deleteProject, updateProject, importProjects } from './admin/projectActions'
+import { addClassification, addScore } from './admin/scoreAndClassify'
+import { getName } from '../../common/datamodel/jrc-taxonomy'
+import { searchProjects, clearProjects } from './radar/search.js'
 
 /****************************************************************
  *                                                              *
@@ -421,7 +416,6 @@ if (uploadImportForm) {
         importProjects(form)
     })
 }
-
 
 //
 // Add a category to a project
