@@ -31,7 +31,7 @@ class MTRLPerformance extends HTMLElement {
     /*
      * TEMPLATE
      */
-    static tpl = ``
+    tpl = ``
 
     /*
      * CONSTRUCTOR
