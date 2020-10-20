@@ -58,13 +58,31 @@ app.use(hpp())
 // )
 
 // Set security HTTP headers
-app.use(helmet())
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                baseUri: ["'self'"],
+                fontSrc: ["'self'", 'https:', 'data:'],
+                frameAncestors: ["'self'"],
+                imgSrc: ["'self'", 'data:'],
+                objectSrc: ["'none'"],
+                scriptSrc: ["'self'", 'https://d3js.org'],
+                scriptSrcAttr: ["'none'"],
+                styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
+            },
+            blockAllMixedContent: true,
+            upgradeInsecureRequests: true,
+        },
+    })
+)
 
 // Limit requests from same API
 const limiter = rateLimit({
     max: 1000,
     windowMs: 60 * 60 * 1000,
-    message: 'Too many requests from this IP, please try again in an hour!'
+    message: 'Too many requests from this IP, please try again in an hour!',
 })
 app.use('/api', limiter)
 
