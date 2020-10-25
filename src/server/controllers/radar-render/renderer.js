@@ -3,17 +3,42 @@
 //
 // libraries
 const d3 = require('d3')
+const { JSDOM } = require('jsdom')
 // app modules
 const { calcAngles, equiSpatialRadii } = require('../../../common/util/maths')
 const placeBlips = require('./blipPlacer')
+const { RadarRendering } = require('../../models/radarDataModel')
 
 //
 // GLOBALS
 //
 const size = 2000
 
+//
+// Render the given data into some proper SVG and tables
+//
+exports.renderRadar = (data) => {
+    // create the DOM hook for d3 to work properly
+    const fakeDom = new JSDOM('<!DOCTYPE html><html><body></body></html>')
+    let body = d3.select(fakeDom.window.document).select('body')
+
+    // build the SVG container
+    const svgContainer = body.append('div').attr('class', 'svg')
+    const tablesContainer = body.append('div').attr('class', 'tables')
+    // plot the radar
+    plotRadar(body, data)
+
+    // add to the radar, update state, and save
+    const rendering = new RadarRendering({})
+    rendering.rendering = new Map()
+    rendering.rendering.set('svg', svgContainer.html())
+    rendering.rendering.set('tables', tablesContainer.html())
+
+    return rendering
+}
+
 // plots the entire radar
-exports.plotRadar = (root, data) => {
+const plotRadar = (root, data) => {
     // 1) calculate some base values
     // 56 = width of segment name, 2 = thickness of ring stroke
     const radius = (size - 2) / 2 - 56
@@ -25,6 +50,7 @@ exports.plotRadar = (root, data) => {
     plotSegments(root, data.data, angles, radii)
 }
 
+// plot each segment
 const plotSegments = (root, data, angles, radii) => {
     const viewBox = `-${size / 2} -${size / 2} ${size} ${size}`
     const svg = root.select('.svg').append('svg').attr('viewBox', viewBox)
