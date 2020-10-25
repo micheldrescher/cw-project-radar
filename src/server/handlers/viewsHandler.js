@@ -57,6 +57,22 @@ exports.showMain = catchAsync(async (req, res, next) => {
 // Fetch the requested radar, and render the 'radar template page
 //
 exports.showRadar = catchAsync(async (req, res, next) => {
+    // 1) If there s a slug, fetch edition, otherwise fetch live
+    let radar
+    if (req.params.slug) radar = await showEdition(req, res, next)
+    else radar = await showLive(req, res, next)
+
+    console.log(radar)
+
+    // 2) show success page - errors are handled/raised in the calls above
+    res.status(200).render(`${__dirname}/../views/radar`, {
+        title: radar.name,
+        radar,
+        jrcTaxonomy,
+    })
+})
+
+const showEdition = async (req, res, next) => {
     // 1) Get the requested radar slug
     const { slug } = req.params
 
@@ -66,13 +82,17 @@ exports.showRadar = catchAsync(async (req, res, next) => {
         return next(new AppError(`No radar found for id ${slug}.`, 404))
     }
 
-    // 4) Show success page
-    res.status(200).render(`${__dirname}/../views/radar`, {
-        title: radar.name,
-        radar,
-        jrcTaxonomy,
-    })
-})
+    // 3) Return the radar
+    return radar
+}
+
+const showLive = async (req, res, next) => {
+    // 1) get transient live radar from radar controller
+    const radar = await radarController.getLiveRadar()
+
+    // 2) Return the radar
+    return radar
+}
 
 /******************************/
 /*                            */

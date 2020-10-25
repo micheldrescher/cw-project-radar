@@ -3,23 +3,13 @@
 //
 // libraries
 const moment = require('moment')
-const simpleStats = require('simple-statistics')
 // modules
 const APIFeatures = require('../utils/apiFeatures')
 const AppError = require('../utils/AppError')
-const classificationController = require('./classificationController')
-const mtrlScoresController = require('./mtrlScoresController')
+const { compileRadarPopulation } = require('./radar-populate/radarPopulation')
 const Radar = require('../models/radarModel')
+const { RadarData, RadarRendering } = require('../models/radarDataModel')
 const renderer = require('./radar-render/renderer')
-const { Blip, RadarData, RadarRendering } = require('../models/radarDataModel')
-const { Project } = require('../models/projectModel')
-const modelController = require('./modelController')
-
-//
-// MODULE VARS
-//
-const rings = process.env.MODEL_RINGS.split(',').map((e) => e.trim())
-const segments = process.env.MODEL_SEGMENTS.split(',').map((e) => e.trim())
 
 /****************************
  *                          *
@@ -94,9 +84,8 @@ exports.getBySlugOrLatest = async (slug, field) => {
 // populate the radar with project and scoring data statistics
 //
 exports.populateRadar = async (slug, date) => {
-    const ageInMonths = process.env.MODEL_MAX_AGE || 36 // default of 3 year cutoff time
     const radarDate = moment(date) // creates a Date.now() if date param is missing
-    const prjMaxAge = radarDate.clone().subtract(ageInMonths, 'months')
+
     // 1) Obtain the radar
     const radar = await this.getRadarBySlug(slug)
 
@@ -108,88 +97,17 @@ exports.populateRadar = async (slug, date) => {
         throw new AppError(`Radar ${radar.name} is not in state created.`, 500)
     }
 
-    // 2) Fetch all projects that:
-    //      - are younger than the project max age (from the model), and
-    //      - have at least one classification
-    const projects = await Project.find({
-        endDate: { $gte: prjMaxAge.toDate() },
-        startDate: { $lt: radarDate.toDate() },
-        hasClassifications: true,
-    })
+    // 2) Calculate the radar population
+    const radarData = await compileRadarPopulation(radarDate)
 
-    // 3) Create a temporary map of maps
-    const data = new Map()
-    segments.forEach((segment) => {
-        const segMap = new Map()
-        data.set(segment, segMap)
-        rings.forEach((ring) => {
-            segMap.set(ring, new Array())
-        })
-    })
-
-    // 4) Map all projects into data.
-    await Promise.all(
-        projects.map(async (prj) => {
-            let segment = await classificationController.getClassification(
-                prj._id,
-                radarDate.toDate()
-            )
-            segment = segment.classification
-            const ring = calculateRing(prj, radarDate)
-            // If the project has a score, fetch and add the score too as we need that later anyway.
-            let score = undefined
-            if (prj.hasScores) {
-                score = await mtrlScoresController.getScore(prj._id, radarDate.toDate())
-            }
-            data.get(segment).get(ring).push({
-                prj,
-                score,
-            })
-        })
-    )
-
-    // 5) Map all projects into blips stored in the radar including statistics
-    const radarData = new RadarData({
-        radar: radar._id,
-    })
-    radarData.data = new Map()
-    for (const [segKey, segMap] of data.entries()) {
-        const segDataMap = new Map()
-        for (const [ringKey, entries] of segMap.entries()) {
-            const stats = calculateStatistics(entries)
-            const ringData = []
-            entries.forEach((e) => {
-                const blip = new Blip({
-                    project: e.prj._id,
-                    tags: e.prj.tags,
-                    cw_id: e.prj.cw_id, // temporary
-                    prj_name: e.prj.name, // temporary
-                    segment: segKey, // temporary
-                    ring: ringKey, // temporary
-                })
-                if (e.score) {
-                    blip.trl = e.score.trl
-                    blip.mrl = e.score.mrl
-                    blip.score = e.score.score
-                    blip.median = stats.median
-                    blip.performance = blip.score - blip.median
-                    blip.min = stats.min
-                    blip.max = stats.max
-                }
-                ringData.push(blip)
-            })
-            segDataMap.set(ringKey, ringData)
-        }
-        radarData.data.set(segKey, segDataMap)
-    }
+    // 3) Persist the changes
     await radarData.save()
-
-    // 6) Set radar status to 'populated' and population date
     radar.status = 'populated'
     radar.data = radarData._id
     radar.referenceDate = radarDate
     await radar.save()
 
+    // 4) redutn the radar
     return radar
 }
 
@@ -208,24 +126,11 @@ exports.renderRadar = async (slug) => {
         throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
     }
 
-    // create the DOM hook for d3 to work properly
-    const fakeDom = new JSDOM('<!DOCTYPE html><html><body></body></html>')
-    let body = d3.select(fakeDom.window.document).select('body')
-
-    // build the SVG container
-    const svgContainer = body.append('div').attr('class', 'svg')
-    const tablesContainer = body.append('div').attr('class', 'tables')
-    // plot the radar
-    renderer.plotRadar(body, radar.data)
-
-    // add to the radar, update state, and save
-    const rendering = new RadarRendering({
-        radar: radar._id,
-    })
-    rendering.rendering = new Map()
-    rendering.rendering.set('svg', svgContainer.html())
-    rendering.rendering.set('tables', tablesContainer.html())
+    // 2) Create the rendering
+    const rendering = renderer.renderRadar(radar.data)
+    rendering.radar = radar._id
     await rendering.save()
+
     radar.status = 'rendered'
     radar.rendering = rendering._id
     await radar.save()
@@ -307,54 +212,48 @@ exports.resetRadar = async (slug) => {
     return radar
 }
 
-/*******************************
- *                             *
- *     PRIVATE   FUNCTIONS     *
- *                             *
- *******************************/
 //
-// Calculate statistics for each ring
+// get a live radar
 //
-const calculateStatistics = (entries) => {
-    const scores = entries
-        .filter((entry) => entry.score)
-        .map((entry) => {
-            return entry.score.score
-        })
-    if (!scores || scores.length === 0) {
-        return undefined
-    }
+exports.getLiveRadar = async () => {
+    const cutOffDate = moment() // creates a Date.now() if date param is missing
 
-    const median = simpleStats.median(scores)
-    const perfs = scores.map((score) => score - median)
-    const min = perfs.reduce((aMin, perf) => (perf < aMin ? perf : aMin))
-    const max = perfs.reduce((aMin, perf) => (perf > aMin ? perf : aMin))
+    // 1) Create a fake radar instance
+    const radar = new Radar()
+    radar.year = 2999
+    radar.release = 'Live'
+    radar.slug = 'live-2999'
+    radar.name = 'Live radar'
+    radar.summary =
+        'This is a radar compiled on-demand based on the latest information found in the database. Unlike stable editions, live radars are fluid in their content and display. Use with caution; this is not a citable resource.'
+    radar.status = 'created'
+    radar.referenceDate = cutOffDate.toDate()
+    radar.publicationDate = cutOffDate.toDate()
 
-    return {
-        median,
-        min,
-        max,
-    }
-}
+    // 2) Add the radar data
+    radar.data = await compileRadarPopulation(cutOffDate)
+    radar.status = 'populated'
 
-//
-// DOMAIN-SPECIFIC ring calculator.
-// TODO - find a way to get this configurable
-//
-const calculateRing = (project, radarDate) => {
-    let testDate = radarDate.clone()
+    // 3) Add the rendering
+    // TODO actually do some rendering...
+    radar.rendering = renderer.renderRadar(radar.data)
+    radar.status = 'rendered'
 
-    testDate.subtract(2, 'years')
-    if (project.endDate < testDate.toDate()) return rings[4] // Drop
+    // 4) Now "publish" the radar
+    radar.status = 'published'
 
-    testDate.add(1, 'years')
-    if (project.endDate < testDate.toDate()) return rings[3] // Hold
+    // exports.getLiveRadar = catchAsync(async (req, res, next) => {
+    //     // this is going to be resource costly...label
+    //     // basically: collect all the radar data, render it, display it
+    //     handler.populateRadar
+    //     handler.renderRadar
+    //     handler.publishRadar
+    //     handler.getRadarBySlug
 
-    testDate.add(1, 'years')
-    if (project.endDate < testDate.toDate()) return rings[0] // Adopt
+    // radar.name = 'Live radar'
 
-    testDate.add(6, 'months').toDate()
-    if (project.endDate < testDate.toDate()) return rings[1] // Trial
+    // console.log(radar)
 
-    return rings[2] // Assess
+    // 5) Success! return the live radar
+    return radar
 }
