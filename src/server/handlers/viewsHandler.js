@@ -62,8 +62,6 @@ exports.showRadar = catchAsync(async (req, res, next) => {
     if (req.params.slug) radar = await showEdition(req, res, next)
     else radar = await showLive(req, res, next)
 
-    console.log(radar)
-
     // 2) show success page - errors are handled/raised in the calls above
     res.status(200).render(`${__dirname}/../views/radar`, {
         title: radar.name,
