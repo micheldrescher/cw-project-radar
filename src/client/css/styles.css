@@ -721,3 +721,15 @@ form.form--filter-tags > ul > li:first-child {
 #filters > #search > #search_results > button:hover {
     background-color: #eaeaea;
 }
+
+
+#info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#info-bar * {
+    flex: 1 1 0px;
+    text-align: center;
+}
