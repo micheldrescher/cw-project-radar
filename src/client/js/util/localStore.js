@@ -9,80 +9,72 @@ import showAlert from './alert'
 //
 // EXPORTS
 //
-export { getTags, getProjectIDs, updateTags, getModel }
+export { getModel, getTags, updateTags }
 
 //
 // MODULE VARS
 //
-const strgId_jrcTags = 'eu.cyberwatching.radar.user.jrcTags'
-const strgId_prjIds = 'eu.cyberwatching.radar.user.taggedPrjs'
 const strgId_model = 'eu.cyberwatching.radar.model'
 
+const strgId_jrcTags = 'eu.cyberwatching.radar.user.jrcTags'
+
+/***************
+ *             *
+ *  FUNCTIONS  *
+ *             *
+ ***************/
+
 //
-// FUNCTIONS
+// CYBERWATCHING.EU DATA MODEL
 //
 
-// get the user selected list of tags (ncl. a boolean operator)
-// example: { ops: 'or', tags: [1, 2, 3]}
-const getTags = () => {
-    const result = JSON.parse(localStorage.getItem(strgId_jrcTags)) || {
-        union: false,
-        tags: [],
-    }
-    // construct a new return object (prevents parameter pollution etc.)
-    return {
-        union: result.union || false,
-        tags: result.tags || [],
-    }
+//
+// return the CW data model from loca store
+//
+const getModel = async (doFetch = true) => {
+    let model = JSON.parse(localStorage.getItem(strgId_model))
+    // return early if model is found
+    if (model) return model
+
+    // lazy loading of the model and return
+    if (doFetch) return await _fetchModel()
 }
 
-// get the list of projects that match the tag list
-const getProjectIDs = () => {
-    let result = JSON.parse(localStorage.getItem(strgId_prjIds)) || []
-    if (!(result instanceof Array)) result = []
+//
+// JRC FILTER TAGS
+//
 
+//
+// get the user selected list of tags (incl. a boolean operator)
+// example: { ops: 'or', tags: [1, 2, 3]}
+//
+const getTags = () => {
+    let result = JSON.parse(localStorage.getItem(strgId_jrcTags))
+    if (!result) {
+        result = {
+            union: false,
+            tags: [],
+        }
+    }
+    // construct a new return object (prevents parameter pollution etc.)
     return result
 }
 
 // update the list of tags and projects
-const updateTags = async (tags) => {
+const updateTags = async (filter) => {
     // first store the tags
-    localStorage.setItem(strgId_jrcTags, JSON.stringify(tags))
-    // then fetch the matching project ids
-    const projectIds = await fetchMatchingPrjIds(tags)
-    // finally store the proejct IDs
-    localStorage.setItem(strgId_prjIds, JSON.stringify(projectIds))
+    localStorage.setItem(strgId_jrcTags, JSON.stringify(filter))
 }
 
-const getModel = async () => {
-    return JSON.parse(localStorage.getItem(strgId_model))
-}
+/******************************
+ *                            *
+ *  PRIVATE MODULE FUNCTIONS  *
+ *                            *
+ *******************************/
 
-// PRIVATE
-// Fetch the list of matching IDs from the server
-const fetchMatchingPrjIds = async (filter) => {
-    // fetch matching projects
-    try {
-        const res = await axios({
-            method: 'POST',
-            url: '/api/v1/project/match',
-            data: {
-                filter,
-            },
-        })
-
-        if (res.data.status === 'success') {
-            showAlert('success', 'Filter updated')
-            return res.data.data
-        }
-    } catch (err) {
-        showAlert('error', err.response.data.message)
-    }
-}
-
-const fetchModel = async () => {
+const _fetchModel = async () => {
     // check if model is already set
-    const model = await getModel()
+    let model = await getModel(false)
     if (
         model &&
         model.segments &&
@@ -91,9 +83,8 @@ const fetchModel = async () => {
         model.timestamp & (Date.now() - model.timestamp < 1000 * 60 * 60 * 24) // 1 day
     ) {
         // nothing to do
-        return
+        return model
     }
-
     // fetch from server
     try {
         // 1. fetch the model data from the server
@@ -101,7 +92,6 @@ const fetchModel = async () => {
             method: 'GET',
             url: '/api/v1/model/dimensions',
         })
-        console.log(res)
         if (res.data.status != 'success') {
             // throw new error
             showAlert('error', 'Failed to load model data:'.err.response.data.message)
@@ -109,17 +99,13 @@ const fetchModel = async () => {
         }
 
         // 2. get model data from response
-        const model = res.data.data
-        console.log(model)
+        model = res.data.data
         model.timestamp = Date.now()
-        console.log(model)
 
         // 3. add to local storage
         localStorage.setItem(strgId_model, JSON.stringify(model))
     } catch (err) {
         showAlert('error', err.response.data.message)
     }
+    return model
 }
-
-// called one time when local store is loaded in the browser
-fetchModel()
