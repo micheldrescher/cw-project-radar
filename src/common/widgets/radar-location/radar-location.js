@@ -65,8 +65,6 @@ class RadarLocation extends HTMLElement {
     }
 
     buildDOM = (host, attrs) => {
-        console.log(attrs)
-
         // create the SVG
         const svg = SVG().addTo(host).attr({
             viewBox: '0 0 102 102',

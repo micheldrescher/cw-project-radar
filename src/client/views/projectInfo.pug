@@ -108,9 +108,9 @@ block header
         !=project.cw_id 
         |. 
         if (project.cwurl)
-            a(href=project.cwurl target='_blank') #{blip.prj_name}
+            a(href=project.cwurl target='_blank') #{project.name}
         else 
-            !=blip.prj_name
+            !=project.name
 
 //-
 //- FOOTER
@@ -142,16 +142,16 @@ block content
     //- Project statistics pane
     .stats
         .performance
-            if (blip.score)
+            if (perf && perf.score)
                 .label Relative performance
-                +mtrl-performance(blip.score, blip.performance, blip.min, blip.max)
+                +mtrl-performance(perf.score, perf.performance, perf.min, perf.max)
                 .mtrl
-                    +simple-metric('MRL', blip.mrl, 'mrl')
-                    +simple-metric('TRL', blip.trl)
-                    +simple-metric('Performance', blip.performance)
+                    +simple-metric('MRL', perf.mrl, 'mrl')
+                    +simple-metric('TRL', perf.trl)
+                    +simple-metric('Performance', perf.performance)
         .metrics
             .label Project metrics
             .radar
-                +radar-coords(blip.segment, blip.ring)
-                +radar-location(model, blip.segment, blip.ring, 'distance')
-            +sdlc-position(model.lcycle, blip.ring)
+                +radar-coords(segment, ring)
+                +radar-location(model, segment, ring, 'distance')
+            +sdlc-position(model.lcycle, ring)

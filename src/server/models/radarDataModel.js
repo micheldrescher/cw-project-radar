@@ -35,7 +35,7 @@ const radarDataSchema = new mongoose.Schema(
         radar: {
             type: mongoose.Schema.ObjectId,
             ref: 'Radar',
-            required: [true, 'A RadarData document must be lined to exactly one Radar instance'],
+            required: [true, 'A RadarData document must be linked to exactly one Radar instance'],
         },
         data: {
             type: Map, // segment --> Map

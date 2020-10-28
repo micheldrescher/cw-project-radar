@@ -6,7 +6,7 @@
 
 // app modules
 import linkupRadar from './radar/linkupRadar'
-import { showFilterTagForm, updateFilterList, filterRadar } from './radar/filterTags'
+import { showFilterTagForm, updateFilterList, filterBlips } from './radar/filterTags'
 import { getTags, updateTags } from './util/localStore'
 import showAlert from './util/alert'
 import { login, logout } from './user/login'
@@ -133,15 +133,19 @@ if (radarSection) {
     // The static display of the radar is done through the PUG template
     // This is to make it dynamic
 
-    // 1) Link up DOM elements with interactive JavaScript
-    linkupRadar(document.getElementById('radar'))
+    // pre-1)   The radar has already been loaded and is present in the HTML DOM tree.
+    //          This might change in the future where we asynch load the radar data via
+    //          API call in this function
 
-    // 2) load filters
+    // 1) Filter blips according to the filter tags set by the user
     const filterTags = getTags()
-    // 4) update the tags list in the UI
+    filterBlips(filterTags)
+
+    // 2) show the current filter list in the UI
     updateFilterList(document.getElementById('jrctagsfilter'), filterTags, getName)
-    // 5) filter out projects
-    filterRadar(filterTags)
+
+    // 3) link up the radar to make it dynamic
+    linkupRadar(document.getElementById('radar'))
 }
 
 //
@@ -167,8 +171,7 @@ if (anyAllRadios) {
             const filter = getTags()
             filter.union = event.target.value
             await updateTags(filter)
-            filterRadar()
-            console.log(event.target.value)
+            filterBlips(filter)
         })
     })
 }

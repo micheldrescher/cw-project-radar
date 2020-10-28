@@ -101,6 +101,7 @@ exports.populateRadar = async (slug, date) => {
     const radarData = await compileRadarPopulation(radarDate)
 
     // 3) Persist the changes
+    radarData.radar = radar._id
     await radarData.save()
     radar.status = 'populated'
     radar.data = radarData._id

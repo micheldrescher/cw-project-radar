@@ -6,11 +6,12 @@
 // app modules
 import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
 import { getTags, getProjectIDs, updateTags } from '../util/localStore'
+import { any, all, partition } from '../util/nodeFilter'
 
 //
 // EXPORTS
 //
-export { showFilterTagForm, updateFilterList, filterRadar }
+export { filterBlips, showFilterTagForm, updateFilterList }
 
 /*****************
  *               *
@@ -19,13 +20,71 @@ export { showFilterTagForm, updateFilterList, filterRadar }
  *****************/
 
 //
+// based on the tags in the filter show or hide blips
+//
+const filterBlips = async (userFilter, forced = false) => {
+    // 1) If no filter sent, get from localStore
+    if (!userFilter) userFilter = getTags()
+
+    // 2) if the filter's tag list is empty, don't filter at all, unless it's forced!
+    if (!userFilter.tags || (userFilter.tags.length === 0 && !forced)) {
+        return
+    }
+
+    // 3) Figure out which nodes to show and which ones to hide
+    // 3.1) If this is forced and tags are empty, simply show all blips again
+    if (!userFilter.tags || userFilter.tags.length === 0) {
+        document.querySelectorAll('g.blip').forEach((b) => (b.style.display = 'inherit'))
+        return
+    }
+    // 3.2) Otherwise apply the filter
+    const withoutJRCTags = document.querySelectorAll("g.blip[data-jrc-tags='']")
+    const withJRCTags = document.querySelectorAll("g.blip[data-jrc-tags]:not([data-jrc-tags=''])")
+    const filterFunc = userFilter.union === 'any' ? any : all
+    const [matching, notMatching] = partition(withJRCTags, userFilter.tags, filterFunc)
+
+    // 4) now hide all except those in 'matching'
+    matching.forEach((n) => (n.style.display = 'inherit'))
+    notMatching.forEach((n) => (n.style.display = 'none'))
+    withoutJRCTags.forEach((n) => (n.style.display = 'none'))
+}
+
+//
+// UPDATE FILTER UI
+//
+// Given the list of tags, update the filter UI with the actual term names
+const updateFilterList = (filterNode, filter, getNameFunc) => {
+    // 1) Update filter operation
+    const anyRadio = filterNode.childNodes[1].childNodes[2]
+    const allRadio = filterNode.childNodes[1].childNodes[3]
+    if (filter.union === 'any') {
+        anyRadio.checked = true
+        allRadio.checked = false
+    } else {
+        anyRadio.checked = false
+        allRadio.checked = true
+    }
+    // 2) Update filter tag list
+    const tags = filterNode.lastChild
+    // remove all tags
+    tags.innerHTML = ''
+    // now add new list of tags
+    filter.tags.forEach((tag) => {
+        const tagNode = document.createElement('div')
+        tagNode.setAttribute('class', 'tag')
+        const tagText = document.createTextNode(getNameFunc(tag))
+        tagNode.appendChild(tagText)
+        tags.appendChild(tagNode)
+    })
+}
+
+//
 // JRC FILTER TAGS FORM
 //
 // Show the filter tags form using client-side PUG
 const showFilterTagForm = () => {
     // get filter tags
     const filter = getTags()
-    console.log(filter)
     // compile HTML from the template
     const modalString = jrctaxonomyfiltermodalTemplate({
         modalID: 'filterTags',
@@ -62,7 +121,6 @@ const wireupButtons = (filter) => {
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
             filter.tags.push(c.value)
         })
-        // TODO add the operator
 
         // store tags in local storage
         await updateTags(filter)
@@ -70,7 +128,7 @@ const wireupButtons = (filter) => {
         // update the UI & filter projects
         // TODO how can I make this generic the JRC is currently hardcoded!
         updateFilterList(document.getElementById('jrctagsfilter'), filter, getName)
-        filterRadar()
+        filterBlips(filter, true) // force an update (for empty filter lists)
 
         // close modal
         document.getElementById('filterTags').remove()
@@ -95,55 +153,5 @@ const wireupCheckboxes = () => {
             )
             parentBox.checked = false
         })
-    })
-}
-
-//
-// UPDATE FILTER UI
-//
-// Given the list of tags, update the filter UI with the actual term names
-const updateFilterList = (filterNode, filter, getNameFunc) => {
-    // 1) Update filter operation
-    const anyRadio = filterNode.childNodes[1].childNodes[2]
-    const allRadio = filterNode.childNodes[1].childNodes[3]
-    if (filter.union === 'any') {
-        anyRadio.checked = true
-        allRadio.checked = false
-    } else {
-        anyRadio.checked = false
-        allRadio.checked = true
-    }
-    // 2) Update filter tag list
-    const tags = filterNode.lastChild
-    // remove all tags
-    tags.innerHTML = ''
-    // now add new list of tags
-    filter.tags.forEach((tag) => {
-        const tagNode = document.createElement('div')
-        tagNode.setAttribute('class', 'tag')
-        const tagText = document.createTextNode(getNameFunc(tag))
-        tagNode.appendChild(tagText)
-        tags.appendChild(tagNode)
-    })
-}
-
-const filterRadar = async () => {
-    // 1) Get the tags as a quick check
-    const tags = getTags()
-    // 2) Fetch all projects from the server that have the filter tags set
-    const matchingProjects = await getProjectIDs()
-
-    // 3) Test all document blips whether they match or not
-    const allBlips = document.querySelectorAll('g.blip')
-    allBlips.forEach((blip) => {
-        // 3.1) get the CW ID from the blip
-        const cwID = JSON.parse(blip.getAttribute('data')).cw_id
-        // 3.2) check if cwID is in the matching projects array.
-        //      If it is, mark as visible. If not, mark it invisible.
-        if (matchingProjects.includes(cwID)) {
-            blip.setAttribute('display', 'inherit')
-        } else {
-            blip.setAttribute('display', 'none')
-        }
     })
 }
