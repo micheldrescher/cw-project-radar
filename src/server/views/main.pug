@@ -3,17 +3,17 @@ extends _base
 block content
     .stats
         .stat
-            span.num 16 
+            span.num #{kpis.span} 
             span.txt years
         .stat
-            span.num 116 
+            span.num #{kpis.calls}  
             span.txt calls
 
         .stat
-            span.num 261 
+            span.num #{kpis.projects} 
             span.txt projects
         .stat
-            span.num €1bn 
+            span.num €#{kpis.budget} bn 
             span.txt funding
 
     .intro 
