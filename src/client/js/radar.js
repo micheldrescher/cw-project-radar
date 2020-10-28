@@ -311,7 +311,7 @@ if (updateRadarForm) {
         event.preventDefault()
         const id = document.getElementById('radarid').value
         const summary = document.getElementById('summary').value
-        await filterRadar(id, summary)
+        await updateRadar(id, summary)
     })
 }
 
