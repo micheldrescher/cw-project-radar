@@ -19,6 +19,16 @@ describe("testing 'any' node filter", () => {
         expect(testNodes.length).toBe(3)
     })
 
+    // check that empty filters return all
+    test('check any()', () => {
+        const [pass, fail] = partition(testNodes, [], any)
+        expect(pass.length).toBe(3)
+        expect(pass[0].id).toEqual('blip-1')
+        expect(pass[1].id).toEqual('blip-2')
+        expect(pass[2].id).toEqual('blip-3')
+        expect(fail.length).toBe(0)
+    })
+
     // test that any of 'foo' returns 2 blips; blip 1 and blip 3
     test('check any(foo)', () => {
         const [pass, fail] = partition(testNodes, ['foo'], any)
@@ -54,6 +64,16 @@ describe("testing 'all' node filter", () => {
     // test that the testNodes are in fact an array of three nodes
     test('check nodeFilters', () => {
         expect(testNodes.length).toBe(3)
+    })
+
+    // check that empty filters return all
+    test('check all()', () => {
+        const [pass, fail] = partition(testNodes, [], all)
+        expect(pass.length).toBe(3)
+        expect(pass[0].id).toEqual('blip-1')
+        expect(pass[1].id).toEqual('blip-2')
+        expect(pass[2].id).toEqual('blip-3')
+        expect(fail.length).toBe(0)
     })
 
     // test that all of 'foo' returns 2 blips; blip 1 and blip 3

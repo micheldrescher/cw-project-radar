@@ -1,11 +1,13 @@
 // Test whether the element contains any of the given tags
 const any = (node, filterTags) => {
     const tags = node.dataset.jrcTags.split(' ')
+    if (filterTags.length == 0) return true
     return filterTags.map((t) => tags.includes(t)).reduce((p, c) => p || c)
 }
 
 const all = (node, filterTags) => {
     const tags = node.dataset.jrcTags.split(' ')
+    if (filterTags.length == 0) return true
     return filterTags.map((t) => tags.includes(t)).reduce((p, c) => p && c)
 }
 
