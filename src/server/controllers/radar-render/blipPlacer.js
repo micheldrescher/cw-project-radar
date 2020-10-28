@@ -158,21 +158,31 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
     var x = coords[0]
     var y = coords[1]
 
-    // 1) A blip is a group of a circle and a number (as text)
+    // 1) A blip is a <g>roup of a <circle> and a <text> element
     let blipGroup = root
         .select(`g.segment.segment-${segIdx}`)
         .append('g')
         .attr('class', 'blip')
         .attr('id', `blip-${blip.cw_id}`)
         .attr('transform', `translate(${x}, ${y})`)
-        .attr('label', `${blip.cw_id}. ${blip.prj_name}`)
-    // add the tags as direct DOM attribute
-    if (blip.tags && blip.tags.length > 0) blipGroup = blipGroup.attr('tags', blip.tags.join(' '))
-    // finally add the blip data
-    blip.tags = undefined // they are already plotted, no need to do that twice
-    blipGroup = blipGroup.attr('data', JSON.stringify(blip))
+        .attr('data-tooltip', `${blip.cw_id}. ${blip.prj_name}`)
+        .attr('data-cw-id', blip.cw_id)
+        .attr('data-segment', blip.segment)
+        .attr('data-ring', blip.ring)
+        .attr(
+            'data-performance',
+            JSON.stringify({
+                mrl: blip.mrl,
+                trl: blip.trl,
+                score: blip.score,
+                performance: blip.performance,
+                min: blip.min,
+                max: blip.max,
+            })
+        )
+        .attr('data-jrc-tags', blip.tags.join(' '))
 
-    // 2) Add the circle to the blup group
+    // 2) Add the <circle> to the blip group
     const colour = arcColour(blip)
     blipGroup
         .append('circle')
@@ -181,7 +191,7 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .attr('stroke-width', colour === '#000000' ? 2 : 4)
         .attr('stroke', colour)
 
-    // 4) Add the text - the blip's cw-id - to the group
+    // 3) Add the <text> to the blip group
     blipGroup
         .append('text')
         .attr('text-anchor', 'middle')

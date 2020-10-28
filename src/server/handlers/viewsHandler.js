@@ -1,6 +1,7 @@
 //
 // IMPORTS
 //
+const moment = require('moment')
 // libraries
 // app modules
 const APIFeatures = require('../utils/apiFeatures')
@@ -11,6 +12,7 @@ const { MTRLScore } = require('../models/mtrlScoreModel')
 const classificationController = require('./../controllers/classificationController')
 const mtrlScoresController = require('./../controllers/mtrlScoresController')
 const radarController = require('../controllers/radarController')
+const { roundDec } = require('../../common/util/maths')
 const modelController = require('../controllers/modelController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
@@ -46,10 +48,31 @@ exports.getEditions = catchAsync(async (req, res, next) => {
 // show main/entry page
 //
 exports.showMain = catchAsync(async (req, res, next) => {
+    // 1) Fetch some key figures from the DB
+    const kpis = (
+        await Project.aggregate([
+            {
+                $group: {
+                    _id: 1,
+                    budget: { $sum: '$budget' },
+                    projects: { $sum: 1 },
+                    calls: { $addToSet: '$call' },
+                    start: { $min: '$startDate' },
+                    end: { $max: '$endDate' },
+                },
+            },
+        ])
+    )[0]
+    kpis.calls = kpis.calls.length // reduce calls array to its length
+    kpis.span = moment(kpis.end).diff(kpis.start, 'months') + 1 // reduce start and end to months
+    kpis.span = roundDec(kpis.span / 12, 1) // in years, with one decimal
+    kpis.budget = roundDec(kpis.budget / 1000000000, 1) // budget in €bn
+
     // TODO expand on default content.
     res.status(200).render('main', {
         title: 'Welcome',
         pageclass: 'main',
+        kpis,
     })
 })
 

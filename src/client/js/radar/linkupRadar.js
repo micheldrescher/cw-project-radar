@@ -10,6 +10,7 @@ import { RadarLocation } from '../../../common/widgets/radar-location/radar-loca
 import { SimpleMetric } from '../../../common/widgets/simple-metric/simple-metric'
 import { SDLCPosition } from '../../../common/widgets/sdlc-position/sdlc-position'
 import { MTRLPerformance } from '../../../common/widgets/mtrl-performance/mtrl-performance'
+import { showBliptip, hideBliptip } from '../util/blipTooltip'
 
 //
 // EXPORTS
@@ -132,16 +133,7 @@ const interactiveBlips = () => {
 
 const mouseOverBlip = () => {
     return (e) => {
-        // get the tooltip, set text, and display.
-        const tt = document.getElementById('tooltip')
-        tt.innerHTML = e.target.getAttribute('label')
-        tt.style.display = 'block'
-        //get blip and tooltip position and dimensions
-        const blipBox = e.target.getBoundingClientRect()
-        const ttBox = tt.getBoundingClientRect()
-        // move tooltip top of blip, horizontally centered
-        tt.style.left = window.scrollX + blipBox.left + blipBox.width / 2 - ttBox.width / 2 + 'px'
-        tt.style.top = window.scrollY + blipBox.top - ttBox.height - 5 + 'px'
+        showBliptip(e.target)
     }
 }
 
@@ -149,7 +141,7 @@ const mouseOutBlip = () => {
     return (e) => {
         e.preventDefault()
         e.stopPropagation()
-        document.getElementById('tooltip').style.display = 'none'
+        hideBliptip()
     }
 }
 
@@ -157,6 +149,12 @@ const clickBlip = () => {
     return (e) => {
         e.preventDefault()
         e.stopPropagation()
-        showProjectData(JSON.parse(e.target.parentNode.getAttribute('data')))
+        const dataSet = e.target.parentNode.dataset
+        showProjectData(
+            dataSet.cwId,
+            dataSet.segment,
+            dataSet.ring,
+            JSON.parse(dataSet.performance)
+        )
     }
 }

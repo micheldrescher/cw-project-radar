@@ -1,6 +1,6 @@
 [{
 	"_id": {
-		"$oid": "5efa1417522c51f12536f13c"
+		"$oid": "5f994cf52196605dfaa49747"
 	},
 	"status": "published",
 	"year": 2018,
@@ -10,21 +10,21 @@
 	"name": "Autumn 2018",
 	"__v": 0,
 	"data": {
-		"$oid": "5efa147210c6a5f0c3a1e077"
+		"$oid": "5f994d7a8a03cc5e0866a3b2"
 	},
 	"referenceDate": {
-		"$date": "2018-09-30T23:00:00Z"
+		"$date": "2018-09-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5efa147610c6a5f0c3a1e11e"
+		"$oid": "5f994d7e8a03cc5e0866a459"
 	},
 	"publicationDate": {
-		"$date": "2020-06-29T16:19:05.792Z"
+		"$date": "2020-10-28T10:52:49.847Z"
 	}
 },
 {
 	"_id": {
-		"$oid": "5efa1417522c51f12536f13d"
+		"$oid": "5f994cf52196605dfaa49748"
 	},
 	"status": "published",
 	"year": 2019,
@@ -34,21 +34,21 @@
 	"name": "Spring 2019",
 	"__v": 0,
 	"data": {
-		"$oid": "5efa14ac10c6a5f0c3a1e11f"
+		"$oid": "5f994db68a03cc5e0866a45a"
 	},
 	"referenceDate": {
-		"$date": "2019-05-31T23:00:00Z"
+		"$date": "2019-04-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5efa14b010c6a5f0c3a1e1d3"
+		"$oid": "5f994dbb8a03cc5e0866a50b"
 	},
 	"publicationDate": {
-		"$date": "2020-06-29T16:20:03.481Z"
+		"$date": "2020-10-28T10:53:50.793Z"
 	}
 },
 {
 	"_id": {
-		"$oid": "5efa1417522c51f12536f13e"
+		"$oid": "5f994cf52196605dfaa49749"
 	},
 	"status": "published",
 	"year": 2019,
@@ -58,21 +58,21 @@
 	"name": "Autumn 2019",
 	"__v": 0,
 	"data": {
-		"$oid": "5efa14dc10c6a5f0c3a1e1d4"
+		"$oid": "5f994ddf8a03cc5e0866a50c"
 	},
 	"referenceDate": {
-		"$date": "2019-09-30T23:00:00Z"
+		"$date": "2019-09-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5efa14e510c6a5f0c3a1e294"
+		"$oid": "5f994de38a03cc5e0866a5cc"
 	},
 	"publicationDate": {
-		"$date": "2020-06-29T16:20:56.983Z"
+		"$date": "2020-10-28T10:54:31.269Z"
 	}
 },
 {
 	"_id": {
-		"$oid": "5efa1417522c51f12536f13f"
+		"$oid": "5f994cf52196605dfaa4974a"
 	},
 	"status": "published",
 	"year": 2020,
@@ -82,21 +82,21 @@
 	"name": "Spring 2020",
 	"__v": 0,
 	"data": {
-		"$oid": "5efa152810c6a5f0c3a1e295"
+		"$oid": "5f994dff8a03cc5e0866a5cd"
 	},
 	"referenceDate": {
-		"$date": "2020-06-30T23:00:00Z"
+		"$date": "2020-07-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5efa152c10c6a5f0c3a1e350"
+		"$oid": "5f994e038a03cc5e0866a688"
 	},
 	"publicationDate": {
-		"$date": "2020-06-29T16:22:07.234Z"
+		"$date": "2020-10-28T10:55:02.856Z"
 	}
 },
 {
 	"_id": {
-		"$oid": "5efa1417522c51f12536f140"
+		"$oid": "5f994cf52196605dfaa4974b"
 	},
 	"status": "created",
 	"year": 2020,

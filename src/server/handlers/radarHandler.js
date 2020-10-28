@@ -43,7 +43,7 @@ exports.getRadarBySlug = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         results: 1,
-        radar: radar
+        radar: radar,
     })
 })
 
@@ -62,7 +62,7 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         results: editions.length,
-        data: editions
+        data: editions,
     })
 })
 
@@ -80,7 +80,7 @@ exports.populateRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar
+        radar,
     })
 })
 
@@ -95,7 +95,7 @@ exports.renderRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar
+        radar,
     })
 })
 
@@ -110,7 +110,7 @@ exports.publishRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar
+        radar,
     })
 })
 
@@ -125,7 +125,7 @@ exports.archiveRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar
+        radar,
     })
 })
 
@@ -140,6 +140,6 @@ exports.resetRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar
+        radar,
     })
 })

@@ -37,16 +37,18 @@ block content
                     #summary #{radar.summary}
                 #flicker
                     #summary-flicker &#x2303
-        //- any filters for the radar blips
-        section#filters
-            section#other
-                include jrc-tagfilter
-            include search
-        //- the radar and the project tables
-        section#radardata
-            #rendering
-                != radar.rendering.rendering.get('svg')
-            #tables
-                != radar.rendering.rendering.get('tables')
-        //- the blip tooltip
-        #tooltip
+        //- a wrapper to controll the height of the rada and filters
+        #ctrl-wrp
+            //- any filters for the radar blips
+            section#filters
+                section#other
+                    include jrc-tagfilter
+                include search
+            //- the radar and the project tables
+            section#radardata
+                #rendering
+                    != radar.rendering.rendering.get('svg')
+                #tables
+                    != radar.rendering.rendering.get('tables')
+            //- the blip tooltip
+            #tooltip

@@ -6,9 +6,9 @@ import axios from 'axios'
 // app modules
 import { getModel } from '../util/localStore'
 
-const showProjectData = async (blip) => {
+const showProjectData = async (cw_id, segment, ring, perf) => {
     // fetch project info
-    const response = await (await axios.get('/api/v1/project/prj_id/' + blip.cw_id)).data
+    const response = await (await axios.get('/api/v1/project/prj_id/' + cw_id)).data
     // TODO add error message to footer in red
 
     const model = await getModel()
@@ -17,8 +17,10 @@ const showProjectData = async (blip) => {
         modalID: 'projectInfo',
         footer: '',
         project: response.data,
-        blip,
         model,
+        segment,
+        ring,
+        perf,
     })
 
     // add to DOM and display
