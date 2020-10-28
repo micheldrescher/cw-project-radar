@@ -364,15 +364,25 @@ header.header {
     transform: rotateX(180deg);
 }
 
+/* control the height of the radar to 100% of the viewport */
+#ctrl-wrp {
+    max-height: 100vh;
+}
+
 /* The radar rendering and tables area */
 #radardata {
     display: flex;
+    max-height: 95vh;
 }
 
 /* SVG rendering of the radar */
 #rendering {
     padding: 0 3em;
     flex: 1 1 0px;
+}
+
+svg {
+    max-height: 95vh;
 }
 
 svg > g.segment {
@@ -417,8 +427,10 @@ svg g line {
  * Radar tables
  */
 #tables {
-    padding: 3em;
+    margin: 3em;
     width: max-content;
+    overflow: scroll;
+    max-height: 90vh;
 }
 
 .segment-table {
@@ -596,7 +608,7 @@ section.modal > div.modal-window > section.buttonbar {
  *                              *
  *******************************/
 /* General layout for the filter list(s) */
-#radar > #filters {
+#filters {
     margin: 0 4em;
     display: flex;
 }
@@ -605,32 +617,32 @@ section.modal > div.modal-window > section.buttonbar {
  * All other filters
  */
 /* Other filters get all space and have a right margin */
-#radar > #filters > #other {
+#other {
     flex: 1 1 auto;
     margin-right: 1em;
 }
 
 /* Each filder ... */
-#radar > #filters > #other > div.filter {
+#other > div.filter {
     margin: 0.5em 0;
     display: flex;
     align-items: flex-start;
 }
-#radar > #filters > #other > .filter:first-child {
+#other > .filter:first-child {
     margin-top: 0em;
 }
-#radar > #filters > #other > .filter:last-child {
+#other > .filter:last-child {
     margin-bottom: 0em;
 }
 /* Each filter child ... */
-#filters > #other > .filter * {
+#other > .filter * {
     vertical-align: top;
 }
-#filters > #other > .filter > *:first-child {
+#other > .filter > *:first-child {
     margin-right: 0.5em;
 }
 /* ... has a button, ... */
-#filters > #other > div.filter button {
+#other > div.filter button {
     font-family: 'Lato';
     font-size: 0.8em;
     padding: 0.2em;
@@ -638,25 +650,25 @@ section.modal > div.modal-window > section.buttonbar {
     flex: 0 0 auto;
 }
 /* ... an ops div, ... */
-#filters > #other > div.filter div.ops {
+#other > div.filter div.ops {
     flex: 0 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 0.2em;
     font-size: 0.8em;
 }
-#filters > #other > div.filter div.ops * {
+#other > div.filter div.ops * {
     text-align: center;
     margin: auto;
 }
 
 /* ... and a noneditable list of tags. */
-#filters > #other > div.filter div.tags {
+#other > div.filter div.tags {
     font-family: 'Lato';
     font-size: 0.8em;
 }
 /* Each individual tag */
-#filters > #other > div.filter div.tags div.tag {
+#other > div.filter div.tags div.tag {
     display: inline-block;
     border: 1px solid darkgray;
     padding: 0.1em 0.5em;
@@ -677,17 +689,17 @@ form.form--filter-tags > ul > li:first-child {
  * Search
  */
 /* Search area stays small and can shrink if necessary, but not grow */
-#filters > #search {
+#search {
     flex: 0 1 auto;
 }
 /* search text field needs styling */
-#filters > #search #search_term {
+#search_term {
 }
-#filters > #search #search_term:focus {
+#search_term:focus {
     outline: none;
 }
 /* ditto the cancel button */
-#filters > #search #search_clear {
+#search_clear {
     background-color: white;
     border: unset;
     font-size: 16pt;
@@ -695,18 +707,18 @@ form.form--filter-tags > ul > li:first-child {
     color: black;
     line-height: 0%;
 }
-#filters > #search > #search_clear:focus {
+#search_clear:focus {
     outline: none;
 }
 /* search results list position is absolute so as to overlay the radar if very long */
-#filters > #search > #search_results {
+#search_results {
     position: absolute;
     display: grid;
     gap: 0 0;
     border: 1px solid lightgray;
 }
 /* each search result element */
-#filters > #search > #search_results > button {
+#search_results > button {
     display: block;
     margin: 0;
     border: 0;
@@ -715,13 +727,12 @@ form.form--filter-tags > ul > li:first-child {
     border-bottom: 1px dotted lightgray;
     padding: 0.3em 0.5em;
 }
-#filters > #search > #search_results > button:last-child {
+#search_results > button:last-child {
     border-bottom: unset;
 }
-#filters > #search > #search_results > button:hover {
+#search_results > button:hover {
     background-color: #eaeaea;
 }
-
 
 #info-bar {
     display: flex;
