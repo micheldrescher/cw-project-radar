@@ -727,9 +727,27 @@ form.form--filter-tags > ul > li:first-child {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin: 30px 0 30px 0;
+    
 }
 
-#info-bar * {
+#info-bar div {
+    margin: 15px;
     flex: 1 1 0px;
     text-align: center;
+    background: #1C75BC;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 1px 0 12px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+#info-bar div:hover {
+    background: #F7941D;
+    box-shadow: none;
+    transition: 0.3s;
+}
+
+#info-bar div h2,p {
+    color:#fff;
 }
