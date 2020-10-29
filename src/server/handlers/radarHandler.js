@@ -71,46 +71,34 @@ exports.getEditions = catchAsync(async (req, res, next) => {
 //
 // populate the radar with all necessary data to render the visualisation
 exports.populateRadar = catchAsync(async (req, res, next) => {
-    const { slug, date } = req.params
-
-    const radar = await radarController.populateRadar(slug, date)
-    if (!radar) {
-        return next(new AppError(`Error while populating the radar.`, 500))
-    }
-
-    res.status(200).json({
-        status: 'success',
-        radar,
+    res.status(400).json({
+        status: 'error',
+        message:
+            'Radars no longer support populating and rendering; created radars are published straight away (folding the populate and rander steps into the third, publishing, action).',
     })
 })
 
 // render the populated radar data into a SVG image
 exports.renderRadar = catchAsync(async (req, res, next) => {
-    const { slug } = req.params
-
-    const radar = await radarController.renderRadar(slug)
-    if (!radar) {
-        return next(new AppError(`Error while rendering radar ${slug}.`, 500))
-    }
-
-    res.status(200).json({
-        status: 'success',
-        radar,
+    res.status(400).json({
+        status: 'error',
+        message:
+            'Radars no longer support populating and rendering; created radars are published straight away (folding the populate and rander steps into the third, publishing, action).',
     })
 })
 
 // publish the radar
 exports.publishRadar = catchAsync(async (req, res, next) => {
-    const { slug } = req.params
+    const { slug, date } = req.params
 
-    const radar = await radarController.publishRadar(slug)
+    const radar = await radarController.publishRadar(slug, date)
     if (!radar || radar.length === 0) {
         return next(new AppError(`Error while publishing the radar.`, 500))
     }
 
     res.status(200).json({
         status: 'success',
-        radar,
+        message: 'Radar published.',
     })
 })
 
@@ -125,7 +113,7 @@ exports.archiveRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar,
+        message: 'Radar archived.',
     })
 })
 
@@ -140,6 +128,6 @@ exports.resetRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar,
+        message: 'Radar successfully archived.',
     })
 })

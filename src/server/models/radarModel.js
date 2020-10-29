@@ -38,14 +38,15 @@ const radarSchema = new mongoose.Schema({
         type: String,
         required: true,
         enum: {
-            values: ['created', 'populated', 'rendered', 'published', 'archived'],
-            message: 'Status must be either created, populated, rendered, published, or archived.',
+            values: ['created', 'published', 'archived'],
+            message: 'Status must be either created, published, or archived.',
         },
         default: 'created',
     },
     referenceDate: Date, // the radar's reference/cutoff date
     publicationDate: Date, // the date this radar was published
     data: {
+        // DEPRECATED - NO LONGER IN USE
         type: mongoose.Schema.ObjectId,
         ref: 'RadarData',
     },

@@ -81,14 +81,15 @@ exports.getBySlugOrLatest = async (slug, field) => {
  *                             *
  *******************************/
 //
-// populate the radar with project and scoring data statistics
+// publish the radar
 //
-exports.populateRadar = async (slug, date) => {
-    const radarDate = moment(date) // creates a Date.now() if date param is missing
+// Once checked for any mistakes after rendering, an admin (or other
+// authorised user) can publish the radar for the public to analyse
+exports.publishRadar = async (slug, date) => {
+    const cutOffDate = moment(date) // creates a Date.now() if date param is missing
 
     // 1) Obtain the radar
     const radar = await this.getRadarBySlug(slug)
-
     if (!radar) {
         throw new AppError(`No radar found for id ${slug}.`, 404)
     }
@@ -97,69 +98,19 @@ exports.populateRadar = async (slug, date) => {
         throw new AppError(`Radar ${radar.name} is not in state created.`, 500)
     }
 
-    // 2) Calculate the radar population
-    const radarData = await compileRadarPopulation(radarDate)
-
-    // 3) Persist the changes
-    radarData.radar = radar._id
-    await radarData.save()
-    radar.status = 'populated'
-    radar.data = radarData._id
-    radar.referenceDate = radarDate
-    await radar.save()
-
-    // 4) redutn the radar
-    return radar
-}
-
-//
-// Render the radar into a scalable SVG image
-//
-exports.renderRadar = async (slug) => {
-    // 1) Obtain the radar
-    const radar = await this.getRadarBySlug(slug, 'data')
-
-    if (!radar) {
-        throw new AppError(`No radar found for id ${slug}.`, 404)
-    }
-    // radar state change check
-    if (!['populated'].includes(radar.status)) {
-        throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
-    }
-
-    // 2) Create the rendering
-    const rendering = renderer.renderRadar(radar.data)
+    // 2) Render the radar based on the data received
+    const data = await compileRadarPopulation(cutOffDate)
+    const rendering = renderer.renderRadar(data)
     rendering.radar = radar._id
     await rendering.save()
 
-    radar.status = 'rendered'
+    // 3) save radar state
+    radar.status = 'published'
+    radar.publicationDate = Date.now()
     radar.rendering = rendering._id
     await radar.save()
 
-    return radar
-}
-
-//
-// publish the radar
-//
-// Once checked for any mistakes after rendering, an admin (or other
-// authorised user) can publish the radar for the public to analyse
-exports.publishRadar = async (slug) => {
-    // 1) Obtain the radar
-    const radar = await this.getRadarBySlug(slug)
-    if (!radar) {
-        throw new AppError(`No radar found for id ${slug}.`, 404)
-    }
-    // radar state change check
-    if (!['rendered'].includes(radar.status)) {
-        throw new AppError(`Radar ${radar.name} is not in state populated.`, 500)
-    }
-
-    // 2) Set state to published
-    radar.status = 'published'
-    radar.publicationDate = Date.now()
-    await radar.save()
-
+    // return radar
     return radar
 }
 
@@ -236,25 +187,11 @@ exports.getLiveRadar = async () => {
     radar.status = 'populated'
 
     // 3) Add the rendering
-    // TODO actually do some rendering...
     radar.rendering = renderer.renderRadar(radar.data)
     radar.status = 'rendered'
 
     // 4) Now "publish" the radar
     radar.status = 'published'
-
-    // exports.getLiveRadar = catchAsync(async (req, res, next) => {
-    //     // this is going to be resource costly...label
-    //     // basically: collect all the radar data, render it, display it
-    //     handler.populateRadar
-    //     handler.renderRadar
-    //     handler.publishRadar
-    //     handler.getRadarBySlug
-
-    // radar.name = 'Live radar'
-
-    // console.log(radar)
-
     // 5) Success! return the live radar
     return radar
 }

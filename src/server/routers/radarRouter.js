@@ -65,7 +65,7 @@ router.patch(
     handler.renderRadar
 )
 router.patch(
-    '/:slug/publish',
+    '/:slug/publish/:date?',
     authC.protect,
     authC.restrictTo('admin', 'manager'),
     handler.publishRadar
