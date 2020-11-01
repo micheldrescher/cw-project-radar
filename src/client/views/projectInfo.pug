@@ -99,6 +99,29 @@ block append styles
             margin-top: 0em;    /* Somehow in flexboxes margins don't overlap... */
             margin-bottom: 0em; /* Somehow in flexboxes margins don't overlap... */
         }
+        /* tags */
+        #tags {
+            content: "";
+            margin: 1em 0;
+            border-top: 1px solid lightgray;
+        }
+        #tags {
+            font-family: 'Lato';
+            padding-top: 1em;
+        }
+        #tags .label {
+            font-weight: 700;
+            padding-bottom: 0.5em;
+        }
+        #tags .tag {
+            font-size: 0.8em;
+            display: inline-block;
+            border: 1px solid darkgray;
+            padding: 0.1em 0.5em;
+            border-radius: 0.5em;
+            margin: 0 0.3em 0.5em 0.3em;
+        }
+
 
 //-
 //- HEADER
@@ -155,3 +178,13 @@ block content
                 +radar-coords(segment, ring)
                 +radar-location(model, segment, ring, 'distance')
             +sdlc-position(model.lcycle, ring)
+    //- show the  tags, if any
+    - if (tags)
+        - console.log(tags)
+        #tags
+            .label EC JRC tags
+            div
+                - tags.forEach( (t) => {
+                    .tag #{t}
+                - })
+

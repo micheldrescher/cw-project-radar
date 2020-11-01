@@ -154,7 +154,8 @@ const clickBlip = () => {
             dataSet.cwId,
             dataSet.segment,
             dataSet.ring,
-            JSON.parse(dataSet.performance)
+            JSON.parse(dataSet.performance),
+            dataSet.jrcTags
         )
     }
 }

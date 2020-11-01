@@ -5,14 +5,16 @@
 import axios from 'axios'
 // app modules
 import { getModel } from '../util/localStore'
+import { getName } from './../../../common/datamodel/jrc-taxonomy'
 
-const showProjectData = async (cw_id, segment, ring, perf) => {
+const showProjectData = async (cw_id, segment, ring, perf, tags) => {
     // fetch project info
     const response = await (await axios.get('/api/v1/project/prj_id/' + cw_id)).data
     // TODO add error message to footer in red
 
     const model = await getModel()
     // compile HTML from the template
+    console.log(tags)
     const modalString = projectinfoTemplate({
         modalID: 'projectInfo',
         footer: '',
@@ -21,6 +23,7 @@ const showProjectData = async (cw_id, segment, ring, perf) => {
         segment,
         ring,
         perf,
+        tags: tags.length > 0 ? tags.split(' ').map((t) => getName(t)) : undefined,
     })
 
     // add to DOM and display
