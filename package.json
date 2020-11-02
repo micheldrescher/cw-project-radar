@@ -13,7 +13,7 @@
         "build:c:static": "cp -R src/client/css dist/client && cp -R src/client/img dist/client",
         "build:s": "rm -rf dist/server && mkdir dist/server && cp -R src/server dist && cp -R src/common dist && cp .env.prod dist/.env",
         "dev": "cp .env.dev .env && nodemon src/server/server.js",
-        "dev:watch:pug": "pug -c -w --name-after-file -o src/client/views src/client/views",
+        "dev:watch:pug": "pug -O '{module: true}' -c -w --name-after-file -o src/client/views src/client/views",
         "dev:watch:js": "parcel watch src/client/js/*.js --out-dir src/client",
         "start": "cp .env.prod .env && node dist/server/server.js",
         "debug": "ndb server.js",

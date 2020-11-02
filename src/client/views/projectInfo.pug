@@ -180,11 +180,9 @@ block content
             +sdlc-position(model.lcycle, ring)
     //- show the  tags, if any
     - if (tags)
-        - console.log(tags)
         #tags
             .label EC JRC tags
             div
                 - tags.forEach( (t) => {
                     .tag #{t}
                 - })
-

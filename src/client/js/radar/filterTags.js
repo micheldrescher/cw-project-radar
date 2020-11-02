@@ -7,6 +7,7 @@
 import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
 import { getTags, getProjectIDs, updateTags } from '../util/localStore'
 import { any, all, partition } from '../util/nodeFilter'
+import jrctaxonomyfiltermodalTemplate from '../../views/jrcTaxonomyFilterModal'
 
 //
 // EXPORTS

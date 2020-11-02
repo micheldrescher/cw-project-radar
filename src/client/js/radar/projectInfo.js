@@ -6,6 +6,7 @@ import axios from 'axios'
 // app modules
 import { getModel } from '../util/localStore'
 import { getName } from './../../../common/datamodel/jrc-taxonomy'
+import projectinfoTemplate from './../../views/projectInfo'
 
 const showProjectData = async (cw_id, segment, ring, perf, tags) => {
     // fetch project info
@@ -14,7 +15,6 @@ const showProjectData = async (cw_id, segment, ring, perf, tags) => {
 
     const model = await getModel()
     // compile HTML from the template
-    console.log(tags)
     const modalString = projectinfoTemplate({
         modalID: 'projectInfo',
         footer: '',
