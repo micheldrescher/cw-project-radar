@@ -12,14 +12,14 @@ const importHelper = require('./projects/projectsImportHelper')
 //
 // get by CW ID
 //
-exports.getByCWId = async cw_id => {
+exports.getByCWId = async (cw_id) => {
     return await Project.findOne({ cw_id })
 }
 
 //
 // get by RCN
 //
-exports.getByRCN = async rcn => {
+exports.getByRCN = async (rcn) => {
     return await Project.findOne({ rcn })
 }
 
@@ -37,7 +37,7 @@ exports.addCategory = async (cwid, data) => {
         project: project._id,
         classifiedOn: data.classifiedOn,
         classifiedBy: data.classifiedBy,
-        changeSummary: data.changeSummary
+        changeSummary: data.changeSummary,
     })
 
     // 3) Flag that this project is classified
@@ -60,7 +60,7 @@ exports.addMTRLScore = async (cwid, data) => {
         project: project._id,
         scoringDate: data.scoringDate,
         mrl: data.mrl,
-        trl: data.trl
+        trl: data.trl,
     })
 
     // 3) Flag that this project has at least one score
@@ -70,7 +70,7 @@ exports.addMTRLScore = async (cwid, data) => {
     return project
 }
 
-exports.importProjects = async buffer => {
+exports.importProjects = async (buffer) => {
     // 1) Read the buffer into an array of objects
     let result = await importHelper.parseTSV(buffer)
     if (result.status !== 'success') {
@@ -87,7 +87,7 @@ exports.importProjects = async buffer => {
     return result
 }
 
-exports.getMatchingProjects = async filter => {
+exports.getMatchingProjects = async (filter) => {
     let queryResult
 
     // base query
@@ -107,10 +107,10 @@ exports.getMatchingProjects = async filter => {
     }
 
     // reduce the returned objects to a number array
-    return queryResult.map(prj => prj.cw_id)
+    return queryResult.map((prj) => prj.cw_id)
 }
 
-exports.findProjects = async criteria => {
+exports.findProjects = async (criteria) => {
     const terms = criteria.terms || ''
     const caseSensitive = criteria.case || false
 
@@ -118,8 +118,8 @@ exports.findProjects = async criteria => {
         $text: {
             $search: terms,
             $language: 'en',
-            $caseSensitive: caseSensitive
-        }
+            $caseSensitive: caseSensitive,
+        },
     }).select('cw_id rcn name title -_id')
 
     let queryResult = await query
