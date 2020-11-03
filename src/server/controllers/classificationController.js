@@ -15,12 +15,12 @@ exports.getClassification = async (prjID, date) => {
     // with a scoring date less than the cutoff date
     let filter = {
         project: prjID,
-        classifiedOn: { $lte: date }
+        classifiedOn: { $lte: date },
     }
     // sort decending by scoringDate, and return the first element only
     let queryStr = {
-        sort: '-classifiedOn',
-        limit: '1'
+        sort: '-classifiedOn, -_id',
+        limit: '1',
     }
     // build the query and execute it
     const features = new APIFeatures(Classification.find(filter), queryStr)
