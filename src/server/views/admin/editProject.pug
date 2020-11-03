@@ -36,7 +36,7 @@ mixin mtrlScoreRow(score)
         td #{prettyMTRL(score.mrl,score.trl)}
 
 mixin scaleOptions()
-    each val in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    each val in [1, 2, 3, 4, 5, 6, 7, 8, 9]
         option(value=val)= val
 
 block content
