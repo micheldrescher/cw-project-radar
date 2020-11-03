@@ -8,7 +8,7 @@
         "clean": "rm -rf dist && rm src/client/views/*.js && rm -rf src/client/bundle*",
         "build": "rm -rf dist && mkdir dist && npm run build:c && npm run build:s",
         "build:c": "rm -rf dist/client && npm run build:c:pug && npm run build:c:js && npm run build:c:static",
-        "build:c:pug": "pug -c -D --name-after-file -o dist/client/views src/client/views",
+        "build:c:pug": "pug -O '{module: true}' -c -D --name-after-file -o dist/client/views src/client/views",
         "build:c:js": "parcel build src/client/js/*.js --no-source-maps --target browser --bundle-node-modules --out-dir dist/client",
         "build:c:static": "cp -R src/client/css dist/client && cp -R src/client/img dist/client",
         "build:s": "rm -rf dist/server && mkdir dist/server && cp -R src/server dist && cp -R src/common dist && cp .env.prod dist/.env",
