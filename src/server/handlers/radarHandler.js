@@ -31,8 +31,14 @@ exports.deleteRadar = handlerFactory.deleteOne(Radar)
 
 // returns ONE radar (or undefined) if slug is invalid.
 exports.getRadarBySlug = catchAsync(async (req, res, next) => {
-    // 1) Get radar
-    const radar = await radarController.getRadarBySlug(req.params.slug)
+    let radar
+
+    // 1) Live or edition?
+    if (req.params.slug) {
+        radar = await radarController.getRadarBySlug(req.params.slug)
+    } else {
+        radar = await radarController.getLiveRadar()
+    }
 
     // 2) Error handling if no radar found
     if (!radar || radar.length === 0) {
@@ -129,5 +135,19 @@ exports.resetRadar = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         message: 'Radar successfully archived.',
+    })
+})
+
+exports.getRendering = catchAsync(async (req, res, next) => {
+    const { slug } = req.params
+    const rendering = await radarController.getRendering(slug)
+
+    if (!rendering) {
+        return next(new AppError(`No rendering found for radar ${slug}.`, 404))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        rendering,
     })
 })

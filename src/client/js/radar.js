@@ -3,7 +3,6 @@
 // IMPORTS
 //
 // libraries
-
 // app modules
 import linkupRadar from './radar/linkupRadar'
 import { showFilterTagForm, updateFilterList, filterBlips } from './radar/filterTags'
@@ -22,6 +21,7 @@ import { createProject, deleteProject, updateProject, importProjects } from './a
 import { addClassification, addScore } from './admin/scoreAndClassify'
 import { getName } from '../../common/datamodel/jrc-taxonomy'
 import { searchProjects, clearProjects } from './radar/search.js'
+import { fetchRendering } from './radar/asyncRendering'
 
 /****************************************************************
  *                                                              *
@@ -130,22 +130,43 @@ if (clearBtn) {
 //
 const radarSection = document.getElementById('radar')
 if (radarSection) {
-    // The static display of the radar is done through the PUG template
-    // This is to make it dynamic
+    // 1) Fetch the rendering, i.e. SVG and tables
+    fetchRendering(window.location.href)
+        .then((r) => {
+            // 1) Add the rendering as a hidden element
+            // create a loose dom node to add the SVG to
+            const temp = document.createElement('div')
+            temp.innerHTML = r.data.rendering.rendering.svg
+            temp.firstChild.style.display = 'none'
+            // ... and add it to #rendering
+            const rendering = document.getElementById('rendering')
+            rendering.appendChild(temp.firstChild)
 
-    // pre-1)   The radar has already been loaded and is present in the HTML DOM tree.
-    //          This might change in the future where we asynch load the radar data via
-    //          API call in this function
+            // 2) Add the tables as hidden elements
+            const tables = document.getElementById('tables')
+            tables.innerHTML = r.data.rendering.rendering.tables
 
-    // 1) Filter blips according to the filter tags set by the user
-    const filterTags = getTags()
-    filterBlips(filterTags)
+            // 3) Filter blips according to the filter tags set by the user
+            const filterTags = getTags()
+            filterBlips(filterTags)
 
-    // 2) show the current filter list in the UI
-    updateFilterList(document.getElementById('jrctagsfilter'), filterTags, getName)
+            // 4) show the current filter list in the UI
+            updateFilterList(document.getElementById('jrctagsfilter'), filterTags, getName)
 
-    // 3) link up the radar to make it dynamic
-    linkupRadar(document.getElementById('radar'))
+            // 5) link up the radar to make it dynamic
+            linkupRadar(document.getElementById('radar'))
+
+            // 6) Show the radar rendering, and remove the waiting icon
+            const loadWait = document.getElementById('loadwait')
+            // console.log(loadWait)
+            loadWait.remove()
+            const svg = document.querySelector('#rendering svg')
+            // console.log(svg)
+            svg.style.display = 'unset'
+        })
+        .catch((err) => {
+            showAlert('error', err)
+        })
 }
 
 //

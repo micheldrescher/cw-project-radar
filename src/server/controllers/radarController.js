@@ -49,31 +49,31 @@ exports.getEditions = async () => {
     return await features.query
 }
 
-//
-// fetches a radar by its slug or, if not provided, the latest one
-//
-exports.getBySlugOrLatest = async (slug, field) => {
-    let radar
+// //
+// // fetches a radar by its slug or, if not provided, the latest one
+// //
+// exports.getBySlugOrLatest = async (slug, field) => {
+//     let radar
 
-    if (slug) {
-        radar = await this.getRadarBySlug(slug, field)
-    } else {
-        // 1.1 find all editions and pick the latest
-        let editions = await this.getEditions()
-        if (!editions || editions.length == 0) {
-            // no public editions available
-            throw new AppError('No published radars available', 204)
-        }
-        // 1.2 Now get the latest published radar
-        radar = await this.getRadarBySlug(editions[0].slug, field)
-    }
-    if (!radar) {
-        // no radar found...
-        throw new AppError('No radar with that slug', 404)
-    }
+//     if (slug) {
+//         radar = await this.getRadarBySlug(slug, field)
+//     } else {
+//         // 1.1 find all editions and pick the latest
+//         let editions = await this.getEditions()
+//         if (!editions || editions.length == 0) {
+//             // no public editions available
+//             throw new AppError('No published radars available', 204)
+//         }
+//         // 1.2 Now get the latest published radar
+//         radar = await this.getRadarBySlug(editions[0].slug, field)
+//     }
+//     if (!radar) {
+//         // no radar found...
+//         throw new AppError('No radar with that slug', 404)
+//     }
 
-    return radar
-}
+//     return radar
+// }
 
 /*******************************
  *                             *
@@ -178,20 +178,34 @@ exports.getLiveRadar = async () => {
     radar.name = 'Live radar'
     radar.summary =
         'This is a radar compiled on-demand based on the latest information found in the database. Unlike stable editions, live radars are fluid in their content and display. Use with caution; this is not a citable resource.'
-    radar.status = 'created'
     radar.referenceDate = cutOffDate.toDate()
     radar.publicationDate = cutOffDate.toDate()
-
-    // 2) Add the radar data
-    radar.data = await compileRadarPopulation(cutOffDate)
-    radar.status = 'populated'
-
-    // 3) Add the rendering
-    radar.rendering = renderer.renderRadar(radar.data)
-    radar.status = 'rendered'
 
     // 4) Now "publish" the radar
     radar.status = 'published'
     // 5) Success! return the live radar
     return radar
+}
+
+exports.getRendering = async (slug) => {
+    // Fetch data for an edition
+    if (slug) {
+        // 1) Get the radar for the slug
+        const radar = await this.getRadarBySlug(slug)
+        if (!radar) throw new AppError(`No edition found for ${slug}`, 404)
+        if (!radar.status == 'published')
+            throw new AppError(`Edition ${slug} is not published yet.`, 400)
+        // 2) get the rendering
+        const rendering = RadarRendering.findOne({ radar: radar._id })
+        if (!rendering) throw new AppError(`No rendering found for edition ${slug}`, 500)
+        return rendering
+    }
+
+    // Get the live radar rendering
+    // 1) Get the data
+    const data = await compileRadarPopulation(moment())
+    // 2) Render
+    const rendering = renderer.renderRadar(data)
+
+    return rendering
 }

@@ -45,8 +45,8 @@ block content
             //- the radar and the project tables
             section#radardata
                 #rendering
-                    != radar.rendering.rendering.get('svg')
+                    #loadwait(style="display: flex; justify-content: space-around; align-items: center; height: 100%;")
+                        img(src="/img/loading.png", width=25)
                 #tables
-                    != radar.rendering.rendering.get('tables')
             //- the blip tooltip
             #tooltip
