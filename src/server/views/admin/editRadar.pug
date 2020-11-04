@@ -29,5 +29,6 @@ block content
     h2 Administer Radar
     .populate-radar-form
         +administerForm(radar.slug, 'Publish', radar.status === 'created')
+        +administerForm(radar.slug, 'Re-publish', radar.status === 'published')
         +administerForm(radar.slug, 'Archive', radar.status === 'published')
         +administerForm(radar.slug, 'Reset', true)

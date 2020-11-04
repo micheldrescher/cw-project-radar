@@ -72,6 +72,12 @@ router.patch(
     handler.publishRadar
 )
 router.patch(
+    '/:slug/re-publish',
+    authC.protect,
+    authC.restrictTo('admin', 'manager'),
+    handler.republishRadar
+)
+router.patch(
     '/:slug/archive',
     authC.protect,
     authC.restrictTo('admin', 'manager'),

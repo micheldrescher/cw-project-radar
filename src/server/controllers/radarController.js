@@ -83,28 +83,15 @@ exports.getEditions = async () => {
 //
 // publish the radar
 //
-// Once checked for any mistakes after rendering, an admin (or other
-// authorised user) can publish the radar for the public to analyse
-exports.publishRadar = async (slug, date) => {
-    const cutOffDate = moment(date) // creates a Date.now() if date param is missing
-
-    // 1) Obtain the radar
-    const radar = await this.getRadarBySlug(slug)
-    if (!radar) {
-        throw new AppError(`No radar found for id ${slug}.`, 404)
-    }
-    // radar state change check
-    if (!['created'].includes(radar.status)) {
-        throw new AppError(`Radar ${radar.name} is not in state created.`, 500)
-    }
-
-    // 2) Render the radar based on the data received
+// Fetches the (transient) radar data and renders it into an SVG and a set of tables.
+exports.publishRadar = async (radar, cutOffDate) => {
+    // 1) Render the radar based on the data received
     const data = await compileRadarPopulation(cutOffDate)
     const rendering = renderer.renderRadar(data)
     rendering.radar = radar._id
     await rendering.save()
 
-    // 3) save radar state
+    // 2) save radar state
     radar.status = 'published'
     radar.publicationDate = Date.now()
     radar.rendering = rendering._id
