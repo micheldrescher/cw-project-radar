@@ -20,7 +20,7 @@ export { linkupRadar as default }
 //
 // FUNCTIONS
 //
-const linkupRadar = async (radarRootDOM) => {
+const linkupRadar = async () => {
     // register custom HTML elements for this radar
     customElements.define('simple-metric', SimpleMetric)
     customElements.define('sdlc-position', SDLCPosition)
@@ -41,33 +41,32 @@ const linkupRadar = async (radarRootDOM) => {
  *****************/
 const interactiveQuadrants = () => {
     document.querySelectorAll('.segment').forEach((s, i, a) => {
-        s.addEventListener('mouseover', mouseOverQuadrant(i))
-        s.addEventListener('mouseout', mouseOutQuadrant(i))
-        s.addEventListener('click', clickQuadrant(i, a.length))
+        s.addEventListener('mouseover', mouseOverSegment(i))
+        s.addEventListener('mouseout', mouseOutSegment(i))
+        s.addEventListener('click', clickSegment(i, a.length))
     })
 }
 
-// highlight the selected quadrant,
-// dim the others
-const mouseOverQuadrant = (i) => {
+// highlight the selected segment,
+const mouseOverSegment = (i) => {
     return (e) => {
-        document.querySelectorAll(`.segment-${i}`).forEach((s) => (s.style.opacity = 1))
+        // dim all non-selected segments
         document
             .querySelectorAll(`.segment:not(.segment-${i})`)
-            .forEach((s) => (s.style.opacity = 0.3))
+            .forEach((s) => s.classList.add('dimmed'))
     }
 }
 
 // highlight all segments again
-const mouseOutQuadrant = (i) => {
+const mouseOutSegment = (i) => {
     return (e) => {
         document
             .querySelectorAll(`.segment:not(.segment-${i})`)
-            .forEach((s) => (s.style.opacity = 1))
+            .forEach((s) => s.classList.remove('dimmed'))
     }
 }
 
-const clickQuadrant = (i, l) => {
+const clickSegment = (i, l) => {
     return (e) => {
         const zoomed = document.querySelector(`.segment.segment-${i}.zoomed`)
         if (zoomed) zoomOut(i, l)
@@ -98,11 +97,11 @@ const zoomIn = (i, l) => {
     // show table for clicked segment
     document
         .querySelectorAll(`.segment-table.segment-${i}`)
-        .forEach((t) => (t.style.display = 'block'))
+        .forEach((t) => t.classList.add('visible'))
     // hide all other tables
     document
         .querySelectorAll(`.segment-table:not(.segment-${i})`)
-        .forEach((t) => (t.style.display = 'none'))
+        .forEach((t) => t.classList.remove('visible'))
 }
 
 const zoomOut = (i) => {
@@ -113,8 +112,9 @@ const zoomOut = (i) => {
     document.querySelectorAll(`.segment.segment-${i} .blip text`).forEach((t) => {
         t.style.transform = '' // unrotate blips and rings
     })
-    document.querySelectorAll('.segment-table').forEach((t) => {
-        t.style.display = 'none' // hide the segment table
+    // hide the table
+    document.querySelectorAll('.segment-table.visible').forEach((t) => {
+        t.classList.remove('visible')
     })
 }
 

@@ -388,6 +388,9 @@ svg {
 svg > g.segment {
     transition-duration: 0.5s;
 }
+svg > g.segment.dimmed {
+    opacity: 0.3;
+}
 
 svg g.segment path.ring.divider {
     stroke-width: 3;
@@ -437,7 +440,12 @@ svg g line {
     display: none;
     padding-right: 3em;
 }
-
+.segment-table.visible {
+    display: block;
+}
+.segment-table.dimmed {
+    opacity: 0.3;
+}
 .segment-table h2 {
     display: none;
 }

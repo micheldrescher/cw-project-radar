@@ -153,8 +153,8 @@ if (radarSection) {
             // 4) show the current filter list in the UI
             updateFilterList(document.getElementById('jrctagsfilter'), filterTags, getName)
 
-            // 5) link up the radar to make it dynamic
-            linkupRadar(document.getElementById('radar'))
+            // 5) link up the radar and tables to make it dynamic
+            linkupRadar()
 
             // 6) Show the radar rendering, and remove the waiting icon
             const loadWait = document.getElementById('loadwait')
