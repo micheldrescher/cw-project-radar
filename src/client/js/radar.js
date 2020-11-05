@@ -5,6 +5,7 @@
 // libraries
 // app modules
 import linkupRadar from './radar/linkupRadar'
+import linkupTables from './radar/linkupTables'
 import { showFilterTagForm, updateFilterList, filterBlips } from './radar/filterTags'
 import { getTags, updateTags } from './util/localStore'
 import showAlert from './util/alert'
@@ -155,6 +156,7 @@ if (radarSection) {
 
             // 5) link up the radar and tables to make it dynamic
             linkupRadar()
+            linkupTables()
 
             // 6) Show the radar rendering, and remove the waiting icon
             const loadWait = document.getElementById('loadwait')

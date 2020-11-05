@@ -10,7 +10,12 @@ import { RadarLocation } from '../../../common/widgets/radar-location/radar-loca
 import { SimpleMetric } from '../../../common/widgets/simple-metric/simple-metric'
 import { SDLCPosition } from '../../../common/widgets/sdlc-position/sdlc-position'
 import { MTRLPerformance } from '../../../common/widgets/mtrl-performance/mtrl-performance'
-import { showBliptip, hideBliptip } from '../util/blipTooltip'
+import {
+    showBliptip,
+    hideBliptip,
+    highlightTableEntry,
+    lowlightTableEntry,
+} from '../util/blipTooltip'
 
 //
 // EXPORTS
@@ -133,7 +138,10 @@ const interactiveBlips = () => {
 
 const mouseOverBlip = () => {
     return (e) => {
+        e.preventDefault()
+        e.stopPropagation()
         showBliptip(e.target)
+        highlightTableEntry(document.getElementById(e.target.dataset.tableId))
     }
 }
 
@@ -141,7 +149,8 @@ const mouseOutBlip = () => {
     return (e) => {
         e.preventDefault()
         e.stopPropagation()
-        hideBliptip()
+        hideBliptip(e.target.parentNode)
+        lowlightTableEntry(document.getElementById(e.target.parentNode.dataset.tableId))
     }
 }
 

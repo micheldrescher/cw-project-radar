@@ -422,10 +422,6 @@ svg g line {
     stroke-width: 5;
 }
 
-#tables {
-    width: max-content;
-}
-
 /*
  * Radar tables
  */
@@ -450,18 +446,40 @@ svg g line {
     display: none;
 }
 
-.segment-table .ring-table h3 {
+.segment-table .ring-table .rtHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     border-bottom: 1px solid darkgray;
     margin-bottom: 0.4em;
+}
+.segment-table .ring-table h3 {
+    margin-bottom: 0;
+}
+.segment-table .ring-table .rtHeader .flicker {
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+.segment-table .ring-table .rtHeader .flicker.closed {
+    transform: rotateX(180deg);
 }
 
 .segment-table .ring-table ul {
     margin: 0;
     padding-inline-start: 0;
 }
+.segment-table .ring-table ul.hide {
+    display: none;
+}
 
 .segment-table .ring-table ul li {
     list-style: none;
+}
+.segment-table .ring-table ul li div {
+    cursor: pointer;
+}
+.segment-table .ring-table ul li div.highlight {
+    background-color: lightgray;
 }
 
 /****************************

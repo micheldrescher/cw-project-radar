@@ -42,7 +42,12 @@ const addTableEntry = (blip, root, segIdx, ringIdx) => {
     const ringList = root
         .select(`.segment-table.segment-${segIdx}`)
         .select(`.ring-table.ring-${ringIdx} > ul`)
-    ringList.append('li').append('div').text(`${blip.cw_id}. ${blip.prj_name}`)
+    ringList
+        .append('li')
+        .append('div')
+        .attr('id', `table-${blip.cw_id}`)
+        .attr('data-blip-id', `blip-${blip.cw_id}`)
+        .text(`${blip.cw_id}. ${blip.prj_name}`)
 
     //
     // TODO this is stuff to add items to the table
@@ -169,6 +174,7 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .attr('data-cw-id', blip.cw_id)
         .attr('data-segment', blip.segment)
         .attr('data-ring', blip.ring)
+        .attr('data-table-id', `table-${blip.cw_id}`)
         .attr(
             'data-performance',
             JSON.stringify({

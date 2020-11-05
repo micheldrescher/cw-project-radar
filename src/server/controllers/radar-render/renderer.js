@@ -62,14 +62,9 @@ const plotSegments = (root, data, angles, radii) => {
     let segIdx = 0
     for (const [seg, rings] of data.entries()) {
         // add a segment table to the tables
-        root.select('.tables')
-            .append('div')
-            .attr('class', `segment-table segment-${segIdx}`)
-            .append('h2')
-            .text(seg)
+        root.select('.tables').append('div').attr('class', `segment-table segment-${segIdx}`)
 
         // add the segment group to the SVG
-        // d3.select('.svg svg') // TODO refactor out svg with d3.selects
         const segGroup = svg
             .append('g')
             .attr('label', seg)
@@ -124,7 +119,7 @@ const plotRing = (root, ringName, blips, segIdx, ringIdx, angles, radii, blipDia
 
     // 4) Add the ring name to the table entry
     const ringDiv = segTableDiv.append('div').attr('class', `ring-table ring-${ringIdx}`)
-    ringDiv.append('h3').text(ringName)
+    ringDiv.append('div').attr('class', 'rtHeader').append('h3').text(ringName)
     ringDiv.append('ul')
 
     // 3) Add the blips
