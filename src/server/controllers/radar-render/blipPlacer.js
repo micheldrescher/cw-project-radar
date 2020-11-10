@@ -48,45 +48,6 @@ const addTableEntry = (blip, root, segIdx, ringIdx) => {
         .attr('id', `table-${blip.cw_id}`)
         .attr('data-blip-id', `blip-${blip.cw_id}`)
         .text(`${blip.cw_id}. ${blip.prj_name}`)
-
-    //
-    // TODO this is stuff to add items to the table
-    // TODO stuff to make the radar interactive --> move clientside!
-    // var blipListItem = ringList.append('li')
-    // // var blipText = blip.number() + '. ' + blip.name() + (blip.quadrant() ? ('. - ' + blip.quadrant()) : '')
-    // var blipText = blip.number() + '. ' + blip.name()
-    // blipListItem
-    //     .append('div')
-    //     .attr('class', 'blip-list-item')
-    //     .attr('id', 'blip-list-item-' + blip.number())
-    //     .text(blipText)
-
-    // var blipItemDescription = blipListItem
-    //     .append('div')
-    //     .attr('id', 'blip-description-' + blip.number())
-    //     .attr('class', 'blip-item-description')
-
-    // // add prose info to the blip
-    // if (blip.title()) {
-    //     blipItemDescription.append('p').html(blip.title())
-    // }
-
-    // var technoDiv = blipItemDescription.append('div').attr('class', 'techno')
-    // if (blip.TRL() && blip.MRL()) {
-    //     technoDiv.append('p').html(mtrl(blip.TRL(), blip.MRL()))
-    // }
-    // if (blip.type()) {
-    //     technoDiv.append('p').html('Project type: <b>' + blip.type() + '</b>')
-    // }
-    // if (blip.teaser()) {
-    //     blipItemDescription.append('p').html(blip.teaser())
-    // }
-    // // link to cyberwatching.eu webpage
-    // if (blip.cwurl()) {
-    //     blipItemDescription
-    //         .append('p')
-    //         .html('<a href="' + blip.cwurl() + '" target="_blank">More</a>')
-    // }
 }
 
 const findBlipCoords = (blip, geom, allCoords, chance) => {
