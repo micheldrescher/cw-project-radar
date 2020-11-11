@@ -36,5 +36,4 @@ db.radars.createIndex({ slug: 1, status: 1 })
 //
 db.createCollection('classifications')
 db.createCollection('mtrlscores')
-db.createCollection('radardatas')
 db.createCollection('radarrenderings')

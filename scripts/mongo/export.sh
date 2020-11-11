@@ -13,6 +13,5 @@ mongoexport -d cw-project-radar --jsonArray --pretty -c projects --out data/proj
 mongoexport -d cw-project-radar --jsonArray --pretty -c classifications --out data/classifications.json
 mongoexport -d cw-project-radar --jsonArray --pretty -c mtrlscores --out data/mtrlscores.json
 mongoexport -d cw-project-radar --jsonArray --pretty -c radars --out data/radars.json
-mongoexport -d cw-project-radar --jsonArray --pretty -c radardatas --out data/radardatas.json
 mongoexport -d cw-project-radar --jsonArray --pretty -c radarrenderings --out data/radarrenderings.json
 mongoexport -d cw-project-radar --jsonArray --pretty -c sequences --out data/sequences.json

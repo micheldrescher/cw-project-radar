@@ -1,6 +1,6 @@
 [{
 	"_id": {
-		"$oid": "5f994cf52196605dfaa49747"
+		"$oid": "5fabf1b5b70bbf29e9eebc89"
 	},
 	"status": "published",
 	"year": 2018,
@@ -9,22 +9,19 @@
 	"slug": "autumn-2018",
 	"name": "Autumn 2018",
 	"__v": 0,
-	"data": {
-		"$oid": "5f994d7a8a03cc5e0866a3b2"
+	"publicationDate": {
+		"$date": "2020-11-11T14:17:23.134Z"
 	},
 	"referenceDate": {
 		"$date": "2018-09-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5f994d7e8a03cc5e0866a459"
-	},
-	"publicationDate": {
-		"$date": "2020-10-28T10:52:49.847Z"
+		"$oid": "5fabf27320213b2a51453ae4"
 	}
 },
 {
 	"_id": {
-		"$oid": "5f994cf52196605dfaa49748"
+		"$oid": "5fabf1b5b70bbf29e9eebc8a"
 	},
 	"status": "published",
 	"year": 2019,
@@ -33,22 +30,19 @@
 	"slug": "spring-2019",
 	"name": "Spring 2019",
 	"__v": 0,
-	"data": {
-		"$oid": "5f994db68a03cc5e0866a45a"
+	"publicationDate": {
+		"$date": "2020-11-11T14:17:49.099Z"
 	},
 	"referenceDate": {
 		"$date": "2019-04-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5f994dbb8a03cc5e0866a50b"
-	},
-	"publicationDate": {
-		"$date": "2020-10-28T10:53:50.793Z"
+		"$oid": "5fabf28d20213b2a51453b96"
 	}
 },
 {
 	"_id": {
-		"$oid": "5f994cf52196605dfaa49749"
+		"$oid": "5fabf1b5b70bbf29e9eebc8b"
 	},
 	"status": "published",
 	"year": 2019,
@@ -57,22 +51,19 @@
 	"slug": "autumn-2019",
 	"name": "Autumn 2019",
 	"__v": 0,
-	"data": {
-		"$oid": "5f994ddf8a03cc5e0866a50c"
+	"publicationDate": {
+		"$date": "2020-11-11T14:18:11.169Z"
 	},
 	"referenceDate": {
 		"$date": "2019-09-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5f994de38a03cc5e0866a5cc"
-	},
-	"publicationDate": {
-		"$date": "2020-10-28T10:54:31.269Z"
+		"$oid": "5fabf2a320213b2a51453c57"
 	}
 },
 {
 	"_id": {
-		"$oid": "5f994cf52196605dfaa4974a"
+		"$oid": "5fabf1b5b70bbf29e9eebc8c"
 	},
 	"status": "published",
 	"year": 2020,
@@ -81,29 +72,14 @@
 	"slug": "spring-2020",
 	"name": "Spring 2020",
 	"__v": 0,
-	"data": {
-		"$oid": "5f994dff8a03cc5e0866a5cd"
+	"publicationDate": {
+		"$date": "2020-11-11T14:18:39.073Z"
 	},
 	"referenceDate": {
 		"$date": "2020-07-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5f994e038a03cc5e0866a688"
-	},
-	"publicationDate": {
-		"$date": "2020-10-28T10:55:02.856Z"
+		"$oid": "5fabf2bf20213b2a51453d13"
 	}
-},
-{
-	"_id": {
-		"$oid": "5f994cf52196605dfaa4974b"
-	},
-	"status": "created",
-	"year": 2020,
-	"release": "Autumn",
-	"summary": "Fifth radar",
-	"slug": "autumn-2020",
-	"name": "Autumn 2020",
-	"__v": 0
 }]
 
