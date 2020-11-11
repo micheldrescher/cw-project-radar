@@ -58,6 +58,30 @@ if (adminButtons) {
     })
 }
 
+//
+// Disclaimer button
+//
+const disclaimerButton = document.querySelector('.disclaimer')
+if (disclaimerButton) {
+    disclaimerButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        const route = e.target.getAttribute('route')
+        location.assign(route)
+    })
+}
+
+//
+// Documentation button
+//
+const documentationButton = document.querySelector('.documentation')
+if (documentationButton) {
+    documentationButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        const route = e.target.getAttribute('route')
+        location.assign(route)
+    })
+}
+
 /****************************************************************
  *                                                              *
  *           U S E R   A C C O U N T   A C T I O N S            *

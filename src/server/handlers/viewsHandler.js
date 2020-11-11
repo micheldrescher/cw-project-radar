@@ -326,3 +326,11 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
         model,
     })
 })
+
+exports.showDisclaimer = catchAsync(async (req, res, next) => {
+    res.status(200).render('disclaimer.pug', {})
+})
+
+exports.showDocumentation = catchAsync(async (req, res, next) => {
+    res.status(200).render('documentation.pug', {})
+})
