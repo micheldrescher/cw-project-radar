@@ -1,3 +1,6 @@
+/**
+ * @jest-environment node
+ */
 const s = require('../../../common/util/svg')
 const m = require('../../../common/util/maths')
 
@@ -6,6 +9,13 @@ const m = require('../../../common/util/maths')
  */
 // default circle
 describe('SVG default circle', () => {
+    // set up SVGDom et al
+    const { createSVGWindow } = require('svgdom')
+    const window = createSVGWindow()
+    const { document } = window
+    const { registerWindow } = require('@svgdotjs/svg.js')
+    registerWindow(window, document)
+
     const svgCircle = s.ringSegment({})
 
     test('check x, y and radius', () => {
