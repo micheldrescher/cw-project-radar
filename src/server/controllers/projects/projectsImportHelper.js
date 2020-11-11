@@ -26,7 +26,7 @@ const csvParseOptions = {
         'budget',
         'title',
         'teaser',
-        'projectURL',
+        'url',
         'fundingBodyLink',
         'cwurl',
     ],
@@ -97,7 +97,7 @@ exports.createProjects = (results) => {
                         budget: parseCurrency(prj.totalCost).value,
                         title: prj.title,
                         teaser: prj.teaser,
-                        projectURL: prj.projectURL,
+                        url: prj.url,
                         fundingBodyLink: prj.fundingBodyLink,
                         cwurl: prj.cwurl,
                     }).then(

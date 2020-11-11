@@ -138,7 +138,7 @@ const createProjects = (data) => {
             totalCost: parseCurrency(prj.budget).value,
             title: prj.title,
             teaser: prj.teaser,
-            projectURL: prj.projectURL,
+            url: prj.projectURL,
             fundingBodyLink: prj.fundingBodyLink,
             cwurl: prj.cwurl,
         })

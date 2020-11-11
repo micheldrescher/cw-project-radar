@@ -43,7 +43,7 @@ block content
             li totalCost [Number]
             li title [String]
             li teaser [String]
-            li projectURL [URL]
+            li url [URL]
             li fundingBodyLink [URL]
             li projectHubLink [URL]
         li the file MUST be a TSV, i.e. a TAB separated file, not a comma separated file!
@@ -84,8 +84,8 @@ block content
             label.form__label(for='totalCost') Budget (optional)
             input#totalCost.form__input(type='number', placeholder='12345678.90')
         .form__group
-            label.form__label(for='proejcturl') Project homepage
-            input#projecturl.form__input(type='string', placeholder='https://www.project.eu')
+            label.form__label(for='url') Project homepage
+            input#url.form__input(type='string', placeholder='https://www.project.eu')
         .form__group
             label.form__label(for='fundingbodylink') Funding body entry
             input#fundingbodylink.form__input(type='string', placeholder='https://cordis.europa.eu/...')

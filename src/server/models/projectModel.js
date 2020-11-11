@@ -70,7 +70,7 @@ const projectSchema = new mongoose.Schema(
         // the project's total budget (EC contrib plus partner's own contribs)
         totalCost: Number,
         // project home page
-        projectURL: {
+        url: {
             type: String,
             validate: validator.isURL,
         },
