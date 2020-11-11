@@ -38,7 +38,7 @@ exports.getEditions = async () => {
     // include only the slug and the acronym
     let queryStr = {
         sort: '-year,release',
-        fields: 'acronym,slug',
+        fields: 'name,slug',
     }
     const features = new APIFeatures(Radar.find(filter), queryStr)
         .filter()
@@ -46,7 +46,8 @@ exports.getEditions = async () => {
         .limitFields()
         .paginate()
 
-    return await features.query
+    const ed = await features.query
+    return ed
 }
 
 // //
@@ -94,6 +95,7 @@ exports.publishRadar = async (radar, cutOffDate) => {
     // 2) save radar state
     radar.status = 'published'
     radar.publicationDate = Date.now()
+    radar.referenceDate = cutOffDate
     radar.rendering = rendering._id
     await radar.save()
 

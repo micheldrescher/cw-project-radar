@@ -17,8 +17,8 @@ const createRadar = async (release, year, summary) => {
             data: {
                 year,
                 release,
-                summary
-            }
+                summary,
+            },
         })
 
         if (res.data.status === 'success') {
@@ -41,8 +41,8 @@ const updateRadar = async (id, summary) => {
             method: 'PATCH',
             url: `/api/v1/radar/${id}`,
             data: {
-                summary
-            }
+                summary,
+            },
         })
 
         if (res.data.status === 'success') {
@@ -63,7 +63,7 @@ const deleteRadar = async (route, referrer) => {
     try {
         const res = await axios({
             method: 'DELETE',
-            url: route
+            url: route,
         })
 
         if (res.data.status === 'success') {
@@ -81,11 +81,11 @@ const deleteRadar = async (route, referrer) => {
 // delete a radar
 //
 const advanceRadar = async (route, cutoff, referrer) => {
-    const path = route.includes('populate') ? route + '/' + cutoff : route
+    const path = route.includes('publish') ? route + '/' + cutoff : route
     try {
         const res = await axios({
             method: 'PATCH',
-            url: path
+            url: path,
         })
 
         if (res.data.status === 'success') {
@@ -103,5 +103,5 @@ module.exports = {
     createRadar,
     updateRadar,
     deleteRadar,
-    advanceRadar
+    advanceRadar,
 }
