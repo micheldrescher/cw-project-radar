@@ -40,7 +40,7 @@ block content
             li type [String]
             li startDate [Date, yyyy-mm-dd notation]
             li endDate [Date, yyyy-mm-dd notation]
-            li budget [Number]
+            li totalCost [Number]
             li title [String]
             li teaser [String]
             li projectURL [URL]
@@ -81,8 +81,8 @@ block content
             label.form__label(for='projecttype') Project type (optional)
             input#projecttype.form__input(type='string', placeholder='RIA')
         .form__group
-            label.form__label(for='budget') Budget (optional)
-            input#budget.form__input(type='number', placeholder='12345678.90')
+            label.form__label(for='totalCost') Budget (optional)
+            input#totalCost.form__input(type='number', placeholder='12345678.90')
         .form__group
             label.form__label(for='proejcturl') Project homepage
             input#projecturl.form__input(type='string', placeholder='https://www.project.eu')

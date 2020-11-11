@@ -54,7 +54,7 @@ exports.showMain = catchAsync(async (req, res, next) => {
             {
                 $group: {
                     _id: 1,
-                    budget: { $sum: '$budget' },
+                    totalCost: { $sum: '$totalCost' },
                     projects: { $sum: 1 },
                     calls: { $addToSet: '$call' },
                     start: { $min: '$startDate' },
@@ -66,7 +66,7 @@ exports.showMain = catchAsync(async (req, res, next) => {
     kpis.calls = kpis.calls.length // reduce calls array to its length
     kpis.span = moment(kpis.end).diff(kpis.start, 'months') + 1 // reduce start and end to months
     kpis.span = roundDec(kpis.span / 12, 1) // in years, with one decimal
-    kpis.budget = roundDec(kpis.budget / 1000000000, 1) // budget in €bn
+    kpis.totalCost = roundDec(kpis.totalCost / 1000000000, 1) // budget in €bn
 
     // TODO expand on default content.
     res.status(200).render('main', {

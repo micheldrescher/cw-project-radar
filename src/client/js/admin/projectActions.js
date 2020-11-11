@@ -9,7 +9,7 @@ import showAlert from '../util/alert'
 //
 // create a new project
 //
-const createProject = async prjData => {
+const createProject = async (prjData) => {
     try {
         const {
             name,
@@ -19,12 +19,15 @@ const createProject = async prjData => {
             endDate,
             call,
             type,
-            budget,
+            totalCost,
             projectURL,
             fundingBodyLink,
             cwurl,
-            teaser
+            teaser,
         } = prjData
+
+        console.log('proejct budget =', totalCost)
+
         const res = await axios({
             method: 'POST',
             url: '/api/v1/project/',
@@ -36,12 +39,12 @@ const createProject = async prjData => {
                 endDate,
                 call,
                 type,
-                budget,
+                totalCost,
                 projectURL,
                 fundingBodyLink,
                 cwurl,
-                teaser
-            }
+                teaser,
+            },
         })
 
         if (res.data.status === 'success') {
@@ -62,7 +65,7 @@ const deleteProject = async (route, referrer) => {
     try {
         const res = await axios({
             method: 'DELETE',
-            url: route
+            url: route,
         })
 
         if (res.data.status === 'success') {
@@ -79,7 +82,7 @@ const deleteProject = async (route, referrer) => {
 //
 // UPDATE PROJECT
 //
-const updateProject = async prjData => {
+const updateProject = async (prjData) => {
     try {
         const {
             name,
@@ -89,13 +92,16 @@ const updateProject = async prjData => {
             endDate,
             call,
             type,
-            budget,
+            totalCost,
             projectURL,
             fundingBodyLink,
             cwurl,
             teaser,
-            tags
+            tags,
         } = prjData
+
+        console.log('proejct budget =', totalCost)
+
         const res = await axios({
             method: 'PATCH',
             url: `/api/v1/project/${prjData.id}`,
@@ -107,14 +113,16 @@ const updateProject = async prjData => {
                 endDate,
                 call,
                 type,
-                budget,
+                totalCost,
                 projectURL,
                 fundingBodyLink,
                 cwurl,
                 teaser,
-                tags
-            }
+                tags,
+            },
         })
+
+        console.log('proejct =', res.data.data)
 
         if (res.data.status === 'success') {
             showAlert('success', 'Project updated.')
@@ -130,12 +138,12 @@ const updateProject = async prjData => {
 //
 // IMPORT PROJECTS FILE
 //
-const importProjects = async data => {
+const importProjects = async (data) => {
     try {
         const res = await axios({
             method: 'PATCH',
             url: '/api/v1/project',
-            data
+            data,
         })
 
         if (res.data.status === 'success') {
@@ -156,5 +164,5 @@ module.exports = {
     createProject,
     deleteProject,
     updateProject,
-    importProjects
+    importProjects,
 }

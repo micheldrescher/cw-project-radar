@@ -68,7 +68,7 @@ const projectSchema = new mongoose.Schema(
         // project type (mostly IA, RIA, RA, or CSA)
         type: String,
         // the project's total budget (EC contrib plus partner's own contribs)
-        budget: Number,
+        totalCost: Number,
         // project home page
         projectURL: {
             type: String,
