@@ -41,13 +41,13 @@ mixin scaleOptions()
 
 block content
 
-    h2 Edit project #{project.name}
+    h2 Edit project #{project.acronym}
     .edit-project-form: form.form.form--edit-project#edit-project-form
         .form__group
             input#projectid.form__input(type='hidden', required, value=project._id)
         .form__group
-            label.form__label(for='name') Acronym
-            input#name.form__input(type='string', required, value=project.name)
+            label.form__label(for='acronym') Acronym
+            input#acronym.form__input(type='string', required, value=project.acronym)
         .form__group
             label.form__label(for='title') Title
             input#title.form__input(type='string', required, value=project.title)

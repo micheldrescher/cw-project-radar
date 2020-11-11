@@ -12,7 +12,7 @@ import showAlert from '../util/alert'
 const createProject = async (prjData) => {
     try {
         const {
-            name,
+            acronym,
             rcn,
             title,
             startDate,
@@ -29,7 +29,7 @@ const createProject = async (prjData) => {
             method: 'POST',
             url: '/api/v1/project/',
             data: {
-                name,
+                acronym,
                 rcn,
                 title,
                 startDate,
@@ -82,7 +82,7 @@ const deleteProject = async (route, referrer) => {
 const updateProject = async (prjData) => {
     try {
         const {
-            name,
+            acronym,
             title,
             rcn,
             startDate,
@@ -100,7 +100,7 @@ const updateProject = async (prjData) => {
             method: 'PATCH',
             url: `/api/v1/project/${prjData.id}`,
             data: {
-                name,
+                acronym,
                 title,
                 rcn,
                 startDate,

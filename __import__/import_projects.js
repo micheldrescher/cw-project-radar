@@ -128,7 +128,7 @@ const createProjects = (data) => {
     // await Promise.all(
     data.map(async (prj) => {
         const project = new Project({
-            name: prj.name,
+            acronym: prj.name,
             cw_id: prj.cw_id,
             rcn: prj.rcn,
             call: prj.call,

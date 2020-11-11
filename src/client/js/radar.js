@@ -361,7 +361,7 @@ if (newProjectForm) {
     newProjectForm.addEventListener('submit', async (event) => {
         event.preventDefault()
         const values = {
-            name: document.getElementById('name').value,
+            acronym: document.getElementById('acronym').value,
             rcn: document.getElementById('rcn').value,
             title: document.getElementById('title').value,
             startDate: document.getElementById('startdate').value,
@@ -413,7 +413,7 @@ if (editProjectForm) {
         event.preventDefault()
         const values = {
             id: document.getElementById('projectid').value,
-            name: document.getElementById('name').value,
+            acronym: document.getElementById('acronym').value,
             rcn: document.getElementById('rcn').value,
             title: document.getElementById('title').value,
             startDate: document.getElementById('startdate').value,

@@ -35,10 +35,10 @@ exports.getEditions = async () => {
         status: 'published',
     }
     // sort by year, then editiion (desc.)
-    // include only the slug and the name
+    // include only the slug and the acronym
     let queryStr = {
         sort: '-year,release',
-        fields: 'name,slug',
+        fields: 'acronym,slug',
     }
     const features = new APIFeatures(Radar.find(filter), queryStr)
         .filter()

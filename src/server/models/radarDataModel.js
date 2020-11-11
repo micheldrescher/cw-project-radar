@@ -17,7 +17,7 @@ const blipSchema = new mongoose.Schema({
     },
     tags: [String],
     cw_id: Number, // temporary
-    prj_name: String, // temporary
+    prj_acronym: String, // temporary
     segment: String, // temporary
     ring: String, // temporary
     trl: Number,

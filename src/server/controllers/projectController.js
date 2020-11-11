@@ -120,7 +120,7 @@ exports.findProjects = async (criteria) => {
             $language: 'en',
             $caseSensitive: caseSensitive,
         },
-    }).select('cw_id rcn name title -_id')
+    }).select('cw_id rcn acronym title -_id')
 
     let queryResult = await query
 

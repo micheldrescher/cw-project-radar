@@ -17,7 +17,7 @@ const csvParseOptions = {
     quote: null,
     renameHeaders: true,
     headers: [
-        'name',
+        'acronym',
         'rcn',
         'call',
         'type',
@@ -88,7 +88,7 @@ exports.createProjects = (results) => {
                 // 3.1) Create project
                 try {
                     await Project.create({
-                        name: prj.name,
+                        acronym: prj.acronym,
                         call: prj.call,
                         rcn: prj.rcn,
                         type: prj.type,
@@ -103,12 +103,12 @@ exports.createProjects = (results) => {
                     }).then(
                         (data) => {
                             projects.push(data)
-                            console.log('SUCCESS', data.name)
+                            console.log('SUCCESS', data.acronym)
                         },
                         (err) => {
-                            console.log('FAIL', prj.name)
+                            console.log('FAIL', prj.acronym)
                             messages.push(
-                                `Error while importing project '${prj.name}' at row ${i + 1}: '${
+                                `Error while importing project '${prj.acronym}' at row ${i + 1}: '${
                                     err.message
                                 }'`
                             )
@@ -116,9 +116,9 @@ exports.createProjects = (results) => {
                         }
                     )
                 } catch (err) {
-                    console.log('ERR', prj.name)
+                    console.log('ERR', prj.acronym)
                     messages.push(
-                        `Error while importing project '${prj.name}' at row ${i + 1}: '${
+                        `Error while importing project '${prj.acronym}' at row ${i + 1}: '${
                             err.message
                         }'`
                     )

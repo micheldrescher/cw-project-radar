@@ -131,9 +131,9 @@ block header
         !=project.cw_id 
         |. 
         if (project.cwurl)
-            a(href=project.cwurl target='_blank') #{project.name}
+            a(href=project.cwurl target='_blank') #{project.acronym}
         else 
-            !=project.name
+            !=project.acronym
 
 //-
 //- FOOTER

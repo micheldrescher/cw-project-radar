@@ -47,7 +47,7 @@ const addTableEntry = (blip, root, segIdx, ringIdx) => {
         .append('div')
         .attr('id', `table-${blip.cw_id}`)
         .attr('data-blip-id', `blip-${blip.cw_id}`)
-        .text(`${blip.cw_id}. ${blip.prj_name}`)
+        .text(`${blip.cw_id}. ${blip.prj_acronym}`)
 }
 
 const findBlipCoords = (blip, geom, allCoords, chance) => {
@@ -131,7 +131,7 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .attr('class', 'blip')
         .attr('id', `blip-${blip.cw_id}`)
         .attr('transform', `translate(${x}, ${y})`)
-        .attr('data-tooltip', `${blip.cw_id}. ${blip.prj_name}`)
+        .attr('data-tooltip', `${blip.cw_id}. ${blip.prj_acronym}`)
         .attr('data-cw-id', blip.cw_id)
         .attr('data-segment', blip.segment)
         .attr('data-ring', blip.ring)
