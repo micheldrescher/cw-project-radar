@@ -1,4 +1,4 @@
-extends _base
+extends structure/_base
 
 block append head
     style(type="text/css").
@@ -40,8 +40,8 @@ block content
             //- any filters for the radar blips
             section#filters
                 section#other
-                    include jrc-tagfilter
-                include search
+                    include includes/jrc-tagfilter
+                include includes/search
             //- the radar and the project tables
             section#radardata
                 #rendering
