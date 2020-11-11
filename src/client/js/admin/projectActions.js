@@ -25,9 +25,6 @@ const createProject = async (prjData) => {
             cwurl,
             teaser,
         } = prjData
-
-        console.log('proejct budget =', totalCost)
-
         const res = await axios({
             method: 'POST',
             url: '/api/v1/project/',
@@ -99,9 +96,6 @@ const updateProject = async (prjData) => {
             teaser,
             tags,
         } = prjData
-
-        console.log('proejct budget =', totalCost)
-
         const res = await axios({
             method: 'PATCH',
             url: `/api/v1/project/${prjData.id}`,
@@ -121,9 +115,6 @@ const updateProject = async (prjData) => {
                 tags,
             },
         })
-
-        console.log('proejct =', res.data.data)
-
         if (res.data.status === 'success') {
             showAlert('success', 'Project updated.')
             window.setTimeout(() => {
