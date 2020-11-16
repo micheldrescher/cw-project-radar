@@ -31,8 +31,8 @@ Field                | Data type | Properties | Description
 `hasScores`          | Boolean   | read-only  | A technical flag that is set by REST API calls indicating that at least one MTRL score nas been submitted for this project.
 `call`               | String    |            | The funding call for this project
 `type`               | String    |            | THe type of project in EC funding terms. Often and frequently one of 'RIA', 'IA', 'CSA' but can be anything as per funding call.
-`budget`             | Number    |            | A decimal number indicating the project's total budget in EUR.
-`projectURL`         | String    |            | A link pointing to the projects web presence. Must be a valid URL.
+`totalCost`          | Number    |            | A decimal number indicating the project's total budget in EUR.
+`url`                | String    |            | A link pointing to the projects web presence. Must be a valid URL.
 `fundingBodyLink`    | String    |            | A link to the funding body's project summary. Usually pointing to CORDIS. Must be a valid URL.
 `cwurl`              | String    |            | A URL pointing to the project's Cuberwatching.eu ProjectHUB's presence. Must be a valid URL.
 `tags`               | [String]  |            | An array of Strings representing JRC cybersecurity taxonomy tags.

@@ -3,34 +3,57 @@
 //
 // libraries
 const d3 = require('d3')
+const { JSDOM } = require('jsdom')
 // app modules
-const { calcAngles, calcRadii } = require('../../utils/myMaths')
+const { calcAngles, equiSpatialRadii } = require('../../../common/util/maths')
 const placeBlips = require('./blipPlacer')
+const { RadarRendering } = require('../../models/radarDataModel')
 
 //
 // GLOBALS
 //
 const size = 2000
 
+//
+// Render the given data into some proper SVG and tables
+//
+exports.renderRadar = (data) => {
+    // create the DOM hook for d3 to work properly
+    const fakeDom = new JSDOM('<!DOCTYPE html><html><body></body></html>')
+    let body = d3.select(fakeDom.window.document).select('body')
+
+    // build the SVG container
+    const svgContainer = body.append('div').attr('class', 'svg')
+    const tablesContainer = body.append('div').attr('class', 'tables')
+    // plot the radar
+    plotRadar(body, data)
+
+    // add to the radar, update state, and save
+    const rendering = new RadarRendering({})
+    rendering.rendering = new Map()
+    rendering.rendering.set('svg', svgContainer.html())
+    rendering.rendering.set('tables', tablesContainer.html())
+
+    return rendering
+}
+
 // plots the entire radar
-exports.plotRadar = (root, data) => {
+const plotRadar = (root, data) => {
     // 1) calculate some base values
     // 56 = width of segment name, 2 = thickness of ring stroke
     const radius = (size - 2) / 2 - 56
     const numSegs = data.data.size
     const numRings = data.data.values().next().value.size
     const angles = calcAngles(numSegs)
-    const radii = calcRadii(numSegs, numRings, radius)
+    const radii = equiSpatialRadii(numSegs, numRings, radius)
 
     plotSegments(root, data.data, angles, radii)
 }
 
+// plot each segment
 const plotSegments = (root, data, angles, radii) => {
     const viewBox = `-${size / 2} -${size / 2} ${size} ${size}`
-    const svg = root
-        .select('.svg')
-        .append('svg')
-        .attr('viewBox', viewBox)
+    const svg = root.select('.svg').append('svg').attr('viewBox', viewBox)
 
     // calc the blip diameter as half the difference between inner and outer
     // radii of the last ring (minus 2 for a blip stroke of 1)
@@ -39,14 +62,9 @@ const plotSegments = (root, data, angles, radii) => {
     let segIdx = 0
     for (const [seg, rings] of data.entries()) {
         // add a segment table to the tables
-        root.select('.tables')
-            .append('div')
-            .attr('class', `segment-table segment-${segIdx}`)
-            .append('h2')
-            .text(seg)
+        root.select('.tables').append('div').attr('class', `segment-table segment-${segIdx}`)
 
         // add the segment group to the SVG
-        // d3.select('.svg svg') // TODO refactor out svg with d3.selects
         const segGroup = svg
             .append('g')
             .attr('label', seg)
@@ -101,7 +119,7 @@ const plotRing = (root, ringName, blips, segIdx, ringIdx, angles, radii, blipDia
 
     // 4) Add the ring name to the table entry
     const ringDiv = segTableDiv.append('div').attr('class', `ring-table ring-${ringIdx}`)
-    ringDiv.append('h3').text(ringName)
+    ringDiv.append('div').attr('class', 'rtHeader').append('h3').text(ringName)
     ringDiv.append('ul')
 
     // 3) Add the blips
@@ -110,7 +128,7 @@ const plotRing = (root, ringName, blips, segIdx, ringIdx, angles, radii, blipDia
         endA: angles[segIdx + 1],
         innerR: radii[ringIdx],
         outerR: radii[ringIdx + 1],
-        blipDia
+        blipDia,
     })
 
     // 4) Add a separator line to the third ring
@@ -148,17 +166,7 @@ const plotLines = (group, startA, endA, radius) => {
     const endY2 = radius * Math.sin(endA - Math.PI / 2)
 
     // drawing "left" line
-    group
-        .append('line')
-        .attr('x1', 0)
-        .attr('y1', 0)
-        .attr('x2', endX1)
-        .attr('y2', endY1)
+    group.append('line').attr('x1', 0).attr('y1', 0).attr('x2', endX1).attr('y2', endY1)
     // draw "right" line
-    group
-        .append('line')
-        .attr('x1', 0)
-        .attr('y1', 0)
-        .attr('x2', endX2)
-        .attr('y2', endY2)
+    group.append('line').attr('x1', 0).attr('y1', 0).attr('x2', endX2).attr('y2', endY2)
 }

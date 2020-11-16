@@ -1,0 +1,10 @@
+div#search
+    // outer container for search icon overlay
+    div(style='position: relative;display:  inline-block;')
+        // the search input field
+        input(type='text', id='search_term', name='search_term', size=20 )
+        // the overlaid search icon
+        div(style='position: absolute; top: 0; right: 0; font-size: 90%; vertical-align: middle; opacity: 70%') &#x1f50e;
+
+    button(id='search_clear') &#x2715;
+    div#search_results

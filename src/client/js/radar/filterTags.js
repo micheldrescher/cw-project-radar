@@ -4,13 +4,15 @@
 // libraries
 // modules
 // app modules
-import { jrcTaxonomy, getName } from './../../../common/datamodel/jrc-taxonomy'
+import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
 import { getTags, getProjectIDs, updateTags } from '../util/localStore'
+import { any, all, partition } from '../util/nodeFilter'
+import jrctaxonomyfiltermodalTemplate from '../../views/jrcTaxonomyFilterModal'
 
 //
 // EXPORTS
 //
-export { showFilterTagForm, updateFilterList, filterRadar }
+export { filterBlips, showFilterTagForm, updateFilterList }
 
 /*****************
  *               *
@@ -19,82 +21,33 @@ export { showFilterTagForm, updateFilterList, filterRadar }
  *****************/
 
 //
-// JRC FILTER TAGS FORM
+// based on the tags in the filter show or hide blips
 //
-// Show the filter tags form using client-side PUG
-const showFilterTagForm = () => {
-    // get filter tags
-    const filter = getTags()
-    console.log(filter)
-    // compile HTML from the template
-    const modalString = jrctaxonomyfiltermodalTemplate({
-        modalID: 'filterTags',
-        header: 'Filter by JRC Cybersecurity taxonomy terms',
-        jrcTaxonomy,
-        filterTags: filter,
-        okButtonLabel: 'Apply',
-        cancelButtonLabel: 'Cancel'
-    })
-    // add to DOM and display
-    document.getElementById('modals').innerHTML = modalString
+const filterBlips = async (userFilter, forced = false) => {
+    // 1) If no filter sent, get from localStore
+    if (!userFilter) userFilter = getTags()
 
-    // wire up buttons
-    wireupButtons(filter)
-
-    // wireup checkboxes
-    wireupCheckboxes()
-}
-// connect the buttons in the Modal dialogue
-const wireupButtons = filter => {
-    // link up the close button - DELETES the modal! (it is recreated anyway)
-    document.querySelector('#filterTags .closeBtn').onclick = () => {
-        document.getElementById('filterTags').remove()
+    // 2) if the filter's tag list is empty, don't filter at all, unless it's forced!
+    if (!userFilter.tags || (userFilter.tags.length === 0 && !forced)) {
+        return
     }
-    // link up the Cancel button - simply do nothing, just like the modal's cross out "button"
-    document.getElementById('modalCancel').onclick = () => {
-        document.getElementById('filterTags').remove()
+
+    // 3) Figure out which nodes to show and which ones to hide
+    // 3.1) If this is forced and tags are empty, simply show all blips again
+    if (!userFilter.tags || userFilter.tags.length === 0) {
+        document.querySelectorAll('g.blip').forEach((b) => (b.style.display = 'inherit'))
+        return
     }
-    // link up the Ok button
-    document.getElementById('modalOK').onclick = async () => {
-        filter.tags = []
-        // add the tags
-        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach(c => {
-            filter.tags.push(c.value)
-        })
-        // TODO add the operator
+    // 3.2) Otherwise apply the filter
+    const withoutJRCTags = document.querySelectorAll("g.blip[data-jrc-tags='']")
+    const withJRCTags = document.querySelectorAll("g.blip[data-jrc-tags]:not([data-jrc-tags=''])")
+    const filterFunc = userFilter.union === 'any' ? any : all
+    const [matching, notMatching] = partition(withJRCTags, userFilter.tags, filterFunc)
 
-        // store tags in local storage
-        await updateTags(filter)
-
-        // update the UI & filter projects
-        // TODO how can I make this generic the JRC is currently hardcoded!
-        updateFilterList(document.getElementById('jrctagsfilter'), filter, getName)
-        filterRadar()
-
-        // close modal
-        document.getElementById('filterTags').remove()
-    }
-}
-// interactive checkboxes
-const wireupCheckboxes = () => {
-    // when selecting a dimension header, unselect al the dimension's terms
-    const dimensionHeaders = document.querySelectorAll('.dimension-header')
-    dimensionHeaders.forEach(box => {
-        box.addEventListener('click', event => {
-            const termBoxes = box.parentNode.parentNode.querySelectorAll('.term')
-            termBoxes.forEach(tB => (tB.checked = false))
-        })
-    })
-    // when selecting a dimension's term, unselect the dimension header
-    const dimensionTerms = document.querySelectorAll('.term')
-    dimensionTerms.forEach(termBox => {
-        termBox.addEventListener('click', event => {
-            const parentBox = termBox.parentNode.parentNode.parentNode.parentNode.querySelector(
-                '.dimension-header'
-            )
-            parentBox.checked = false
-        })
-    })
+    // 4) now hide all except those in 'matching'
+    matching.forEach((n) => (n.style.display = 'inherit'))
+    notMatching.forEach((n) => (n.style.display = 'none'))
+    withoutJRCTags.forEach((n) => (n.style.display = 'none'))
 }
 
 //
@@ -117,7 +70,7 @@ const updateFilterList = (filterNode, filter, getNameFunc) => {
     // remove all tags
     tags.innerHTML = ''
     // now add new list of tags
-    filter.tags.forEach(tag => {
+    filter.tags.forEach((tag) => {
         const tagNode = document.createElement('div')
         tagNode.setAttribute('class', 'tag')
         const tagText = document.createTextNode(getNameFunc(tag))
@@ -126,23 +79,80 @@ const updateFilterList = (filterNode, filter, getNameFunc) => {
     })
 }
 
-const filterRadar = async () => {
-    // 1) Get the tags as a quick check
-    const tags = getTags()
-    // 2) Fetch all projects from the server that have the filter tags set
-    const matchingProjects = await getProjectIDs()
+//
+// JRC FILTER TAGS FORM
+//
+// Show the filter tags form using client-side PUG
+const showFilterTagForm = () => {
+    // get filter tags
+    const filter = getTags()
+    // compile HTML from the template
+    const modalString = jrctaxonomyfiltermodalTemplate({
+        modalID: 'filterTags',
+        header: 'Filter by JRC Cybersecurity taxonomy terms',
+        jrcTaxonomy,
+        filterTags: filter,
+        okButtonLabel: 'Apply',
+        cancelButtonLabel: 'Cancel',
+    })
+    // add to DOM and display
+    document.getElementById('modals').innerHTML = modalString
 
-    // 3) Test all document blips whether they match or not
-    const allBlips = document.querySelectorAll('g.blip')
-    allBlips.forEach(blip => {
-        // 3.1) get the CW ID from the blip
-        const cwID = JSON.parse(blip.getAttribute('data')).cw_id
-        // 3.2) check if cwID is in the matching projects array.
-        //      If it is, mark as visible. If not, mark it invisible.
-        if (matchingProjects.includes(cwID)) {
-            blip.setAttribute('display', 'inherit')
-        } else {
-            blip.setAttribute('display', 'none')
-        }
+    // wire up buttons
+    wireupButtons(filter)
+
+    // wireup checkboxes
+    wireupCheckboxes()
+}
+
+// connect the buttons in the Modal dialogue
+const wireupButtons = (filter) => {
+    // link up the close button - DELETES the modal! (it is recreated anyway)
+    document.querySelector('#filterTags .closeBtn').onclick = () => {
+        document.getElementById('filterTags').remove()
+    }
+    // link up the Cancel button - simply do nothing, just like the modal's cross out "button"
+    document.getElementById('modalCancel').onclick = () => {
+        document.getElementById('filterTags').remove()
+    }
+    // link up the Ok button
+    document.getElementById('modalOK').onclick = async () => {
+        filter.tags = []
+        // add the tags
+        document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {
+            filter.tags.push(c.value)
+        })
+
+        // store tags in local storage
+        await updateTags(filter)
+
+        // update the UI & filter projects
+        // TODO how can I make this generic the JRC is currently hardcoded!
+        updateFilterList(document.getElementById('jrctagsfilter'), filter, getName)
+        filterBlips(filter, true) // force an update (for empty filter lists)
+
+        // close modal
+        document.getElementById('filterTags').remove()
+    }
+}
+// interactive checkboxes
+const wireupCheckboxes = () => {
+    // when selecting a dimension header, unselect al the dimension's terms
+    const dimensionHeaders = document.querySelectorAll('.dimension-header')
+    dimensionHeaders.forEach((box) => {
+        box.addEventListener('click', (event) => {
+            const termBoxes = box.parentNode.parentNode.querySelectorAll('.term')
+            termBoxes.forEach((tB) => (tB.checked = false))
+        })
+    })
+    // when selecting a dimension's term, unselect the dimension header
+    const dimensionTerms = document.querySelectorAll('.term')
+    dimensionTerms.forEach((termBox) => {
+        termBox.addEventListener('click', (event) => {
+            const parentBox = termBox.parentNode.parentNode.parentNode.parentNode.querySelector(
+                '.dimension-header'
+            )
+            parentBox.checked = false
+        })
     })
 }

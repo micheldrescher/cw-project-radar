@@ -17,6 +17,7 @@ const router = express.Router()
 /*                   */
 /*********************/
 router.get('/editions', handler.getEditions)
+router.get('/graph/:slug?', handler.getRendering)
 
 /*****************************/
 /*                           */
@@ -40,7 +41,7 @@ router
         handler.createRadar
     )
 router
-    .route('/:slug')
+    .route('/:slug?')
     .get(authC.protect, authC.restrictTo('admin', 'manager'), handler.getRadarBySlug)
 router
     .route('/:id')
@@ -65,10 +66,16 @@ router.patch(
     handler.renderRadar
 )
 router.patch(
-    '/:slug/publish',
+    '/:slug/publish/:date?',
     authC.protect,
     authC.restrictTo('admin', 'manager'),
     handler.publishRadar
+)
+router.patch(
+    '/:slug/re-publish',
+    authC.protect,
+    authC.restrictTo('admin', 'manager'),
+    handler.republishRadar
 )
 router.patch(
     '/:slug/archive',

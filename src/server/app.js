@@ -16,6 +16,7 @@ const xss = require('xss-clean')
 const AppError = require('./utils/AppError')
 const globalErrorHandler = require('./handlers/errorHandler')
 const logger = require('./utils/logger')
+const modelRouter = require('./routers/modelRouter')
 const projectRouter = require('./routers/projectRouter')
 const radarRouter = require('./routers/radarRouter')
 const userRouter = require('./routers/userRouter')
@@ -62,13 +63,12 @@ app.use(
     helmet({
         contentSecurityPolicy: {
             directives: {
-                defaultSrc: ["'self'"],
+                defaultSrc: ["'self'", 'ws://localhost:*/'],
                 baseUri: ["'self'"],
                 fontSrc: ["'self'", 'https:', 'data:'],
                 frameAncestors: ["'self'"],
                 imgSrc: ["'self'", 'data:'],
                 objectSrc: ["'none'"],
-                scriptSrc: ["'self'", 'https://d3js.org'],
                 scriptSrcAttr: ["'none'"],
                 styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
             },
@@ -120,6 +120,7 @@ app.use(express.static(path.join(__dirname, '../client')))
 // client views
 app.use('/', viewRouter)
 // API
+app.use('/api/v1/model', modelRouter)
 app.use('/api/v1/project', projectRouter)
 app.use('/api/v1/radar', radarRouter)
 app.use('/api/v1/user', userRouter)

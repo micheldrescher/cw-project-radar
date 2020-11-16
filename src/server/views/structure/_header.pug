@@ -6,7 +6,8 @@ header.header
                 img(src="/img/cyberwatching-logo.png", alt="Cyberwatching logo")
         //- radar title - immutable
         .title
-            span Cyberwatching Project Radar
+            a(href='/')
+                span Cyberwatching Project Radar
         //- user account menu - shown only if user is logged in
         .user--menu
             if user
@@ -17,6 +18,7 @@ header.header
                 a.nav__el(href='/user/login') Log in
     .header--menu
         .menubar
+            .menu-item: button.radar(radar='') Live radar
             .menu-item
                 button Editions
                 if (editions)
@@ -35,7 +37,7 @@ header.header
 
             .menu-right
                 .menu-item
-                    button Disclaimer
+                    button.disclaimer(route='/disclaimer') Disclaimer
                 .menu-item
-                    button Documentation
+                    button.documentation(route='/documentation') Documentation
 

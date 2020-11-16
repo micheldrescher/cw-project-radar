@@ -1,0 +1,4 @@
+mixin simple-metric(key, value, code)
+    simple-metric(name=code?code:key)
+        span(slot='key')= key
+        span(slot='value')= value

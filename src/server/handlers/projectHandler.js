@@ -27,7 +27,7 @@ const multerFilter = (req, file, cb) => {
 // multer middleware to store multipart import-file data in the request object
 const upload = multer({
     storage: multerStorage,
-    fileFilter: multerFilter
+    fileFilter: multerFilter,
 })
 
 exports.importFile = upload.single('importfile')
@@ -42,7 +42,7 @@ exports.importProjects = catchAsync(async (req, res, next) => {
     // 3 If all ok return a success / 200 OK response
     res.status(201).json({
         status: 'success',
-        messages: result.messages
+        messages: result.messages,
     })
 })
 
@@ -79,7 +79,7 @@ exports.getByCWId = catchAsync(async (req, res, next) => {
     // return project if found
     res.status(200).json({
         status: 'success',
-        data: project
+        data: project,
     })
 })
 
@@ -98,7 +98,7 @@ exports.getByRCN = catchAsync(async (req, res, next) => {
     // return project if found
     res.status(200).json({
         status: 'success',
-        data: project
+        data: project,
     })
 })
 
@@ -116,7 +116,7 @@ exports.addCategory = catchAsync(async (req, res, next) => {
     // 3) Assemble successful response
     res.status(201).json({
         status: 'success',
-        data: classification
+        data: classification,
     })
 })
 
@@ -134,7 +134,7 @@ exports.addMTRLScore = catchAsync(async (req, res, next) => {
     // 3) Assemble successful response
     res.status(201).json({
         status: 'success',
-        data: score
+        data: score,
     })
 })
 
@@ -145,7 +145,7 @@ exports.getMatchingProjects = catchAsync(async (req, res, next) => {
     const result = await projectController.getMatchingProjects(req.body.filter)
     res.status(200).json({
         status: 'success',
-        data: result
+        data: result,
     })
 })
 
@@ -157,6 +157,6 @@ exports.findProjects = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         results: result.length,
-        data: result
+        data: result,
     })
 })

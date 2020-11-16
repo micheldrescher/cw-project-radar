@@ -13,16 +13,12 @@ exports.getOne = async (Model, id, popOptions) => {
 }
 
 exports.getAll = async (Model, query) =>
-    await new APIFeatures(Model.find({}), query)
-        .filter()
-        .sort()
-        .limitFields()
-        .paginate().query
+    await new APIFeatures(Model.find({}), query).filter().sort().limitFields().paginate().query
 
 exports.updateOne = async (Model, id, data) =>
     await Model.findByIdAndUpdate(id, data, {
         new: true,
-        runValidators: true
+        runValidators: true,
     })
 
 exports.deleteOne = async (Model, id) => await Model.findByIdAndDelete(id)

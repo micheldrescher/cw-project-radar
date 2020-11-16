@@ -12,7 +12,7 @@ const parseCurrency = require('parsecurrency')
 // app modules
 const { Project } = require('./../src/server/models/projectModel')
 
-process.on('unhandledRejection', error => {
+process.on('unhandledRejection', (error) => {
     // Will print "unhandledRejection err is not defined"
     console.log('unhandledRejection', error.message)
     throw error
@@ -38,8 +38,8 @@ const csvParseOptions = {
         'teaser',
         'projectURL',
         'fundingBodyLink',
-        'cwurl'
-    ]
+        'cwurl',
+    ],
 }
 
 // DB URL
@@ -49,15 +49,15 @@ mongoose.connect(DB_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 })
 // test connect so that we know all is in order
 var db = mongoose.connection
-db.on('error', function() {
+db.on('error', function () {
     console.log('Failed to connect to database')
     process.exit(1)
 })
-db.once('open', async function() {
+db.once('open', async function () {
     console.log('Connected to database')
     await runScript()
 })
@@ -93,12 +93,12 @@ const importProjects = () => {
         fs.createReadStream('__import__/projects.tsv')
             .pipe(csv.parse(csvParseOptions))
 
-            .on('error', error => {
+            .on('error', (error) => {
                 console.error(error)
                 reject()
             })
 
-            .on('data', row => {
+            .on('data', (row) => {
                 if (row.cw_id === '156') {
                     console.log('** omitting Dogana II **')
                     return
@@ -106,42 +106,41 @@ const importProjects = () => {
 
                 // sanitise empty values to undefined
                 let obj = {}
-                Object.keys(row).forEach(function(key) {
+                Object.keys(row).forEach(function (key) {
                     if (row[key] !== '') {
                         obj[key] = row[key] // remove empty entries
                     }
                 })
-
                 data.push(obj)
             })
 
-            .on('end', rowCount => {
+            .on('end', (rowCount) => {
                 console.log(`Parsed ${rowCount} rows, accepting ${data.length} projects`)
                 resolve(data)
             })
     })
 }
 
-const createProjects = data => {
+const createProjects = (data) => {
     console.log('\n==> CREATING MOGOOSE PROJECTS')
     const projects = []
 
     // await Promise.all(
-    data.map(async prj => {
+    data.map(async (prj) => {
         const project = new Project({
-            name: prj.name,
+            acronym: prj.name,
             cw_id: prj.cw_id,
             rcn: prj.rcn,
             call: prj.call,
             type: prj.type,
             startDate: moment(prj.startDate, 'MMM YYYY'),
             endDate: moment(prj.endDate, 'MMM YYYY').endOf('month'),
-            budget: parseCurrency(prj.budget).value,
+            totalCost: parseCurrency(prj.budget).value,
             title: prj.title,
             teaser: prj.teaser,
-            projectURL: prj.projectURL,
+            url: prj.projectURL,
             fundingBodyLink: prj.fundingBodyLink,
-            cwurl: prj.cwurl
+            cwurl: prj.cwurl,
         })
         projects.push(project)
     })

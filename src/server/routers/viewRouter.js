@@ -26,8 +26,12 @@ router.use(authC.isLoggedIn)
 /*                   */
 /*********************/
 router.get('/', viewsH.showMain) // main page
-router.get('/radar/:slug', viewsH.showRadar) // display the indicated radar
+router.get('/disclaimer', viewsH.showDisclaimer) // disclaimer page
+router.get('/documentation', viewsH.showDocumentation) // documentation page
+
+router.get('/radar/:slug?', viewsH.showRadar) // display the indicated radar (or the live radar)
 router.get('/user/login', viewsH.loginForm) // user login form
+router.get('/widget/project/:cwid/:radar?', viewsH.getProjectWidget)
 
 /*****************************/
 /*                           */

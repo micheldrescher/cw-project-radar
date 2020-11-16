@@ -1,24 +1,26 @@
 {
     "name": "cw-project-radar",
-    "version": "0.1.0",
+    "version": "0.7.1",
     "description": "A re-implementation of the ThoughtWorks Technology Radar using express, webpack, MongoDB and many other goodies.",
     "main": "server.js",
     "scripts": {
+        "preinstall": "npx npm-force-resolutions",
         "clean": "rm -rf dist && rm src/client/views/*.js && rm -rf src/client/bundle*",
         "build": "rm -rf dist && mkdir dist && npm run build:c && npm run build:s",
         "build:c": "rm -rf dist/client && npm run build:c:pug && npm run build:c:js && npm run build:c:static",
-        "build:c:pug": "pug -c -D --name-after-file -o dist/client/views src/client/views",
-        "build:c:js": "parcel build src/client/index.js --no-source-maps --target browser --bundle-node-modules --out-dir dist/client --out-file bundle.js",
-        "build:c:static": "cp -R src/client/css dist/client && cp -R src/client/img dist/client && cp -R src/client/lib dist/client",
+        "build:c:pug": "pug -O '{module: true}' -c -D --name-after-file -o src/client/views src/client/views",
+        "build:c:js": "parcel build src/client/js/*.js --no-source-maps --target browser --bundle-node-modules --out-dir dist/client",
+        "build:c:static": "cp -R src/client/css dist/client && cp -R src/client/img dist/client",
         "build:s": "rm -rf dist/server && mkdir dist/server && cp -R src/server dist && cp -R src/common dist && cp .env.prod dist/.env",
         "dev": "cp .env.dev .env && nodemon src/server/server.js",
-        "dev:watch:pug": "pug -c -w --name-after-file -o src/client/views src/client/views",
-        "dev:watch:js": "parcel watch src/client/index.js --out-dir src/client --out-file bundle.js",
-        "start": "cp .env.prod .env && node src/server/server.js",
+        "dev:watch:pug": "pug -O '{module: true}' -c -w --name-after-file -o src/client/views src/client/views",
+        "dev:watch:js": "parcel watch src/client/js/*.js --out-dir src/client",
+        "start": "cp .env.prod .env && node dist/server/server.js",
         "debug": "ndb server.js",
         "init": "sh scripts/mongo/init.sh",
         "import": "sh scripts/mongo/import.sh",
-        "export": "sh scripts/mongo/export.sh"
+        "export": "sh scripts/mongo/export.sh",
+        "test": "jest"
     },
     "keywords": [
         "cyberwatching.eu",
@@ -34,12 +36,12 @@
         "url": "https://github.com/micheldrescher/cw-project-radar.git"
     },
     "dependencies": {
-        "@fast-csv/parse": "^4.3.1",
+        "@fast-csv/parse": "^4.3.2",
         "@svgdotjs/svg.js": "^3.0.16",
         "axios": "^0.19.2",
         "bcryptjs": "^2.4.3",
         "body-parser": "^1.19.0",
-        "chance": "^1.1.6",
+        "chance": "^1.1.7",
         "compression": "^1.7.4",
         "cookie-parser": "^1.4.5",
         "cors": "^2.8.5",
@@ -49,33 +51,35 @@
         "express": "^4.17.1",
         "express-mongo-sanitize": "^2.0.0",
         "express-rate-limit": "^5.1.3",
-        "helmet": "^4.0.0",
+        "helmet": "^4.1.1",
         "hpp": "^0.2.3",
-        "jsdom": "^16.3.0",
+        "jsdom": "^16.4.0",
         "jsonwebtoken": "^8.5.1",
-        "moment": "^2.27.0",
-        "mongoose": "^5.9.27",
+        "moment": "^2.29.1",
+        "mongoose": "^5.10.11",
         "morgan": "^1.10.0",
         "multer": "^1.4.2",
         "parsecurrency": "^1.0.0",
         "pug": "^3.0.0",
-        "simple-statistics": "^7.1.0",
+        "simple-statistics": "^7.3.1",
         "slugify": "^1.4.5",
         "streamifier": "^0.1.1",
-        "validator": "^13.1.1",
+        "svgdom": "^0.1.8",
+        "validator": "^13.1.17",
         "winston": "^3.3.3",
         "xss-clean": "^0.1.1"
     },
     "devDependencies": {
-        "dot-prop": ">=5.1.1",
-        "eslint": "^7.6.0",
-        "eslint-config-prettier": "^6.11.0",
+        "dot-prop": "^5.3.0",
+        "eslint": "^7.12.1",
+        "eslint-config-prettier": "^6.14.0",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-prettier": "^3.1.4",
+        "jest": "^26.6.1",
         "ndb": "^1.1.5",
-        "nodemon": "^2.0.4",
+        "nodemon": "^2.0.6",
         "parcel-bundler": "^1.12.4",
-        "prettier": "^2.0.5",
+        "prettier": "^2.1.2",
         "pug-cli": "^1.0.0-alpha6"
     },
     "engines": {
@@ -83,5 +87,17 @@
     },
     "browser": {
         "fs": false
+    },
+    "browserslist": [
+        "edge > 15",
+        "firefox > 52",
+        "chrome > 55",
+        "safari > 11",
+        "opera > 42",
+        "ios_saf > 11"
+    ],
+    "resolutions": {
+        "browserslist": "4.14.4",
+        "caniuse-lite": "1.0.30001129"
     }
 }

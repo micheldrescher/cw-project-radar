@@ -1,0 +1,77 @@
+include ../../../common/widgets/simple-metric/simple-metric.pug
+include ../../../common/widgets/sdlc-position/sdlc-position.pug
+
+//- include ../../../common/views/widgets/lifecycle.pug
+//- include ../../../common/views/widgets/radarLocation.pug
+//- include ../../../common/views/widgets/radarPosition.pug
+
+doctype html
+html
+    head
+        link(rel='shortcut icon' type='image/png' href='/img/favicon.ico')
+        link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700')
+        script(defer src='/project-widget.js')
+        style.
+            body {
+                font-family: 'Lato';
+                font-size: 1.5em;
+                width: 359px;
+                height: 124px;
+            }
+            .container {
+                width: 359px;
+                height: 124px;
+                position: relative;
+                display: flex;
+            }
+            .container::after {
+                content: "";
+                background-image: url('/img/epr.png');
+                position: absolute;
+                opacity: 0.1;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+            }
+            .content {
+                flex: 1 0 0px;
+                display: flex;
+                flex-direction: column;
+            }
+
+
+            .mtrl {
+                display: flex;
+                justify-content: space-evenly;
+            }
+            simple-metric {
+                width: 3em;
+                height: 3em;
+                background: rgb(221, 221, 221, 0.7);
+            }
+            .metrics {
+                display: flex;
+                align-items: center;
+                flex: 1 0 0px;
+            }
+            sdlc-position {
+                margin: auto;
+                font-size: 0.8em;
+            }
+
+    //-
+    //- TEMPLATE
+    //- 
+    body: .container
+        a(href="https://www.cyberwatching.eu/", target="_blank")
+            img(src="/img/cw-logo_v_s.png")
+        .content
+            if (blip.score)
+                .mtrl
+                    +simple-metric('MRL', blip.mrl, 'mrl')
+                    +simple-metric('TRL', blip.trl, 'trl')
+            .metrics
+                +sdlc-position(model.lcycle, blip.ring)
+

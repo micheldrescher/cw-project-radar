@@ -2,10 +2,20 @@
 // IMPORTS
 //
 // libraries
-import '@babel/polyfill'
 // app modules
 import showAlert from '../util/alert'
 import showProjectData from './projectInfo'
+import { RadarCoordinates } from '../../../common/widgets/radar-location/radar-coords'
+import { RadarLocation } from '../../../common/widgets/radar-location/radar-location'
+import { SimpleMetric } from '../../../common/widgets/simple-metric/simple-metric'
+import { SDLCPosition } from '../../../common/widgets/sdlc-position/sdlc-position'
+import { MTRLPerformance } from '../../../common/widgets/mtrl-performance/mtrl-performance'
+import {
+    showBliptip,
+    hideBliptip,
+    highlightTableEntry,
+    lowlightTableEntry,
+} from '../util/blipTooltip'
 
 //
 // EXPORTS
@@ -15,113 +25,146 @@ export { linkupRadar as default }
 //
 // FUNCTIONS
 //
-const linkupRadar = async radarRootDOM => {
+const linkupRadar = async () => {
+    // register custom HTML elements for this radar
+    customElements.define('simple-metric', SimpleMetric)
+    customElements.define('sdlc-position', SDLCPosition)
+    customElements.define('radar-coords', RadarCoordinates)
+    customElements.define('mtrl-performance', MTRLPerformance)
+    customElements.define('radar-location', RadarLocation)
+
     // 1) Animate interactive quadrants
     interactiveQuadrants()
     // 2) Popover texts for blips
     interactiveBlips()
 }
 
+/*****************
+ *               *
+ *   QUADRANTS   *
+ *               *
+ *****************/
 const interactiveQuadrants = () => {
-    d3.selectAll('.segment')
-        .on('mouseover', mouseOverQuadrant)
-        .on('mouseout', mouseOutQuadrant)
-        .on('click', clickQuadrant)
+    document.querySelectorAll('.segment').forEach((s, i, a) => {
+        s.addEventListener('mouseover', mouseOverSegment(i))
+        s.addEventListener('mouseout', mouseOutSegment(i))
+        s.addEventListener('click', clickSegment(i, a.length))
+    })
 }
 
-const interactiveBlips = () => {
-    // 1) Configure the tooltip
-    const bliptip = configureBliptip()
-
-    d3.selectAll('.blip')
-        .on('mouseover', (d, i, a) => mouseOverBlip(bliptip, i, a))
-        .on('mouseout', (d, i, a) => mouseOutBlip(bliptip, i, a))
-        .on('click', clickBlip)
-}
-
-// highlight the selected quadrant,
-// dim the others
-const mouseOverQuadrant = (d, i) => {
-    d3.select(`.segment-${i}`).style('opacity', 1)
-    // dim the non-selected segments
-    d3.selectAll(`.segment:not(.segment-${i})`).style('opacity', 0.3)
-    // TODO highlight the segment's button
-    // d3.select('.button.' + order + '.full-view').style('opacity', 1)
-    // dim all other buttons
-    // d3.selectAll('.button.full-view:not(.' + order+')').style('opacity', 0.3)
+// highlight the selected segment,
+const mouseOverSegment = (i) => {
+    return (e) => {
+        // dim all non-selected segments
+        document
+            .querySelectorAll(`.segment:not(.segment-${i})`)
+            .forEach((s) => s.classList.add('dimmed'))
+    }
 }
 
 // highlight all segments again
-const mouseOutQuadrant = (d, i) => {
-    d3.selectAll(`.segment:not(.segment-${i})`).style('opacity', 1)
-    // TODO reset all dimming for the buttons
-    // d3.selectAll('.button.full-view').style('opacity', 1)
+const mouseOutSegment = (i) => {
+    return (e) => {
+        document
+            .querySelectorAll(`.segment:not(.segment-${i})`)
+            .forEach((s) => s.classList.remove('dimmed'))
+    }
 }
 
-// click the quadrant:
-// 1. scales up the selected quadrant and hides all other
-// 2. shows the quadrant's table and hides the others
-const clickQuadrant = (d, i, a) => {
-    console.log('Quadrant click event handling!')
-
-    const zoomed = d3.select(`g.segment.segment-${i}`).classed('zoomed')
-    // if we are in zoom mode, unzoom
-    if (zoomed) {
-        // unzoom segments
-        d3.select(`g.segment.segment-${i}`)
-            .style('transform', undefined)
-            .classed('zoomed', false)
-        d3.selectAll(`.segment:not(.segment-${i})`).style('transform', undefined)
-        // "un"rotate blips & performance ring
-        d3.selectAll(`g.segment.segment-${i} .blip text`).style('transform', undefined)
-        // hide the segment table
-        d3.selectAll(`.segment-table.segment-${i}`).style('display', 'none')
-        return
+const clickSegment = (i, l) => {
+    return (e) => {
+        const zoomed = document.querySelector(`.segment.segment-${i}.zoomed`)
+        if (zoomed) zoomOut(i, l)
+        else zoomIn(i, l)
     }
+}
 
-    const theta = 360 / a.length
+const zoomIn = (i, l) => {
+    // some calculations
+    const theta = 360 / l
     const offset = theta / 2
     const rotateLeft = i * theta + offset > 180
     let angle = -i * theta - offset
     if (rotateLeft) angle = 360 + angle
 
-    // clicked segment gets rotated, shifted down and scaleed by two
-    d3.select(`g.segment.segment-${i}`)
-        .style('transform', `scale(2) translateY(25%) rotate(${angle}deg)`)
-        .classed('zoomed', true)
-    // rotate the blip text by inverse angle
-    d3.selectAll(`g.segment.segment-${i} .blip text`).style('transform', `rotate(${-angle}deg)`)
-    // hide the other segments
-    d3.selectAll(`.segment:not(.segment-${i})`).style('transform', 'scale(0)')
+    // Rotate and transform clicked segment
+    const seg = document.querySelector(`.segment.segment-${i}`)
+    seg.style.transform = `scale(2) translateY(25%) rotate(${angle}deg)`
+    seg.classList.add('zoomed')
+    // text in clicked segment rotates at inverse angle (to level them again)
+    seg.querySelectorAll('.blip text').forEach((t) => (t.style.transform = `rotate(${-angle}deg)`))
 
-    // select the corresponding table
-    d3.selectAll(`.segment-table.segment-${i}`).style('display', 'block')
-    // hide the other tables
-    d3.selectAll(`.segment-table:not(.segment-${i})`).style('display', 'none')
+    // hide all other segments
+    document
+        .querySelectorAll(`.segment:not(.segment-${i})`)
+        .forEach((s) => (s.style.transform = 'scale(0)'))
+
+    // show table for clicked segment
+    document
+        .querySelectorAll(`.segment-table.segment-${i}`)
+        .forEach((t) => t.classList.add('visible'))
+    // hide all other tables
+    document
+        .querySelectorAll(`.segment-table:not(.segment-${i})`)
+        .forEach((t) => t.classList.remove('visible'))
 }
 
-const configureBliptip = () => {
-    const svg = d3.select('#rendering > svg')
-    const bliptip = d3
-        .tip()
-        .attr('id', 'bliptip')
-        .offset([-8, 0])
-        .html(function(d) {
-            return d
-        })
-    svg.call(bliptip)
-    return bliptip
+const zoomOut = (i) => {
+    document.querySelectorAll('.segment').forEach((s) => {
+        s.style.transform = '' // remove all transformtion styles from the segments
+        s.classList.remove('zoomed') // remove zoomed class
+    })
+    document.querySelectorAll(`.segment.segment-${i} .blip text`).forEach((t) => {
+        t.style.transform = '' // unrotate blips and rings
+    })
+    // hide the table
+    document.querySelectorAll('.segment-table.visible').forEach((t) => {
+        t.classList.remove('visible')
+    })
 }
 
-const mouseOverBlip = (tip, i, a) => {
-    tip.show(d3.select(`#${a[i].id}`).attr('label'))
+/*************
+ *           *
+ *   BLIPS   *
+ *           *
+ *************/
+const interactiveBlips = () => {
+    document.querySelectorAll('.blip').forEach((b) => {
+        b.addEventListener('mouseenter', mouseOverBlip())
+        b.addEventListener('mouseout', mouseOutBlip())
+        b.addEventListener('click', clickBlip())
+    })
 }
 
-const mouseOutBlip = (tip, i, a) => {
-    tip.hide()
+const mouseOverBlip = () => {
+    return (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        showBliptip(e.target)
+        highlightTableEntry(document.getElementById(e.target.dataset.tableId))
+    }
 }
 
-const clickBlip = (d, i, a) => {
-    d3.event.stopPropagation() // stop the event bubbling up the hierarchy
-    showProjectData(JSON.parse(a[i].getAttribute('data')))
+const mouseOutBlip = () => {
+    return (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        hideBliptip(e.target.parentNode)
+        lowlightTableEntry(document.getElementById(e.target.parentNode.dataset.tableId))
+    }
+}
+
+const clickBlip = () => {
+    return (e) => {
+        e.preventDefault()
+        e.stopPropagation()
+        const dataSet = e.target.parentNode.dataset
+        showProjectData(
+            dataSet.cwId,
+            dataSet.segment,
+            dataSet.ring,
+            JSON.parse(dataSet.performance),
+            dataSet.jrcTags
+        )
+    }
 }

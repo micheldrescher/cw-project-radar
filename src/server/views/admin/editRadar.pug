@@ -1,10 +1,10 @@
-extends ../_base
+extends ../structure/_base
 
 mixin administerForm(slug, label, enabled)
     - const verb = label.toLowerCase()
     form.form.administer-radar-form(route=`/api/v1/radar/${slug}/${verb}`)
         //- Inject an input field for the cutoff date
-        - if (label === 'Populate') {
+        - if (label === 'Publish') {
             .form__group
                 label.form__label(for='cutoff') Cutoff date: 
                 input#cutoff.form__input(type='date')
@@ -28,8 +28,7 @@ block content
 
     h2 Administer Radar
     .populate-radar-form
-        +administerForm(radar.slug, 'Populate', radar.status === 'created')
-        +administerForm(radar.slug, 'Render', radar.status === 'populated')
-        +administerForm(radar.slug, 'Publish', radar.status === 'rendered')
+        +administerForm(radar.slug, 'Publish', radar.status === 'created')
+        +administerForm(radar.slug, 'Re-publish', radar.status === 'published')
         +administerForm(radar.slug, 'Archive', radar.status === 'published')
         +administerForm(radar.slug, 'Reset', true)

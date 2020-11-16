@@ -56,6 +56,10 @@ header.header {
     text-align: center;
 }
 
+.title a {
+    text-decoration: none;
+}
+
 .title span {
     font-family: 'Lato';
     font-size: 3.5rem;
@@ -234,6 +238,37 @@ header.header {
     background-color: #ffb6b1;
 }
 
+/***************
+ *             *
+ *  MAIN PAGE  *
+ *             *
+ ***************/
+
+/* EC project funding stats */
+.main .stats {
+    text-align: center;
+    margin: 48pt;
+}
+
+.main .stats .stat {
+    display: inline;
+    margin: 24pt;
+}
+
+.main .stat .txt {
+    font-size: 18pt;
+}
+.main .stat .num {
+    font-size: 24pt;
+    font-weight: bold;
+}
+
+/* intro text */
+.main .intro {
+    margin: 48pt;
+    font-size: 14pt;
+}
+
 /*****************
  *               *
  *   R A D A R   *
@@ -329,9 +364,15 @@ header.header {
     transform: rotateX(180deg);
 }
 
+/* control the height of the radar to 100% of the viewport */
+#ctrl-wrp {
+    max-height: 100vh;
+}
+
 /* The radar rendering and tables area */
 #radardata {
     display: flex;
+    max-height: 95vh;
 }
 
 /* SVG rendering of the radar */
@@ -340,8 +381,15 @@ header.header {
     flex: 1 1 0px;
 }
 
+svg {
+    max-height: 95vh;
+}
+
 svg > g.segment {
     transition-duration: 0.5s;
+}
+svg > g.segment.dimmed {
+    opacity: 0.3;
 }
 
 svg g.segment path.ring.divider {
@@ -374,39 +422,64 @@ svg g line {
     stroke-width: 5;
 }
 
-#tables {
-    width: max-content;
-}
-
 /*
  * Radar tables
  */
 #tables {
-    padding: 3em;
+    margin: 3em;
     width: max-content;
+    overflow: scroll;
+    max-height: 90vh;
 }
 
 .segment-table {
     display: none;
     padding-right: 3em;
 }
-
+.segment-table.visible {
+    display: block;
+}
+.segment-table.dimmed {
+    opacity: 0.3;
+}
 .segment-table h2 {
     display: none;
 }
 
-.segment-table .ring-table h3 {
+.segment-table .ring-table .rtHeader {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
     border-bottom: 1px solid darkgray;
     margin-bottom: 0.4em;
+}
+.segment-table .ring-table h3 {
+    margin-bottom: 0;
+}
+.segment-table .ring-table .rtHeader .flicker {
+    cursor: pointer;
+    transition-duration: 0.3s;
+}
+.segment-table .ring-table .rtHeader .flicker.closed {
+    transform: rotateX(180deg);
 }
 
 .segment-table .ring-table ul {
     margin: 0;
     padding-inline-start: 0;
 }
+.segment-table .ring-table ul.hide {
+    display: none;
+}
 
 .segment-table .ring-table ul li {
     list-style: none;
+}
+.segment-table .ring-table ul li div {
+    cursor: pointer;
+}
+.segment-table .ring-table ul li div.highlight {
+    background-color: lightgray;
 }
 
 /****************************
@@ -500,11 +573,24 @@ section.modal > div.modal-window > header > div.closeBtn:focus {
 }
 
 /*
+ * Modal TOOLBAR
+ */
+section.modal > div.modal-window > section.toolbar:empty {
+    display: none;
+}
+/*
+ * Modal BUTTON BAR (if any)
+ */
+section.modal > div.modal-window > section.buttonbar:empty {
+    display: none;
+}
+/*
  * General layout for the content section
  */
-section.modal > div.modal-window > section {
+section.modal > div.modal-window > section#modal-content {
     flex: 1 1 auto;
     overflow-y: auto;
+    margin: 1em;
 }
 
 /*
@@ -543,110 +629,46 @@ section.modal > div.modal-window > section.buttonbar {
 /* The action buttons get some styling as well */
 
 /********************************
- *  Project info modal content  *
- ********************************/
-#projectInfo .prjTitle {
-    font-size: 1.1em;
-    text-align: center;
-    font-weight: 700;
-}
-
-#projectInfo .prjTeaser {
-    margin-bottom: 0.5em;
-}
-
-/* key project data (start, end, budget, call */
-#projectInfo .prjKeys {
-    display: flex;
-    margin-bottom: 1.5em;
-    padding-bottom: 1.5em;
-    border-bottom: 1px solid lightgray;
-}
-
-.key {
-    padding: 5px 0;
-    flex: 1 1 0px;
-    text-align: center;
-    border-right: 1px solid lightgrey;
-    font-size: 0.8em;
-    color: darkgray;
-}
-.key:last-child {
-    border-right: none;
-}
-.key span {
-    font-weight: bold;
-    display: block;
-    font-size: 1.2em;
-    color: black;
-}
-
-#projectInfo .score {
-    display: flex;
-}
-#projectInfo .score .scale {
-    flex: 0.65 0.65 0px;
-}
-
-#projectInfo .score .scale .label {
-    text-align: center;
-    font-weight: 700;
-}
-
-/* performance scale SVG */
-#projectInfo .score .scale svg line {
-    stroke-width: 2;
-}
-#projectInfo .score .scale svg line#perf {
-    stroke: red;
-    stroke-width: 3;
-}
-#projectInfo .score .scale svg text {
-    text-anchor: middle;
-    font-size: 0.9em;
-}
-
-/* MTRL score layput */
-#projectInfo .score .mtrl {
-    flex: 0.35 0.35 0px;
-    display: flex;
-}
-#projectInfo .score .mtrl #mrl {
-    flex: 1 1 0px;
-}
-#projectInfo .score .mtrl #trl {
-    flex: 1 1 0px;
-}
-
-/********************************
  *                              *
  *  Radar filter tagging forms  *
  *                              *
  *******************************/
 /* General layout for the filter list(s) */
-#radar section#filters {
+#filters {
     margin: 0 4em;
+    display: flex;
 }
-#radar section#filters div.filter {
+
+/*
+ * All other filters
+ */
+/* Other filters get all space and have a right margin */
+#other {
+    flex: 1 1 auto;
+    margin-right: 1em;
+}
+
+/* Each filder ... */
+#other > div.filter {
     margin: 0.5em 0;
     display: flex;
     align-items: flex-start;
 }
-#radar section#filters div.filter:first-child {
+#other > .filter:first-child {
     margin-top: 0em;
 }
-#radar section#filters div.filter:last-child {
+#other > .filter:last-child {
     margin-bottom: 0em;
 }
-/* Each filter ... */
-section#filters div.filter * {
+/* Each filter child ... */
+#other > .filter * {
     vertical-align: top;
 }
-section#filters div.filter > *:first-child {
+#other > .filter > *:first-child {
     margin-right: 0.5em;
 }
 /* ... has a button, ... */
-section#filters div.filter button {
+#other > div.filter button {
     font-family: 'Lato';
     font-size: 0.8em;
     padding: 0.2em;
@@ -654,25 +676,25 @@ section#filters div.filter button {
     flex: 0 0 auto;
 }
 /* ... an ops div, ... */
-section#filters div.filter div.ops {
+#other > div.filter div.ops {
     flex: 0 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 0.2em;
     font-size: 0.8em;
 }
-section#filters div.filter div.ops * {
+#other > div.filter div.ops * {
     text-align: center;
     margin: auto;
 }
 
 /* ... and a noneditable list of tags. */
-section#filters div.filter div.tags {
+#other > div.filter div.tags {
     font-family: 'Lato';
     font-size: 0.8em;
 }
 /* Each individual tag */
-section#filters div.filter div.tags div.tag {
+#other > div.filter div.tags div.tag {
     display: inline-block;
     border: 1px solid darkgray;
     padding: 0.1em 0.5em;
@@ -687,4 +709,82 @@ form.form--edit-tags ul {
 form.form--filter-tags > ul > li:first-child {
     font-weight: bold;
     font-size: 1.2em;
+}
+
+/*
+ * Search
+ */
+/* Search area stays small and can shrink if necessary, but not grow */
+#search {
+    flex: 0 1 auto;
+}
+/* search text field needs styling */
+#search_term {
+}
+#search_term:focus {
+    outline: none;
+}
+/* ditto the cancel button */
+#search_clear {
+    background-color: white;
+    border: unset;
+    font-size: 16pt;
+    vertical-align: middle;
+    color: black;
+    line-height: 0%;
+}
+#search_clear:focus {
+    outline: none;
+}
+/* search results list position is absolute so as to overlay the radar if very long */
+#search_results {
+    position: absolute;
+    display: grid;
+    gap: 0 0;
+    border: 1px solid lightgray;
+}
+/* each search result element */
+#search_results > button {
+    display: block;
+    margin: 0;
+    border: 0;
+    background-color: white;
+    text-align: left;
+    border-bottom: 1px dotted lightgray;
+    padding: 0.3em 0.5em;
+}
+#search_results > button:last-child {
+    border-bottom: unset;
+}
+#search_results > button:hover {
+    background-color: #eaeaea;
+}
+
+#info-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 30px 0;
+}
+
+#info-bar div {
+    margin: 15px;
+    flex: 1 1 0px;
+    text-align: center;
+    background: #1c75bc;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 1px 0 12px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+
+#info-bar div:hover {
+    background: #f7941d;
+    box-shadow: none;
+    transition: 0.3s;
+}
+
+#info-bar div h2,
+#info-bar div p {
+    color: #fff;
 }

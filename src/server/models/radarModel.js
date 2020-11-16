@@ -5,53 +5,55 @@
 const mongoose = require('mongoose')
 const slugify = require('slugify')
 // app modules
+const { RadarData, RadarRendering } = require('./radarDataModel')
 
 const radarSchema = new mongoose.Schema({
     year: {
         type: Number,
         required: [true, "A radar's year is required."],
-        min: 2018
+        min: 2018,
     },
     release: {
         type: String,
         required: [true, "A radar's edition is required."],
         enum: {
             values: ['Spring', 'Autumn'],
-            message: 'edition may be either "Spring" or "Autumn".'
-        }
+            message: 'edition may be either "Spring" or "Autumn".',
+        },
     },
     slug: {
         type: String,
         unique: [
             true,
-            'A radar with the same identifier already exists. Please choose a different year or edition.'
-        ]
+            'A radar with the same identifier already exists. Please choose a different year or edition.',
+        ],
     },
     name: {
-        type: String
+        type: String,
     },
     summary: {
-        type: String
+        type: String,
     },
     status: {
         type: String,
         required: true,
         enum: {
-            values: ['created', 'populated', 'rendered', 'published', 'archived'],
-            message: 'Status must be either created, populated, rendered, published, or archived.'
+            values: ['created', 'published', 'archived'],
+            message: 'Status must be either created, published, or archived.',
         },
-        default: 'created'
+        default: 'created',
     },
     referenceDate: Date, // the radar's reference/cutoff date
     publicationDate: Date, // the date this radar was published
     data: {
+        // DEPRECATED - NO LONGER IN USE
         type: mongoose.Schema.ObjectId,
-        ref: 'RadarData'
+        ref: 'RadarData',
     },
     rendering: {
         type: mongoose.Schema.ObjectId,
-        ref: 'RadarRendering'
-    }
+        ref: 'RadarRendering',
+    },
 })
 
 //
@@ -65,7 +67,7 @@ radarSchema.index({ slug: 1, status: 1 })
 //
 
 // pre-save and pre-create operations
-radarSchema.pre('save', function(next) {
+radarSchema.pre('save', function (next) {
     if (this.isModified('year') || this.isModified('release')) {
         // update slug
         this.slug = slugify(`${this.release} ${this.year}`, { lower: true })
@@ -74,6 +76,13 @@ radarSchema.pre('save', function(next) {
     }
     // run next middleware
     next()
+})
+
+// delete radardata and radarrendering when deleting a radar
+radarSchema.post('findOneAndDelete', async function (doc) {
+    // delete all associated radar datas
+    await RadarData.findByIdAndDelete(doc.data)
+    await RadarRendering.findByIdAndDelete(doc.rendering)
 })
 
 const Radar = mongoose.model('Radar', radarSchema)

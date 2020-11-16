@@ -1,16 +1,33 @@
-extends _base
+extends structure/_base
 
 block append head
-    script(src='https://d3js.org/d3.v5.min.js')
-    script(src='/lib/d3-tip.js')
-    script(src='/views/projectInfo.js')
-    script(src='/views/jrcTaxonomyFilterModal.js')
+    style(type="text/css").
+        #tooltip {
+            position: absolute;
+            background: black;
+            color: white;
+            padding: 0.3em;
+            width: fit-content;
+            height: fit-content;
+            z-index: 3;
+            display: none;
+        }
 
 //- Main content block for the page.
 block content
+
+    nav#info-bar
+        div <h2>Legend 1 Title</h2>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        div <h2>Legend 2 Title</h2>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        div <h2>Legend 3 Title</h2>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        div <h2>Legend 4 Title</h2>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
     //- The radar section
     section#radar
-
+        //- Radar title, description, etc
         section#overview
             h1 #{radar.name}
             #summary-container 
@@ -18,12 +35,18 @@ block content
                     #summary #{radar.summary}
                 #flicker
                     #summary-flicker &#x2303
-
-        section#filters
-            include jrc-tagfilter
-
-        section#radardata
-            #rendering
-                != radar.rendering.rendering.get('svg')
-            #tables
-                != radar.rendering.rendering.get('tables')
+        //- a wrapper to controll the height of the rada and filters
+        #ctrl-wrp
+            //- any filters for the radar blips
+            section#filters
+                section#other
+                    include includes/jrc-tagfilter
+                include includes/search
+            //- the radar and the project tables
+            section#radardata
+                #rendering
+                    #loadwait(style="display: flex; justify-content: space-around; align-items: center; height: 100%;")
+                        img(src="/img/loading.png", width=25)
+                #tables
+            //- the blip tooltip
+            #tooltip

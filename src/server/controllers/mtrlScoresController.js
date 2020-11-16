@@ -15,12 +15,13 @@ exports.getScore = async (prjID, date) => {
     // with a scoring date less than the cutoff date
     let filter = {
         project: prjID,
-        scoringDate: { $lte: date }
+        scoringDate: { $lte: date },
     }
-    // sort decending by scoringDate, and return the first element only
+    // sort decending by scoringDate, then descending by insertion date,
+    //  and return the first element only
     let queryStr = {
-        sort: '-scoringDate',
-        limit: '1'
+        sort: '-scoringDate, -_id',
+        limit: '1',
     }
     // build the query and execute it
     const features = new APIFeatures(MTRLScore.find(filter), queryStr)

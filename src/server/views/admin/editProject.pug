@@ -1,4 +1,4 @@
-extends ../_base
+extends ../structure/_base
 
 
 //- mixin action(actionClass, label, route, imageStr)
@@ -36,18 +36,18 @@ mixin mtrlScoreRow(score)
         td #{prettyMTRL(score.mrl,score.trl)}
 
 mixin scaleOptions()
-    each val in [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+    each val in [1, 2, 3, 4, 5, 6, 7, 8, 9]
         option(value=val)= val
 
 block content
 
-    h2 Edit project #{project.name}
+    h2 Edit project #{project.acronym}
     .edit-project-form: form.form.form--edit-project#edit-project-form
         .form__group
             input#projectid.form__input(type='hidden', required, value=project._id)
         .form__group
-            label.form__label(for='name') Acronym
-            input#name.form__input(type='string', required, value=project.name)
+            label.form__label(for='acronym') Acronym
+            input#acronym.form__input(type='string', required, value=project.acronym)
         .form__group
             label.form__label(for='title') Title
             input#title.form__input(type='string', required, value=project.title)
@@ -67,11 +67,11 @@ block content
             label.form__label(for='projecttype') Project type (optional)
             input#projecttype.form__input(type='string', value=project.type)
         .form__group
-            label.form__label(for='budget') Budget (optional)
-            input#budget.form__input(type='number', value=project.budget)
+            label.form__label(for='totalCost') Budget (optional)
+            input#totalCost.form__input(type='number', value=project.totalCost)
         .form__group
-            label.form__label(for='proejcturl') Project homepage
-            input#projecturl.form__input(type='string', value=project.projectURL)
+            label.form__label(for='url') Project homepage
+            input#url.form__input(type='string', value=project.url)
         .form__group
             label.form__label(for='fundingbodylink') Funding body entry
             input#fundingbodylink.form__input(type='string', value=project.fundingBodyLink)

@@ -1,30 +1,188 @@
 extends _modal
 
-block header
-    if (project.cwurl)
-        div 
-            a(href=project.cwurl target='_blank') #{header}
-    else 
-        div #{header}
+include ../../common/widgets/radar-location/radar-location.pug
+include ../../common/widgets/radar-location/radar-coords.pug
+include ../../common/widgets/simple-metric/simple-metric.pug
+include ../../common/widgets/sdlc-position/sdlc-position.pug
+include ../../common/widgets/mtrl-performance/mtrl-performance.pug
 
+//-
+//- MIXINS
+//-
+
+//- 
+//- CSS
+//- 
+block append styles
+    style(type="text/css").
+        /*
+         * Project info modal
+         */
+        /* Title */
+        #projectInfo .prjTitle {
+            font-size: 1.1em;
+            text-align: center;
+            font-weight: 700;
+        }
+        /* Project teaser text */
+        #projectInfo .prjTeaser {
+            margin-bottom: 0.5em;
+        }
+        /*
+         * Project key metrics
+         */
+        #projectInfo .prjMetrics {
+            display: flex;
+            justify-content: space-around;
+            padding-bottom: 1em;
+            border-bottom: 1px solid lightgray;
+        }
+        #projectInfo .prjMetrics > simple-metric {
+            flex: 1 0 0px;
+            border-right: 1px solid lightgrey;
+        }
+        #projectInfo .prjMetrics > simple-metric:last-child {
+            border-right: none;
+        }
+        /*
+         * Statistics pane
+         */
+        #projectInfo .stats {
+            display: flex;
+            padding-top: 1em;
+        }
+        #projectInfo .stats .label {
+            text-align: center;
+            font-weight: 700;
+        }
+        /*
+         * MTRL score pane
+         */
+        #projectInfo .stats > .performance {
+            flex: 0.5 0.5 0px;
+            border-right: 1px solid lightgray;
+        }
+        #projectInfo .stats > .performance > .mtrl {
+            display: flex;
+            justify-content: space-around;
+        }
+        #projectInfo .stats > .performance > .mtrl > * {
+            margin-top: 0.5em;
+            border-right: 1px solid lightgray;
+            flex: 1 0 0px;
+        }
+        #projectInfo .stats > .performance > .mtrl > *:last-child {
+            border-right: none;
+        }
+        /*
+         * Project radar metrics
+         */
+        #projectInfo .stats > .metrics {
+            flex: 0.5 0.5 0px;
+        }
+        #projectInfo .stats > .metrics > .radar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center; 
+            align-items: center;
+        }
+        /* Radar position grid */
+        #projectInfo .stats > .metrics #radar-position {
+        }
+        /* Radar position radar */
+        #projectInfo .stats > .metrics radar-location {
+            margin-left: 0em;    /* Somehow in flexboxes margins don't overlap... */
+        }
+        /* Project lifecycle */
+        #projectInfo .stats > .metrics #lifecycle {
+            flex: 1 0 0px;
+            margin-top: 0em;    /* Somehow in flexboxes margins don't overlap... */
+            margin-bottom: 0em; /* Somehow in flexboxes margins don't overlap... */
+        }
+        /* tags */
+        #tags {
+            content: "";
+            margin: 1em 0;
+            border-top: 1px solid lightgray;
+        }
+        #tags {
+            font-family: 'Lato';
+            padding-top: 1em;
+        }
+        #tags .label {
+            font-weight: 700;
+            padding-bottom: 0.5em;
+        }
+        #tags .tag {
+            font-size: 0.8em;
+            display: inline-block;
+            border: 1px solid darkgray;
+            padding: 0.1em 0.5em;
+            border-radius: 0.5em;
+            margin: 0 0.3em 0.5em 0.3em;
+        }
+
+
+//-
+//- HEADER
+//-
+block header 
+    div 
+        !=project.cw_id 
+        |. 
+        if (project.cwurl)
+            a(href=project.cwurl target='_blank') #{project.acronym}
+        else 
+            !=project.acronym
+
+//-
+//- FOOTER
+//-
 block footer
     div #{footer}
 
+//-
+//- MAIN CONTENT
+//-
 block content
+    -
+        function enGBDate(date) {
+            return new Date(date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })
+        }
+        function enGBMoney(amount) {
+            return new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(amount)
+        }
+
     .prjTitle  #{project.title}
     .prjTeaser #{project.teaser}
-    .prjKeys
-        .key.start Start date <span>#{new Date(project.startDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })}</span>
-        .key.end End date <span>#{new Date(project.endDate).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })}</span>
-        .key.budget Budget <span>#{new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(project.budget)}</span>
-        .key.call Funding call <span>#{project.call}</span>
-        .key.type Project type <span>#{project.type}</span>
-    if (scale)
-        .score
-            .scale
+    //- Key project metrics pane
+    .prjMetrics
+        +simple-metric('Start date', enGBDate(project.startDate))
+        +simple-metric('End date', enGBDate(project.endDate))
+        +simple-metric('Budget', enGBMoney(project.totalCost))
+        +simple-metric('Funding call', project.call)
+        +simple-metric('Project type', project.type)
+    //- Project statistics pane
+    .stats
+        .performance
+            if (perf && perf.score)
                 .label Relative performance
-                != scale
-            .mtrl
-                #mrl.key MRL <span>#{blip.mrl}</span>
-                #trl.key TRL <span>#{blip.trl}</span>
-
+                +mtrl-performance(perf.score, perf.performance, perf.min, perf.max)
+                .mtrl
+                    +simple-metric('MRL', perf.mrl, 'mrl')
+                    +simple-metric('TRL', perf.trl)
+                    +simple-metric('Performance', perf.performance)
+        .metrics
+            .label Project metrics
+            .radar
+                +radar-coords(segment, ring)
+                +radar-location(model, segment, ring, 'distance')
+            +sdlc-position(model.lcycle, ring)
+    //- show the  tags, if any
+    - if (tags)
+        #tags
+            .label EC JRC tags
+            div
+                - tags.forEach( (t) => {
+                    .tag #{t}
+                - })

@@ -1,5 +1,30 @@
-extends _base
+extends structure/_base
 
 block content
-    h1 Replace with meaningful stuff
-    p Some explanatory text.
+    .stats
+        .stat
+            span.num #{kpis.span} 
+            span.txt years
+        .stat
+            span.num #{kpis.calls}  
+            span.txt calls
+
+        .stat
+            span.num #{kpis.projects} 
+            span.txt projects
+        .stat
+            span.num €#{kpis.totalCost} bn 
+            span.txt funding
+
+    .intro 
+        p.
+            These are just four of the key figures of how the European Union is funding projects addressing 
+            #[strong Cybersecurity and Privacy] issues in today's world.
+        p. 
+            We've create the Cyberwatching Project Radar allowing you to quickly access key information aggregated 
+            over all projects, and dig deeper into key information individually for each project.
+
+        p.
+            All radar editions are accessible via the #[strong Editions] menu. 
+
+    //- <iframe id="inlineFrameExample" title="Inline Frame Example" src="http://localhost:8080/widget/project/110"/>

@@ -5,7 +5,7 @@
 const Chance = require('chance')
 // modules
 const AppError = require('../../utils/AppError')
-const { toDegree, toRadian } = require('../../utils/myMaths')
+const { toDegree, toRadian } = require('../../../common/util/maths')
 
 //
 // GLOBALS
@@ -15,7 +15,7 @@ const gradients = process.env.GRADIENTS.split(',') || [
     '#FF8F00',
     '#FFFF00',
     '#BFFF00',
-    '#00FF00'
+    '#00FF00',
 ]
 
 //
@@ -28,7 +28,7 @@ const placeBlips = (blips, root, segIdx, ringIdx, geom) => {
     // 2) Iterate through all blips (projects) and add to ring
     blips.sort((a, b) => a.cw_id - b.cw_id)
     const blipCoords = []
-    blips.forEach(blip => {
+    blips.forEach((blip) => {
         // 2.1 - add the blip to the table
         addTableEntry(blip, root, segIdx, ringIdx)
         // 2.2 - find coordinates and draw blip in radar
@@ -45,46 +45,9 @@ const addTableEntry = (blip, root, segIdx, ringIdx) => {
     ringList
         .append('li')
         .append('div')
-        .text(`${blip.cw_id}. ${blip.prj_name}`)
-
-    //
-    // TODO this is stuff to add items to the table
-    // TODO stuff to make the radar interactive --> move clientside!
-    // var blipListItem = ringList.append('li')
-    // // var blipText = blip.number() + '. ' + blip.name() + (blip.quadrant() ? ('. - ' + blip.quadrant()) : '')
-    // var blipText = blip.number() + '. ' + blip.name()
-    // blipListItem
-    //     .append('div')
-    //     .attr('class', 'blip-list-item')
-    //     .attr('id', 'blip-list-item-' + blip.number())
-    //     .text(blipText)
-
-    // var blipItemDescription = blipListItem
-    //     .append('div')
-    //     .attr('id', 'blip-description-' + blip.number())
-    //     .attr('class', 'blip-item-description')
-
-    // // add prose info to the blip
-    // if (blip.title()) {
-    //     blipItemDescription.append('p').html(blip.title())
-    // }
-
-    // var technoDiv = blipItemDescription.append('div').attr('class', 'techno')
-    // if (blip.TRL() && blip.MRL()) {
-    //     technoDiv.append('p').html(mtrl(blip.TRL(), blip.MRL()))
-    // }
-    // if (blip.type()) {
-    //     technoDiv.append('p').html('Project type: <b>' + blip.type() + '</b>')
-    // }
-    // if (blip.teaser()) {
-    //     blipItemDescription.append('p').html(blip.teaser())
-    // }
-    // // link to cyberwatching.eu webpage
-    // if (blip.cwurl()) {
-    //     blipItemDescription
-    //         .append('p')
-    //         .html('<a href="' + blip.cwurl() + '" target="_blank">More</a>')
-    // }
+        .attr('id', `table-${blip.cw_id}`)
+        .attr('data-blip-id', `blip-${blip.cw_id}`)
+        .text(`${blip.cw_id}. ${blip.prj_acronym}`)
 }
 
 const findBlipCoords = (blip, geom, allCoords, chance) => {
@@ -124,7 +87,7 @@ const pickCoords = (blip, chance, geom) => {
     //    (that works well for max 6 segments)
     var radius = chance.floating({
         min: Math.max(geom.blipDia, geom.innerR + geom.blipDia / 2),
-        max: geom.outerR - geom.blipDia / 2
+        max: geom.outerR - geom.blipDia / 2,
     })
 
     // 2) Randomly select a relative angle (from the start angle for
@@ -138,7 +101,7 @@ const pickCoords = (blip, chance, geom) => {
     // 2.2) Pic a random angle between the allowed maximums
     var angle = chance.floating({
         min: startA + delta,
-        max: endA - delta
+        max: endA - delta,
     })
 
     // STEP 3 - Translate polar coordinates into cartesian coordinates (while respecting
@@ -151,7 +114,7 @@ const pickCoords = (blip, chance, geom) => {
 
 const thereIsCollision = (blipWidth, coords, allCoords) => {
     return allCoords.some(
-        currCoords =>
+        (currCoords) =>
             Math.abs(currCoords[0] - coords[0]) < blipWidth &&
             Math.abs(currCoords[1] - coords[1]) < blipWidth
     )
@@ -161,21 +124,32 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
     var x = coords[0]
     var y = coords[1]
 
-    // 1) A blip is a group of a circle and a number (as text)
+    // 1) A blip is a <g>roup of a <circle> and a <text> element
     let blipGroup = root
         .select(`g.segment.segment-${segIdx}`)
         .append('g')
         .attr('class', 'blip')
         .attr('id', `blip-${blip.cw_id}`)
         .attr('transform', `translate(${x}, ${y})`)
-        .attr('label', `${blip.cw_id}. ${blip.prj_name}`)
-    // add the tags as direct DOM attribute
-    if (blip.tags && blip.tags.length > 0) blipGroup = blipGroup.attr('tags', blip.tags.join(' '))
-    // finally add the blip data
-    blip.tags = undefined // they are already plotted, no need to do that twice
-    blipGroup = blipGroup.attr('data', JSON.stringify(blip))
+        .attr('data-tooltip', `${blip.cw_id}. ${blip.prj_acronym}`)
+        .attr('data-cw-id', blip.cw_id)
+        .attr('data-segment', blip.segment)
+        .attr('data-ring', blip.ring)
+        .attr('data-table-id', `table-${blip.cw_id}`)
+        .attr(
+            'data-performance',
+            JSON.stringify({
+                mrl: blip.mrl,
+                trl: blip.trl,
+                score: blip.score,
+                performance: blip.performance,
+                min: blip.min,
+                max: blip.max,
+            })
+        )
+        .attr('data-jrc-tags', blip.tags.join(' '))
 
-    // 2) Add the circle to the blup group
+    // 2) Add the <circle> to the blip group
     const colour = arcColour(blip)
     blipGroup
         .append('circle')
@@ -184,7 +158,7 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .attr('stroke-width', colour === '#000000' ? 2 : 4)
         .attr('stroke', colour)
 
-    // 4) Add the text - the blip's cw-id - to the group
+    // 3) Add the <text> to the blip group
     blipGroup
         .append('text')
         .attr('text-anchor', 'middle')
@@ -195,7 +169,7 @@ const drawBlip = (blip, root, segIdx, coords, geom) => {
         .text(blip.cw_id)
 }
 
-const arcColour = blip => {
+const arcColour = (blip) => {
     // 0) If there is no score, return black
     if (!blip.score) return '#000000'
 

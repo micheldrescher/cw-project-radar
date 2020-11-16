@@ -17,7 +17,7 @@ const csvParseOptions = {
     quote: null,
     renameHeaders: true,
     headers: [
-        'name',
+        'acronym',
         'rcn',
         'call',
         'type',
@@ -26,16 +26,16 @@ const csvParseOptions = {
         'budget',
         'title',
         'teaser',
-        'projectURL',
+        'url',
         'fundingBodyLink',
-        'cwurl'
-    ]
+        'cwurl',
+    ],
 }
 
 //
 // parse TSV buffers into plain JS objects
 //
-exports.parseTSV = buffer => {
+exports.parseTSV = (buffer) => {
     // 1) Create return data structures
     const data = []
     let status = 'success'
@@ -46,17 +46,17 @@ exports.parseTSV = buffer => {
             .createReadStream(buffer)
             .pipe(csv.parse(csvParseOptions))
             // error handling while stream buffering. N/A with memory backed buffers!?
-            .on('error', error => {
+            .on('error', (error) => {
                 status = 'error'
                 messages.push('Stream read error:' + error)
                 // return a reject
                 reject({ status, data, messages })
             })
             // In each data row, sanitise empty cells into undefned before storing
-            .on('data', row => {
+            .on('data', (row) => {
                 // sanitise empty values to undefined
                 let obj = {}
-                Object.keys(row).forEach(function(key) {
+                Object.keys(row).forEach(function (key) {
                     if (row[key] !== '') {
                         obj[key] = row[key] // remove empty entries
                     }
@@ -64,7 +64,7 @@ exports.parseTSV = buffer => {
                 data.push(obj)
             })
             // add a final message to the import process
-            .on('end', rowCount => {
+            .on('end', (rowCount) => {
                 status = 'success'
                 messages.push(`Parsed ${rowCount} rows, accepting ${data.length} entries.`)
                 resolve({ status, data, messages })
@@ -75,7 +75,7 @@ exports.parseTSV = buffer => {
 //
 // Instantiate projects from imported JS objects
 //
-exports.createProjects = results => {
+exports.createProjects = (results) => {
     // 1) Return a promise
     return new Promise((resolve, reject) => {
         // 2) Create return data structures
@@ -88,27 +88,27 @@ exports.createProjects = results => {
                 // 3.1) Create project
                 try {
                     await Project.create({
-                        name: prj.name,
+                        acronym: prj.acronym,
                         call: prj.call,
                         rcn: prj.rcn,
                         type: prj.type,
                         startDate: moment(prj.startDate, 'MMM YYYY'),
                         endDate: moment(prj.endDate, 'MMM YYYY').endOf('month'),
-                        budget: parseCurrency(prj.budget).value,
+                        budget: parseCurrency(prj.totalCost).value,
                         title: prj.title,
                         teaser: prj.teaser,
-                        projectURL: prj.projectURL,
+                        url: prj.url,
                         fundingBodyLink: prj.fundingBodyLink,
-                        cwurl: prj.cwurl
+                        cwurl: prj.cwurl,
                     }).then(
-                        data => {
+                        (data) => {
                             projects.push(data)
-                            console.log('SUCCESS', data.name)
+                            console.log('SUCCESS', data.acronym)
                         },
-                        err => {
-                            console.log('FAIL', prj.name)
+                        (err) => {
+                            console.log('FAIL', prj.acronym)
                             messages.push(
-                                `Error while importing project '${prj.name}' at row ${i + 1}: '${
+                                `Error while importing project '${prj.acronym}' at row ${i + 1}: '${
                                     err.message
                                 }'`
                             )
@@ -116,9 +116,9 @@ exports.createProjects = results => {
                         }
                     )
                 } catch (err) {
-                    console.log('ERR', prj.name)
+                    console.log('ERR', prj.acronym)
                     messages.push(
-                        `Error while importing project '${prj.name}' at row ${i + 1}: '${
+                        `Error while importing project '${prj.acronym}' at row ${i + 1}: '${
                             err.message
                         }'`
                     )

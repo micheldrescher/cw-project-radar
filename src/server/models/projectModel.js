@@ -24,7 +24,7 @@ const projectSchema = new mongoose.Schema(
             unique: true,
         },
         // a short name (usually an abbreviation)
-        name: {
+        acronym: {
             type: String,
         },
         // the unique RCN number assigned by the EC when awarded.
@@ -68,9 +68,9 @@ const projectSchema = new mongoose.Schema(
         // project type (mostly IA, RIA, RA, or CSA)
         type: String,
         // the project's total budget (EC contrib plus partner's own contribs)
-        budget: Number,
+        totalCost: Number,
         // project home page
-        projectURL: {
+        url: {
             type: String,
             validate: validator.isURL,
         },
@@ -114,9 +114,9 @@ projectSchema.pre('save', async function (next) {
 // INDEXES
 //
 projectSchema.index({ cw_id: 1 }) // index on the project's CW id
-projectSchema.index({ name: 1 }) // index on the project's CW id
+projectSchema.index({ acronym: 1 }) // index on the project's CW id
 projectSchema.index({ rcn: 1 }) // index on the project's RCN
-projectSchema.index({ name: 'text', title: 'text', teaser: 'text' }) // text indexes for textual search
+projectSchema.index({ acronym: 'text', title: 'text', teaser: 'text' }) // text indexes for textual search
 
 //
 // MODEL

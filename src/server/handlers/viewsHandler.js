@@ -1,6 +1,7 @@
 //
 // IMPORTS
 //
+const moment = require('moment')
 // libraries
 // app modules
 const APIFeatures = require('../utils/apiFeatures')
@@ -10,8 +11,9 @@ const { Classification } = require('../models/classificationModel')
 const { MTRLScore } = require('../models/mtrlScoreModel')
 const classificationController = require('./../controllers/classificationController')
 const mtrlScoresController = require('./../controllers/mtrlScoresController')
-const logger = require('./../utils/logger')
 const radarController = require('../controllers/radarController')
+const { roundDec } = require('../../common/util/maths')
+const modelController = require('../controllers/modelController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
@@ -27,7 +29,7 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     if (!editions || editions.length === 0) {
         res.locals.alert = {
             status: 'warning',
-            message: 'Unable to fetch radar editions.'
+            message: 'Unable to fetch radar editions.',
         }
     } else {
         // 4) process result
@@ -46,9 +48,31 @@ exports.getEditions = catchAsync(async (req, res, next) => {
 // show main/entry page
 //
 exports.showMain = catchAsync(async (req, res, next) => {
+    // 1) Fetch some key figures from the DB
+    const kpis = (
+        await Project.aggregate([
+            {
+                $group: {
+                    _id: 1,
+                    totalCost: { $sum: '$totalCost' },
+                    projects: { $sum: 1 },
+                    calls: { $addToSet: '$call' },
+                    start: { $min: '$startDate' },
+                    end: { $max: '$endDate' },
+                },
+            },
+        ])
+    )[0]
+    kpis.calls = kpis.calls.length // reduce calls array to its length
+    kpis.span = moment(kpis.end).diff(kpis.start, 'months') + 1 // reduce start and end to months
+    kpis.span = roundDec(kpis.span / 12, 1) // in years, with one decimal
+    kpis.totalCost = roundDec(kpis.totalCost / 1000000000, 1) // budget in €bn
+
     // TODO expand on default content.
     res.status(200).render('main', {
-        title: 'Welcome'
+        title: 'Welcome',
+        pageclass: 'main',
+        kpis,
     })
 })
 
@@ -56,22 +80,40 @@ exports.showMain = catchAsync(async (req, res, next) => {
 // Fetch the requested radar, and render the 'radar template page
 //
 exports.showRadar = catchAsync(async (req, res, next) => {
+    // 1) If there s a slug, fetch edition, otherwise fetch live
+    let radar
+    if (req.params.slug) radar = await showEdition(req, res, next)
+    else radar = await showLive(req, res, next)
+
+    // 2) show success page - errors are handled/raised in the calls above
+    res.status(200).render(`${__dirname}/../views/radar`, {
+        title: radar.name,
+        radar,
+        jrcTaxonomy,
+    })
+})
+
+const showEdition = async (req, res, next) => {
     // 1) Get the requested radar slug
     const { slug } = req.params
 
     // 2) Fetch the corresponding radar
-    const radar = await radarController.getRadarBySlug(slug, 'rendering')
+    const radar = await radarController.getRadarBySlug(slug)
     if (!radar) {
         return next(new AppError(`No radar found for id ${slug}.`, 404))
     }
 
-    // 4) Show success page
-    res.status(200).render(`${__dirname}/../views/radar`, {
-        title: radar.name,
-        radar,
-        jrcTaxonomy
-    })
-})
+    // 3) Return the radar
+    return radar
+}
+
+const showLive = async (req, res, next) => {
+    // 1) get transient live radar from radar controller
+    const radar = await radarController.getLiveRadar()
+
+    // 2) Return the radar
+    return radar
+}
 
 /******************************/
 /*                            */
@@ -84,7 +126,7 @@ exports.showRadar = catchAsync(async (req, res, next) => {
 //
 exports.loginForm = (req, res) => {
     res.status(200).render('user/login', {
-        title: 'Login'
+        title: 'Login',
     })
 }
 
@@ -93,7 +135,7 @@ exports.loginForm = (req, res) => {
 //
 exports.accountPage = (req, res) => {
     res.status(200).render('user/account', {
-        title: 'Your account'
+        title: 'Your account',
     })
 }
 
@@ -103,7 +145,7 @@ exports.accountPage = (req, res) => {
 exports.manageUsers = catchAsync(async (req, res, next) => {
     // 1) Fetch all users - except "myself"
     const users = await User.find({
-        _id: { $ne: res.locals.user._id }
+        _id: { $ne: res.locals.user._id },
     })
     if (!users) {
         return next(new AppError(`No users found in this application. Schrodinger's users?`, 404))
@@ -112,7 +154,7 @@ exports.manageUsers = catchAsync(async (req, res, next) => {
     // 2) Render user management page
     res.status(200).render('admin/manageUsers', {
         title: 'Manage users',
-        users
+        users,
     })
 })
 
@@ -126,7 +168,7 @@ exports.editUser = catchAsync(async (req, res, next) => {
     // 2) Render user edit page
     res.status(200).render('admin/editUser', {
         title: 'Edit use details',
-        targetUser: user
+        targetUser: user,
     })
 })
 
@@ -150,7 +192,7 @@ exports.manageRadars = catchAsync(async (req, res, next) => {
     // 2) Render radar management page
     res.status(200).render('admin/manageRadars', {
         title: 'Manage radars',
-        radars
+        radars,
     })
 })
 
@@ -167,7 +209,7 @@ exports.editRadar = catchAsync(async (req, res, next) => {
     // 2) Render radar edit page
     res.status(200).render('admin/editRadar', {
         title: 'Edit radar',
-        radar
+        radar,
     })
 })
 
@@ -189,7 +231,7 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
 
     // Decorate the projects with their classification and their last score (temporarily)
     await Promise.all(
-        projects.map(async prj => {
+        projects.map(async (prj) => {
             // add classification
             if (prj.hasClassifications) {
                 let segment = await classificationController.getClassification(prj._id, Date.now())
@@ -206,7 +248,7 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
     // 2) Render projects management page
     res.status(200).render('admin/manageProjects', {
         title: 'Manage projects',
-        projects
+        projects,
     })
 })
 
@@ -222,7 +264,7 @@ exports.editProject = catchAsync(async (req, res, next) => {
 
     // 2) Get all classifications and MTRL scores for the project
     const classifications = await Classification.find({ project: project._id }).sort({
-        classifiedOn: 1
+        classifiedOn: 1,
     })
     const mtrlScores = await MTRLScore.find({ project: project._id }).sort({ scoringDate: 1 })
 
@@ -232,6 +274,63 @@ exports.editProject = catchAsync(async (req, res, next) => {
         project,
         classifications,
         mtrlScores,
-        jrcTaxonomy
+        jrcTaxonomy,
     })
+})
+
+/*************************/
+/*                       */
+/*        WIDGETS        */
+/*                       */
+/*************************/
+//
+// Standard project widget
+//
+exports.getProjectWidget = catchAsync(async (req, res, next) => {
+    // 1) Get the correct radar (default to latest if not provided)
+    const radar = await radarController.getBySlugOrLatest(req.params.radar, 'data')
+
+    // 2) find the project' blip in the radar
+    let blip
+    // iterate over all segments
+    const segsIter = radar.data.data.values()
+    let seg = segsIter.next()
+    while (blip == null && !seg.done) {
+        // now iterate over the segments' rings
+        const ringsIter = seg.value.values()
+        let ring = ringsIter.next()
+        while (blip == null && !ring.done) {
+            // now let's find the blip in the array
+            for (let i = 0; i < ring.value.length; i++) {
+                if (ring.value[i].cw_id == req.params.cwid) {
+                    blip = ring.value[i]
+                    break
+                }
+            }
+            ring = ringsIter.next()
+        }
+        seg = segsIter.next()
+    }
+    if (!blip) {
+        // no blip found
+        return next(new AppError('Project not found in given radar', 404))
+    }
+
+    // 3) get the data model from the environment
+    const model = modelController.getModel()
+
+    // ??) Render the widget
+    res.status(200).render('widgets/project.pug', {
+        radar: radar.name,
+        blip,
+        model,
+    })
+})
+
+exports.showDisclaimer = catchAsync(async (req, res, next) => {
+    res.status(200).render('disclaimer.pug', {})
+})
+
+exports.showDocumentation = catchAsync(async (req, res, next) => {
+    res.status(200).render('documentation.pug', {})
 })

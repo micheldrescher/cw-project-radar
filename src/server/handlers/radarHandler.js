@@ -2,6 +2,7 @@
 // IMPORTS
 //
 // libraries
+const moment = require('moment')
 // app modules
 const AppError = require('../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
@@ -9,6 +10,7 @@ const handlerFactory = require('./handlerFactory')
 const httpResponses = require('../utils/httpResponses')
 // const logger = require('./../utils/logger')
 const Radar = require('../models/radarModel')
+const { RadarData, RadarRendering } = require('../models/radarDataModel')
 const radarController = require('./../controllers/radarController')
 
 exports.createRadar = handlerFactory.createOne(
@@ -31,8 +33,14 @@ exports.deleteRadar = handlerFactory.deleteOne(Radar)
 
 // returns ONE radar (or undefined) if slug is invalid.
 exports.getRadarBySlug = catchAsync(async (req, res, next) => {
-    // 1) Get radar
-    const radar = await radarController.getRadarBySlug(req.params.slug)
+    let radar
+
+    // 1) Live or edition?
+    if (req.params.slug) {
+        radar = await radarController.getRadarBySlug(req.params.slug)
+    } else {
+        radar = await radarController.getLiveRadar()
+    }
 
     // 2) Error handling if no radar found
     if (!radar || radar.length === 0) {
@@ -43,7 +51,7 @@ exports.getRadarBySlug = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         results: 1,
-        radar: radar
+        radar: radar,
     })
 })
 
@@ -62,7 +70,7 @@ exports.getEditions = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         results: editions.length,
-        data: editions
+        data: editions,
     })
 })
 
@@ -71,46 +79,80 @@ exports.getEditions = catchAsync(async (req, res, next) => {
 //
 // populate the radar with all necessary data to render the visualisation
 exports.populateRadar = catchAsync(async (req, res, next) => {
-    const { slug, date } = req.params
-
-    const radar = await radarController.populateRadar(slug, date)
-    if (!radar) {
-        return next(new AppError(`Error while populating the radar.`, 500))
-    }
-
-    res.status(200).json({
-        status: 'success',
-        radar
+    res.status(400).json({
+        status: 'error',
+        message:
+            'Radars no longer support populating and rendering; created radars are published straight away (folding the populate and rander steps into the third, publishing, action).',
     })
 })
 
 // render the populated radar data into a SVG image
 exports.renderRadar = catchAsync(async (req, res, next) => {
-    const { slug } = req.params
-
-    const radar = await radarController.renderRadar(slug)
-    if (!radar) {
-        return next(new AppError(`Error while rendering radar ${slug}.`, 500))
-    }
-
-    res.status(200).json({
-        status: 'success',
-        radar
+    res.status(400).json({
+        status: 'error',
+        message:
+            'Radars no longer support populating and rendering; created radars are published straight away (folding the populate and rander steps into the third, publishing, action).',
     })
 })
 
 // publish the radar
 exports.publishRadar = catchAsync(async (req, res, next) => {
-    const { slug } = req.params
+    const { slug, date } = req.params
+    const cutOffDate = moment(date) // creates a Date.now() if date param is missing
 
-    const radar = await radarController.publishRadar(slug)
+    // 1) Obtain the radar
+    let radar = await radarController.getRadarBySlug(slug)
+    if (!radar) {
+        throw new AppError(`No radar found for id ${slug}.`, 404)
+    }
+    // radar state change check
+    if (!['created'].includes(radar.status)) {
+        throw new AppError(`Radar ${radar.name} is not in state created.`, 400)
+    }
+
+    // 2) Let the radar controller publish the radar
+    radar = await radarController.publishRadar(radar, cutOffDate)
     if (!radar || radar.length === 0) {
         return next(new AppError(`Error while publishing the radar.`, 500))
     }
 
+    // 3) Return successful result
     res.status(200).json({
         status: 'success',
-        radar
+        message: 'Radar published.',
+    })
+})
+
+// publish the radar
+exports.republishRadar = catchAsync(async (req, res, next) => {
+    const { slug } = req.params
+
+    // 1) Obtain the radar
+    let radar = await radarController.getRadarBySlug(slug)
+    if (!radar) {
+        return next(new AppError(`No radar found for id ${slug}.`, 404))
+    }
+    // radar state change check
+    if (!['published'].includes(radar.status)) {
+        return next(new AppError(`Radar ${radar.name} is not in state created.`, 400))
+    }
+
+    // 2) Remove any data or rendering from the radar
+    await RadarData.findByIdAndDelete(radar.data)
+    await RadarRendering.findByIdAndDelete(radar.rendering)
+    radar.data = undefined
+    radar.rendering = undefined
+
+    // 3) render the radar with the cutoff date already set in the radar
+    radar = await radarController.publishRadar(radar, moment(radar.referenceDate))
+    if (!radar || radar.length === 0) {
+        return next(new AppError(`Error while publishing the radar.`, 500))
+    }
+
+    // 4) Return success
+    res.status(200).json({
+        status: 'success',
+        message: 'Radar published.',
     })
 })
 
@@ -125,7 +167,7 @@ exports.archiveRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar
+        message: 'Radar archived.',
     })
 })
 
@@ -140,6 +182,20 @@ exports.resetRadar = catchAsync(async (req, res, next) => {
 
     res.status(200).json({
         status: 'success',
-        radar
+        message: 'Radar successfully archived.',
+    })
+})
+
+exports.getRendering = catchAsync(async (req, res, next) => {
+    const { slug } = req.params
+    const rendering = await radarController.getRendering(slug)
+
+    if (!rendering) {
+        return next(new AppError(`No rendering found for radar ${slug}.`, 404))
+    }
+
+    res.status(200).json({
+        status: 'success',
+        rendering,
     })
 })
