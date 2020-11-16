@@ -35,17 +35,22 @@ logger.debug('Pug template path =', path.join(__dirname, 'views'))
 // SECURITY CONFIG
 //
 
+logger.info('Setting up app security')
 // enable trusting proxies (especially for production)
+logger.verbose('AppSec: trust proxies')
 app.enable('trust proxy')
 
 // Enable/configure CORS
+logger.verbose('AppSec: CORS')
 app.use(cors()) // allow any simple request from anywhere, i.e. "Access-Control-Allow-Origin *
 app.options('*', cors()) // CORS 'pre-flight: allow any options (incl. PATCH, PUT, DELETE, etc.)
 
 // use body parser as requirement for hpp
+logger.verbose('AppSec: URLEncoding/decoding')
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // Prevent HTTP Parameter Pollution (HPP)
+logger.verbose('AppSec: HTTP Parameter polution')
 app.use(hpp())
 // app.use(
 //     hpp({
@@ -61,6 +66,7 @@ app.use(hpp())
 // )
 
 // Set security HTTP headers
+logger.verbose('AppSec: Content security policy (CSP)')
 app.use(
     helmet({
         contentSecurityPolicy: {
@@ -81,6 +87,7 @@ app.use(
 )
 
 // Limit requests from same API
+logger.verbose('AppSec: Request rate limiting (1000 requests per hour)')
 const limiter = rateLimit({
     max: 1000,
     windowMs: 60 * 60 * 1000,
@@ -89,17 +96,22 @@ const limiter = rateLimit({
 app.use('/api', limiter)
 
 // Body parser, reading data from body into req.body
-app.use(express.json({ limit: '10kb' }))
-app.use(express.urlencoded({ extended: true, limit: '10kb' }))
+logger.verbose('AppSec: limit message body size to 20 kB')
+app.use(express.json({ limit: '20kb' }))
+app.use(express.urlencoded({ extended: true, limit: '20kb' }))
+logger.verbose('AppSec: safe cookie parsing')
 app.use(cookieParser())
 
 // Data sanitization against NoSQL query injection
+logger.verbose('AppSec: Harden against NoSQL injection attacks')
 app.use(mongoSanitize())
 
 // Data sanitization against XSS
+logger.verbose('AppSec: Cross site scripting')
 app.use(xss())
 
 // compress responses
+logger.verbose('AppPerf: Compress responses')
 app.use(compression())
 
 //
@@ -114,11 +126,14 @@ if (process.env.NODE_ENV !== 'production') {
 // SERVE STATIC FILES FOR CLIENT
 //
 // Serving static files
+logger.info('Setting up serving static files')
 app.use(express.static(path.join(__dirname, '../client')))
+logger.debug(`Static path for server = ${path.join(__dirname, '../client')}`)
 
 //
 // ROUTES
 //
+logger.info('Setting up REST routes')
 // client views
 app.use('/', viewRouter)
 // API
@@ -128,6 +143,7 @@ app.use('/api/v1/radar', radarRouter)
 app.use('/api/v1/user', userRouter)
 
 // handle undefined routes - LAST ROUTE!
+logger.info('Setting up catch-all route')
 app.all('*', (req, res, next) => {
     logger.error(`No such route defined: ${req.originalUrl}`)
     next(new AppError(`Cannot find ${req.originalUrl} on this server.`, 404))
