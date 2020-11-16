@@ -1,9 +1,14 @@
 //
 // IMPORTS
 //
+const winston = require('winston')
 
 //
 // FUNCTIONS
+//
+
+//
+// validate username against rules
 //
 const validUsername = (usernamename) => {
     if (!usernamename) return false // name mustn't be undefined
@@ -18,6 +23,14 @@ const validUsername = (usernamename) => {
 }
 
 //
+// validate log level from configs
+//
+const validLogLevel = (level) => {
+    if (Object.keys(winston.config.npm.levels).includes(level)) return true
+    return false
+}
+
+//
 // EXPORTS
 //
-module.exports = { validUsername }
+module.exports = { validUsername, validLogLevel }
