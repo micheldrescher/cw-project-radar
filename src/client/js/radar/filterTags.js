@@ -45,7 +45,7 @@ const filterBlips = async (userFilter, forced = false) => {
     const [matching, notMatching] = partition(withJRCTags, userFilter.tags, filterFunc)
 
     // 4) now hide all except those in 'matching'
-    matching.forEach((n) => (n.style.display = 'inherit'))
+    matching.forEach((n) => (n.style.display = 'unset'))
     notMatching.forEach((n) => (n.style.display = 'none'))
     withoutJRCTags.forEach((n) => (n.style.display = 'none'))
 }

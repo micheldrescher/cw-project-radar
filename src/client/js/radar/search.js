@@ -34,7 +34,7 @@ const searchProjects = (searchStr) => {
     // - are in currently displayed segments, AND
     // - are displayed (JRC tax filter applies)
     const blips = document.querySelectorAll(
-        `g.segment:not([style*='scale(0)']) g.blip[style*='display: inherit;'][data-tooltip*=${searchStr} i]`
+        `g.segment:not([style*='scale(0)']) g.blip:not([style*='display: none;'])[data-tooltip*=${searchStr} i]`
     )
     //remove all buttons
     resultDiv.innerHTML = ''
@@ -42,14 +42,14 @@ const searchProjects = (searchStr) => {
     blips.forEach((blip) => {
         // create a button and add to search result
         const resultBtn = document.createElement('button')
-        resultBtn.addEventListener('click', (e) => {
+        resultBtn.addEventListener('click', () => {
             // showProjectData()
             // cw_id, segment, ring, perf
         })
-        resultBtn.addEventListener('mouseenter', (e) => {
+        resultBtn.addEventListener('mouseenter', () => {
             showBliptip(document.querySelector(`#${blip.id}`))
         })
-        resultBtn.addEventListener('mouseout', (e) => {
+        resultBtn.addEventListener('mouseout', () => {
             hideBliptip()
         })
 
