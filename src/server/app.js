@@ -15,7 +15,7 @@ const xss = require('xss-clean')
 // import app modules
 const AppError = require('./utils/AppError')
 const globalErrorHandler = require('./handlers/errorHandler')
-const logger = require('./utils/logger')
+const { logger } = require('./utils/logger')
 const modelRouter = require('./routers/modelRouter')
 const projectRouter = require('./routers/projectRouter')
 const radarRouter = require('./routers/radarRouter')
@@ -23,12 +23,14 @@ const userRouter = require('./routers/userRouter')
 const viewRouter = require('./routers/viewRouter')
 
 // set up the app as an express object
+logger.verbose('Setting up Express application')
 const app = express()
 
 // use Pug for rendering client HTML files
+logger.verbose('Setting up Pug')
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
-
+logger.debug('Pug template path =', path.join(__dirname, 'views'))
 //
 // SECURITY CONFIG
 //

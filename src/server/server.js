@@ -4,20 +4,9 @@
 // libraries
 require('dotenv').config()
 const mongoose = require('mongoose')
+const Process = require('process')
 // app modules
-const logger = require('./utils/logger')
-
-//
-// HANDLING UNCAUGHT EXCEPTIONS
-//
-// This needs to be one of the first things to register
-// before any exceptions might occur!
-process.on('uncaughtException', (err) => {
-    logger.error('💥 Uncaught exception --> Shutting down.')
-    // eslint-disable-next-line no-console
-    console.log(err)
-    process.exit(1) // rather hardcore but all we can do for now
-})
+const { logger } = require('./utils/logger')
 
 //
 // CONNECT TO DB
@@ -38,7 +27,7 @@ mongoose
         // initial connect error handling
         logger.error('💥 DB connection failed, terminating immediately.')
         logger.error(err)
-        process.exit(1)
+        Process.exit(1)
     })
 // log intermittent connection errors
 mongoose.connection.on('error', (err) => {
@@ -57,18 +46,8 @@ const app = require('./app')
 //
 const PORT = process.env.PORT || 8080
 const server = app.listen(PORT, () => {
-    logger.info(`App listening to ${PORT}....`)
+    logger.info(`App listening on port ${PORT}....`)
     logger.info('Press Ctrl+C to quit.')
-})
-
-//
-// HANDLE UNHANDLED REJECTIONS
-//
-process.on('unhandledRejection', (err) => {
-    logger.error('💥 Unhandled rejection --> Shutting down.')
-    // eslint-disable-next-line no-console
-    console.log(err)
-    process.exit(1)
 })
 
 //

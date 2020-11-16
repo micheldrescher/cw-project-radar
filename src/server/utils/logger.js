@@ -6,7 +6,10 @@ const { createLogger, format, transports } = require('winston')
 // modules
 const { validLogLevel } = require('../../common/util/validator')
 
-const fmt = format.combine(
+//
+// MODULE VARS
+//
+const logFormat = format.combine(
     format.errors({ stack: true }),
     format.padLevels(),
     format.splat(),
@@ -20,9 +23,11 @@ let logger = createLogger({
     level: 'info',
     transports: [
         new transports.Console({
-            format: format.combine(format.colorize(), fmt),
+            format: format.combine(format.colorize(), logFormat),
         }),
     ],
+    exceptionHandlers: [new transports.Console({})],
+    rejectionHandlers: [new transports.Console({})],
 })
 logger.verbose('Configuring logger')
 
@@ -48,17 +53,29 @@ if (process.env.NODE_ENV == 'production') {
         transports: [
             new transports.Console({
                 level: 'error',
-                format: format.combine(format.timestamp(), fmt),
+                format: format.combine(format.timestamp(), logFormat),
             }),
             new transports.File({
                 filename: 'error.log',
                 level: 'error',
-                format: format.combine(format.timestamp(), fmt),
+                format: format.combine(format.timestamp(), logFormat),
             }),
             new transports.File({
                 filename: 'combined.log',
                 level,
-                fmt,
+                format: logFormat,
+            }),
+        ],
+        exceptionHandlers: [
+            new transports.File({
+                filename: 'exceptions.log',
+                format: format.combine(format.timestamp(), logFormat),
+            }),
+        ],
+        rejectionHandlers: [
+            new transports.File({
+                filename: 'unhandledRejections.log',
+                format: format.combine(format.timestamp(), logFormat),
             }),
         ],
     })
