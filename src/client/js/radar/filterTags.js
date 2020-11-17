@@ -107,6 +107,7 @@ const showFilterTagForm = () => {
         filterTags: filter,
         okButtonLabel: 'Apply',
         cancelButtonLabel: 'Cancel',
+        clearButtonLabel: 'Clear all',
     })
     // add to DOM and display
     document.getElementById('modals').innerHTML = modalString
@@ -146,6 +147,16 @@ const wireupButtons = (filter) => {
 
         // close modal
         document.getElementById('filterTags').remove()
+    }
+    // Clear all button
+    document.getElementById('modalClearAll').onclick = async () => {
+        document
+            .querySelectorAll(
+                'input.term[type=checkbox]:checked,input.dimension-header[type=checkbox]:checked'
+            )
+            .forEach((i) => {
+                i.checked = false
+            })
     }
 }
 // interactive checkboxes
