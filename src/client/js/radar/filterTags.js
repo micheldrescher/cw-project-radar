@@ -1,3 +1,4 @@
+/* eslint-disable node/no-unpublished-import */
 //
 // IMPORTS
 //
@@ -5,7 +6,7 @@
 // modules
 // app modules
 import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
-import { getTags, getProjectIDs, updateTags } from '../util/localStore'
+import { getTags, updateTags } from '../util/localStore'
 import { any, all, partition } from '../util/nodeFilter'
 import jrctaxonomyfiltermodalTemplate from '../../views/jrcTaxonomyFilterModal'
 
@@ -54,7 +55,8 @@ const filterBlips = async (userFilter, forced = false) => {
 // UPDATE FILTER UI
 //
 // Given the list of tags, update the filter UI with the actual term names
-const updateFilterList = (filterNode, filter, getNameFunc) => {
+const updateFilterList = (filter, getNameFunc) => {
+    const filterNode = document.getElementById('jrctagsfilter')
     // 1) Update filter operation
     const anyRadio = filterNode.childNodes[1].childNodes[2]
     const allRadio = filterNode.childNodes[1].childNodes[3]
@@ -71,11 +73,22 @@ const updateFilterList = (filterNode, filter, getNameFunc) => {
     tags.innerHTML = ''
     // now add new list of tags
     filter.tags.forEach((tag) => {
+        // create the tag DIV
         const tagNode = document.createElement('div')
-        tagNode.setAttribute('class', 'tag')
-        const tagText = document.createTextNode(getNameFunc(tag))
-        tagNode.appendChild(tagText)
         tags.appendChild(tagNode)
+        tagNode.setAttribute('class', 'tag')
+        // set tag data
+        tagNode.dataset.tag = tag
+        // set classes and content
+        const nameNode = document.createElement('div')
+        nameNode.innerHTML = getNameFunc(tag)
+        tagNode.append(nameNode)
+        // set little cross for deleting
+        const deleteNode = document.createElement('div')
+        deleteNode.innerHTML = '×'
+        tagNode.append(deleteNode)
+        // listen for clicks on the little cross
+        deleteNode.addEventListener('click', (e) => removeFilterTag(e))
     })
 }
 
@@ -128,7 +141,7 @@ const wireupButtons = (filter) => {
 
         // update the UI & filter projects
         // TODO how can I make this generic the JRC is currently hardcoded!
-        updateFilterList(document.getElementById('jrctagsfilter'), filter, getName)
+        updateFilterList(filter, getName)
         filterBlips(filter, true) // force an update (for empty filter lists)
 
         // close modal
@@ -155,4 +168,17 @@ const wireupCheckboxes = () => {
             parentBox.checked = false
         })
     })
+}
+
+//
+// PRIVATE FUNCTIONS
+//
+const removeFilterTag = (e) => {
+    const { tag } = e.target.parentNode.dataset
+    // get the filter tags
+    const filterTags = getTags()
+    filterTags.tags.splice(filterTags.tags.indexOf(tag), 1)
+    updateTags(filterTags)
+    updateFilterList(filterTags, getName)
+    filterBlips(filterTags, true) // force an update (for empty filter lists)
 }

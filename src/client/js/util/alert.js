@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-/* eslint-disable no-unused-vars */
 const hideAlert = () => {
     const el = document.querySelector('.alert')
     if (el) el.parentElement.removeChild(el)

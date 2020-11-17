@@ -661,7 +661,7 @@ section.modal > div.modal-window > section.buttonbar {
     margin-bottom: 0em;
 }
 /* Each filter child ... */
-#other > .filter * {
+#other > .filter > * {
     vertical-align: top;
 }
 #other > .filter > *:first-child {
@@ -700,6 +700,19 @@ section.modal > div.modal-window > section.buttonbar {
     padding: 0.1em 0.5em;
     border-radius: 0.5em;
     margin: 0 0.3em 0.5em 0.3em;
+    position: relative;
+    padding-right: 1em;
+}
+#other > div.filter div.tags div.tag > div {
+    display: inline-block;
+}
+#other > div.filter div.tags div.tag > div:nth-of-type(2) {
+    position: absolute;
+    vertical-align: top;
+    top: -4px;
+    right: 2px;
+    color: darkgray;
+    cursor: pointer;
 }
 /* elements in the modal to select the tags */
 form.form--filter-tags ul,
