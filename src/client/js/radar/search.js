@@ -42,9 +42,18 @@ const searchProjects = (searchStr) => {
     blips.forEach((blip) => {
         // create a button and add to search result
         const resultBtn = document.createElement('button')
-        resultBtn.addEventListener('click', () => {
-            // showProjectData()
-            // cw_id, segment, ring, perf
+        resultBtn.addEventListener('click', (e) => {
+            // get the project's CW id
+            const cwid = e.target.innerHTML.substring(0, e.target.innerHTML.indexOf('.'))
+            // get the project's blip data
+            const data = document.getElementById(`blip-${cwid}`).dataset
+            showProjectData(
+                cwid,
+                data.segment,
+                data.ring,
+                JSON.parse(data.performance),
+                data.jrcTags
+            )
         })
         resultBtn.addEventListener('mouseenter', () => {
             showBliptip(document.querySelector(`#${blip.id}`))

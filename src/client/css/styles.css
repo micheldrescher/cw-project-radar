@@ -752,6 +752,7 @@ form.form--filter-tags > ul > li:first-child {
     text-align: left;
     border-bottom: 1px dotted lightgray;
     padding: 0.3em 0.5em;
+    cursor: pointer;
 }
 #search_results > button:last-child {
     border-bottom: unset;

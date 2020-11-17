@@ -6,6 +6,7 @@ import axios from 'axios'
 // app modules
 import { getModel } from '../util/localStore'
 import { getName } from './../../../common/datamodel/jrc-taxonomy'
+// eslint-disable-next-line node/no-unpublished-import
 import projectinfoTemplate from './../../views/projectInfo'
 
 const showProjectData = async (cw_id, segment, ring, perf, tags) => {
