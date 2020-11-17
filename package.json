@@ -15,7 +15,7 @@
         "dev": "cp .env.dev .env && nodemon src/server/server.js",
         "dev:watch:pug": "pug -O '{module: true}' -c -w --name-after-file -o src/client/views src/client/views",
         "dev:watch:js": "parcel watch src/client/js/*.js --out-dir src/client",
-        "start": "cp .env.prod .env && node dist/server/server.js",
+        "start": "cp .env.prod .env && node server/server.js",
         "debug": "ndb server.js",
         "init": "sh scripts/mongo/init.sh",
         "import": "sh scripts/mongo/import.sh",

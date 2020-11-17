@@ -35,11 +35,12 @@ COPY --chown=node:node --from=builder /home/node/cw/dist/client ./client
 COPY --chown=node:node --from=builder /home/node/cw/dist/common ./common
 COPY --chown=node:node --from=builder /home/node/cw/dist/server ./server
 COPY --chown=node:node --from=builder /home/node/cw/dist/.env .
+COPY --chown=node:node --from=builder /home/node/cw/dist/.env ./.env.prod
+COPY --chown=node:node --from=builder /home/node/cw/package.json .
 COPY --chown=node:node --from=builder /home/node/cw/node_modules ./node_modules
 COPY --chown=node:node --from=builder /home/node/cw/scripts ./scripts
 
 
 EXPOSE 8080
 
-CMD ["node", "server/server.js"]
-
+CMD ["npm", "start"]

@@ -15,7 +15,6 @@ services:
             cw-radar-nw:
         depends_on:
             - mongo
-        command: node server/server.js
 
     mongo:
         build:
