@@ -56,25 +56,27 @@ if (process.env.NODE_ENV == 'production') {
                 format: format.combine(format.timestamp(), logFormat),
             }),
             new transports.File({
-                filename: 'error.log',
+                filename: 'logs/error.log',
                 level: 'error',
                 format: format.combine(format.timestamp(), logFormat),
+                tailable: true,
             }),
             new transports.File({
-                filename: 'combined.log',
-                level,
+                filename: 'logs/combined.log',
+                level: level,
                 format: logFormat,
+                tailable: true,
             }),
         ],
         exceptionHandlers: [
             new transports.File({
-                filename: 'exceptions.log',
+                filename: 'logs/exceptions.log',
                 format: format.combine(format.timestamp(), logFormat),
             }),
         ],
         rejectionHandlers: [
             new transports.File({
-                filename: 'unhandledRejections.log',
+                filename: 'logs/unhandledRejections.log',
                 format: format.combine(format.timestamp(), logFormat),
             }),
         ],

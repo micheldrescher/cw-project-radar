@@ -1,7 +1,6 @@
 #############
 #  BUILDER  #
 #############
-# Start with Node 13
 FROM node:13.10 AS builder
 
 # set the workdir
@@ -20,15 +19,17 @@ RUN npm run build
 #############
 #  RELEASE  #
 #############
-FROM node:13.10
+FROM node:13.10-slim
 
 ENV TZ=Europe/Brussels
 
 # set the user
-USER node
+USER node:node
+RUN mkdir /home/node/cw-project-radar
 
 # set the workdir
 WORKDIR /home/node/cw-project-radar
+RUN mkdir logs
 
 # copy the distrobution files
 COPY --chown=node:node --from=builder /home/node/cw/dist/client ./client

@@ -152,6 +152,7 @@ app.all('*', (req, res, next) => {
 //
 // GLOBAL ERROR HANDLER
 //
+logger.info('Setting up global error handler')
 app.use(globalErrorHandler)
 
 //
