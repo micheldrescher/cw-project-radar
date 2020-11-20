@@ -2,21 +2,21 @@
 // IMPORTS
 //
 const AppError = require('../utils/AppError')
-const logger = require('../utils/logger')
+const { logger } = require('../utils/logger')
 
-const handleCastErrorDB = err => {
+const handleCastErrorDB = (err) => {
     const message = `Invalid ${err.path}: ${err.value}.`
     return new AppError(message, 400)
 }
 
-const handleDuplicateFieldsDB = err => {
+const handleDuplicateFieldsDB = (err) => {
     const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0]
     const message = `Duplicate field value: ${value}. Please use another value.`
     return new AppError(message, 400)
 }
 
-const handleValidationErrorDB = err => {
-    const errors = Object.values(err.errors).map(el => el.message)
+const handleValidationErrorDB = (err) => {
+    const errors = Object.values(err.errors).map((el) => el.message)
     const message = `Invalid input data: ${errors.join('. ')}`
     return new AppError(message, 400)
 }
@@ -24,19 +24,20 @@ const handleValidationErrorDB = err => {
 const sendErrorDev = (err, req, res) => {
     // A) API
     if (req.originalUrl.startsWith('/api')) {
+        logger.error(`ERROR 💥 ${err.stack}`)
         return res.status(err.statusCode).json({
             status: err.status,
             error: err,
             message: err.message,
-            stack: err.stack
+            stack: err.stack,
         })
     }
 
     // B) RENDERED WEBSITE
-    logger.error('ERROR 💥', err)
+    logger.error(`ERROR 💥 ${err}`)
     return res.status(err.statusCode).render('error', {
         title: 'Something went wrong!',
-        msg: err.message
+        msg: err.message,
     })
 }
 
@@ -45,20 +46,18 @@ const sendErrorProd = (err, req, res) => {
     if (req.originalUrl.startsWith('/api')) {
         // Operational error from within our app code
         if (err.isOperational) {
+            logger.error(`ERROR 💥 ${err.stack}`)
             return res.status(err.statusCode).json({
                 status: err.status,
-                message: err.message
+                message: err.message,
             })
         }
         // Errors originated from libraries we cannot 'trust' - send generic error
         else {
-            // 1) log the error to the console
-            logger.error('--==** ERROR **==--', err)
-
-            // 2) Send the generic error
+            logger.error(`ERROR 💥 ${err.stack}`)
             return res.status(500).json({
                 status: 'error',
-                message: 'Something went very wrong.'
+                message: 'Something went very wrong.',
             })
         }
     }
@@ -66,18 +65,19 @@ const sendErrorProd = (err, req, res) => {
     // B) RENDERED WEBSITE
     // A) Operational, trusted error: send message to client
     if (err.isOperational) {
+        logger.error(`ERROR 💥 ${err.stack}`)
         return res.status(err.statusCode).render('error', {
             title: 'Something went wrong!',
-            msg: err.message
+            msg: err.message,
         })
     }
     // B) Programming or other unknown error: don't leak error details
     // 1) Log error
-    logger.error('ERROR 💥', err)
+    logger.error(`ERROR 💥 ${err.stack}`)
     // 2) Send generic message
     return res.status(err.statusCode).render('error', {
         title: 'Something went wrong!',
-        msg: 'Please try again later.'
+        msg: 'Please try again later.',
     })
 }
 
