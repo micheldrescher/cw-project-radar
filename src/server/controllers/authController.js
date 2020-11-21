@@ -1,9 +1,10 @@
-const crypto = require('crypto')
 const { promisify } = require('util')
 const jwt = require('jsonwebtoken')
 const User = require('./../models/userModel')
 const catchAsync = require('./../utils/catchAsync')
 const AppError = require('./../utils/AppError')
+const { logger } = require('../utils/logger')
+const { validUsername } = require('../../common/util/validator')
 
 /***************************/
 /*                         */
@@ -13,9 +14,9 @@ const AppError = require('./../utils/AppError')
 //
 // Sign a JWT token to ensure its authenticity
 //
-const signToken = id => {
+const signToken = (id) => {
     return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000
+        expiresIn: process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000,
     })
 }
 
@@ -28,7 +29,7 @@ const createSendToken = (user, statusCode, req, res) => {
     res.cookie('jwt', token, {
         expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
         httpOnly: true,
-        secure: req.secure || req.headers['x-forwarded-proto'] === 'https'
+        secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
     })
 
     // Remove password from output
@@ -38,8 +39,8 @@ const createSendToken = (user, statusCode, req, res) => {
         status: 'success',
         token,
         data: {
-            user
-        }
+            user,
+        },
     })
 }
 
@@ -57,7 +58,12 @@ exports.login = catchAsync(async (req, res, next) => {
     if (!name || !password) {
         return next(new AppError('Please provide name and password!', 400))
     }
-    // 2) Check if user exists && password is correct
+    // 2) Validate username and password (NoSQL injection protection)
+    if (!validUsername(name)) {
+        return next(new AppError('Invalid characters in username or password', 400))
+    }
+
+    // 3) Check if user exists && password is correct
     const user = await User.findOne({ name }).select('+password')
 
     if (!user || !(await user.correctPassword(password, user.password))) {
@@ -73,10 +79,6 @@ exports.login = catchAsync(async (req, res, next) => {
 //
 exports.logout = (req, res) => {
     res.clearCookie('jwt')
-    // res.cookie('jwt', 'loggedout', {
-    //     expires: new Date(Date.now() + 2 * 1000), // the dud token expires in 2 seconds
-    //     httpOnly: true // we are logging in and out over HTTP(S) only
-    // })
     res.status(200).json({ status: 'success' })
 }
 
@@ -116,7 +118,7 @@ exports.updateUserPassword = catchAsync(async (req, res, next) => {
 
     // send back success response
     res.status(200).json({
-        status: 'success'
+        status: 'success',
     })
 })
 

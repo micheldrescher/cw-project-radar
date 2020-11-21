@@ -23,3 +23,30 @@ describe('Log level param validation', () => {
         expect(v.validLogLevel('delete * from users')).toBe(false)
     })
 })
+
+/*
+ * Log level config
+ */
+describe('Username validation', () => {
+    test('undefined, null', () => {
+        expect(v.validUsername(undefined)).toBe(false)
+        expect(v.validUsername(null)).toBe(false)
+    })
+    test('too short values', () => {
+        expect(v.validUsername('')).toBe(false)
+        expect(v.validUsername('a')).toBe(false)
+        expect(v.validUsername('test')).toBe(false)
+    })
+    test('invalid characters', () => {
+        expect(v.validUsername('$tester')).toBe(false)
+        expect(v.validUsername('tester$')).toBe(false)
+        expect(v.validUsername('te@`/[*')).toBe(false)
+    })
+    test('only numbers', () => {
+        expect(v.validUsername('012345678')).toBe(false)
+    })
+    test('valid usernames', () => {
+        expect(v.validUsername('tester')).toBe(true)
+        expect(v.validUsername('animal001')).toBe(true)
+    })
+})
