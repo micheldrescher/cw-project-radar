@@ -1,3 +1,8 @@
+
+mixin adminItem(title, endpoint, ...role)
+    if (role.includes(user.role))
+        .menu-item: button.admin(route=endpoint) #{title}
+
 header.header
     .header--top
         //- Cyberwatchng logo
@@ -26,18 +31,17 @@ header.header
                         .sub-menu
                             each e in editions
                                 .menu-item: button.radar(radar=`${e.slug}`) #{e.name}
-            - if (user && user.role === 'admin')
+            - if (user && (user.role === 'admin' || user.role === 'manager'))
                 .menu-item
                     button Admin
                     .div(style="position: relative; top: 2px;")
                         .sub-menu
-                            .menu-item: button.admin(route='/admin/user') Manage users
-                            .menu-item: button.admin(route='/admin/radar') Manage radars
-                            .menu-item: button.admin(route='/admin/project') Manage projects
+                            +adminItem('Manage users', '/admin/user', 'admin')
+                            +adminItem('Manage projects', '/admin/project', 'admin', 'manager')
+                            +adminItem('Manage radars', '/admin/radar', 'admin', 'manager')
 
             .menu-right
                 .menu-item
                     button.disclaimer(route='/disclaimer') Disclaimer
                 .menu-item
                     button.documentation(route='/documentation') Documentation
-

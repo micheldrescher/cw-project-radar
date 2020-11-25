@@ -1,9 +1,33 @@
+const crypto = require('crypto')
 const jwt = require('jsonwebtoken')
 const User = require('./../models/userModel')
 const catchAsync = require('./../utils/catchAsync')
 const AppError = require('./../utils/AppError')
 const { logger } = require('../utils/logger')
 const { validUsername } = require('../../common/util/validator')
+
+/***************************
+ *                         *
+ *  Crypto initialisation  *
+ *                         *
+ ***************************/
+const algo = 'aes-192-cbc'
+const key = crypto.scryptSync(process.env.JWT_SECRET, 'salt', 24)
+const iv = Buffer.alloc(16, 0)
+
+const encryptPayload = (clearText) => {
+    const cipher = crypto.createCipheriv(algo, key, iv)
+    let encrypted = cipher.update(clearText, 'utf8', 'hex')
+    encrypted += cipher.final('hex')
+    return encrypted
+}
+
+const decryptPayload = (cipherText) => {
+    const decipher = crypto.createDecipheriv(algo, key, iv)
+    let clearText = decipher.update(cipherText, 'hex', 'utf8')
+    clearText += decipher.final('utf8')
+    return clearText
+}
 
 /***************************/
 /*                         */
@@ -14,7 +38,7 @@ const { validUsername } = require('../../common/util/validator')
 // Sign a JWT token to ensure its authenticity
 //
 const signToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
+    return jwt.sign({ id: encryptPayload(id.toString()) }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000,
     })
 }
@@ -121,78 +145,83 @@ exports.updateUserPassword = catchAsync(async (req, res, next) => {
     })
 })
 
-/*******************/
-/*                 */
-/*  Authorisation  */
-/*                 */
-/*******************/
-//
+/******************************/
+/*                            */
+/*  Authorisation Middleware  */
+/*                            */
+/******************************/
+
 // Decorate the current request with the user corresponding to the supplied token.
 // Any error or a missing token denote a user not being logged in and therefore not
 // present in the request object.
-exports.isLoggedIn = async (req, res, next) => {
-    if (req.cookies.jwt) {
-        try {
-            // 1) verify token
-            const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
-
-            // 2) Check if user still exists
-            const currentUser = await User.findById(decoded.id)
-            if (!currentUser) {
-                return next()
-            }
-
-            // THERE IS A LOGGED IN USER
-            res.locals.user = currentUser
-            return next()
-        } catch (err) {
-            logger.warn(`Invalid JWT cookie found! ${req.cookies.jwt}`)
-            return next()
-        }
+exports.addUserToRequest = async (req, res, next) => {
+    // 1) Fetch the token from cookie or Authorisation bearer
+    let token
+    // Authorization: Bearer <jwt>
+    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+        token = req.headers.authorization.split(' ')[1]
     }
+    // Cookie: jwt <jwt>
+    else if (req.cookies.jwt) {
+        token = req.cookies.jwt
+    }
+
+    // 2) if no token, return/call next()
+    if (!token) return next()
+
+    // 3) Validate the token, and extract userID
+    let userID
+    try {
+        userID = decryptPayload(jwt.verify(req.cookies.jwt, process.env.JWT_SECRET).id)
+    } catch (err) {
+        logger.verbose(`JWT validation/decryption failed: ${req.cookies.jwt}`)
+        return next()
+    }
+
+    // 4) Check if the user still exists
+    const currentUser = await User.findById(userID)
+    if (!currentUser) {
+        logger.verbose(`Invalid userID in validated JWT - user deleted?  ${userID}`)
+        return next()
+    }
+
+    // 5) User exists - add to request!
+    req.user = currentUser
+    res.locals.user = currentUser // also add to locals object for views
     next()
 }
 
 //
-// Protect a route accessible for LOGGED IN USERS ONLY
+// Protect a route accessible for CURRENTLY LOGGED IN USERS ONLY
 //
 exports.protect = catchAsync(async (req, res, next) => {
-    // 1) Getting token and check of it's there
-    let token
-    if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-        token = req.headers.authorization.split(' ')[1]
-    } else if (req.cookies.jwt) {
-        token = req.cookies.jwt
-    }
+    // PREREQUISITE: req is decorated previously (or not, if it failed)
 
-    if (!token) {
+    // 1) Check if request is decorated with the user
+    if (!req.user) {
         return next(new AppError('You are not logged in! Please log in to get access.', 401))
     }
 
-    // 2) Verification token
-    const decoded = jwt.verify(token, process.env.JWT_SECRET)
-
-    // 3) Check if user still exists
-    const currentUser = await User.findById(decoded.id)
-    if (!currentUser) {
-        return next(new AppError('The user belonging to this token does no longer exist.', 401))
-    }
-
-    // GRANT ACCESS TO PROTECTED ROUTE
-    req.user = currentUser
-    res.locals.user = currentUser
+    // 2) All ok, pass on to the next middleware
     next()
 })
 
 //
-// Restrict a route - ONLY FOR CERTAIN ROLES
+// Restrict a route to logged in users with (a) certain role(s)
 //
 exports.restrictTo = (...roles) => {
+    // PREREQUISITE - req object is already decorated with the user instance!
+
     return (req, res, next) => {
+        // 1) Protect the route (i.e. user log in is required)
+        if (!req.user) {
+            return next(new AppError('You are not logged in! Please log in to get access.', 401))
+        }
+        // 2) Check against roles
         if (!roles.includes(req.user.role)) {
             return next(new AppError('You do not have permission to perform this action', 403))
         }
-
+        // all good, pass on!
         next()
     }
 }

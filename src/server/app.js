@@ -14,6 +14,7 @@ const xss = require('xss-clean')
 
 // import app modules
 const AppError = require('./utils/AppError')
+const { addUserToRequest } = require('./controllers/authController')
 const globalErrorHandler = require('./handlers/errorHandler')
 const { logger } = require('./utils/logger')
 const modelRouter = require('./routers/modelRouter')
@@ -136,6 +137,8 @@ logger.debug(`Static path for server = ${path.join(__dirname, '../client')}`)
 //
 // ROUTES
 //
+// decorate the request with the logged in user (if any)
+app.use(addUserToRequest)
 logger.info('Setting up browser views')
 // client views
 app.use('/', viewRouter)
