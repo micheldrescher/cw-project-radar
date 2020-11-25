@@ -1,4 +1,3 @@
-const { promisify } = require('util')
 const jwt = require('jsonwebtoken')
 const User = require('./../models/userModel')
 const catchAsync = require('./../utils/catchAsync')
@@ -135,7 +134,7 @@ exports.isLoggedIn = async (req, res, next) => {
     if (req.cookies.jwt) {
         try {
             // 1) verify token
-            const decoded = await promisify(jwt.verify)(req.cookies.jwt, process.env.JWT_SECRET)
+            const decoded = jwt.verify(req.cookies.jwt, process.env.JWT_SECRET)
 
             // 2) Check if user still exists
             const currentUser = await User.findById(decoded.id)
@@ -147,6 +146,7 @@ exports.isLoggedIn = async (req, res, next) => {
             res.locals.user = currentUser
             return next()
         } catch (err) {
+            logger.warn(`Invalid JWT cookie found! ${req.cookies.jwt}`)
             return next()
         }
     }
@@ -170,7 +170,7 @@ exports.protect = catchAsync(async (req, res, next) => {
     }
 
     // 2) Verification token
-    const decoded = await promisify(jwt.verify)(token, process.env.JWT_SECRET)
+    const decoded = jwt.verify(token, process.env.JWT_SECRET)
 
     // 3) Check if user still exists
     const currentUser = await User.findById(decoded.id)

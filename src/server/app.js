@@ -26,24 +26,27 @@ const viewRouter = require('./routers/viewRouter')
 logger.verbose('Setting up Express application')
 const app = express()
 
+// Log CORS 'Origin header' to learn about when and where Origin: headers are set
+app.use((req, res, next) => {
+    const origin = req.headers['origin'] || req.headers['Origin']
+    if (origin) logger.info(`--==** Origin - '${origin}' - ${req.method} - ${req.path} **==--`)
+    next()
+})
+
 // use Pug for rendering client HTML files
 logger.verbose('Setting up Pug')
 app.set('view engine', 'pug')
 app.set('views', path.join(__dirname, 'views'))
 logger.debug('Pug template path =', path.join(__dirname, 'views'))
+
 //
 // SECURITY CONFIG
 //
-
 logger.info('Setting up app security')
+
 // enable trusting proxies (especially for production)
 logger.verbose('AppSec: trust proxies')
 app.enable('trust proxy')
-
-// Enable/configure CORS
-logger.verbose('AppSec: CORS')
-app.use(cors()) // allow any simple request from anywhere, i.e. "Access-Control-Allow-Origin *
-app.options('*', cors()) // CORS 'pre-flight: allow any options (incl. PATCH, PUT, DELETE, etc.)
 
 // use body parser as requirement for hpp
 logger.verbose('AppSec: URLEncoding/decoding')
@@ -71,7 +74,7 @@ app.use(
     helmet({
         contentSecurityPolicy: {
             directives: {
-                defaultSrc: ["'self'", 'ws://localhost:*/'],
+                defaultSrc: ["'self'", 'ws://localhost:52495/'],
                 baseUri: ["'self'"],
                 fontSrc: ["'self'", 'https:', 'data:'],
                 frameAncestors: ["'self'"],
@@ -133,10 +136,38 @@ logger.debug(`Static path for server = ${path.join(__dirname, '../client')}`)
 //
 // ROUTES
 //
-logger.info('Setting up REST routes')
+logger.info('Setting up browser views')
 // client views
 app.use('/', viewRouter)
-// API
+
+// enable CORS from this point on
+logger.info('AppSec: Enabling white-list based CORS for API')
+const corsWL = process.env.CORS_WHITELIST ? process.env.CORS_WHITELIST.split(' ') : []
+logger.verbose(`CORS whitelisted origins: ${corsWL}`)
+const corsOpts = {
+    origin: (origin, callback) => {
+        if (!origin) {
+            // CORS requests to same origin
+            logger.debug('CORS check - no origin header found. Passing.')
+            callback(null, true)
+        } else if (origin.indexOf('localhost') !== -1) {
+            // localhost always allowed
+            logger.debug('CORS check - localhost is always allowed. Passing.')
+            callback(null, true)
+        } else if (corsWL.includes(origin)) {
+            // whitelisted origin
+            logger.debug(`CORS check - origin ${origin} is whitelisted. Passing.`)
+            callback(null, true)
+        } else {
+            logger.debug(`CORS check - origin ${origin} is NOT whitelisted. Blocking.`)
+            logger.warn(`Request from non-whitelisted origin ${origin} blocked.`)
+            callback(new Error(`Origin ${origin} is not whitelisted.`))
+        }
+    },
+}
+app.use(cors(corsOpts))
+
+// Configure API routes
 app.use('/api/v1/model', modelRouter)
 app.use('/api/v1/project', projectRouter)
 app.use('/api/v1/radar', radarRouter)
