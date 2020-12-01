@@ -6,6 +6,7 @@
     "scripts": {
         "preinstall": "npx npm-force-resolutions",
         "clean": "rm -rf dist && rm src/client/views/*.js && rm -rf src/client/bundle*",
+        "selfsign": "openssl genrsa -out key.pem && openssl req -new -key key.pem -out csr.peM && openssl x509 -req -days 9999 -in csr.pem -signkey key.pem -out cert.pem && rm csr.pem",
         "build": "rm -rf dist && mkdir dist && npm run build:c && npm run build:s",
         "build:c": "rm -rf dist/client && npm run build:c:pug && npm run build:c:js && npm run build:c:static",
         "build:c:pug": "pug -O '{module: true}' -c -D --name-after-file -o src/client/views src/client/views",

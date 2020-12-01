@@ -3,19 +3,22 @@
 //
 // libraries
 require('dotenv').config()
+const fs = require('fs')
+const https = require('https')
 const mongoose = require('mongoose')
 const Process = require('process')
-// app modules
+
+// check deployment config
+process.env.NODE_ENV =
+    process.env.NODE_ENV && process.env.NODE_ENV === 'production' ? 'production' : 'development'
+
+// configure logging
 const { logger } = require('./utils/logger')
 
 //
 // CONNECT TO DB
 //
-// let DB_URL = process.env.DB_URL.replace('<USER>', process.env.DB_USER).replace(
-//     '<PASSWORD>',
-//     process.env.DB_PASSWD
-// )
-let { DB_URL } = process.env
+const { DB_URL } = process.env
 mongoose
     .connect(DB_URL, {
         useNewUrlParser: true,
@@ -35,17 +38,28 @@ mongoose.connection.on('error', (err) => {
     logger.error(err)
 })
 logger.info('Connected to database.')
+
 //
-// IMPORTS
+// CONFIGURE HTTPS
 //
-// app modules (deferred until after DB connection)
+logger.info('Configuring HTTPS')
+logger.verbose('--> Requiring TLS1.3 connections')
+const https_opts = {
+    key: fs.readFileSync(process.env.HTTPS_KEY || 'key.pem'),
+    cert: fs.readFileSync(process.env.HTTPS_CERT || 'cert.pem'),
+    minVersion: 'TLSv1.3',
+}
+
+//
+// PROJECT RADAR APP
+//
 const app = require('./app')
 
 //
 // START SERVER
 //
-const PORT = process.env.PORT || 8080
-const server = app.listen(PORT, () => {
+const PORT = process.env.PORT || 8443
+const server = https.createServer(https_opts, app).listen(PORT, () => {
     logger.info(`App listening on port ${PORT}....`)
     logger.info('Press Ctrl+C to quit.')
 })

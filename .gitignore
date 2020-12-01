@@ -6,6 +6,6 @@ src/client/radar.*
 src/client/project-widget.*
 src/client/views/*.js
 dist
-
+*.pem
 __OLD__
 _playground_
