@@ -64,7 +64,7 @@ class MTRLPerformance extends HTMLElement {
 
         // create the SVG and the base group
         const svg = SVG().attr({
-            viewBox: '-25 -20 500 50',
+            viewBox: '-25 -40 500 80',
         })
 
         // if only one score, or all scores with the same value
@@ -76,8 +76,8 @@ class MTRLPerformance extends HTMLElement {
 
         // prepare scale & labels
         const scaler = scale(0, 450).range(min, max)
-        const values = [min, 0, max] // note that the median is always 0!
-        const labels = ['' + min, 'median', '' + max]
+        const values = [min, max] // note that the median is always 0!
+        const labels = ['' + min, '' + max]
 
         // add the base line
         svg.line(0, 0, 450, 0)
@@ -91,6 +91,10 @@ class MTRLPerformance extends HTMLElement {
                 y: 25,
             })
         })
+        // add the median
+        svg.line(scaler(0), 0, scaler(0), -10)
+        svg.text('median').attr({ x: scaler(0), y: -20 })
+
         // add the project performance line
         const x = scaler(performance)
         svg.line(x, 0, x, -15).attr('id', 'perf')
