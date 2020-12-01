@@ -14,6 +14,7 @@ const { validUsername } = require('../../common/util/validator')
 const algo = 'aes-192-cbc'
 const key = crypto.scryptSync(process.env.JWT_SECRET, 'salt', 24)
 const iv = Buffer.alloc(16, 0)
+const one_hour = 60 * 60 * 1000 // 1 hour
 
 const encryptPayload = (clearText) => {
     const cipher = crypto.createCipheriv(algo, key, iv)
@@ -39,7 +40,7 @@ const decryptPayload = (cipherText) => {
 //
 const signToken = (id) => {
     return jwt.sign({ id: encryptPayload(id.toString()) }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRES_IN * 24 * 60 * 60 * 1000,
+        expiresIn: Math.min(24 * one_hour, process.env.JWT_EXPIRES_IN * one_hour),
     })
 }
 
@@ -50,9 +51,10 @@ const createSendToken = (user, statusCode, req, res) => {
     const token = signToken(user._id)
 
     res.cookie('jwt', token, {
-        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000),
-        httpOnly: true,
-        secure: req.secure || req.headers['x-forwarded-proto'] === 'https',
+        // no expiration --> session cookie only
+        httpOnly: true, // no JS access to cookies
+        secure: true, // only ever send over https
+        sameSite: 'Strict', // only ever sent and accepted from the site the cookie came from
     })
 
     // Remove password from output
