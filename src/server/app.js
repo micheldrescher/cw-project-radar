@@ -45,10 +45,6 @@ logger.debug('Pug template path =', path.join(__dirname, 'views'))
 //
 logger.info('Setting up app security')
 
-// enable trusting proxies (especially for production)
-logger.verbose('AppSec: trust proxies')
-app.enable('trust proxy')
-
 // use body parser as requirement for hpp
 logger.verbose('AppSec: URLEncoding/decoding')
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -75,13 +71,14 @@ app.use(
     helmet({
         contentSecurityPolicy: {
             directives: {
-                defaultSrc: ["'self'", 'ws://localhost:52495/'],
+                defaultSrc: ["'self'", 'wss://localhost', 'https://www.google-analytics.com/'],
                 baseUri: ["'self'"],
                 fontSrc: ["'self'", 'https:', 'data:'],
                 frameAncestors: ["'self'"],
                 imgSrc: ["'self'", 'data:'],
                 objectSrc: ["'none'"],
                 scriptSrcAttr: ["'none'"],
+                scriptSrc: ["'unsafe-inline'", 'https://www.google-analytics.com/', "'self'"],
                 styleSrc: ["'self'", 'https:', "'unsafe-inline'"],
             },
             blockAllMixedContent: true,
