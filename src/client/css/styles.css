@@ -729,7 +729,7 @@ form.form--filter-tags > ul > li:first-child {
  */
 /* Search area stays small and can shrink if necessary, but not grow */
 #search {
-    flex: 0 1 auto;
+    flex: 0 0 auto;
 }
 /* search text field needs styling */
 #search_term {
