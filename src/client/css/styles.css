@@ -635,6 +635,7 @@ section.modal > div.modal-window > section.buttonbar {
  *******************************/
 /* General layout for the filter list(s) */
 #filters {
+    max-height: 6vh;
     margin: 0 4em;
     display: flex;
 }
@@ -658,7 +659,6 @@ section.modal > div.modal-window > section.buttonbar {
     margin-top: 0em;
 }
 #other > .filter:last-child {
-    margin-bottom: 0em;
 }
 /* Each filter child ... */
 #other > .filter > * {
@@ -688,11 +688,32 @@ section.modal > div.modal-window > section.buttonbar {
     margin: auto;
 }
 
+#other > .filter #tags_wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
 /* ... and a noneditable list of tags. */
 #other > div.filter div.tags {
     font-family: 'Lato';
     font-size: 0.8em;
+    position: absolute;
+    overflow: hidden;
+    padding-top: 0.5em;
+    padding-bottom: 0.4em;
+    margin-bottom: 0.5em;
+    background: white;
+    border-radius: 5px;
+    height: 5vh;
 }
+#other > div.filter div.tags:hover {
+    height: auto;
+    padding-bottom: 0;
+    overflow: auto;
+    max-height: 20vh;
+}
+
 /* Each individual tag */
 #other > div.filter div.tags div.tag {
     display: inline-block;

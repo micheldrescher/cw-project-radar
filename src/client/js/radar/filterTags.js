@@ -68,7 +68,7 @@ const updateFilterList = (filter, getNameFunc) => {
         allRadio.checked = true
     }
     // 2) Update filter tag list
-    const tags = filterNode.lastChild
+    const tags = filterNode.lastChild.lastChild
     // remove all tags
     tags.innerHTML = ''
     // now add new list of tags
