@@ -12,8 +12,17 @@ const importHelper = require('./projects/projectsImportHelper')
 //
 // get by CW ID
 //
-exports.getByCWId = async (cw_id) => {
-    return await Project.findOne({ cw_id })
+exports.getByCWId = async (cwid) => {
+    const result = await Project.aggregate()
+        .match({ cw_id: { $eq: Number(cwid) } })
+        .lookup({
+            from: 'mtrlscores',
+            localField: '_id',
+            foreignField: 'project',
+            as: 'scores',
+        })
+        .exec()
+    return result[0]
 }
 
 //
