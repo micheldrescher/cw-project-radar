@@ -37,7 +37,7 @@
         "url": "https://github.com/micheldrescher/cw-project-radar.git"
     },
     "dependencies": {
-        "@fast-csv/parse": "^4.3.2",
+        "@fast-csv/parse": "^4.3.6",
         "@svgdotjs/svg.js": "^3.0.16",
         "axios": "^0.19.2",
         "bcryptjs": "^2.4.3",
