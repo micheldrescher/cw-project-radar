@@ -12,17 +12,62 @@ const importHelper = require('./projects/projectsImportHelper')
 //
 // get by CW ID
 //
-exports.getByCWId = async (cwid) => {
-    const result = await Project.aggregate()
-        .match({ cw_id: { $eq: Number(cwid) } })
-        .lookup({
+exports.getByCWId = async (cwid, addScores, addClassifications) => {
+    // 1) Build the aggregation by matchng the project
+    const query = Project.aggregate().match({ cw_id: { $eq: Number(cwid) } })
+
+    // 2) add score(s) if requested
+    if (addScores) {
+        // build the generic lookup for either case ('all' or 'newest')
+        const lookup = {
             from: 'mtrlscores',
-            localField: '_id',
-            foreignField: 'project',
+            let: { prjID: '$_id' },
+            pipeline: [
+                { $match: { $expr: { $eq: ['$project', '$$prjID'] } } },
+                { $sort: { scoringDate: -1, _id: -1 } },
+            ],
             as: 'scores',
-        })
-        .exec()
-    return result[0]
+        }
+        // if newest only, limit the sub-pipeline to the first element
+        if (addScores === 'newest') {
+            lookup.pipeline.push({
+                $limit: 1,
+            })
+        }
+        // add the lookup to the aggregation
+        query.lookup(lookup)
+    }
+
+    // 3) add classification(s) if requested
+    if (addClassifications) {
+        // build the generic lookup for either case ('all' or 'newest')
+        const lookup = {
+            from: 'classifications',
+            let: { prjID: '$_id' },
+            pipeline: [
+                { $match: { $expr: { $eq: ['$project', '$$prjID'] } } },
+                { $sort: { classifiedOn: -1, _id: -1 } },
+            ],
+            as: 'classifications',
+        }
+        // if newest only, limit the sub-pipeline to the first element
+        if (addClassifications === 'newest') {
+            lookup.pipeline.push({
+                $limit: 1,
+            })
+        }
+        // add the lookup to the aggregation
+        query.lookup(lookup)
+    }
+
+    // 4) FInally, wait for the result
+    const result = await query.exec()
+
+    // 5) Return the first result, if any
+    if (result && result.length > 0) return result[0]
+
+    // 6) Otherwise, return undefined to trigger AppError
+    return undefined
 }
 
 //
