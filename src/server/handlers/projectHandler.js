@@ -10,6 +10,7 @@ const handlerFactory = require('./handlerFactory')
 const AppError = require('../utils/AppError')
 const { Project } = require('../models/projectModel')
 const projectController = require('../controllers/projectController')
+const v = require('../utils/validator')
 
 //
 // CONFIGURE MULTER FOR FILE UPLOADS
@@ -65,13 +66,30 @@ exports.updateProject = handlerFactory.updateOne(
 exports.deleteProject = handlerFactory.deleteOne(Project)
 
 exports.getByCWId = catchAsync(async (req, res, next) => {
-    // input checking
+    // cwid  checking
     if (!req.params.cwid || isNaN(req.params.cwid)) {
         throw new AppError('Missing or non-number cwid in request.', 400)
     }
+    // scores param checking
+    let addScores
+    let addClassifications
+    if (req.query.scores && !v.validScoresParam(req.query.scores)) {
+        throw new AppError("Invalid 'scores' query parameter values. Check documentation.")
+    }
+    addScores = req.query.scores
+    // classification checking
+    if (req.query.class && !v.validScoresParam(req.query.class)) {
+        throw new AppError("Invalid 'class' query parameter values. Check documentation.")
+    }
+    addClassifications = req.query.class
 
     // fetch or find project
-    const project = await projectController.getByCWId(req.params.cwid)
+    const project = await projectController.getByCWId(
+        req.params.cwid,
+        addScores,
+        addClassifications
+    )
+
     if (!project) {
         throw new AppError(`No project found with cwid ${req.params.cwid}`, 404)
     }
