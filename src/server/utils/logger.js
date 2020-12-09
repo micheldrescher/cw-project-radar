@@ -4,7 +4,7 @@
 // libraries
 const { createLogger, format, transports } = require('winston')
 // modules
-const { validLogLevel } = require('../../common/util/validator')
+const { validLogLevel } = require('./validator')
 
 //
 // MODULE VARS

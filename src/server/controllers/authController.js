@@ -4,7 +4,7 @@ const User = require('./../models/userModel')
 const catchAsync = require('./../utils/catchAsync')
 const AppError = require('./../utils/AppError')
 const { logger } = require('../utils/logger')
-const { validUsername } = require('../../common/util/validator')
+const { validUsername } = require('../utils/validator')
 
 /***************************
  *                         *
