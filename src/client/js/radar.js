@@ -23,6 +23,24 @@ import { getName } from '../../common/datamodel/jrc-taxonomy'
 import { searchProjects, clearProjects } from './radar/search.js'
 import { fetchRendering } from './radar/asyncRendering'
 
+/***********************/
+/*                     */
+/*   D O C U M E N T   */
+/*                     */
+/***********************/
+//
+// add keyboard listener
+//
+document.addEventListener('keydown', (e) => {
+    // ESC key closes modals
+    if (e.key === 'Escape') {
+        const modals = document.getElementById('modals').childNodes
+        if (modals && modals.length > 0) {
+            modals[modals.length - 1].remove()
+        }
+    }
+})
+
 /****************************************************************
  *                                                              *
  *                       M E N U    B A R                       *
