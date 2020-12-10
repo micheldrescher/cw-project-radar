@@ -166,7 +166,11 @@ block content
     .stats
         .performance
             if (perf && perf.score)
-                .label Relative performance
+                - if (project.scores.length > 2) 
+                    .label Relative performance 
+                        a#scoregraph(style="cursor:pointer;") &#128202;
+                - else
+                    .label Relative performance
                 +mtrl-performance(perf.score, perf.performance, perf.min, perf.max)
                 .mtrl
                     +simple-metric('MRL', perf.mrl, 'mrl')

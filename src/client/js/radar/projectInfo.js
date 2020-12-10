@@ -8,10 +8,12 @@ import { getModel } from '../util/localStore'
 import { getName } from './../../../common/datamodel/jrc-taxonomy'
 // eslint-disable-next-line node/no-unpublished-import
 import projectinfoTemplate from './../../views/projectInfo'
+// eslint-disable-next-line node/no-unpublished-import
+import scoreGraphTemplate from './../../views/scoreGraph'
 
 const showProjectData = async (cw_id, segment, ring, perf, tags) => {
     // fetch project info
-    const response = await (await axios.get('/api/v1/project/prj_id/' + cw_id)).data
+    const response = await (await axios.get(`/api/v1/project/prj_id/${cw_id}?scores=all`)).data
     // TODO add error message to footer in red
 
     const model = await getModel()
@@ -34,6 +36,24 @@ const showProjectData = async (cw_id, segment, ring, perf, tags) => {
     // link up the close button - DELETES the modal! (it is recreated anyway)
     document.querySelector('#projectInfo .closeBtn').addEventListener('click', () => {
         document.querySelector('#projectInfo').remove()
+    })
+    // linkup the scoregraph link
+    document.getElementById('scoregraph').addEventListener('click', () => {
+        console.log('projectInfo.js scores =', response.data.scores)
+        const graphModalStr = scoreGraphTemplate({
+            modalID: 'mtrlScoreGraph',
+            acronym: response.data.acronym,
+            scores: JSON.stringify(response.data.scores),
+            footer: '',
+        })
+        // add to DOM and display
+        const scoreGraphDiv = document.createElement('div')
+        scoreGraphDiv.innerHTML = graphModalStr
+        document.getElementById('modals').appendChild(scoreGraphDiv)
+        // link up the close button - DELETES the modal! (it is recreated anyway)
+        document.querySelector('#mtrlScoreGraph .closeBtn').addEventListener('click', () => {
+            document.querySelector('#mtrlScoreGraph').remove()
+        })
     })
 }
 
