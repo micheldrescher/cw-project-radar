@@ -1,6 +1,7 @@
 extends _modal
 
 include ../../common/widgets/mtrlScoreGraph/mtrlGraph.pug
+include ../../common/widgets/mtrlScoreHist/mtrlHist.pug
 
 
 //-
@@ -41,6 +42,7 @@ block footer
 //-
 block content
     +mtrlGraph(scores)
+    +mtrlHist(scores)
     //- -
     //-     function enGBDate(date) {
     //-         return new Date(date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })

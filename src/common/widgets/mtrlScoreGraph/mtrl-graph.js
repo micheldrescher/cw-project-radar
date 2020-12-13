@@ -74,7 +74,6 @@ class MTRLGraph extends HTMLElement {
 
     buildDOM = (scores) => {
         const result = document.createElement('div')
-        console.log('scores =', scores)
         // no score scale if no score in project
         if (!scores) return result
 
@@ -141,7 +140,6 @@ class MTRLGraph extends HTMLElement {
 
     addScores = (svg, scores, unitX, unitY) => {
         const radius = 10
-        console.log('addScores scores =', scores)
         const group = svg.group().attr({ id: 'scores' })
         let polygonStr = ''
         for (let i = 0; i < scores.length; i++) {

@@ -512,7 +512,6 @@ if (addScoreForm) {
         const trl = document.getElementById('trl').value
         const scoringDate = document.getElementById('scoringdate').value
         const description = document.getElementById('scoreDescription').value
-        console.log(cw_id, mrl, trl, scoringDate, description)
         addScore(cw_id, mrl, trl, scoringDate, description)
     })
 }

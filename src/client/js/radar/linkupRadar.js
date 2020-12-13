@@ -11,6 +11,7 @@ import { SimpleMetric } from '../../../common/widgets/simple-metric/simple-metri
 import { SDLCPosition } from '../../../common/widgets/sdlc-position/sdlc-position'
 import { MTRLPerformance } from '../../../common/widgets/mtrl-performance/mtrl-performance'
 import { MTRLGraph } from '../../../common/widgets/mtrlScoreGraph/mtrl-graph'
+import { MTRLHist } from '../../../common/widgets/mtrlScoreHist/mtrl-hist'
 import {
     showBliptip,
     hideBliptip,
@@ -34,6 +35,7 @@ const linkupRadar = async () => {
     customElements.define('mtrl-performance', MTRLPerformance)
     customElements.define('radar-location', RadarLocation)
     customElements.define('mtrl-graph', MTRLGraph)
+    customElements.define('mtrl-hist', MTRLHist)
 
     // 1) Animate interactive quadrants
     interactiveQuadrants()
