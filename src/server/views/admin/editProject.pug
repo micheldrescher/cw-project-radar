@@ -34,6 +34,7 @@ mixin mtrlScoreRow(score)
     tr
         td #{prettyDate(score.scoringDate)}
         td #{prettyMTRL(score.mrl,score.trl)}
+        td #{score.description}
 
 mixin scaleOptions()
     each val in [1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -91,6 +92,7 @@ block content
             tr
                 td When
                 td Score
+                td Description
         each s in mtrlScores
             +mtrlScoreRow(s)
     
@@ -110,6 +112,9 @@ block content
         .form__group
             label.form__label(for="scoringDate") Scored on
             input#scoringdate.form__input(type="date")
+        .form__group
+            label.form__label(for="scoreDescription") Description
+            textarea#scoreDescription.form__input(type='string', cols="70", rows="10")
         .form__group
             button.btn#btn--add-score Add
 

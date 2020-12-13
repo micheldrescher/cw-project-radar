@@ -39,7 +39,6 @@ const showProjectData = async (cw_id, segment, ring, perf, tags) => {
     })
     // linkup the scoregraph link
     document.getElementById('scoregraph').addEventListener('click', () => {
-        console.log('projectInfo.js scores =', response.data.scores)
         const graphModalStr = scoreGraphTemplate({
             modalID: 'mtrlScoreGraph',
             acronym: response.data.acronym,

@@ -109,13 +109,18 @@ exports.addMTRLScore = async (cwid, data) => {
     const project = await this.getByCWId(cwid)
     if (!project) throw new AppError(`No project found with id ${cwid}`, 404)
 
+    console.log(project)
+
     // 2) Create new score object
     await MTRLScore.create({
         project: project._id,
         scoringDate: data.scoringDate,
         mrl: data.mrl,
         trl: data.trl,
+        description: data.description,
     })
+
+    console.log(data)
 
     // 3) Flag that this project has at least one score
     project.hasScores = true

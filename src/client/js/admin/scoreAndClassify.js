@@ -17,8 +17,8 @@ const addClassification = async (cw_id, classification, classifiedBy, changeSumm
             data: {
                 classification,
                 classifiedBy,
-                changeSummary
-            }
+                changeSummary,
+            },
         })
 
         if (res.data.status === 'success') {
@@ -35,7 +35,7 @@ const addClassification = async (cw_id, classification, classifiedBy, changeSumm
 //
 // add classification to a project
 //
-const addScore = async (cw_id, mrl, trl, scoringDate) => {
+const addScore = async (cw_id, mrl, trl, scoringDate, description) => {
     try {
         const res = await axios({
             method: 'POST',
@@ -43,8 +43,9 @@ const addScore = async (cw_id, mrl, trl, scoringDate) => {
             data: {
                 mrl,
                 trl,
-                scoringDate
-            }
+                scoringDate,
+                description,
+            },
         })
 
         if (res.data.status === 'success') {
@@ -63,5 +64,5 @@ const addScore = async (cw_id, mrl, trl, scoringDate) => {
 //
 module.exports = {
     addClassification,
-    addScore
+    addScore,
 }
