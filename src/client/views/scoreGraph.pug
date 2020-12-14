@@ -3,14 +3,13 @@ extends _modal
 include ../../common/widgets/mtrlScoreGraph/mtrlGraph.pug
 include ../../common/widgets/mtrlScoreHist/mtrlHist.pug
 
-
 //-
 //- MIXINS
 //-
 
 //- 
 //- CSS
-//- 
+//-
 block append styles
     style(type="text/css").
         /*
@@ -41,50 +40,5 @@ block footer
 //- MAIN CONTENT
 //-
 block content
-    +mtrlGraph(scores)
+    +mtrlGraph(graphScores)
     +mtrlHist(scores)
-    //- -
-    //-     function enGBDate(date) {
-    //-         return new Date(date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric'  })
-    //-     }
-    //-     function enGBMoney(amount) {
-    //-         return new Intl.NumberFormat('en-GB', {style: 'currency', currency: 'EUR'}).format(amount)
-    //-     }
-
-    //- .prjTitle  #{project.title}
-    //- .prjTeaser #{project.teaser}
-    //- //- Key project metrics pane
-    //- .prjMetrics
-    //-     +simple-metric('Start date', enGBDate(project.startDate))
-    //-     +simple-metric('End date', enGBDate(project.endDate))
-    //-     +simple-metric('Budget', enGBMoney(project.totalCost))
-    //-     +simple-metric('Funding call', project.call)
-    //-     +simple-metric('Project type', project.type)
-    //- //- Project statistics pane
-    //- .stats
-    //-     .performance
-    //-         if (perf && perf.score)
-    //-             - if (project.scores.length > 2) 
-    //-                 .label Relative performance 
-    //-                     a#scoregraph(style="cursor:pointer;") &#128202;
-    //-             - else
-    //-                 .label Relative performance
-    //-             +mtrl-performance(perf.score, perf.performance, perf.min, perf.max)
-    //-             .mtrl
-    //-                 +simple-metric('MRL', perf.mrl, 'mrl')
-    //-                 +simple-metric('TRL', perf.trl)
-    //-                 +simple-metric('Performance', perf.performance)
-    //-     .metrics
-    //-         .label Project metrics
-    //-         .radar
-    //-             +radar-coords(segment, ring)
-    //-             +radar-location(model, segment, ring, 'distance')
-    //-         +sdlc-position(model.lcycle, ring)
-    //- //- show the  tags, if any
-    //- - if (tags)
-    //-     #tags
-    //-         .label EC JRC tags
-    //-         div
-    //-             - tags.forEach( (t) => {
-    //-                 .tag #{t}
-    //-             - })

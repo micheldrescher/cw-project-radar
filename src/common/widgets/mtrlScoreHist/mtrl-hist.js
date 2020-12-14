@@ -16,9 +16,9 @@ class MTRLHist extends HTMLElement {
     style = `
 <style>
     :host > div {
-        min-width: 60vh;
         display: grid;
         grid-template-columns: max-content 1fr;
+        margin: 3em;
     }
 
     :host > div > div:nth-child(1),
@@ -37,7 +37,7 @@ class MTRLHist extends HTMLElement {
 
     :host > div > .scoreData {
         padding-left: 1em;
-        padding-bottom: 1em;
+        padding-bottom: 2em;
     }
 
     :host > div > .scoreData > div:nth-child(1),
@@ -78,7 +78,6 @@ class MTRLHist extends HTMLElement {
         // no score scale if no score in project
         if (!scores) return result
 
-        console.log(scores)
         scores.forEach((score) => this.addScore(result, score))
 
         // ?) return result

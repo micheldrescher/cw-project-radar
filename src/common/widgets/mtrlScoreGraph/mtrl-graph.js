@@ -16,7 +16,8 @@ class MTRLGraph extends HTMLElement {
     style = `
 <style>
     :host div {
-        min-width: 60vh;
+        margin: auto;
+        width: 60%;
     }
 
     :host svg > g#mtrl-coords {
@@ -79,7 +80,7 @@ class MTRLGraph extends HTMLElement {
 
         // define the aspect ratio
         const unitX = 120
-        const unitY = 80
+        const unitY = 40
         // create the SVG and the base group
         const svg = SVG().attr({
             viewBox: `-${unitX} -${10 * unitY} ${11 * unitX} ${11 * unitY}`,
@@ -152,6 +153,18 @@ class MTRLGraph extends HTMLElement {
             // add coordinates to polygon string
             if (i > 0) polygonStr += ' '
             polygonStr += `${(score.mrl - 1) * unitX}, ${-unitY * (score.trl - 1)}`
+            // add dashed lines to the axes
+            group
+                .line((score.mrl - 1) * unitX, -unitY * (score.trl - 1), (score.mrl - 1) * unitX, 0)
+                .attr({ stroke: 'darkGray', 'stroke-width': 2, 'stroke-dasharray': '3' })
+            group
+                .line(
+                    (score.mrl - 1) * unitX,
+                    -unitY * (score.trl - 1),
+                    0,
+                    -unitY * (score.trl - 1)
+                )
+                .attr({ stroke: 'darkGray', 'stroke-width': 2, 'stroke-dasharray': '3' })
         }
         group.polyline(polygonStr)
     }

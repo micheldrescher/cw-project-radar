@@ -39,10 +39,17 @@ const showProjectData = async (cw_id, segment, ring, perf, tags) => {
     })
     // linkup the scoregraph link
     document.getElementById('scoregraph').addEventListener('click', () => {
+        // reduce the scores to bare minimum for the graph
+        const graphScores = []
+        response.data.scores.forEach((s) => {
+            const { scoringDate, mrl, trl } = s
+            graphScores.push({ scoringDate, mrl, trl })
+        })
         const graphModalStr = scoreGraphTemplate({
             modalID: 'mtrlScoreGraph',
             acronym: response.data.acronym,
             scores: JSON.stringify(response.data.scores),
+            graphScores: JSON.stringify(graphScores),
             footer: '',
         })
         // add to DOM and display
