@@ -12,6 +12,8 @@ const importHelper = require('./projects/projectsImportHelper')
 //
 // get by CW ID
 //
+// IMPORTANT - this function returns a Javascript object, NOT a mongoose model!
+//
 exports.getByCWId = async (cwid, addScores, addClassifications) => {
     // 1) Build the aggregation by matchng the project
     const query = Project.aggregate().match({ cw_id: { $eq: Number(cwid) } })
@@ -95,8 +97,7 @@ exports.addCategory = async (cwid, data) => {
     })
 
     // 3) Flag that this project is classified
-    project.hasClassifications = true
-    await project.save()
+    await Project.updateOne({ _id: project._id }, { hasClassifications: true })
 
     return project
 }
@@ -119,8 +120,7 @@ exports.addMTRLScore = async (cwid, data) => {
     })
 
     // 3) Flag that this project has at least one score
-    project.hasScores = true
-    await project.save()
+    await Project.updateOne({ _id: project._id }, { hasScores: true })
 
     return project
 }
