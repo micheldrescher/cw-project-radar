@@ -35,32 +35,34 @@ const showProjectData = async (cw_id, segment, ring, perf, tags) => {
     document.getElementById('modals').appendChild(aDiv)
     // link up the close button - DELETES the modal! (it is recreated anyway)
     document.querySelector('#projectInfo .closeBtn').addEventListener('click', () => {
-        document.querySelector('#projectInfo').remove()
+        document.querySelector('#projectInfo').parentNode.remove()
     })
     // linkup the scoregraph link
-    document.getElementById('scoregraph').addEventListener('click', () => {
-        // reduce the scores to bare minimum for the graph
-        const graphScores = []
-        response.data.scores.forEach((s) => {
-            const { scoringDate, mrl, trl } = s
-            graphScores.push({ scoringDate, mrl, trl })
+    const graphBtn = document.getElementById('scoregraph')
+    if (graphBtn)
+        graphBtn.addEventListener('click', () => {
+            // reduce the scores to bare minimum for the graph
+            const graphScores = []
+            response.data.scores.forEach((s) => {
+                const { scoringDate, mrl, trl } = s
+                graphScores.push({ scoringDate, mrl, trl })
+            })
+            const graphModalStr = scoreGraphTemplate({
+                modalID: 'mtrlScoreGraph',
+                acronym: response.data.acronym,
+                scores: JSON.stringify(response.data.scores),
+                graphScores: JSON.stringify(graphScores),
+                footer: '',
+            })
+            // add to DOM and display
+            const scoreGraphDiv = document.createElement('div')
+            scoreGraphDiv.innerHTML = graphModalStr
+            document.getElementById('modals').appendChild(scoreGraphDiv)
+            // link up the close button - DELETES the modal! (it is recreated anyway)
+            document.querySelector('#mtrlScoreGraph .closeBtn').addEventListener('click', () => {
+                document.querySelector('#mtrlScoreGraph').remove()
+            })
         })
-        const graphModalStr = scoreGraphTemplate({
-            modalID: 'mtrlScoreGraph',
-            acronym: response.data.acronym,
-            scores: JSON.stringify(response.data.scores),
-            graphScores: JSON.stringify(graphScores),
-            footer: '',
-        })
-        // add to DOM and display
-        const scoreGraphDiv = document.createElement('div')
-        scoreGraphDiv.innerHTML = graphModalStr
-        document.getElementById('modals').appendChild(scoreGraphDiv)
-        // link up the close button - DELETES the modal! (it is recreated anyway)
-        document.querySelector('#mtrlScoreGraph .closeBtn').addEventListener('click', () => {
-            document.querySelector('#mtrlScoreGraph').remove()
-        })
-    })
 }
 
 const setFailureFooter = (cont, res) => {
