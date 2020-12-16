@@ -2,6 +2,7 @@
 // IMPORTS
 //
 const moment = require('moment')
+const { JSDOM } = require('jsdom')
 // libraries
 // app modules
 const APIFeatures = require('../utils/apiFeatures')
@@ -18,6 +19,7 @@ const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
 const { jrcTaxonomy } = require('./../../common/datamodel/jrc-taxonomy')
+const { validSlug, validCwId } = require('../utils/validator')
 //
 // MIDDLEWARE
 //
@@ -287,43 +289,43 @@ exports.editProject = catchAsync(async (req, res, next) => {
 // Standard project widget
 //
 exports.getProjectWidget = catchAsync(async (req, res, next) => {
-    // 1) Get the correct radar (default to latest if not provided)
-    const radar = await radarController.getBySlugOrLatest(req.params.radar, 'data')
+    // 1) Check parameters
+    if (req.params.cwid && !validCwId(req.params.cwid)) throw new AppError('Invalid project CW id.')
 
-    // 2) find the project' blip in the radar
-    let blip
-    // iterate over all segments
-    const segsIter = radar.data.data.values()
-    let seg = segsIter.next()
-    while (blip == null && !seg.done) {
-        // now iterate over the segments' rings
-        const ringsIter = seg.value.values()
-        let ring = ringsIter.next()
-        while (blip == null && !ring.done) {
-            // now let's find the blip in the array
-            for (let i = 0; i < ring.value.length; i++) {
-                if (ring.value[i].cw_id == req.params.cwid) {
-                    blip = ring.value[i]
-                    break
-                }
-            }
-            ring = ringsIter.next()
-        }
-        seg = segsIter.next()
-    }
-    if (!blip) {
-        // no blip found
-        return next(new AppError('Project not found in given radar', 404))
-    }
+    // 2) Get the latest MTRL submission for the given project
+    const data = await Project.aggregate()
+        .match({ cw_id: { $eq: Number(req.params.cwid) } })
+        .lookup({
+            from: 'mtrlscores',
+            let: { prjID: '$_id' },
+            pipeline: [
+                { $match: { $expr: { $eq: ['$project', '$$prjID'] } } },
+                { $sort: { scoringDate: -1, _id: -1 } },
+                { $limit: 1 },
+            ],
+            as: 'score',
+        })
+        .exec()
+    if (!data || data.length < 1)
+        throw new AppError(`No data found for widget for project no. ${req.params.cwid}`)
 
-    // 3) get the data model from the environment
-    const model = modelController.getModel()
+    console.log(data)
+
+    // // 1) Get the correct radar (default to latest if not provided)
+    // const radar = await radarController.getBySlugOrLatest(req.params.radar, 'rendering')
+    // if (!radar) throw new AppError(`No project for id ${req.params.cwid} found.`)
+
+    // // 2) Find the entry for the project with the given cwID
+    // const blipRegex = new RegExp(`(<g class="blip" id="blip-${req.params.cwid}" .+?<\\/g>)`, 'g')
+    // const blipStr = radar.rendering.rendering.get('svg').match(blipRegex)[0]
+    // const fakeDoc = new JSDOM('<html><head></head><body></body></html>').window.document
+    // fakeDoc.querySelector('body').innerHTML = blipStr
+    // console.log(fakeDoc.querySelector('g'))
 
     // ??) Render the widget
     res.status(200).render('widgets/project.pug', {
-        radar: radar.name,
-        blip,
-        model,
+        mrl: data[0].score[0].mrl,
+        trl: data[0].score[0].trl,
     })
 })
 

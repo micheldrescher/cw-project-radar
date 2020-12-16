@@ -98,3 +98,62 @@ describe('Validating classification query param for get ProjectByCWID', () => {
         expect(v.validClassificationParam('newest')).toBe(true)
     })
 })
+
+/*
+ * Radar slugs
+ */
+describe('Validating slugs as user input', () => {
+    // undefined, null, empty
+    test('undefined, null, empty', () => {
+        expect(v.validSlug(undefined)).toBe(false)
+        expect(v.validSlug(null)).toBe(false)
+        expect(v.validSlug('')).toBe(false)
+    })
+
+    // invalid slugs
+    test('invalid slugs', () => {
+        expect(v.validSlug('autumn-020')).toBe(false)
+        expect(v.validSlug('-2020')).toBe(false)
+        expect(v.validSlug('2020-spring')).toBe(false)
+        expect(v.validSlug('username[$ne]=1&password[$ne]=1')).toBe(false)
+    })
+
+    // valid slugs
+    test('valid slugs', () => {
+        expect(v.validSlug('autumn-2020')).toBe(true)
+        expect(v.validSlug('spring-2020')).toBe(true)
+        expect(v.validSlug('spring-0000')).toBe(true)
+        expect(v.validSlug('spring-9999')).toBe(true)
+    })
+})
+
+/*
+ * Project CW Ids
+ */
+describe('Validating project CW Ids as user input', () => {
+    // undefined, null, empty
+    test('undefined, null, empty', () => {
+        expect(v.validCwId(undefined)).toBe(false)
+        expect(v.validCwId(null)).toBe(false)
+        expect(v.validCwId('')).toBe(false)
+    })
+
+    // invalid slugs
+    test('invalid CW Ids', () => {
+        expect(v.validCwId('?')).toBe(false)
+        expect(v.validCwId('a')).toBe(false)
+        expect(v.validCwId('autumn-020')).toBe(false)
+        expect(v.validCwId('-2020')).toBe(false)
+        expect(v.validCwId('2020-spring')).toBe(false)
+        expect(v.validCwId('username[$ne]=1&password[$ne]=1')).toBe(false)
+    })
+
+    // valid slugs
+    test('valid CW Ids', () => {
+        expect(v.validCwId('0')).toBe(true)
+        expect(v.validCwId('1')).toBe(true)
+        expect(v.validCwId('9')).toBe(true)
+        expect(v.validCwId('99')).toBe(true)
+        expect(v.validCwId('9999999999999')).toBe(true)
+    })
+})
