@@ -2,7 +2,6 @@
 // IMPORTS
 //
 const moment = require('moment')
-const { JSDOM } = require('jsdom')
 // libraries
 // app modules
 const APIFeatures = require('../utils/apiFeatures')
@@ -14,12 +13,11 @@ const classificationController = require('./../controllers/classificationControl
 const mtrlScoresController = require('./../controllers/mtrlScoresController')
 const radarController = require('../controllers/radarController')
 const { roundDec } = require('../../common/util/maths')
-const modelController = require('../controllers/modelController')
 const User = require('../models/userModel')
 const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
 const { jrcTaxonomy } = require('./../../common/datamodel/jrc-taxonomy')
-const { validSlug, validCwId } = require('../utils/validator')
+const { validCwId } = require('../utils/validator')
 //
 // MIDDLEWARE
 //
@@ -309,20 +307,7 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
     if (!data || data.length < 1)
         throw new AppError(`No data found for widget for project no. ${req.params.cwid}`)
 
-    console.log(data)
-
-    // // 1) Get the correct radar (default to latest if not provided)
-    // const radar = await radarController.getBySlugOrLatest(req.params.radar, 'rendering')
-    // if (!radar) throw new AppError(`No project for id ${req.params.cwid} found.`)
-
-    // // 2) Find the entry for the project with the given cwID
-    // const blipRegex = new RegExp(`(<g class="blip" id="blip-${req.params.cwid}" .+?<\\/g>)`, 'g')
-    // const blipStr = radar.rendering.rendering.get('svg').match(blipRegex)[0]
-    // const fakeDoc = new JSDOM('<html><head></head><body></body></html>').window.document
-    // fakeDoc.querySelector('body').innerHTML = blipStr
-    // console.log(fakeDoc.querySelector('g'))
-
-    // ??) Render the widget
+    // 3) Render the widget
     res.status(200).render('widgets/project.pug', {
         mrl: data[0].score[0].mrl,
         trl: data[0].score[0].trl,
