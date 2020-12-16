@@ -24,7 +24,8 @@ html
 
   body(data-alertmsg=`${alert ? alert.message : ''}`, data-alerttype=`${alert ? alert.status : ''}`)
     //- HEADER
-    include _header
+    block header
+      include _header
 
     //- MODALS - they are not impacting the main layout
     section#modals
@@ -36,4 +37,5 @@ html
         h1 This is a placeholder heading
 
     //- FOOTER
-    include _footer
+    block footer
+      include _footer

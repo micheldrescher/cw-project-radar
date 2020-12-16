@@ -19,6 +19,7 @@ class MTRLHist extends HTMLElement {
         display: grid;
         grid-template-columns: max-content 1fr;
         margin: 3em;
+        min-width: 40vw;
     }
 
     :host > div > div:nth-child(1),

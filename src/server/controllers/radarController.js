@@ -50,31 +50,34 @@ exports.getEditions = async () => {
     return ed
 }
 
-// //
-// // fetches a radar by its slug or, if not provided, the latest one
-// //
-// exports.getBySlugOrLatest = async (slug, field) => {
-//     let radar
+//
+// fetches a radar by its slug or, if not provided, the latest one
+//
+// NOTE: THis is used for the widget!!
+//
+exports.getBySlugOrLatest = async (slug, field) => {
+    // 1) Get slug of latest edition if no specific slug was provided
+    let mySlug = slug
+    if (!mySlug) {
+        // 1.1 find all editions and pick the latest
+        let editions = await this.getEditions()
+        if (!editions || editions.length == 0) {
+            // no public editions available
+            throw new AppError('No published radars available', 204)
+        }
+        mySlug = editions[0].slug
+    }
 
-//     if (slug) {
-//         radar = await this.getRadarBySlug(slug, field)
-//     } else {
-//         // 1.1 find all editions and pick the latest
-//         let editions = await this.getEditions()
-//         if (!editions || editions.length == 0) {
-//             // no public editions available
-//             throw new AppError('No published radars available', 204)
-//         }
-//         // 1.2 Now get the latest published radar
-//         radar = await this.getRadarBySlug(editions[0].slug, field)
-//     }
-//     if (!radar) {
-//         // no radar found...
-//         throw new AppError('No radar with that slug', 404)
-//     }
+    // 2) Get the radar for the slug
+    const radar = await this.getRadarBySlug(mySlug, field)
+    if (!radar) {
+        // no radar found...
+        throw new AppError('No radar with that slug', 404)
+    }
 
-//     return radar
-// }
+    // 3) return the found radar
+    return radar
+}
 
 /*******************************
  *                             *
