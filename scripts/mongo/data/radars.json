@@ -1,85 +1,106 @@
 [{
 	"_id": {
-		"$oid": "5fabf1b5b70bbf29e9eebc89"
+		"$oid": "5fda725a3e87c35b4a0fc98d"
 	},
 	"status": "published",
 	"year": 2018,
 	"release": "Autumn",
-	"summary": "First radar",
+	"summary": "First Cyberwatching.eu radar.",
 	"slug": "autumn-2018",
 	"name": "Autumn 2018",
 	"__v": 0,
 	"publicationDate": {
-		"$date": "2020-11-11T14:17:23.134Z"
+		"$date": "2020-12-16T20:48:55.113Z"
 	},
 	"referenceDate": {
 		"$date": "2018-09-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5fabf27320213b2a51453ae4"
+		"$oid": "5fda72b72fbaf95acecf9fea"
 	}
 },
 {
 	"_id": {
-		"$oid": "5fabf1b5b70bbf29e9eebc8a"
+		"$oid": "5fda725a3e87c35b4a0fc98e"
 	},
 	"status": "published",
 	"year": 2019,
 	"release": "Spring",
-	"summary": "Second radar",
+	"summary": "Second Cyberwatchng.eu radar. For the first time, MTRL scores for projects were gathered and are used to determine the project's relative score compared to similar projects.",
 	"slug": "spring-2019",
 	"name": "Spring 2019",
 	"__v": 0,
 	"publicationDate": {
-		"$date": "2020-11-11T14:17:49.099Z"
+		"$date": "2020-12-16T20:50:10.428Z"
 	},
 	"referenceDate": {
 		"$date": "2019-04-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5fabf28d20213b2a51453b96"
+		"$oid": "5fda73022fbaf95acecfa09c"
 	}
 },
 {
 	"_id": {
-		"$oid": "5fabf1b5b70bbf29e9eebc8b"
+		"$oid": "5fda725a3e87c35b4a0fc98f"
 	},
 	"status": "published",
 	"year": 2019,
 	"release": "Autumn",
-	"summary": "Third radar",
+	"summary": "Third Cyberwatching.eu project radar. The trend of a very \"populated\" secure systems segment remains stable. MTRL score gathering pace increases. More and more projects engage in this activity.",
 	"slug": "autumn-2019",
 	"name": "Autumn 2019",
 	"__v": 0,
 	"publicationDate": {
-		"$date": "2020-11-11T14:18:11.169Z"
+		"$date": "2020-12-16T20:51:34.732Z"
 	},
 	"referenceDate": {
 		"$date": "2019-09-14T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5fabf2a320213b2a51453c57"
+		"$oid": "5fda73562fbaf95acecfa15e"
 	}
 },
 {
 	"_id": {
-		"$oid": "5fabf1b5b70bbf29e9eebc8c"
+		"$oid": "5fda725a3e87c35b4a0fc990"
 	},
 	"status": "published",
 	"year": 2020,
 	"release": "Spring",
-	"summary": "Fourth radar",
+	"summary": "Fourth Cyberwatching.eu project radar. The most successful drive for MTRL score submission yet with more than 40 projects submitting their scores.\nThe most engaging projects are addressing secure systems, while curiously projects in the operational risk and human aspects remain at low activity in engaging in MTRL score submission.",
 	"slug": "spring-2020",
 	"name": "Spring 2020",
 	"__v": 0,
 	"publicationDate": {
-		"$date": "2020-11-11T14:18:39.073Z"
+		"$date": "2020-12-16T20:55:10.454Z"
 	},
 	"referenceDate": {
-		"$date": "2020-07-14T23:00:00Z"
+		"$date": "2020-05-09T23:00:00Z"
 	},
 	"rendering": {
-		"$oid": "5fabf2bf20213b2a51453d13"
+		"$oid": "5fda742e2fbaf95acecfa21f"
+	}
+},
+{
+	"_id": {
+		"$oid": "5fda725a3e87c35b4a0fc991"
+	},
+	"status": "published",
+	"year": 2020,
+	"release": "Autumn",
+	"summary": "Latest edition of the Cyberwatching.eu project radar. Due to scheduling problems the drive for collecting MTRL scores was significantly lower, as it moved into the most busy end of year phase in the project calendar. However, a handful of projects remain committed and active in the process of submitting MTRL scores.",
+	"slug": "autumn-2020",
+	"name": "Autumn 2020",
+	"__v": 0,
+	"publicationDate": {
+		"$date": "2020-12-16T20:58:51.281Z"
+	},
+	"referenceDate": {
+		"$date": "2020-12-15T00:00:00Z"
+	},
+	"rendering": {
+		"$oid": "5fda750b2fbaf95acecfa387"
 	}
 }]
 

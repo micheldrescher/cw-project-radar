@@ -11,7 +11,7 @@ const mongoose = require('mongoose')
 const { MTRLScore } = require('./../src/server/models/mtrlScoreModel')
 const projectController = require('./../src/server/controllers/projectController')
 
-process.on('unhandledRejection', error => {
+process.on('unhandledRejection', (error) => {
     // Will print "unhandledRejection err is not defined"
     console.log('unhandledRejection', error.message)
     throw error
@@ -23,7 +23,7 @@ process.on('unhandledRejection', error => {
 const csvParseOptions = {
     delimiter: '	',
     quote: null,
-    headers: true
+    headers: true,
 }
 
 // DB URL
@@ -33,15 +33,15 @@ mongoose.connect(DB_URL, {
     useNewUrlParser: true,
     useCreateIndex: true,
     useFindAndModify: false,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
 })
 // test connect so that we know all is in order
 var db = mongoose.connection
-db.on('error', function() {
+db.on('error', function () {
     console.log('Failed to connect to database')
     process.exit(1)
 })
-db.once('open', async function() {
+db.once('open', async function () {
     console.log('Connected to database')
     await runScript()
 })
@@ -68,11 +68,17 @@ const runScript = async () => {
     )
     const spring2020Data = await importScores(
         '__import__/mtrl_scores_spring_2020.tsv',
-        '2019-06-30'
+        '2020-04-15'
+    )
+    const autumn2020Data = await importScores(
+        '__import__/mtrl_scores_autumn_2020.tsv',
+        '2020-12-01'
     )
 
     const data = filterData(
-        autumn2018Data.concat(spring2019Data.concat(autumn2019Data.concat(spring2020Data)))
+        autumn2018Data.concat(
+            spring2019Data.concat(autumn2019Data.concat(spring2020Data.concat(autumn2020Data)))
+        )
     )
 
     await addScores(data)
@@ -97,12 +103,12 @@ const importScores = (path, date) => {
         fs.createReadStream(aPath)
             .pipe(csv.parse(csvParseOptions))
 
-            .on('error', error => {
+            .on('error', (error) => {
                 console.error(error)
                 reject()
             })
 
-            .on('data', row => {
+            .on('data', (row) => {
                 const obj = cleanseData(row)
                 // add to data stack
                 data.push({
@@ -110,22 +116,22 @@ const importScores = (path, date) => {
                     name: obj.name,
                     trl: obj.trl,
                     mrl: obj.mrl,
-                    date: aDate
+                    date: aDate,
                 })
             })
 
-            .on('end', rowCount => {
+            .on('end', (rowCount) => {
                 console.log(`Parsed ${rowCount} rows`)
                 resolve(data)
             })
     })
 }
 
-const cleanseData = obj => {
+const cleanseData = (obj) => {
     let result = {}
 
     // cleanse data: empty values to undefined
-    Object.keys(obj).forEach(function(key) {
+    Object.keys(obj).forEach(function (key) {
         if (obj[key] !== '') {
             result[key] = obj[key] // remove empty entries
         }
@@ -134,13 +140,13 @@ const cleanseData = obj => {
     return result
 }
 
-const filterData = all => {
+const filterData = (all) => {
     console.log('\n==> FILTERING scores')
     const result = []
 
     let added = 0
     let skipped = 0
-    all.map(entry => {
+    all.map((entry) => {
         if (entry.trl && entry.mrl) {
             added++
             result.push(entry)
@@ -152,26 +158,26 @@ const filterData = all => {
     return result
 }
 
-const addScores = async data => {
+const addScores = async (data) => {
     console.log('\n==> ADDING scores')
     let added = 0
     let failed = 0
     let skipped = 0
     await Promise.all(
-        data.map(async obj => {
+        data.map(async (obj) => {
             console.log(`${obj.id} - ${obj.name} --> (${obj.trl}, ${obj.mrl})`)
             // add classification
             await projectController.addMTRLScore(obj.id, {
                 scoringDate: obj.date,
                 trl: obj.trl,
-                mrl: obj.mrl
+                mrl: obj.mrl,
             })
             added++
         })
     )
     console.log(
-        `${added +
-            failed +
-            skipped} scores (${added} added, ${failed} failed, ${skipped} skipped.)\n`
+        `${
+            added + failed + skipped
+        } scores (${added} added, ${failed} failed, ${skipped} skipped.)\n`
     )
 }

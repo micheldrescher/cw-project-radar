@@ -54,8 +54,7 @@ mongoose.connect(DB_URL, {
 // test connect so that we know all is in order
 var db = mongoose.connection
 db.on('error', function () {
-    console.log('Failed to connect to database')
-    process.exit(1)
+    throw new Error('Failed to connect to database')
 })
 db.once('open', async function () {
     console.log('Connected to database')

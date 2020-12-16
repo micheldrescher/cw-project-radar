@@ -1,12 +1,12 @@
 [{
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad3e"
+		"$oid": "5fda72050fcfd25b43843c4f"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3282f1"
+		"$oid": "5fda6e7071eed15a7cffc4a7"
 	},
 	"mrl": 3,
 	"trl": 6,
@@ -14,27 +14,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad3f"
+		"$oid": "5fda72050fcfd25b43843c50"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32830f"
-	},
-	"mrl": 4,
-	"trl": 6,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad40"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328314"
+		"$oid": "5fda6e7171eed15a7cffc4ca"
 	},
 	"mrl": 6,
 	"trl": 7,
@@ -42,13 +28,27 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad41"
+		"$oid": "5fda72050fcfd25b43843c51"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328319"
+		"$oid": "5fda6e7171eed15a7cffc4c5"
+	},
+	"mrl": 4,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c52"
+	},
+	"scoringDate": {
+		"$date": "2019-03-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc4cf"
 	},
 	"mrl": 2,
 	"trl": 4,
@@ -56,13 +56,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad42"
+		"$oid": "5fda72050fcfd25b43843c53"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32831a"
+		"$oid": "5fda6e7171eed15a7cffc4d0"
 	},
 	"mrl": 5,
 	"trl": 7,
@@ -70,13 +70,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad43"
+		"$oid": "5fda72050fcfd25b43843c54"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328323"
+		"$oid": "5fda6e7171eed15a7cffc4d4"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -84,27 +84,27 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad44"
+		"$oid": "5fda72050fcfd25b43843c55"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328326"
+		"$oid": "5fda6e7171eed15a7cffc4de"
 	},
-	"mrl": 2,
-	"trl": 4,
+	"mrl": 5,
+	"trl": 7,
 	"__v": 0
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad45"
+		"$oid": "5fda72050fcfd25b43843c56"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32831e"
+		"$oid": "5fda6e7171eed15a7cffc4e6"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -112,13 +112,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad46"
+		"$oid": "5fda72050fcfd25b43843c57"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32835c"
+		"$oid": "5fda6e7171eed15a7cffc512"
 	},
 	"mrl": 3,
 	"trl": 2,
@@ -126,13 +126,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad47"
+		"$oid": "5fda72050fcfd25b43843c58"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32835d"
+		"$oid": "5fda6e7171eed15a7cffc513"
 	},
 	"mrl": 5,
 	"trl": 7,
@@ -140,13 +140,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad48"
+		"$oid": "5fda72050fcfd25b43843c59"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328368"
+		"$oid": "5fda6e7171eed15a7cffc51e"
 	},
 	"mrl": 6,
 	"trl": 8,
@@ -154,111 +154,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad49"
+		"$oid": "5fda72050fcfd25b43843c5a"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328328"
-	},
-	"mrl": 5,
-	"trl": 7,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad4a"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328330"
-	},
-	"mrl": 5,
-	"trl": 6,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad4b"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328383"
-	},
-	"mrl": 1,
-	"trl": 1,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad4c"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328384"
-	},
-	"mrl": 1,
-	"trl": 2,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad4d"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328385"
-	},
-	"mrl": 2,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad4e"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328386"
-	},
-	"mrl": 1,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad4f"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328389"
-	},
-	"mrl": 2,
-	"trl": 1,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad50"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed32836a"
+		"$oid": "5fda6e7171eed15a7cffc520"
 	},
 	"mrl": 4,
 	"trl": 7,
@@ -266,27 +168,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad51"
+		"$oid": "5fda72050fcfd25b43843c5b"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32836b"
-	},
-	"mrl": 1,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad52"
-	},
-	"scoringDate": {
-		"$date": "2019-03-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed32837a"
+		"$oid": "5fda6e7171eed15a7cffc4d9"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -294,13 +182,27 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad53"
+		"$oid": "5fda72050fcfd25b43843c5c"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328380"
+		"$oid": "5fda6e7171eed15a7cffc4dc"
+	},
+	"mrl": 2,
+	"trl": 4,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c5d"
+	},
+	"scoringDate": {
+		"$date": "2019-03-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc536"
 	},
 	"mrl": 3,
 	"trl": 3,
@@ -308,13 +210,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad54"
+		"$oid": "5fda72050fcfd25b43843c5e"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328382"
+		"$oid": "5fda6e7171eed15a7cffc538"
 	},
 	"mrl": 1,
 	"trl": 1,
@@ -322,27 +224,97 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad55"
+		"$oid": "5fda72050fcfd25b43843c5f"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32838e"
+		"$oid": "5fda6e7171eed15a7cffc539"
 	},
-	"mrl": 4,
+	"mrl": 1,
+	"trl": 1,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c60"
+	},
+	"scoringDate": {
+		"$date": "2019-03-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc53a"
+	},
+	"mrl": 1,
+	"trl": 2,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c61"
+	},
+	"scoringDate": {
+		"$date": "2019-03-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc53b"
+	},
+	"mrl": 2,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c62"
+	},
+	"scoringDate": {
+		"$date": "2019-03-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc53c"
+	},
+	"mrl": 1,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c63"
+	},
+	"scoringDate": {
+		"$date": "2019-03-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc521"
+	},
+	"mrl": 1,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c64"
+	},
+	"scoringDate": {
+		"$date": "2019-03-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc530"
+	},
+	"mrl": 5,
 	"trl": 6,
 	"__v": 0
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad56"
+		"$oid": "5fda72050fcfd25b43843c65"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328391"
+		"$oid": "5fda6e7171eed15a7cffc547"
 	},
 	"mrl": 3,
 	"trl": 2,
@@ -350,13 +322,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad57"
+		"$oid": "5fda72050fcfd25b43843c66"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328393"
+		"$oid": "5fda6e7171eed15a7cffc549"
 	},
 	"mrl": 2,
 	"trl": 2,
@@ -364,13 +336,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad58"
+		"$oid": "5fda72050fcfd25b43843c67"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328398"
+		"$oid": "5fda6e7171eed15a7cffc54e"
 	},
 	"mrl": 4,
 	"trl": 2,
@@ -378,13 +350,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad59"
+		"$oid": "5fda72050fcfd25b43843c68"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328399"
+		"$oid": "5fda6e7171eed15a7cffc54f"
 	},
 	"mrl": 3,
 	"trl": 1,
@@ -392,13 +364,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad5a"
+		"$oid": "5fda72050fcfd25b43843c69"
 	},
 	"scoringDate": {
 		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32839a"
+		"$oid": "5fda6e7171eed15a7cffc550"
 	},
 	"mrl": 3,
 	"trl": 3,
@@ -406,13 +378,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad5b"
+		"$oid": "5fda72050fcfd25b43843c6a"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3282f9"
+		"$oid": "5fda6e7071eed15a7cffc4af"
 	},
 	"mrl": 3,
 	"trl": 9,
@@ -420,41 +392,41 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad5c"
+		"$oid": "5fda72050fcfd25b43843c6b"
 	},
 	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
+		"$date": "2019-03-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328304"
-	},
-	"mrl": 4,
-	"trl": 7,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad5d"
-	},
-	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328319"
+		"$oid": "5fda6e7171eed15a7cffc53f"
 	},
 	"mrl": 2,
+	"trl": 1,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c6c"
+	},
+	"scoringDate": {
+		"$date": "2019-03-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc544"
+	},
+	"mrl": 4,
 	"trl": 6,
 	"__v": 0
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad5e"
+		"$oid": "5fda72050fcfd25b43843c6d"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328320"
+		"$oid": "5fda6e7171eed15a7cffc4d6"
 	},
 	"mrl": 5,
 	"trl": 7,
@@ -462,13 +434,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad5f"
+		"$oid": "5fda72050fcfd25b43843c6e"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328328"
+		"$oid": "5fda6e7171eed15a7cffc4de"
 	},
 	"mrl": 5,
 	"trl": 7,
@@ -476,13 +448,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad60"
+		"$oid": "5fda72050fcfd25b43843c6f"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32832f"
+		"$oid": "5fda6e7171eed15a7cffc4e5"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -490,13 +462,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad61"
+		"$oid": "5fda72050fcfd25b43843c70"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328330"
+		"$oid": "5fda6e7171eed15a7cffc4e6"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -504,13 +476,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad62"
+		"$oid": "5fda72050fcfd25b43843c71"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328347"
+		"$oid": "5fda6e7171eed15a7cffc4fd"
 	},
 	"mrl": 5,
 	"trl": 7,
@@ -518,13 +490,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad63"
+		"$oid": "5fda72050fcfd25b43843c72"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328352"
+		"$oid": "5fda6e7171eed15a7cffc508"
 	},
 	"mrl": 7,
 	"trl": 7,
@@ -532,13 +504,55 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad64"
+		"$oid": "5fda72050fcfd25b43843c73"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32835a"
+		"$oid": "5fda6e7071eed15a7cffc4ba"
+	},
+	"mrl": 4,
+	"trl": 7,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c74"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc4cf"
+	},
+	"mrl": 2,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c75"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc516"
+	},
+	"mrl": 5,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c76"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc510"
 	},
 	"mrl": 6,
 	"trl": 7,
@@ -546,13 +560,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad65"
+		"$oid": "5fda72050fcfd25b43843c77"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32835e"
+		"$oid": "5fda6e7171eed15a7cffc514"
 	},
 	"mrl": 2,
 	"trl": 4,
@@ -560,13 +574,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad66"
+		"$oid": "5fda72050fcfd25b43843c78"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328360"
+		"$oid": "5fda6e7171eed15a7cffc51c"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -574,27 +588,27 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad67"
+		"$oid": "5fda72050fcfd25b43843c79"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328366"
+		"$oid": "5fda6e7171eed15a7cffc525"
 	},
-	"mrl": 5,
-	"trl": 6,
+	"mrl": 6,
+	"trl": 7,
 	"__v": 0
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad68"
+		"$oid": "5fda72050fcfd25b43843c7a"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328368"
+		"$oid": "5fda6e7171eed15a7cffc51e"
 	},
 	"mrl": 6,
 	"trl": 8,
@@ -602,27 +616,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad69"
+		"$oid": "5fda72050fcfd25b43843c7b"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32836f"
-	},
-	"mrl": 6,
-	"trl": 7,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad6a"
-	},
-	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328380"
+		"$oid": "5fda6e7171eed15a7cffc536"
 	},
 	"mrl": 3,
 	"trl": 3,
@@ -630,13 +630,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad6b"
+		"$oid": "5fda72050fcfd25b43843c7c"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328384"
+		"$oid": "5fda6e7171eed15a7cffc53a"
 	},
 	"mrl": 1,
 	"trl": 6,
@@ -644,13 +644,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad6c"
+		"$oid": "5fda72050fcfd25b43843c7d"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328386"
+		"$oid": "5fda6e7171eed15a7cffc53c"
 	},
 	"mrl": 3,
 	"trl": 3,
@@ -658,13 +658,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad6d"
+		"$oid": "5fda72050fcfd25b43843c7e"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328389"
+		"$oid": "5fda6e7171eed15a7cffc549"
 	},
 	"mrl": 2,
 	"trl": 2,
@@ -672,13 +672,97 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad6e"
+		"$oid": "5fda72050fcfd25b43843c7f"
 	},
 	"scoringDate": {
 		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32838b"
+		"$oid": "5fda6e7171eed15a7cffc54a"
+	},
+	"mrl": 6,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c80"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc54f"
+	},
+	"mrl": 4,
+	"trl": 7,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c81"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc558"
+	},
+	"mrl": 2,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c82"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc53f"
+	},
+	"mrl": 2,
+	"trl": 2,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c83"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc544"
+	},
+	"mrl": 4,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c84"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc547"
+	},
+	"mrl": 3,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c85"
+	},
+	"scoringDate": {
+		"$date": "2019-08-31T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc541"
 	},
 	"mrl": 1,
 	"trl": 2,
@@ -686,125 +770,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad6f"
+		"$oid": "5fda72050fcfd25b43843c86"
 	},
 	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32838e"
-	},
-	"mrl": 4,
-	"trl": 6,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad70"
-	},
-	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328391"
-	},
-	"mrl": 3,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad71"
-	},
-	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328393"
-	},
-	"mrl": 2,
-	"trl": 2,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad72"
-	},
-	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328394"
-	},
-	"mrl": 6,
-	"trl": 6,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad73"
-	},
-	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328399"
-	},
-	"mrl": 4,
-	"trl": 7,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad74"
-	},
-	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283a2"
-	},
-	"mrl": 2,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad75"
-	},
-	"scoringDate": {
-		"$date": "2019-08-31T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283a5"
-	},
-	"mrl": 5,
-	"trl": 6,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad76"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328304"
-	},
-	"mrl": 5,
-	"trl": 7,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad77"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328309"
+		"$oid": "5fda6e7171eed15a7cffc4bf"
 	},
 	"mrl": 6,
 	"trl": 7,
@@ -812,13 +784,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad78"
+		"$oid": "5fda72050fcfd25b43843c87"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328320"
+		"$oid": "5fda6e7171eed15a7cffc4d6"
 	},
 	"mrl": 6,
 	"trl": 7,
@@ -826,13 +798,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad79"
+		"$oid": "5fda72050fcfd25b43843c88"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328323"
+		"$oid": "5fda6e7171eed15a7cffc4d9"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -840,13 +812,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad7a"
+		"$oid": "5fda72050fcfd25b43843c89"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328325"
+		"$oid": "5fda6e7171eed15a7cffc4db"
 	},
 	"mrl": 0,
 	"trl": 1,
@@ -854,13 +826,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad7b"
+		"$oid": "5fda72050fcfd25b43843c8a"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328333"
+		"$oid": "5fda6e7171eed15a7cffc4e9"
 	},
 	"mrl": 5,
 	"trl": 4,
@@ -868,13 +840,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad7c"
+		"$oid": "5fda72050fcfd25b43843c8b"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32835a"
+		"$oid": "5fda6e7171eed15a7cffc510"
 	},
 	"mrl": 7,
 	"trl": 7,
@@ -882,13 +854,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad7d"
+		"$oid": "5fda72050fcfd25b43843c8c"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328360"
+		"$oid": "5fda6e7171eed15a7cffc516"
 	},
 	"mrl": 6,
 	"trl": 7,
@@ -896,27 +868,41 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad7e"
+		"$oid": "5fda72050fcfd25b43843c8d"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2019-08-31T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328368"
+		"$oid": "5fda6e7171eed15a7cffc55b"
 	},
-	"mrl": 6,
+	"mrl": 5,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c8e"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7071eed15a7cffc4ba"
+	},
+	"mrl": 5,
 	"trl": 7,
 	"__v": 0
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad7f"
+		"$oid": "5fda72050fcfd25b43843c8f"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32836f"
+		"$oid": "5fda6e7171eed15a7cffc525"
 	},
 	"mrl": 7,
 	"trl": 7,
@@ -924,13 +910,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad80"
+		"$oid": "5fda72050fcfd25b43843c90"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328371"
+		"$oid": "5fda6e7171eed15a7cffc527"
 	},
 	"mrl": 4,
 	"trl": 6,
@@ -938,13 +924,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad81"
+		"$oid": "5fda72050fcfd25b43843c91"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32837d"
+		"$oid": "5fda6e7171eed15a7cffc533"
 	},
 	"mrl": 4,
 	"trl": 7,
@@ -952,13 +938,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad82"
+		"$oid": "5fda72050fcfd25b43843c92"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328380"
+		"$oid": "5fda6e7171eed15a7cffc536"
 	},
 	"mrl": 4,
 	"trl": 3,
@@ -966,13 +952,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad83"
+		"$oid": "5fda72050fcfd25b43843c93"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328386"
+		"$oid": "5fda6e7171eed15a7cffc53c"
 	},
 	"mrl": 4,
 	"trl": 6,
@@ -980,13 +966,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad84"
+		"$oid": "5fda72050fcfd25b43843c94"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed328389"
+		"$oid": "5fda6e7171eed15a7cffc53f"
 	},
 	"mrl": 3,
 	"trl": 3,
@@ -994,153 +980,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad85"
+		"$oid": "5fda72050fcfd25b43843c95"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed32838b"
-	},
-	"mrl": 2,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad86"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed32838c"
-	},
-	"mrl": 4,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad87"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed32838d"
-	},
-	"mrl": 4,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad88"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed32838e"
-	},
-	"mrl": 5,
-	"trl": 6,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad89"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328391"
-	},
-	"mrl": 4,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad8a"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328393"
-	},
-	"mrl": 2,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad8b"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328394"
-	},
-	"mrl": 6,
-	"trl": 6,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad8c"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328398"
-	},
-	"mrl": 5,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad8d"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed328399"
-	},
-	"mrl": 5,
-	"trl": 6,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad8e"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283a2"
-	},
-	"mrl": 3,
-	"trl": 3,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad8f"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283a5"
+		"$oid": "5fda6e7171eed15a7cffc51e"
 	},
 	"mrl": 6,
 	"trl": 7,
@@ -1148,13 +994,139 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad90"
+		"$oid": "5fda72050fcfd25b43843c96"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283c2"
+		"$oid": "5fda6e7171eed15a7cffc544"
+	},
+	"mrl": 5,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c97"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc547"
+	},
+	"mrl": 4,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c98"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc549"
+	},
+	"mrl": 2,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c99"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc54a"
+	},
+	"mrl": 6,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c9a"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc54e"
+	},
+	"mrl": 5,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c9b"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc541"
+	},
+	"mrl": 2,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c9c"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc542"
+	},
+	"mrl": 4,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c9d"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc543"
+	},
+	"mrl": 4,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c9e"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc55b"
+	},
+	"mrl": 6,
+	"trl": 7,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843c9f"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc578"
 	},
 	"mrl": 1,
 	"trl": 2,
@@ -1162,13 +1134,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad91"
+		"$oid": "5fda72050fcfd25b43843ca0"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283c7"
+		"$oid": "5fda6e7171eed15a7cffc57d"
 	},
 	"mrl": 3,
 	"trl": 7,
@@ -1176,13 +1148,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad92"
+		"$oid": "5fda72050fcfd25b43843ca1"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283c8"
+		"$oid": "5fda6e7171eed15a7cffc57e"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -1190,13 +1162,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad93"
+		"$oid": "5fda72050fcfd25b43843ca2"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283d0"
+		"$oid": "5fda6e7171eed15a7cffc586"
 	},
 	"mrl": 2,
 	"trl": 1,
@@ -1204,13 +1176,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad94"
+		"$oid": "5fda72050fcfd25b43843ca3"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283d7"
+		"$oid": "5fda6e7171eed15a7cffc58d"
 	},
 	"mrl": 3,
 	"trl": 2,
@@ -1218,13 +1190,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad95"
+		"$oid": "5fda72050fcfd25b43843ca4"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283d8"
+		"$oid": "5fda6e7171eed15a7cffc54f"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -1232,13 +1204,41 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad96"
+		"$oid": "5fda72050fcfd25b43843ca5"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283dd"
+		"$oid": "5fda6e7171eed15a7cffc558"
+	},
+	"mrl": 3,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843ca6"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc58e"
+	},
+	"mrl": 5,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843ca7"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc593"
 	},
 	"mrl": 1,
 	"trl": 1,
@@ -1246,13 +1246,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad97"
+		"$oid": "5fda72050fcfd25b43843ca8"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283de"
+		"$oid": "5fda6e7171eed15a7cffc594"
 	},
 	"mrl": 5,
 	"trl": 3,
@@ -1260,27 +1260,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad98"
+		"$oid": "5fda72050fcfd25b43843ca9"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283e1"
-	},
-	"mrl": 2,
-	"trl": 1,
-	"__v": 0
-},
-{
-	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad99"
-	},
-	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
-	},
-	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283e2"
+		"$oid": "5fda6e7171eed15a7cffc598"
 	},
 	"mrl": 2,
 	"trl": 3,
@@ -1288,13 +1274,27 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad9a"
+		"$oid": "5fda72050fcfd25b43843caa"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283e6"
+		"$oid": "5fda6e7171eed15a7cffc597"
+	},
+	"mrl": 2,
+	"trl": 1,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cab"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc59c"
 	},
 	"mrl": 5,
 	"trl": 6,
@@ -1302,13 +1302,13 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad9b"
+		"$oid": "5fda72050fcfd25b43843cac"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283ec"
+		"$oid": "5fda6e7171eed15a7cffc5a2"
 	},
 	"mrl": 2,
 	"trl": 1,
@@ -1316,15 +1316,267 @@
 },
 {
 	"_id": {
-		"$oid": "5fabf1c24c90d82a05ccad9c"
+		"$oid": "5fda72050fcfd25b43843cad"
 	},
 	"scoringDate": {
-		"$date": "2019-06-30T00:00:00Z"
+		"$date": "2020-04-15T00:00:00Z"
 	},
 	"project": {
-		"$oid": "5fabf1b9ea57c329ed3283ee"
+		"$oid": "5fda6e7171eed15a7cffc5a4"
 	},
 	"mrl": 3,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cae"
+	},
+	"scoringDate": {
+		"$date": "2020-04-15T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc5a4"
+	},
+	"mrl": 1,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843caf"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc536"
+	},
+	"mrl": 4,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb0"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc53c"
+	},
+	"mrl": 4,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb1"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc54a"
+	},
+	"mrl": 6,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb2"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc54f"
+	},
+	"mrl": 5,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb3"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc55b"
+	},
+	"mrl": 6,
+	"trl": 7,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb4"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc578"
+	},
+	"mrl": 3,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb5"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc57e"
+	},
+	"mrl": 4,
+	"trl": 7,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb6"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc586"
+	},
+	"mrl": 3,
+	"trl": 2,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb7"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc58d"
+	},
+	"mrl": 5,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb8"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc543"
+	},
+	"mrl": 5,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cb9"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc597"
+	},
+	"mrl": 3,
+	"trl": 2,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cba"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc59c"
+	},
+	"mrl": 5,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cbb"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc59d"
+	},
+	"mrl": 4,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cbc"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc5a5"
+	},
+	"mrl": 4,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cbd"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc5a6"
+	},
+	"mrl": 4,
+	"trl": 6,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cbe"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc593"
+	},
+	"mrl": 3,
+	"trl": 3,
+	"__v": 0
+},
+{
+	"_id": {
+		"$oid": "5fda72050fcfd25b43843cbf"
+	},
+	"scoringDate": {
+		"$date": "2020-12-01T00:00:00Z"
+	},
+	"project": {
+		"$oid": "5fda6e7171eed15a7cffc594"
+	},
+	"mrl": 5,
 	"trl": 3,
 	"__v": 0
 }]
