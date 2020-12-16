@@ -58,6 +58,27 @@ const validClassificationParam = (classification) => {
 }
 
 //
+// validates slugs
+//
+const validSlug = (s) => {
+    return !s ? false : s.match(/(^(autumn|spring)-\d{4}$)/) != null
+}
+
+//
+// validates CW Ids
+//
+const validCwId = (id) => {
+    return !id ? false : id.match(/(^\d+$)/) != null
+}
+
+//
 // EXPORTS
 //
-module.exports = { validUsername, validLogLevel, validScoresParam, validClassificationParam }
+module.exports = {
+    validSlug,
+    validCwId,
+    validUsername,
+    validLogLevel,
+    validScoresParam,
+    validClassificationParam,
+}
