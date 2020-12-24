@@ -4,6 +4,7 @@
 // libraries
 require('dotenv').config()
 const fs = require('fs')
+const http = require('http')
 const https = require('https')
 const mongoose = require('mongoose')
 const Process = require('process')
@@ -40,26 +41,37 @@ mongoose.connection.on('error', (err) => {
 logger.info('Connected to database.')
 
 //
-// CONFIGURE HTTPS
-//
-logger.info('Configuring HTTPS')
-logger.verbose('--> Requiring TLS1.3 connections')
-const https_opts = {
-    key: fs.readFileSync(process.env.HTTPS_KEY || 'key.pem'),
-    cert: fs.readFileSync(process.env.HTTPS_CERT || 'cert.pem'),
-    minVersion: 'TLSv1.3',
-}
-
-//
 // PROJECT RADAR APP
 //
 const app = require('./app')
 
 //
+// CONFIGURE HTTPS - fall back to HTTP if no cert & key are fund
+//
+let server
+let isHTTPS
+if (!process.env.HTTPS_KEY || !process.env.HTTPS_CERT) {
+    logger.warn('No cert or private key configured, falling back to HTTP!')
+    logger.info('Configuring HTTP')
+    server = http.createServer(app)
+    isHTTPS = false
+} else {
+    logger.info('Configuring HTTPS')
+    logger.verbose('--> Requiring TLS1.3 connections')
+    const https_opts = {
+        key: fs.readFileSync(process.env.HTTPS_KEY || 'key.pem'),
+        cert: fs.readFileSync(process.env.HTTPS_CERT || 'cert.pem'),
+        minVersion: 'TLSv1.3',
+    }
+    server = https.createServer(https_opts, app)
+    isHTTPS = false
+}
+
+//
 // START SERVER
 //
-const PORT = process.env.PORT || 8443
-const server = https.createServer(https_opts, app).listen(PORT, () => {
+const PORT = isHTTPS ? process.env.PORT || 8443 : process.env.PORT || 8080
+server.listen(PORT, () => {
     logger.info(`App listening on port ${PORT}....`)
     logger.info('Press Ctrl+C to quit.')
 })
