@@ -315,9 +315,13 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
 })
 
 exports.showDisclaimer = catchAsync(async (req, res, next) => {
-    res.status(200).render('disclaimer.pug', {})
+    res.status(200).render('static/disclaimer.pug', {})
 })
 
 exports.showDocumentation = catchAsync(async (req, res, next) => {
-    res.status(200).render('documentation.pug', {})
+    let { path } = req.params
+    if (!path) {
+        path = 'doc'
+    }
+    res.status(200).render(`static/doc/${path}.pug`, {})
 })
