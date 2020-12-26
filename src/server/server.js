@@ -64,7 +64,7 @@ if (!process.env.HTTPS_KEY || !process.env.HTTPS_CERT) {
         minVersion: 'TLSv1.3',
     }
     server = https.createServer(https_opts, app)
-    isHTTPS = false
+    isHTTPS = true
 }
 
 //

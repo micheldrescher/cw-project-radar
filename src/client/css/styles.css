@@ -798,12 +798,11 @@ form.form--filter-tags > ul > li:first-child {
 #info-bar {
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    margin: 30px 0 30px 0;
+    margin: 1em 0 1em 0;
 }
 
 #info-bar div {
-    margin: 15px;
+    margin: 0 1em;
     flex: 1 1 0px;
     text-align: center;
     background: #1c75bc;
@@ -819,7 +818,17 @@ form.form--filter-tags > ul > li:first-child {
     transition: 0.3s;
 }
 
+#info-bar div h2 {
+    margin: 0px auto;
+}
+
 #info-bar div h2,
 #info-bar div p {
     color: #fff;
+}
+#info-bar div p:last-child {
+    margin-bottom: 0;
+}
+#info-bar div p.read_more {
+    margin-block-start: -1em;
 }
