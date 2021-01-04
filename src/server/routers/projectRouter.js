@@ -30,6 +30,7 @@ router.post('/search', sanitiser.scrubEmpty, handler.findProjects)
 /*   LOGGED IN USER ROUTES   */
 /*                           */
 /*****************************/
+router.use(authC.addUserToRequest)
 
 /*******************************/
 /*                             */

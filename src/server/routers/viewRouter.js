@@ -36,6 +36,7 @@ router.get('/widget/project/:cwid', viewsH.getProjectWidget)
 /*   LOGGED IN USER ROUTES   */
 /*                           */
 /*****************************/
+router.use('/admin', authC.addUserToRequest)
 router.get('/user/account', authC.protect, viewsH.accountPage) // user account page
 
 /*******************************/

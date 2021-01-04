@@ -26,6 +26,8 @@ router.post('/login', authC.login)
 /*   LOGGED IN USER ROUTES   */
 /*                           */
 /*****************************/
+router.use(authC.addUserToRequest)
+
 // logout
 router.get('/logout', authC.protect, authC.logout)
 // update password

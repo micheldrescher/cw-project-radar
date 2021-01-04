@@ -81,10 +81,12 @@ exports.login = catchAsync(async (req, res, next) => {
     const { name, password } = req.body
     // 1) Check if email and password are supplied in the request
     if (!name || !password) {
+        logger.warn(`Login failed for ${name}/${password} combo - one or both undefined.`)
         return next(new AppError('Please provide name and password!', 400))
     }
     // 2) Validate username and password (NoSQL injection protection)
     if (!validUsername(name)) {
+        logger.warn(`Login failed for ${name}/${password} combo - invalid username.`)
         return next(new AppError('Invalid characters in username or password', 400))
     }
 
@@ -92,10 +94,14 @@ exports.login = catchAsync(async (req, res, next) => {
     const user = await User.findOne({ name }).select('+password')
 
     if (!user || !(await user.correctPassword(password, user.password))) {
+        if (!user) logger.warn(`Login failed for ${name}/${password} combo - user does not exist.`)
+        else logger.warn(`Login failed for ${name}/${password} combo - incorrect password..`)
+
         return next(new AppError('Incorrect name or password', 401))
     }
 
     // 3) If everything ok, send token to client (JWT is the sign that the user is logged in)
+    logger.info(`Login successful for ${name}/${password} combo - creating JWT.`)
     createSendToken(user, 200, req, res)
 })
 
@@ -161,29 +167,36 @@ exports.addUserToRequest = async (req, res, next) => {
     let token
     // Authorization: Bearer <jwt>
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
+        logger.info(`AuthN/AuthZ - API Bearer JWT found for path ${req.url}`)
         token = req.headers.authorization.split(' ')[1]
     }
     // Cookie: jwt <jwt>
     else if (req.cookies.jwt) {
+        logger.info(`AuthN/AuthZ - Browser cookie JWT found for path ${req.url}`)
         token = req.cookies.jwt
     }
 
     // 2) if no token, return/call next()
-    if (!token) return next()
+    if (!token) {
+        logger.verbose(`AuthN/AuthZ - No JWT found for request ${req.url}.`)
+        return next()
+    }
 
     // 3) Validate the token, and extract userID
     let userID
     try {
         userID = decryptPayload(jwt.verify(req.cookies.jwt, process.env.JWT_SECRET).id)
     } catch (err) {
-        logger.verbose(`JWT validation/decryption failed: ${req.cookies.jwt}`)
+        logger.error(
+            `AuthN/AuthZ - JWT decryption failed: ${req.cookies.jwt} on request ${req.url}`
+        )
         return next()
     }
 
     // 4) Check if the user still exists
     const currentUser = await User.findById(userID)
     if (!currentUser) {
-        logger.verbose(`Invalid userID in validated JWT - user deleted?  ${userID}`)
+        logger.error(`AuthN/AuthZ - Unknwon user id ${userID} found for request ${req.url}`)
         return next()
     }
 

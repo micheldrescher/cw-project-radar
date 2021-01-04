@@ -24,13 +24,13 @@ router.get('/graph/:slug?', handler.getRendering)
 /*   LOGGED IN USER ROUTES   */
 /*                           */
 /*****************************/
+router.use(authC.addUserToRequest)
 
 /*******************************/
 /*                             */
 /*   ADMIN RESTRICTED ROUTES   */
 /*                             */
 /*******************************/
-
 router
     .route('/')
     .get(authC.protect, authC.restrictTo('admin', 'manager'), handler.getAllRadars)
