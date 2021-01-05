@@ -37,7 +37,7 @@ To use archived baseline data, unzip the respective ZIP file, overwriting the fi
 
 ## Setting up a local dev env
 
-TBD
+Documentation on setting up the dev env is [here](docs/devenv.md)
 
 ## REST API documentation
 
