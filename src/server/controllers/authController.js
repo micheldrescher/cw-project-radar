@@ -185,7 +185,7 @@ exports.addUserToRequest = async (req, res, next) => {
     // 3) Validate the token, and extract userID
     let userID
     try {
-        userID = decryptPayload(jwt.verify(req.cookies.jwt, process.env.JWT_SECRET).id)
+        userID = decryptPayload(jwt.verify(token, process.env.JWT_SECRET).id)
     } catch (err) {
         logger.error(
             `AuthN/AuthZ - JWT decryption failed: ${req.cookies.jwt} on request ${req.url}`
