@@ -537,7 +537,6 @@ section.modal > div.modal-window > header {
     justify-content: center;
     align-items: center;
     padding: 0.5em;
-    flex: 0 0 0px;
 }
 /* Style links in the header */
 section.modal > div.modal-window > header a {
