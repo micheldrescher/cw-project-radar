@@ -441,7 +441,7 @@ if (editProjectLinks) {
     editProjectLinks.forEach((link) => {
         link.addEventListener('click', async (event) => {
             event.preventDefault()
-            location.assign(event.path[1].getAttribute('route'))
+            location.assign(event.target.parentNode.getAttribute('route'))
         })
     })
 }
