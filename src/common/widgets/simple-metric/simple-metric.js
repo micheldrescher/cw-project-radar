@@ -5,8 +5,6 @@ class SimpleMetric extends HTMLElement {
     style = `
 <style>
     :host {
-        width: fit-content;
-        height: fit-content;
         display: flex;
         flex-direction: column;
     }
@@ -14,12 +12,10 @@ class SimpleMetric extends HTMLElement {
         text-align: center;
         font-size: 0.8em;
         color: darkgray;
-        flex: 1 0 0px;
     }
     .value {
         font-weight: bold;
         color: black;
-        flex: 2 0 0px;
         display: flex;
         justify-content: center;
         align-items: center;
