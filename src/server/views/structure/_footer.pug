@@ -15,3 +15,5 @@ footer.footer: div.spacer
             <a href="https://cyberwatching.eu/privacy-policy-full" target="_blank">Disclaimer / Terms and Conditions of Use</a>
     //- Version information
     .version Version: #{process.env.npm_package_version}
+    - if (!process.env.RELEASE_NOTES_URL) process.env.RELEASE_NOTES_URL = "https://github.com/micheldrescher/cw-project-radar/releases"
+    .version: a(href=`${process.env.RELEASE_NOTES_URL}`) (Release notes)
