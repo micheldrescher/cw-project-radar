@@ -1,5 +1,86 @@
 extends ../../structure/_base
 
 block content
-    h1(style="text-align: center") Project information
 
+    section.intro
+        div.title Detailed project information
+        p:  | The Cyberwatching.eu CS &amp; P Project radar visualises information about projects 
+            | in two different ways. In its two main views - overall landscape radar, and segmental view -
+            | each project is visualised as a "blip" - a circle with a number in it, and a coloured outline.
+        p:  | Hovering over a blip, a tooltip pops up indicating a number and the project acronym; 
+            | for example, "116. SCOTT". While the project acronym is self-explanatory, the number deserves 
+            | a bit more explanation. 
+        p:  | The modal window is limited in its size; if the content renders longer than the maximum height 
+            | of the window, scrollbars are added to let you see all contents.
+        p:  | Click the small cross in the upper right corner, or press the ESC key to close the modal dialogue.
+        
+    section.topic
+        div.title Cyberwatching.eu id for projects
+        p:  | The id was originally and historically used to uniquely identify projects across several
+            | spreadsheets, as well as use it as an easy to read visual identifier. The easy to read visual
+            | identifier has remained as a convenient way to numerically identify projects for the time being.
+        p:  | The following illustrates how the same project may be illustrated in the main landscape view as 
+            | well as the segmental view:
+            img(src="/img/blip_traffic_lights.png", style="display: block; width: 25%; margin: auto;")
+        p:  | The different colour gradients are explained 
+            a(href="/doc/readiness") here
+            | .
+
+    section.topic
+        div.title Project information card
+        p:  | When clicking on a project "blip", the application will provide you with some key information 
+            | about the project. We will use again project "SCOTT" as an axample: 
+        img(src="/img/project_info_116_SCOTT.png", style="display: block; margin: auto; width: 75%") 
+        p:  | The project information card provides you with technical information about the project, pulled from the 
+            | EC's CORDIS information system. The heart, however, of the project information window lies in the 
+            | highlighted areas. The follow sections describe these in more detail. 
+    
+    section.sub-topic
+        div.title Id, acronym, and link to Cyberwatching.eu project hub site 
+            span(style="color: red;") (red)
+        p:  | Shows the project's Cyberwatching.eu unique radar id, and the project acronym. A little symbol to the
+            | right of the name indicates that the project is also represented in the 
+            a(href="https://www.cyberwatching.eu/projects") Cyberwatching.eu R&amp;I Project Hub
+            | . Clicking on the project acronym will open a new tab or window guiding you there. 
+
+    section.sub-topic
+        div.title Project metrics
+            span(style="color: purple;") (purple)
+        p:  | Project metrics give you a quick overview of the project's location in the radar, i.e. the segment 
+            | and ring. The ring is also put into linear context of the project lifecycle.
+
+    section.sub-topic
+        div.title Relative (and absolute) Project performance 
+            span(style="color: limegreen;") (green)
+        p:  | With many projects regularly submitting MTRL scores, we can calculate what we call 
+            em relative performance
+            | : We put a proejct's performance into context with other projects. For each project within the same
+            | context we calculate a weighed score, the median, minimum and maximum score, and visualise the current 
+            | project's performance relative to all projects within the same context.
+        p:  | This sounds rather complex, which is why we'll explain this in more detail 
+            a(href="/doc/readiness") here
+            | .
+
+    section.sub-topic
+        div.title MTRL score card 
+            span(style="color: blue;") (blue)
+        p:  | The more MTRL scores projects are submitting, the better we can trace their maturing process and velocity. 
+            | For all projects that submitted two or more MTRL scores, the radar visualises their MTRL score progress 
+            | in their MTRL score card (see below).
+        p:  | Click on the little graph icon to access the project's MTRL score card.
+
+    section.topic
+        div.title Project MTRL score card
+        p:  | With two or more MTRL scores, we can start plotting the project's maturing progress. 
+        p:  | The following screenshot shows the MTRL score progress for the SCOTT project: 
+        img(src="/img/mtrl_scorecard_116_SCOTT.png", style="display: block; margin: auto; width: 75%") 
+        p:  | The upper part of the dialogue is filled with a graphical representation of the MTRL score 
+        p:  | history of the project. The lower part of the dialogue enumerates all MTRL scores submitted by the 
+            | project, in descending order (newest first). For each submission, the radar shows:
+        ul
+            li Date of submission (f.i. 15 April 2020); 
+            li MRL and TRL scores (f.i. 6 and 7, respectively); and 
+            li Brief rationale provided which outputs and results warrant the submitted result.
+        p:  | Projects may submit as many MTRL scores as they wish. Whenever a new Project Radar is generated, it will 
+            | pick the suitable MTRL score for any given project. This gives projects the freedom to self-evaluate and 
+            | submit scores at their own pace and suitable time.

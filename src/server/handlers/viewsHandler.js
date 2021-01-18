@@ -82,12 +82,19 @@ exports.showMain = catchAsync(async (req, res, next) => {
 exports.showRadar = catchAsync(async (req, res, next) => {
     // 1) If there s a slug, fetch edition, otherwise fetch live
     let radar
-    if (req.params.slug) radar = await showEdition(req, res, next)
-    else radar = await showLive(req, res, next)
+    let pageclass
+    if (req.params.slug) {
+        radar = await showEdition(req, res, next)
+        pageclass = 'radar-edition'
+    } else {
+        radar = await showLive(req, res, next)
+        pageclass = 'radar-live'
+    }
 
     // 2) show success page - errors are handled/raised in the calls above
     res.status(200).render(`${__dirname}/../views/radar`, {
         title: radar.name,
+        pageclass,
         radar,
         jrcTaxonomy,
     })
@@ -127,6 +134,7 @@ const showLive = async (req, res, next) => {
 exports.loginForm = (req, res) => {
     res.status(200).render('user/login', {
         title: 'Login',
+        pageclass: 'login',
     })
 }
 
@@ -136,6 +144,7 @@ exports.loginForm = (req, res) => {
 exports.accountPage = (req, res) => {
     res.status(200).render('user/account', {
         title: 'Your account',
+        pageclass: 'your-account',
     })
 }
 
@@ -154,6 +163,7 @@ exports.manageUsers = catchAsync(async (req, res, next) => {
     // 2) Render user management page
     res.status(200).render('admin/manageUsers', {
         title: 'Manage users',
+        pageclass: 'manage-users',
         users,
     })
 })
@@ -168,6 +178,7 @@ exports.editUser = catchAsync(async (req, res, next) => {
     // 2) Render user edit page
     res.status(200).render('admin/editUser', {
         title: 'Edit use details',
+        pageclass: 'edit-user',
         targetUser: user,
     })
 })
@@ -192,6 +203,7 @@ exports.manageRadars = catchAsync(async (req, res, next) => {
     // 2) Render radar management page
     res.status(200).render('admin/manageRadars', {
         title: 'Manage radars',
+        pageclass: 'manage-radars',
         radars,
     })
 })
@@ -209,6 +221,7 @@ exports.editRadar = catchAsync(async (req, res, next) => {
     // 2) Render radar edit page
     res.status(200).render('admin/editRadar', {
         title: 'Edit radar',
+        pageclass: 'edit-radar',
         radar,
     })
 })
@@ -248,6 +261,7 @@ exports.manageProjects = catchAsync(async (req, res, next) => {
     // 2) Render projects management page
     res.status(200).render('admin/manageProjects', {
         title: 'Manage projects',
+        pageclass: 'manage-projects',
         projects,
     })
 })
@@ -271,6 +285,7 @@ exports.editProject = catchAsync(async (req, res, next) => {
     // 4) Render radar edit page
     res.status(200).render('admin/editProject', {
         title: 'Edit project',
+        pageclass: 'edit-project',
         project,
         classifications,
         mtrlScores,
@@ -311,11 +326,12 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
     res.status(200).render('widgets/project.pug', {
         mrl: data[0].score[0].mrl,
         trl: data[0].score[0].trl,
+        pageclass: 'widget',
     })
 })
 
 exports.showDisclaimer = catchAsync(async (req, res, next) => {
-    res.status(200).render('static/disclaimer.pug', {})
+    res.status(200).render('static/disclaimer.pug', { pageclass: 'disclaimer' })
 })
 
 exports.showDocumentation = catchAsync(async (req, res, next) => {
@@ -323,5 +339,5 @@ exports.showDocumentation = catchAsync(async (req, res, next) => {
     if (!path) {
         path = 'doc'
     }
-    res.status(200).render(`static/doc/${path}.pug`, {})
+    res.status(200).render(`static/doc/${path}.pug`, { pageclass: 'doc' })
 })
