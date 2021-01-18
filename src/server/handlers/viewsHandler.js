@@ -324,8 +324,8 @@ exports.getProjectWidget = catchAsync(async (req, res, next) => {
 
     // 3) Render the widget
     res.status(200).render('widgets/project.pug', {
-        mrl: data[0].score[0].mrl,
-        trl: data[0].score[0].trl,
+        mrl: data[0].score[0] ? data[0].score[0].mrl : 'n/a',
+        trl: data[0].score[0] ? data[0].score[0].trl : 'n/a',
         pageclass: 'widget',
     })
 })
