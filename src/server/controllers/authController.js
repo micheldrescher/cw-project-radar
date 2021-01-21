@@ -53,7 +53,7 @@ const createSendToken = (user, statusCode, req, res) => {
     res.cookie('jwt', token, {
         // no expiration --> session cookie only
         httpOnly: true, // no JS access to cookies
-        secure: true, // only ever send over https
+        // secure: true, // only ever send over https /* This doesn't work with reverse proxy configs! */
         sameSite: 'Strict', // only ever sent and accepted from the site the cookie came from
     })
 
