@@ -10,15 +10,15 @@ exports.createOne = (Model, ...fieldNames) =>
     catchAsync(async (req, res, next) => {
         let doc = req.body
         if (fieldNames) {
-            doc = filterFields(doc, fieldNames)
+            doc = this.filterFields(doc, fieldNames)
         }
         doc = await controllerFactory.createOne(Model, doc)
 
         res.status(201).json({
             status: 'success',
             data: {
-                doc
-            }
+                doc,
+            },
         })
     })
 
@@ -33,12 +33,12 @@ exports.getOne = (Model, popOptions) =>
         res.status(200).json({
             status: 'success',
             data: {
-                data: doc
-            }
+                data: doc,
+            },
         })
     })
 
-exports.getAll = Model =>
+exports.getAll = (Model) =>
     catchAsync(async (req, res, next) => {
         const doc = await controllerFactory.getAll(Model, req.query)
         // SEND RESPONSE
@@ -46,8 +46,8 @@ exports.getAll = Model =>
             status: 'success',
             results: doc.length,
             data: {
-                data: doc
-            }
+                data: doc,
+            },
         })
     })
 
@@ -55,7 +55,7 @@ exports.updateOne = (Model, ...disallowedFields) =>
     catchAsync(async (req, res, next) => {
         let doc = req.body
         if (disallowedFields) {
-            doc = filterFields(doc, disallowedFields)
+            doc = this.filterFields(doc, disallowedFields)
         }
         doc = await controllerFactory.updateOne(Model, req.params.id, doc)
 
@@ -66,12 +66,12 @@ exports.updateOne = (Model, ...disallowedFields) =>
         res.status(200).json({
             status: 'success',
             data: {
-                data: doc
-            }
+                data: doc,
+            },
         })
     })
 
-exports.deleteOne = Model =>
+exports.deleteOne = (Model) =>
     catchAsync(async (req, res, next) => {
         const doc = await controllerFactory.deleteOne(Model, req.params.id)
 
@@ -80,13 +80,13 @@ exports.deleteOne = Model =>
         }
 
         res.status(200).json({
-            status: 'success'
+            status: 'success',
         })
     })
 
-const filterFields = (obj, disallowedFields) => {
+exports.filterFields = (obj, disallowedFields) => {
     const newObj = {}
-    Object.keys(obj).forEach(el => {
+    Object.keys(obj).forEach((el) => {
         if (!disallowedFields.includes(el)) {
             newObj[el] = obj[el]
         }

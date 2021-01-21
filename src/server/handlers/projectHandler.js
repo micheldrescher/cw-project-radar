@@ -4,10 +4,10 @@
 // libraries
 const multer = require('multer')
 // app modules
+const AppError = require('../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
 const handlerFactory = require('./handlerFactory')
 // const logger = require('./../utils/logger')
-const AppError = require('../utils/AppError')
 const { Project } = require('../models/projectModel')
 const projectController = require('../controllers/projectController')
 const v = require('../utils/validator')
@@ -55,15 +55,39 @@ exports.createProject = handlerFactory.createOne(
 )
 exports.getProject = handlerFactory.getOne(Project)
 exports.getAllProjects = handlerFactory.getAll(Project)
-exports.updateProject = handlerFactory.updateOne(
-    Project,
-    'cw_id',
-    'hasClassifications',
-    'hasScores',
-    'classification',
-    'mtrlScores'
-)
 exports.deleteProject = handlerFactory.deleteOne(Project)
+
+exports.updateProject = catchAsync(async (req, res, next) => {
+    // 1) The id must be a valid CW id, not an ObjectID!
+    const cwid = req.params.id
+    if (!cwid || isNaN(cwid)) {
+        throw new AppError('Missing or non-number cyberwatching id in request.', 400)
+    }
+
+    // 2) Filter out disallowed fields from the request body
+    const doc = handlerFactory.filterFields(req.body, [
+        'cw_id',
+        'hasClassifications',
+        'hasScores',
+        'classification',
+        'mtrlScores',
+    ])
+
+    // 3) go straight to Project Model to update
+    const project = await Project.findOneAndUpdate({ cw_id: cwid }, doc, {
+        new: true,
+        runValidators: true,
+    })
+    if (!project) {
+        return next(new AppError('No project found with that ID', 404))
+    }
+
+    // return project if found
+    res.status(200).json({
+        status: 'success',
+        data: project,
+    })
+})
 
 exports.getByCWId = catchAsync(async (req, res, next) => {
     // cwid  checking

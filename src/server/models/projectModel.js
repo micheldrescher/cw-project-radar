@@ -53,16 +53,6 @@ const projectSchema = new mongoose.Schema(
             type: Date,
             required: true,
         },
-        // # classifications for this project
-        hasClassifications: {
-            type: Boolean,
-            default: false,
-        },
-        // # scores for this project
-        hasScores: {
-            type: Boolean,
-            default: false,
-        },
         // the EC funding call
         call: String,
         // project type (mostly IA, RIA, RA, or CSA)
@@ -90,6 +80,16 @@ const projectSchema = new mongoose.Schema(
                 validator: isValidTerm,
                 message: (props) => `${props.value} is not a valid JRC taxonomy term tag!`,
             },
+        },
+        // # classifications for this project
+        hasClassifications: {
+            type: Boolean,
+            default: false,
+        },
+        // # scores for this project
+        hasScores: {
+            type: Boolean,
+            default: false,
         },
     },
     {
