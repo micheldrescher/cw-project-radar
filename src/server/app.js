@@ -139,7 +139,7 @@ logger.debug(`Static path for server = ${path.join(__dirname, '../client')}`)
 //
 // ROUTES
 //
-// decorate the request with the logged in user (if any)
+// decorate the request with the logged in user (if any) - User decoration is SILENT!
 app.use(addUserToRequest)
 logger.info('Setting up browser views')
 // client views

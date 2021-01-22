@@ -14,7 +14,7 @@ const { validUsername } = require('../utils/validator')
 const algo = 'aes-192-cbc'
 const key = crypto.scryptSync(process.env.JWT_SECRET, 'salt', 24)
 const iv = Buffer.alloc(16, 0)
-const one_hour = 60 * 60 * 1000 // 1 hour
+const one_hour = 60 * 60 // 1 hour in seconds
 
 const encryptPayload = (clearText) => {
     const cipher = crypto.createCipheriv(algo, key, iv)
@@ -39,6 +39,11 @@ const decryptPayload = (cipherText) => {
 // Sign a JWT token to ensure its authenticity
 //
 const signToken = (id) => {
+    logger.verbose(
+        `AuthN/AuthZ - token will expire in: ${
+            Math.min(24 * one_hour, process.env.JWT_EXPIRES_IN * one_hour) / 1000 / 60
+        } minutes`
+    )
     return jwt.sign({ id: encryptPayload(id.toString()) }, process.env.JWT_SECRET, {
         expiresIn: Math.min(24 * one_hour, process.env.JWT_EXPIRES_IN * one_hour),
     })
@@ -49,7 +54,6 @@ const signToken = (id) => {
 //
 const createSendToken = (user, statusCode, req, res) => {
     const token = signToken(user._id)
-
     res.cookie('jwt', token, {
         // no expiration --> session cookie only
         httpOnly: true, // no JS access to cookies
@@ -81,27 +85,26 @@ exports.login = catchAsync(async (req, res, next) => {
     const { name, password } = req.body
     // 1) Check if email and password are supplied in the request
     if (!name || !password) {
-        logger.warn(`Login failed for ${name}/${password} combo - one or both undefined.`)
+        logger.warn(`Login failed for ${name} - one or both undefined.`)
         return next(new AppError('Please provide name and password!', 400))
     }
     // 2) Validate username and password (NoSQL injection protection)
     if (!validUsername(name)) {
-        logger.warn(`Login failed for ${name}/${password} combo - invalid username.`)
+        logger.warn(`Login failed for ${name} - invalid username.`)
         return next(new AppError('Invalid characters in username or password', 400))
     }
 
     // 3) Check if user exists && password is correct
     const user = await User.findOne({ name }).select('+password')
-
     if (!user || !(await user.correctPassword(password, user.password))) {
-        if (!user) logger.warn(`Login failed for ${name}/${password} combo - user does not exist.`)
-        else logger.warn(`Login failed for ${name}/${password} combo - incorrect password..`)
+        if (!user) logger.warn(`Login failed for ${name} - user does not exist.`)
+        else logger.warn(`Login failed for ${name} - incorrect password..`)
 
         return next(new AppError('Incorrect name or password', 401))
     }
 
     // 3) If everything ok, send token to client (JWT is the sign that the user is logged in)
-    logger.info(`Login successful for ${name}/${password} combo - creating JWT.`)
+    logger.debug(`Login successful for ${name} combo - creating JWT.`)
     createSendToken(user, 200, req, res)
 })
 
@@ -159,48 +162,73 @@ exports.updateUserPassword = catchAsync(async (req, res, next) => {
 /*                            */
 /******************************/
 
-// Decorate the current request with the user corresponding to the supplied token.
-// Any error or a missing token denote a user not being logged in and therefore not
-// present in the request object.
+// Decorate the current request with the user with the id contained in the
+// supplied VALID token.
+//
+// This function operates SILENTLY, i.e. no (app) errors thrown - but errors
+// and issues are logged accordingly:
+// 1) Any token that does not properly validate is logged as a warning.
+// 2) Epired tokens are logged on level "info".
+// 3) Tokens with invalid user ids (meaning user has been removed while token is
+//    still valid) are logged on "info" level
 exports.addUserToRequest = async (req, res, next) => {
     // 1) Fetch the token from cookie or Authorisation bearer
     let token
     // Authorization: Bearer <jwt>
     if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
-        logger.info(`AuthN/AuthZ - API Bearer JWT found for path ${req.url}`)
+        logger.verbose(`AuthN/AuthZ - API Bearer JWT found for path ${req.url}`)
         token = req.headers.authorization.split(' ')[1]
     }
     // Cookie: jwt <jwt>
     else if (req.cookies.jwt) {
-        logger.info(`AuthN/AuthZ - Browser cookie JWT found for path ${req.url}`)
+        logger.verbose(`AuthN/AuthZ - Browser cookie JWT found for path ${req.url}`)
         token = req.cookies.jwt
     }
 
     // 2) if no token, return/call next()
     if (!token) {
-        logger.verbose(`AuthN/AuthZ - No JWT found for request ${req.url}.`)
-        return next()
-    }
-
-    // 3) Validate the token, and extract userID
-    let userID
-    try {
-        userID = decryptPayload(jwt.verify(token, process.env.JWT_SECRET).id)
-    } catch (err) {
-        logger.error(
-            `AuthN/AuthZ - JWT decryption failed: ${req.cookies.jwt} on request ${req.url}`
+        logger.verbose(
+            `AuthN/AuthZ - No JWT found for request ${req.url} --> no user added to request.`
         )
         return next()
     }
 
-    // 4) Check if the user still exists
-    const currentUser = await User.findById(userID)
-    if (!currentUser) {
-        logger.error(`AuthN/AuthZ - Unknwon user id ${userID} found for request ${req.url}`)
+    // 3) Verify the token
+    let verifiedJWT
+    try {
+        logger.debug('AuthN/AuthZ - Full verification of the JWT')
+        verifiedJWT = jwt.verify(token, process.env.JWT_SECRET)
+    } catch (err) {
+        if (err.constructor.name === 'TokenExpiredError') {
+            logger.info('AuthN/AuthZ - JWT expired --> no user added to request.')
+        } else {
+            logger.warn(`AuthN/AuthZ - Invalid JWT! --> no user added to request.`)
+            logger.warn('              Error message: ' + err)
+        }
         return next()
     }
 
-    // 5) User exists - add to request!
+    // 4) Decrypt user id
+    let decryptedUserId
+    try {
+        logger.debug('AuthN/AuthZ - decrypting user id')
+        decryptedUserId = decryptPayload(verifiedJWT.id)
+    } catch (err) {
+        logger.warn(`AuthN/AuthZ - failed to decrypt user id in JWT --> no user added to request`)
+        logger.warn('              Error message: ' + err)
+        return next()
+    }
+
+    // 5) Check user id if the user still exists
+    const currentUser = await User.findById(decryptedUserId)
+    if (!currentUser) {
+        logger.warn(
+            `AuthN/AuthZ - Unknwon user id ${decryptedUserId} in JWT --> no user added to request`
+        )
+        return next()
+    }
+
+    // 6) User exists - add to request!
     req.user = currentUser
     res.locals.user = currentUser // also add to locals object for views
     next()
