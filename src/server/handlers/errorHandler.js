@@ -9,12 +9,6 @@ const handleCastErrorDB = (err) => {
     return new AppError(message, 400)
 }
 
-const handleDuplicateFieldsDB = (err) => {
-    const value = err.errmsg.match(/(["'])(\\?.)*?\1/)[0]
-    const message = `Duplicate field value: ${value}. Please use another value.`
-    return new AppError(message, 400)
-}
-
 const handleValidationErrorDB = (err) => {
     const errors = Object.values(err.errors).map((el) => el.message)
     const message = `Invalid input data: ${errors.join('. ')}`
@@ -92,7 +86,6 @@ const errorHandler = (err, req, res, next) => {
         // capture other specific errors that are NOT operational
         // and turn them into operational errors
         if (err.name === 'CastError') err = handleCastErrorDB(err)
-        if (err.code === 11000) err = handleDuplicateFieldsDB(err)
         if (err.name === 'ValidationError') err = handleValidationErrorDB(err)
 
         sendErrorProd(err, req, res)

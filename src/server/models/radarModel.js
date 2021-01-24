@@ -4,6 +4,8 @@
 // libraries
 const mongoose = require('mongoose')
 const slugify = require('slugify')
+const beautifyUnique = require('mongoose-beautiful-unique-validation')
+
 // app modules
 const { RadarData, RadarRendering } = require('./radarDataModel')
 
@@ -23,10 +25,7 @@ const radarSchema = new mongoose.Schema({
     },
     slug: {
         type: String,
-        unique: [
-            true,
-            'A radar with the same identifier already exists. Please choose a different year or edition.',
-        ],
+        unique: 'A radar with the identifier {{VALUE}} already exists.',
     },
     name: {
         type: String,
@@ -85,6 +84,7 @@ radarSchema.post('findOneAndDelete', async function (doc) {
     await RadarRendering.findByIdAndDelete(doc.rendering)
 })
 
+radarSchema.plugin(beautifyUnique)
 const Radar = mongoose.model('Radar', radarSchema)
 
 //

@@ -4,6 +4,7 @@
 // libraries
 const mongoose = require('mongoose')
 const validator = require('validator')
+const beautifyUnique = require('mongoose-beautiful-unique-validation')
 // modules
 const AppError = require('./../utils/AppError')
 const nextSeq = require('./sequenceModel')
@@ -21,7 +22,7 @@ const projectSchema = new mongoose.Schema(
         // cloudwatch gives it a unique id - automatically set using a sequence!!
         cw_id: {
             type: Number,
-            unique: true,
+            unique: 'A project with the CW id {{VALUE}} already exists.',
         },
         // a short name (usually an abbreviation)
         acronym: {
@@ -31,7 +32,7 @@ const projectSchema = new mongoose.Schema(
         rcn: {
             type: Number,
             required: true,
-            unique: true,
+            unique: 'A project with the same RCN {{VALUE}} already exists',
         },
         // the full title of the project
         title: {
@@ -121,6 +122,7 @@ projectSchema.index({ acronym: 'text', title: 'text', teaser: 'text' }) // text 
 //
 // MODEL
 //
+projectSchema.plugin(beautifyUnique)
 const Project = mongoose.model('Project', projectSchema)
 
 //
