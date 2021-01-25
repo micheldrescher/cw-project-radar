@@ -8,7 +8,9 @@ const AppError = require('../utils/AppError')
 const catchAsync = require('../utils/catchAsync')
 const handlerFactory = require('./handlerFactory')
 const httpResponses = require('../utils/httpResponses')
-// const logger = require('./../utils/logger')
+const { validProjectIDs } = require('../utils/validator')
+const logger = require('./../utils/logger')
+const { Project } = require('../models/projectModel')
 const Radar = require('../models/radarModel')
 const { RadarData, RadarRendering } = require('../models/radarDataModel')
 const radarController = require('./../controllers/radarController')
@@ -197,5 +199,39 @@ exports.getRendering = catchAsync(async (req, res, next) => {
     res.status(200).json({
         status: 'success',
         rendering,
+    })
+})
+
+exports.getStats = catchAsync(async (req, res, next) => {
+    // prjs param checking
+    if (!req.query.prjs || !validProjectIDs(req.query.prjs)) {
+        throw new AppError("Invalid 'prjs' query parameter. Check documentation.")
+    }
+    const ids = req.query.prjs.split(',').map(Number)
+    const aMonth = 30 * 24 * 60 * 60 * 1000
+    const agg = [
+        { $match: { cw_id: { $in: ids } } },
+        {
+            $set: {
+                duration: { $divide: [{ $subtract: ['$endDate', '$startDate'] }, aMonth] },
+            },
+        },
+        {
+            $group: {
+                _id: null,
+                count: { $sum: 1 },
+                avg_dur: { $avg: '$duration' },
+                tot_dur: { $sum: '$duration' },
+                avg_bud: { $avg: '$totalCost' },
+                tot_bud: { $sum: '$totalCost' },
+            },
+        },
+    ]
+
+    const r = await Project.aggregate(agg)
+
+    res.status(200).json({
+        status: 'success',
+        data: r[0],
     })
 })

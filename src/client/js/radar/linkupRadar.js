@@ -5,13 +5,6 @@
 // app modules
 import showAlert from '../util/alert'
 import showProjectData from './projectInfo'
-import { RadarCoordinates } from '../../../common/widgets/radar-location/radar-coords'
-import { RadarLocation } from '../../../common/widgets/radar-location/radar-location'
-import { SimpleMetric } from '../../../common/widgets/simple-metric/simple-metric'
-import { SDLCPosition } from '../../../common/widgets/sdlc-position/sdlc-position'
-import { MTRLPerformance } from '../../../common/widgets/mtrl-performance/mtrl-performance'
-import { MTRLGraph } from '../../../common/widgets/mtrlScoreGraph/mtrl-graph'
-import { MTRLHist } from '../../../common/widgets/mtrlScoreHist/mtrl-hist'
 import {
     showBliptip,
     hideBliptip,
@@ -28,15 +21,6 @@ export { linkupRadar as default }
 // FUNCTIONS
 //
 const linkupRadar = async () => {
-    // register custom HTML elements for this radar
-    customElements.define('simple-metric', SimpleMetric)
-    customElements.define('sdlc-position', SDLCPosition)
-    customElements.define('radar-coords', RadarCoordinates)
-    customElements.define('mtrl-performance', MTRLPerformance)
-    customElements.define('radar-location', RadarLocation)
-    customElements.define('mtrl-graph', MTRLGraph)
-    customElements.define('mtrl-hist', MTRLHist)
-
     // 1) Animate interactive quadrants
     interactiveQuadrants()
     // 2) Popover texts for blips

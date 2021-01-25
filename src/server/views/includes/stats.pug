@@ -1,0 +1,14 @@
+include ../../../common/widgets/simple-metric/simple-metric.pug
+
+div.stats_title
+    div.label Live statistics
+    div.control
+        input(type="checkbox" id="active" name="active")
+        label(for="active") Active
+
+div.stats_panel(style='display: none;')
+    +simple-metric('# Projects', 0, 'num_prj')
+    +simple-metric('Avg. duration', 0, 'avg_dur')
+    +simple-metric('Total duration', 0, 'tot_dur')
+    +simple-metric('Avg. budget', 0, 'avg_bud')
+    +simple-metric('Total budget', 0, 'tot_bud')

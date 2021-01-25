@@ -18,6 +18,7 @@ const Radar = require('../models/radarModel')
 const { Project } = require('../models/projectModel')
 const { jrcTaxonomy } = require('./../../common/datamodel/jrc-taxonomy')
 const { validCwId } = require('../utils/validator')
+
 //
 // MIDDLEWARE
 //

@@ -633,6 +633,45 @@ section.modal > div.modal-window > section.buttonbar {
 }
 /* The action buttons get some styling as well */
 
+/*******************************
+ *                             *
+ *          Statistics         *
+ *                             *
+ ******************************/
+/* The statistics section */
+#stats {
+    border: 1px solid darkgray;
+    border-radius: 4px;
+    margin: 0 4em 1em 4em;
+    display: flex;
+    width: fit-content;
+    width: -moz-fit-content;
+}
+/* all children have a clearance margin */
+#stats > * {
+    margin: 0.5em 0.5em;
+}
+
+/* stats title gets an additional 2 em right space */
+#stats > .stats_title {
+    margin-right: 2em;
+}
+#stats > .stats_title > .label {
+    font-size: 1.3em;
+}
+#stats > .stats_title > .control {
+    transform: scale(0.8);
+    margin: auto;
+    width: fit-content;
+    width: -moz-fit-content;
+}
+/* Format the stats panel */
+#stats > .stats_panel {
+    display: flex;
+}
+#stats > .stats_panel > * {
+    margin: 0 1em;
+}
 /********************************
  *                              *
  *  Radar filter tagging forms  *
@@ -681,14 +720,14 @@ section.modal > div.modal-window > section.buttonbar {
     flex: 0 0 auto;
 }
 /* ... an ops div, ... */
-#other > div.filter div.ops {
+div.ops {
     flex: 0 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0 0.2em;
     font-size: 0.8em;
 }
-#other > div.filter div.ops * {
+div.ops * {
     text-align: center;
     margin: auto;
 }

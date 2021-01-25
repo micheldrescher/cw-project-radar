@@ -71,6 +71,16 @@ const validCwId = (id) => {
     return !id ? false : id.match(/(^\d+$)/) != null
 }
 
+const validProjectIDs = (prjs) => {
+    if (!prjs) return false
+
+    prjs.split(',').forEach((p) => {
+        if (!validCwId(p)) return false
+    })
+
+    return true
+}
+
 //
 // EXPORTS
 //
@@ -81,4 +91,5 @@ module.exports = {
     validLogLevel,
     validScoresParam,
     validClassificationParam,
+    validProjectIDs,
 }

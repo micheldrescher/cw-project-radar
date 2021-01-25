@@ -6,7 +6,7 @@
 import linkupRadar from './radar/linkupRadar'
 import linkupTables from './radar/linkupTables'
 import { showFilterTagForm, updateFilterList, filterBlips } from './radar/filterTags'
-import { getTags, updateTags } from './util/localStore'
+import { getStatsActive, getTags, setStatsActive, updateTags } from './util/localStore'
 import showAlert from './util/alert'
 import { login, logout } from './user/login'
 import changePassword from './user/userSettings'
@@ -21,7 +21,28 @@ import { createProject, deleteProject, updateProject, importProjects } from './a
 import { addClassification, addScore } from './admin/scoreAndClassify'
 import { getName } from '../../common/datamodel/jrc-taxonomy'
 import { searchProjects, clearProjects } from './radar/search.js'
-import { fetchRendering } from './radar/asyncRendering'
+import { fetchRendering, fetchStats } from './radar/asyncRendering'
+import { RadarCoordinates } from '../../common/widgets/radar-location/radar-coords'
+import { RadarLocation } from '../../common/widgets/radar-location/radar-location'
+import { SimpleMetric } from '../../common/widgets/simple-metric/simple-metric'
+import { SDLCPosition } from '../../common/widgets/sdlc-position/sdlc-position'
+import { MTRLPerformance } from '../../common/widgets/mtrl-performance/mtrl-performance'
+import { MTRLGraph } from '../../common/widgets/mtrlScoreGraph/mtrl-graph'
+import { MTRLHist } from '../../common/widgets/mtrlScoreHist/mtrl-hist'
+
+/**************************************/
+/*                                    */
+/*   C U S T O M    E L E M E N T S   */
+/*                                    */
+/**************************************/
+// register custom HTML elements for this radar
+customElements.define('simple-metric', SimpleMetric)
+customElements.define('sdlc-position', SDLCPosition)
+customElements.define('radar-coords', RadarCoordinates)
+customElements.define('mtrl-performance', MTRLPerformance)
+customElements.define('radar-location', RadarLocation)
+customElements.define('mtrl-graph', MTRLGraph)
+customElements.define('mtrl-hist', MTRLHist)
 
 /***********************/
 /*                     */
@@ -156,14 +177,36 @@ if (passwordForm) {
 //
 const searchField = document.getElementById('search_term')
 if (searchField) {
-    searchField.addEventListener('keyup', (e) => searchProjects(searchField.value))
+    searchField.addEventListener('keyup', () => searchProjects(searchField.value))
 }
 // clear button
 const clearBtn = document.getElementById('search_clear')
 if (clearBtn) {
-    clearBtn.addEventListener('click', (e) => {
+    clearBtn.addEventListener('click', () => {
         if (searchField) searchField.value = ''
         clearProjects()
+    })
+}
+// stats panel checkbox
+const statsCheckbox = document.getElementById('active')
+if (statsCheckbox) {
+    const node = document.querySelector('#stats > .stats_panel')
+    getStatsActive().then((isActive) => {
+        if (isActive) {
+            statsCheckbox.checked = true
+            node.style.display = 'flex'
+        } else {
+            statsCheckbox.checked = false
+            node.style.display = 'none'
+        }
+    })
+    statsCheckbox.addEventListener('click', (e) => {
+        // react to event
+        node.style.display = e.target.checked ? 'flex' : 'none'
+        // and update local storage
+        setStatsActive(e.target.checked)
+        // trigger updating the stats
+        fetchStats(e.target.checked)
     })
 }
 
@@ -172,44 +215,48 @@ if (clearBtn) {
 //
 const radarSection = document.getElementById('radar')
 if (radarSection) {
-    // 1) Fetch the rendering, i.e. SVG and tables
-    fetchRendering(window.location.href)
-        .then((r) => {
-            // 1) Add the rendering as a hidden element
-            // create a loose dom node to add the SVG to
-            const temp = document.createElement('div')
-            temp.innerHTML = r.data.rendering.rendering.svg
-            temp.firstChild.style.display = 'none'
-            // ... and add it to #rendering
-            const rendering = document.getElementById('rendering')
-            rendering.appendChild(temp.firstChild)
+    // 1) Fetch the radar and local storage data
+    let tasks = []
+    tasks.push(fetchRendering(window.location.href))
+    tasks.push(getTags())
+    tasks.push(getStatsActive())
+    Promise.all(tasks)
+        .then((results) => {
+            // 2) Add rendering and tables as hidden element to the UI
+            if (results[0]) {
+                // svg
+                const temp = document.createElement('div')
+                temp.innerHTML = results[0].data.rendering.rendering.svg
+                temp.firstChild.style.display = 'none'
+                document.getElementById('rendering').appendChild(temp.firstChild)
+                // tables
+                document.getElementById('tables').innerHTML =
+                    results[0].data.rendering.rendering.tables
+            }
 
-            // 2) Add the tables as hidden elements
-            const tables = document.getElementById('tables')
-            tables.innerHTML = r.data.rendering.rendering.tables
+            // set up a new batch of parallel tasks and fire away
+            if (results[1]) {
+                tasks = [
+                    tasks[2], // push down the stats task for the next .then()
+                    filterBlips(results[1], updateFilterList(results[1], getName)),
+                    linkupRadar(), // make radar and tables interactive
+                    linkupTables(),
+                ]
+                return Promise.all(tasks)
+            }
+        })
+        .then((results) => {
+            // 3) fetch and display the statistics
+            fetchStats(results[0])
 
-            // 3) Filter blips according to the filter tags set by the user
-            const filterTags = getTags()
-            filterBlips(filterTags)
-
-            // 4) show the current filter list in the UI
-            updateFilterList(filterTags, getName)
-
-            // 5) link up the radar and tables to make it dynamic
-            linkupRadar()
-            linkupTables()
-
-            // 6) Show the radar rendering, and remove the waiting icon
+            // 4) Show radar, while loadStats executes (or not)
             const loadWait = document.getElementById('loadwait')
-            // console.log(loadWait)
             loadWait.remove()
             const svg = document.querySelector('#rendering svg')
-            // console.log(svg)
             svg.style.display = 'unset'
         })
         .catch((err) => {
             showAlert('error', err)
-            console.error(err)
         })
 }
 
@@ -233,10 +280,11 @@ const anyAllRadios = document.querySelectorAll('div.ops input')
 if (anyAllRadios) {
     anyAllRadios.forEach((radio) => {
         radio.addEventListener('click', async (event) => {
-            const filter = getTags()
+            const filter = await getTags()
             filter.union = event.target.value
             await updateTags(filter)
-            filterBlips(filter)
+            await filterBlips(filter)
+            fetchStats(await getStatsActive())
         })
     })
 }
@@ -550,7 +598,7 @@ if (taxonomySubmit) {
     taxonomySubmit.addEventListener('submit', async (event) => {
         event.preventDefault()
         const values = {
-            id: document.getElementById('projectid').value,
+            cw_id: document.getElementById('project_cwid').value,
             tags: [],
         }
         document.querySelectorAll('.term:checked,.dimension-header:checked').forEach((c) => {

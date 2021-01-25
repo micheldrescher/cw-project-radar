@@ -47,6 +47,8 @@ block content
         .form__group
             input#projectid.form__input(type='hidden', required, value=project._id)
         .form__group
+            input#project_cwid.form__input(type='hidden', required, value=project.cw_id)
+        .form__group
             label.form__label(for='acronym') Acronym
             input#acronym.form__input(type='string', required, value=project.acronym)
         .form__group

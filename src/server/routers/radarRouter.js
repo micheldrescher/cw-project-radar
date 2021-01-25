@@ -18,6 +18,7 @@ const router = express.Router()
 /*********************/
 router.get('/editions', handler.getEditions)
 router.get('/graph/:slug?', handler.getRendering)
+router.get('/stats', handler.getStats)
 
 /*****************************/
 /*                           */

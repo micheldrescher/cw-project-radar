@@ -143,7 +143,6 @@ exports.getByRCN = catchAsync(async (req, res, next) => {
         data: project,
     })
 })
-
 //
 // Add a classification to a project
 //

@@ -9,13 +9,13 @@ import showAlert from './alert'
 //
 // EXPORTS
 //
-export { getModel, getTags, updateTags }
+export { getModel, getStatsActive, setStatsActive, getTags, updateTags }
 
 //
 // MODULE VARS
 //
 const strgId_model = 'eu.cyberwatching.radar.model'
-
+const strgId_stats = 'eu.cyberwatching.radar.stats'
 const strgId_jrcTags = 'eu.cyberwatching.radar.user.jrcTags'
 
 /***************
@@ -32,12 +32,33 @@ const strgId_jrcTags = 'eu.cyberwatching.radar.user.jrcTags'
 // return the CW data model from loca store
 //
 const getModel = async (doFetch = true) => {
-    let model = JSON.parse(localStorage.getItem(strgId_model))
+    let model = localStorage.getItem(strgId_model)
     // return early if model is found
-    if (model) return model
+    if (model) {
+        model = JSON.parse(model)
+        return model
+    }
 
     // lazy loading of the model and return
     if (doFetch) return await _fetchModel()
+}
+
+//
+// LIVE RADAR STATISTICS
+//
+const getStatsActive = async () => {
+    let result = localStorage.getItem(strgId_stats)
+    if (result) {
+        return JSON.parse(result)
+    }
+
+    result = false
+    localStorage.setItem(strgId_stats, JSON.stringify(result))
+    return result
+}
+
+const setStatsActive = async (value) => {
+    localStorage.setItem(strgId_stats, JSON.stringify(value))
 }
 
 //
@@ -48,7 +69,7 @@ const getModel = async (doFetch = true) => {
 // get the user selected list of tags (incl. a boolean operator)
 // example: { ops: 'or', tags: [1, 2, 3]}
 //
-const getTags = () => {
+const getTags = async () => {
     let result = JSON.parse(localStorage.getItem(strgId_jrcTags))
     if (!result) {
         result = {

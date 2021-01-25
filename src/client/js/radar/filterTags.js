@@ -6,9 +6,10 @@
 // modules
 // app modules
 import { jrcTaxonomy, getName } from '../../../common/datamodel/jrc-taxonomy'
-import { getTags, updateTags } from '../util/localStore'
+import { getStatsActive, getTags, updateTags } from '../util/localStore'
 import { any, all, partition } from '../util/nodeFilter'
 import jrctaxonomyfiltermodalTemplate from '../../views/jrcTaxonomyFilterModal'
+import { fetchStats } from '../radar/asyncRendering'
 
 //
 // EXPORTS
@@ -55,7 +56,7 @@ const filterBlips = async (userFilter, forced = false) => {
 // UPDATE FILTER UI
 //
 // Given the list of tags, update the filter UI with the actual term names
-const updateFilterList = (filter, getNameFunc) => {
+const updateFilterList = async (filter, getNameFunc) => {
     const filterNode = document.getElementById('jrctagsfilter')
     // 1) Update filter operation
     const anyRadio = filterNode.childNodes[1].childNodes[2]
@@ -96,9 +97,9 @@ const updateFilterList = (filter, getNameFunc) => {
 // JRC FILTER TAGS FORM
 //
 // Show the filter tags form using client-side PUG
-const showFilterTagForm = () => {
+const showFilterTagForm = async () => {
     // get filter tags
-    const filter = getTags()
+    const filter = await getTags()
     // compile HTML from the template
     const modalString = jrctaxonomyfiltermodalTemplate({
         modalID: 'filterTags',
@@ -142,9 +143,9 @@ const wireupButtons = (filter) => {
 
         // update the UI & filter projects
         // TODO how can I make this generic the JRC is currently hardcoded!
-        updateFilterList(filter, getName)
-        filterBlips(filter, true) // force an update (for empty filter lists)
-
+        await updateFilterList(filter, getName)
+        await filterBlips(filter, true) // force an update (for empty filter lists)
+        await fetchStats(await getStatsActive())
         // close modal
         document.getElementById('filterTags').remove()
     }
@@ -184,12 +185,13 @@ const wireupCheckboxes = () => {
 //
 // PRIVATE FUNCTIONS
 //
-const removeFilterTag = (e) => {
+const removeFilterTag = async (e) => {
     const { tag } = e.target.parentNode.dataset
     // get the filter tags
-    const filterTags = getTags()
+    const filterTags = await getTags()
     filterTags.tags.splice(filterTags.tags.indexOf(tag), 1)
-    updateTags(filterTags)
-    updateFilterList(filterTags, getName)
-    filterBlips(filterTags, true) // force an update (for empty filter lists)
+    await updateTags(filterTags)
+    await updateFilterList(filterTags, getName)
+    await filterBlips(filterTags, true) // force an update (for empty filter lists)
+    await fetchStats(await getStatsActive())
 }
