@@ -224,6 +224,7 @@ exports.getStats = catchAsync(async (req, res, next) => {
                 tot_dur: { $sum: '$duration' },
                 avg_bud: { $avg: '$totalCost' },
                 tot_bud: { $sum: '$totalCost' },
+                types: { $addToSet: '$type' },
             },
         },
     ]

@@ -33,13 +33,12 @@ const fetchStats = async (doFetch = false) => {
     if (!doFetch) return
 
     // prep a result map
-    let result = {
-        num: 0,
-        avg_bud: 0,
-        tot_bud: 0,
-        avg_dur: 0,
-        tot_dur: 0,
-    }
+    let num,
+        types,
+        avgBud,
+        totBud,
+        avgDur,
+        totDur = 0
 
     // find the nodes that are still visible
     const nodes = document.querySelectorAll(
@@ -61,36 +60,37 @@ const fetchStats = async (doFetch = false) => {
             })
         ).data.data
         // transfer to result
-        result.num = res.count
-        result.avg_dur = res.avg_dur
-        result.tot_dur = res.tot_dur
-        result.avg_bud = res.avg_bud
-        result.tot_bud = res.tot_bud
+        num = res.count
+        types = res.types.sort().join(', ')
+        avgDur = res.avg_dur
+        totDur = res.tot_dur
+        avgBud = res.avg_bud
+        totBud = res.tot_bud
     }
     // now display the result
-    document.querySelector('simple-metric[name="num_prj"] > span[slot="value"]').innerHTML =
-        result.num
+    document.querySelector('simple-metric[name="num_prj"] > span[slot="value"]').innerHTML = num
+    document.querySelector('simple-metric[name="prj_types"] > span[slot="value"]').innerHTML = types
     document.querySelector(
         'simple-metric[name="avg_dur"] > span[slot="value"]'
-    ).innerHTML = millify(result.avg_dur, {
+    ).innerHTML = millify(avgDur, {
         units: ['m'],
         space: true,
     })
     document.querySelector(
         'simple-metric[name="tot_dur"] > span[slot="value"]'
-    ).innerHTML = millify(result.tot_dur, {
+    ).innerHTML = millify(totDur, {
         units: ['m'],
         space: true,
     })
     document.querySelector(
         'simple-metric[name="avg_bud"] > span[slot="value"]'
-    ).innerHTML = millify(result.avg_bud, {
+    ).innerHTML = millify(avgBud, {
         units: ['€', 'k€', 'M€'],
         space: true,
     })
     document.querySelector(
         'simple-metric[name="tot_bud"] > span[slot="value"]'
-    ).innerHTML = millify(result.tot_bud, {
+    ).innerHTML = millify(totBud, {
         units: ['€', 'k€', 'M€'],
         space: true,
     })
