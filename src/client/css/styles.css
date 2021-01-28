@@ -655,6 +655,8 @@ section.modal > div.modal-window > section.buttonbar {
 /* stats title gets an additional 2 em right space */
 #stats > .stats_title {
     margin-right: 2em;
+    min-width: fit-content;
+    min-width: -moz-fit-content;
 }
 #stats > .stats_title > .label {
     font-size: 1.3em;
@@ -671,7 +673,15 @@ section.modal > div.modal-window > section.buttonbar {
 }
 #stats > .stats_panel > * {
     margin: 0 1em;
+    min-width: fit-content;
+    min-width: -moz-fit-content;
 }
+#stats > .stats_panel > simple-metric[name='prj_types'] {
+    min-width: min-content;
+    min-width: -moz-min-content;
+    text-align: justify;
+}
+
 /********************************
  *                              *
  *  Radar filter tagging forms  *

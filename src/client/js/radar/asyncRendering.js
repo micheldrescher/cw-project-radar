@@ -33,11 +33,11 @@ const fetchStats = async (doFetch = false) => {
     if (!doFetch) return
 
     // prep a result map
-    let num,
-        types,
-        avgBud,
-        totBud,
-        avgDur,
+    let num = 0,
+        types = '',
+        avgBud = 0,
+        totBud = 0,
+        avgDur = 0,
         totDur = 0
 
     // find the nodes that are still visible
@@ -70,18 +70,10 @@ const fetchStats = async (doFetch = false) => {
     // now display the result
     document.querySelector('simple-metric[name="num_prj"] > span[slot="value"]').innerHTML = num
     document.querySelector('simple-metric[name="prj_types"] > span[slot="value"]').innerHTML = types
-    document.querySelector(
-        'simple-metric[name="avg_dur"] > span[slot="value"]'
-    ).innerHTML = millify(avgDur, {
-        units: ['m'],
-        space: true,
-    })
-    document.querySelector(
-        'simple-metric[name="tot_dur"] > span[slot="value"]'
-    ).innerHTML = millify(totDur, {
-        units: ['m'],
-        space: true,
-    })
+    document.querySelector('simple-metric[name="avg_dur"] > span[slot="value"]').innerHTML =
+        Math.round(avgDur) + ' m'
+    document.querySelector('simple-metric[name="tot_dur"] > span[slot="value"]').innerHTML =
+        totDur < 48 ? totDur + ' m' : Math.round(totDur / 12) + ' y'
     document.querySelector(
         'simple-metric[name="avg_bud"] > span[slot="value"]'
     ).innerHTML = millify(avgBud, {
