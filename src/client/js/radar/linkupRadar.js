@@ -80,7 +80,10 @@ const zoomIn = (i, l) => {
     seg.style.transform = `scale(2) translateY(25%) rotate(${angle}deg)`
     seg.classList.add('zoomed')
     // text in clicked segment rotates at inverse angle (to level them again)
-    seg.querySelectorAll('.blip text').forEach((t) => (t.style.transform = `rotate(${-angle}deg)`))
+    seg.querySelectorAll('.blip text').forEach((t) => {
+        t.style.transform = `rotate(${-angle}deg)`
+        t.setAttribute('transform', `rotate(${angle})`) // bug #41
+    })
 
     // hide all other segments
     document
@@ -104,6 +107,7 @@ const zoomOut = (i) => {
     })
     document.querySelectorAll(`.segment.segment-${i} .blip text`).forEach((t) => {
         t.style.transform = '' // unrotate blips and rings
+        t.removeAttribute('transform') // bug #41
     })
     // hide the table
     document.querySelectorAll('.segment-table.visible').forEach((t) => {
