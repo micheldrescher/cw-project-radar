@@ -1,0 +1,5 @@
+mixin flickerbox(active, target)
+    if (active)
+        flicker-box.active(target=target?target:'')
+    else
+        flicker-box(target=target?target:'')
