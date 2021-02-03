@@ -1,5 +1,7 @@
 extends structure/_base
 
+//- include ../../common/widgets/flickerbox/flickerbox.pug
+
 block append head
     style(type="text/css").
         #tooltip {
@@ -15,32 +17,7 @@ block append head
 
 //- Main content block for the page.
 block content
-
-    //- 
-    //- TEMPORARILY DISABLED - Until we know more what to do with this
-    //-
-    nav#info-bar
-        div
-            h2 Projects
-            p Scroll over the dots to see the project names and click for a dashboard overview. 
-                | Click again for details and news and to contact.
-            p.read_more: a(href="/doc/project-info" target="_blank") More...
-        div
-            h2 Ecosystem domain
-            p Click to zoom in on one of the six CS&P domains. For more detail, filter using the EC’s 
-                | JRC taxonomy*: Cybersecurity domains, Sectors and Technology & Use Cases.
-            //- p.read_more: a(href="/doc/ecosystem-domains" target="_blank") More...
-        div
-            h2 Lifecycle
-            p The radar rings show the stage of the projects based on the Software Development 
-                | Life Cycle: From the centre: Adopt, Trial, Assess, Hold, Drop.
-            //- p.read_more: a(href="/doc/lifecycle" target="_blank") More...
-        div
-            h2 Readiness
-            p Traffic-light Coloured dots show the project market and technology readiness level 
-                | relative to the average of their lifecycle stage. Green showing fastest relative 
-                | progress. 
-            //- p.read_more: a(href="/doc/readiness" target="_blank") More...
+    include ./includes/infobar.pug
 
     //- The radar section
     section#radar
@@ -54,6 +31,7 @@ block content
                     #summary-flicker &#x2303
         //- some reactive stats
         section#stats
+            //- +flickerbox(true, 'stats')
             include includes/stats
         //- a wrapper to controll the height of the rada and filters
         #ctrl-wrp
