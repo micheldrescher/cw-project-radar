@@ -633,16 +633,32 @@ section.modal > div.modal-window > section.buttonbar {
 }
 /* The action buttons get some styling as well */
 
+/******************************
+ *                            *
+ *    ACTIVATEABLE WRAPPER    *
+ *                            *
+ ******************************/
+/* The wrapper div */
+.activateable_wrapper {
+    display: flex;
+    align-items: center;
+    margin: 0 4em 1em 4em;
+}
+/* the activate flickerbox */
+.activateable_wrapper > flicker-box {
+    transform: scale(0.6);
+    margin-right: 1em;
+}
+
 /*******************************
  *                             *
  *          Statistics         *
  *                             *
  ******************************/
-/* The statistics section */
+/* INACTIVE stats style */
 #stats {
-    border: 1px solid darkgray;
+    border: 1px solid lightgray;
     border-radius: 4px;
-    margin: 0 4em 1em 4em;
     display: flex;
     width: fit-content;
     width: -moz-fit-content;
@@ -651,7 +667,6 @@ section.modal > div.modal-window > section.buttonbar {
 #stats > * {
     margin: 0.5em 0.5em;
 }
-
 /* stats title gets an additional 2 em right space */
 #stats > .stats_title {
     margin-right: 2em;
@@ -659,6 +674,7 @@ section.modal > div.modal-window > section.buttonbar {
     min-width: -moz-fit-content;
 }
 #stats > .stats_title > .label {
+    color: lightgray;
     font-size: 1.3em;
 }
 #stats > .stats_title > .control {
@@ -667,6 +683,11 @@ section.modal > div.modal-window > section.buttonbar {
     width: fit-content;
     width: -moz-fit-content;
 }
+/* ACTIVE stats panel */
+#stats.active > .stats_title > .label {
+    color: black;
+}
+
 /* Format the stats panel */
 #stats > .stats_panel {
     display: flex;

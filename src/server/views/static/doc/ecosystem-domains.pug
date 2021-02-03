@@ -3,10 +3,104 @@ extends ../../structure/_base
 block content
 
     section.intro
+        a(name="intro")
         div.title Ecosystem domains
+        p:  | The EU Project radar provides an accurate and unique birds eye view of the European 
+            | R&amp;I cybersecurity landscape of EC-funded projects. The backbone of the EU 
+            | Project Radar are six segments which represent the Cybersecurity R&amp;I taxonomy as 
+            | defined by the University of Oxford. These are described below.
+        p:  | When populating the radar, a project's classification according to the taxonomy
+            | determines the sector in which the project's radar "blip" (a small circle) will
+            | be placed.
+        p:  img(src="/img/radar_segment_view.png" style="display: block; width: 50%; margin: auto;")
+        p:  | By clicking on the radar segments, you can dive deeper into each theme and get a 
+            | clearer picture of the different projects that have been funded and their relative 
+            | maturity. Each blip represents a project and you can click  on them for more 
+            | information. Projects are also listed on the right of the screen and information 
+            | can be accessed there too by clicking on the project name.
+        p:  | Use the JRC Taxonomy filter to identify projects working on a particular technology 
+            | or vertical sector.
 
     section.topic
-        div.title 
+        a(name="taxonomy")
+        div.title Cybersecurity Research and Innovation Taxonomy
+        p:  | The Cyberwatchng.eu project uses the University of Oxford's definition of a
+            | Cybersecurity Research and Innovation Taxonomy to classify projects for the radar.
+            | The taxonomy includes six terms whose definitions are given below.
+        p:  | To learn more about how and why this taxonomy was used for the radar, and how we also 
+            | mapped the taxonomy to other well-known about the cybersecurity definitions such as 
+            | the NIST Cybersecurity framework, please follow through to this Cyberwatching.eu 
+            a(href="https://www.cyberwatching.eu/d21-cybersecurity-and-privacy-ecosystem-model-report-taxonomy-cybersecurity-and-privacy-assess-coverage-developed-landscape-ec-and-nationally-funded-projects") report 
+            | .
 
     section.sub-topic
-        div.title 
+        div.title Secure systems and technology
+        p:  | How security can be built into technology from the design stage including cloud 
+            | computing security, cryptography, trusted platforms, wireless security, mobile 
+            | security and secure coding paradigms. 
+
+    section.sub-topic
+        div.title Verification and Assurance
+        p:  | Two disciplines that help establish how much confidence you can have in a system, 
+            | both in terms of security and the privacy of all stakeholder groups who act with 
+            | or in a system.  Assurance focuses on managing risks related to the use, 
+            | processing, storage, and transmission of information, whereas formal verification 
+            | seeks to build a mathematical model of a digital system and then try to prove 
+            | whether it is ‘correct’, often helping to find subtle flaws. 
+
+    section.sub-topic
+        div.title Operational risk, Management and Analytics
+        p:  | Understanding the risk and harm resulting from cyberattacks, and how it propagates 
+            | across and between organisations.  Work focuses on creating situational awareness 
+            | through aiming for a complete understanding of scenario and risk management; 
+            | metrics and models for security postures; and analytics for predicting risk, 
+            | prioritising responses and supporting security operations. 
+
+    section.sub-topic
+        div.title Identity, behaviour, ethics and Privacy
+        p:  | Bringing diverse perspectives and interpretations to questions such as: Who are 
+            | you online, how do you communicate, and what can (or should) you do? This also 
+            | connects to the ongoing activities on Privacy launched through directives and 
+            | regulations by the EC.
+
+    section.sub-topic
+        div.title National and international security, privacy and governance
+        p:  | Looking at politics, international relations, defence, policy and governance 
+            | issues; how do countries and communities interact with (and through) technology, 
+            | and how might this change in different contexts?
+
+    section.sub-topic
+        div.title Human aspects of cyber security
+        p:  | Understanding the ways humans interact with (and through) digital systems – 
+            | whether to understand and design for target users, or to understand how adversaries 
+            | operate and can exploit the systems.  This includes aspects like usability, trust, 
+            | collaborative practices, social embeddedness, nationhood, cultural diversity, 
+            | impact on economy, and the relationship between microsocial interactions and global 
+            | structures.
+
+    section.topic
+        a(name="jrc_taxonomy")
+        div.title Filter projects by JRC taxonomy terms
+        p:  | If you are looking for projects that are working on a particular technology or 
+            | vertical sector then by clicking on “JRC Taxonomy” you can hone in on range of 
+            | choices of exactly which topics to view.
+        p:  | The filters are based on the EC’s Joint Research Centre’s Cybersecurity taxonomy 
+            | which has been designed to categorise EU competencies in the field. The radar 
+            | quickly visualizes the different selections that you make based on this 
+            | three-dimensional taxonomy which covers research domains, sectors and technology 
+            | and use-case dimensions. 
+        p:  | The taxonomy is an integral part of the EC’s new 
+            a(href="https://cybersecurity-atlas.ec.europa.eu/") Cybersecurity Atlas 
+            | which maps, categorises and stimulates collaboration between European cybersecurity 
+            | experts in support of the EU Digital Strategy.
+        p:  | You can also quickly visualize statistics pertaining to your selection including 
+            | the number of projects and their type, total budget, average budget, total duration and average duration.
+
+        p:  img(src="/img/radar_filter_statistics.png" style="display: block; margin: auto; width: 60%;")
+
+        p:  | You can view the full JRC taxonomy 
+            a(href="https://publications.jrc.ec.europa.eu/repository/handle/JRC111441") here
+            | . Cyberwatching.eu contributed to this first edition sharing information of the 
+            | Cyberwatching.eu taxonomy mentioned above.
+
+
