@@ -30,15 +30,15 @@ block content
                 #flicker
                     #summary-flicker &#x2303
         //- some reactive stats
-        section.activateable_wrapper
-            +flickerbox(true, 'stats')
-            include includes/stats
+        //- section.activateable_wrapper
+        //-     +flickerbox(true, 'stats')
+        include includes/stats
         //- a wrapper to controll the height of the rada and filters
         #ctrl-wrp
             //- any filters for the radar blips
-            section.activateable_wrapper
-                +flickerbox(true, 'stats')
-                include includes/filters.pug
+            //- section.activateable_wrapper
+            //-     +flickerbox(true, 'stats')
+            include includes/filters.pug
             //- the radar and the project tables
             section#radardata
                 #rendering

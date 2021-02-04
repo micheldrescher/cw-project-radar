@@ -657,8 +657,9 @@ section.modal > div.modal-window > section.buttonbar {
  ******************************/
 /* INACTIVE stats style */
 #stats {
-    border: 1px solid lightgray;
+    border: 1px solid darkgray;
     border-radius: 4px;
+    margin: 0 4em 1em 4em;
     display: flex;
     width: fit-content;
     width: -moz-fit-content;
