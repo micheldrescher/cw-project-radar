@@ -71,7 +71,7 @@ block content
             input#projecttype.form__input(type='string', value=project.type)
         .form__group
             label.form__label(for='totalCost') Budget (optional)
-            input#totalCost.form__input(type='number', value=project.totalCost)
+            input#totalCost.form__input(type='number', step=".01", value=project.totalCost)
         .form__group
             label.form__label(for='url') Project homepage
             input#url.form__input(type='string', value=project.url)

@@ -17,6 +17,13 @@ const isValidTerm = (value) => {
     })
 }
 
+const isDecimal = (value) => {
+    return validator.isDecimal(value + '', {
+        decimal_digits: '0,2',
+        locale: 'en-GB',
+    })
+}
+
 const projectSchema = new mongoose.Schema(
     {
         // cloudwatch gives it a unique id - automatically set using a sequence!!
@@ -59,7 +66,10 @@ const projectSchema = new mongoose.Schema(
         // project type (mostly IA, RIA, RA, or CSA)
         type: String,
         // the project's total budget (EC contrib plus partner's own contribs)
-        totalCost: Number,
+        totalCost: {
+            type: Number,
+            validate: [isDecimal, 'At most 2 decimals allowed.'],
+        },
         // project home page
         url: {
             type: String,
