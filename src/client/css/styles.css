@@ -389,6 +389,8 @@ main#main .intro {
 
 svg {
     max-height: 95vh;
+    display: block;
+    margin: auto;
 }
 
 svg > g.segment {

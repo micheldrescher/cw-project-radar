@@ -253,7 +253,7 @@ if (radarSection) {
             const loadWait = document.getElementById('loadwait')
             loadWait.remove()
             const svg = document.querySelector('#rendering svg')
-            svg.style.display = 'unset'
+            svg.style.display = 'block'
         })
         .catch((err) => {
             showAlert('error', err)
