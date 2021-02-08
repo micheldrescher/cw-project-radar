@@ -503,6 +503,7 @@ if (editProjectForm) {
         event.preventDefault()
         const values = {
             id: document.getElementById('projectid').value,
+            cw_id: document.getElementById('project_cwid').value,
             acronym: document.getElementById('acronym').value,
             rcn: document.getElementById('rcn').value,
             title: document.getElementById('title').value,

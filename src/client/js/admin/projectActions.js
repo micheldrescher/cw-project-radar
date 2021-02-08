@@ -83,6 +83,7 @@ const updateProject = async (prjData) => {
     console.log(prjData)
     try {
         const {
+            cw_id,
             acronym,
             title,
             rcn,
