@@ -69,7 +69,7 @@
         "slugify": "^1.4.5",
         "streamifier": "^0.1.1",
         "svgdom": "^0.1.8",
-        "validator": "^13.1.17",
+        "validator": "^13.7.0",
         "winston": "^3.3.3",
         "xss-clean": "^0.1.1"
     },
