@@ -62,7 +62,7 @@
         "mongoose-beautiful-unique-validation": "^7.1.1",
         "morgan": "^1.10.0",
         "multer": "^1.4.2",
-        "node-forge": "^0.10.0",
+        "node-forge": "^1.0.0",
         "parsecurrency": "^1.0.0",
         "pug": "^3.0.0",
         "simple-statistics": "^7.3.1",
@@ -103,6 +103,6 @@
     "resolutions": {
         "browserslist": "4.14.4",
         "caniuse-lite": "1.0.30001129",
-        "node-forge": "0.10.0"
+        "node-forge": "1.0.0"
     }
 }
